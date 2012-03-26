@@ -1,0 +1,32 @@
+<configuration>
+  <configSections>
+    <section name="combres" type="Combres.ConfigSectionSetting, Combres, Version=2.2, Culture=neutral, PublicKeyToken=1ca6b37997dd7536"/>
+    <section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821"/>
+  </configSections>  
+  <combres definitionUrl="~/App_Data/combres.xml" logProvider="Combres.Loggers.Log4NetLogger" />
+  <log4net>
+    <root>
+      <level value="ALL"/>
+      <appender-ref ref="RollingFile"/>
+    </root>
+    <logger name="Combres">
+      <level value="DEBUG"/>
+    </logger>
+    <appender name="RollingFile" type="log4net.Appender.RollingFileAppender">
+      <file value="log.txt"/>
+      <appendToFile value="true"/>
+      <maximumFileSize value="100KB"/>
+      <maxSizeRollBackups value="2"/>
+      <layout type="log4net.Layout.PatternLayout">
+        <conversionPattern value="%d [%t] %-5p %c - %m%n"/>
+      </layout>
+    </appender>
+  </log4net>
+  <system.web>
+    <pages>
+      <namespaces>
+        <add namespace ="Combres" />
+      </namespaces>
+    </pages>  
+ </system.web>
+</configuration>

@@ -1,0 +1,211 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model BgEngine.Web.ViewModels.StatsModel
+ 
+ <script type="text/javascript">
+	 $(document).ready(function () {
+		 $("#tabs").tabs({ fx: { opacity: 'toggle'} });
+		 $("ul li").hover(
+			function () {
+				$(this).toggleClass("ui-state-hover");
+				$(".album-holder").not(this).removeClass("ui-state-hover");
+			},
+			function () {
+				$(this).removeClass("ui-state-hover");
+			}
+		);
+	 });
+ </script>
+
+<div id="tabs" class="ui-helper-margin-top-bottom">
+	 <ul>
+		<li><a href="#tabs-1">@Resources.AppMessages.Stats</a></li>
+		<li><a href="#tabs-2">@Resources.AppMessages.Stats_TopRatedPosts</a></li>
+		<li><a href="#tabs-3">@Resources.AppMessages.Stats_MostVisitedPosts</a></li>
+		<li><a href="#tabs-4">@Resources.AppMessages.Stats_MostCommentedPosts</a></li>
+		<li><a href="#tabs-5">@Resources.AppMessages.Stats_PostWritenByUser</a></li>
+		<li><a href="#tabs-6">@Resources.AppMessages.SelectFiles</a></li>
+		<li><a href="#tabs-7">@Resources.AppMessages.Config</a></li>
+	</ul>
+	<div id="tabs-1">
+		<p><strong class="ui-helper-big-font-size">@Model.TotalPosts</strong><span class="ui-helper-padding-left">@Resources.AppMessages.Stats_TotalPosts</span></p>
+		<p><strong class="ui-helper-big-font-size">@Model.TotalComments</strong><span class="ui-helper-padding-left">@Resources.AppMessages.Stats_TotalComments</span></p>
+		<p><strong class="ui-helper-big-font-size">@Model.TotalCategories</strong><span class="ui-helper-padding-left">@Resources.AppMessages.Stats_TotalCategories</span></p>
+		<p><strong class="ui-helper-big-font-size">@Model.TotalTags</strong><span class="ui-helper-padding-left">@Resources.AppMessages.Stats_TotalTags</span></p>
+		<p><strong class="ui-helper-big-font-size">@Model.TotalUsers</strong><span class="ui-helper-padding-left">@Resources.AppMessages.Stats_TotalUsers</span></p>
+		<p><strong class="ui-helper-big-font-size">@Model.TotalRoles</strong><span class="ui-helper-padding-left">@Resources.AppMessages.Stats_TotalRoles</span></p>
+		<p><strong class="ui-helper-big-font-size">@Model.TotalAlbums</strong><span class="ui-helper-padding-left">@Resources.AppMessages.Stats_TotalAlbums</span></p>
+		<p><strong class="ui-helper-big-font-size">@Model.TotalImages</strong><span class="ui-helper-padding-left">@Resources.AppMessages.Stats_TotalImages</span></p>
+	</div>        
+	<div id="tabs-2">
+		<ul>
+			@foreach (var modelitem in Model.TopRatedPosts)
+			{
+				<li class="ui-helper-relative ui-helper-padding ui-helper-margin-right ui-helper-margin-top-bottom ui-corner-all ui-state-default">
+					<h3>@modelitem.Title</h3>
+					<p class="ui-helper-padding-left">
+						<strong><em>@String.Format(Resources.AppMessages.Stats_RatedWith, modelitem.Ratings.Average(r => r.Value))</em></strong></p>
+					@if (modelitem.Image != null)
+					{
+						if (modelitem.Image.ThumbnailPath != String.Empty)
+						{
+						<img  class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(modelitem.Image.ThumbnailPath)" />
+					}
+					else if (modelitem.Image.Path != String.Empty)
+					{
+						<img class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(modelitem.Image.Path)" />
+					}
+					else
+					{
+						<img class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+					}
+				}
+					else
+					{
+						<img class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+				}
+					<p class="ui-helper-p-aside">
+						<em>@modelitem.Description</em></p>
+					<div class="ui-helper-reset-float">
+					</div>
+					<div>
+						@Html.RouteLink(Resources.AppMessages.Edit,"Default", new {controller = "Post" , action="Edit", id=modelitem.PostId}, new {@class="bg-button-edit" })
+						@Html.RouteLink(Resources.AppMessages.View_Detail, "Default", new { controller = "Post", action = "Details", id = modelitem.PostId }, new { @class = "bg-button-zoom" })
+						@Html.RouteLink(Resources.AppMessages.Delete, "Default", new { controller = "Post", action = "Delete", id = modelitem.PostId }, new { @class = "bg-button-delete" })	                
+					</div>
+				</li> 
+		}
+		</ul>
+	</div>
+
+	<div id="tabs-3">
+		<ul>
+			@foreach (var modelitem in Model.MostVisitedPosts)
+			{
+				<li class="ui-helper-relative ui-helper-padding ui-helper-margin-right ui-helper-margin-top-bottom ui-corner-all ui-state-default">
+					<h3>@modelitem.Title</h3>
+					<p class="ui-helper-padding-left">
+						<strong><em>@String.Format(Resources.AppMessages.Stats_NumberOfVisits, modelitem.Visits)</em></strong></p>
+					@if (modelitem.Image != null)
+					{
+						if (modelitem.Image.ThumbnailPath != String.Empty)
+						{
+						<img  class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(modelitem.Image.ThumbnailPath)" />
+					}
+					else if (modelitem.Image.Path != String.Empty)
+					{
+						<img class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(modelitem.Image.Path)" />
+					}
+					else
+					{
+						<img class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+					}
+				}
+					else
+					{
+						<img class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+				}
+					<p class="ui-helper-p-aside">
+						<em>@modelitem.Description</em></p>
+					<div class="ui-helper-reset-float">
+					</div>
+					<div>                       
+						@Html.RouteLink(Resources.AppMessages.Edit,"Default", new {controller = "Post" , action="Edit", id=modelitem.PostId}, new {@class="bg-button-edit" })
+						@Html.RouteLink(Resources.AppMessages.View_Detail, "Default", new { controller = "Post", action = "Details", id = modelitem.PostId }, new { @class = "bg-button-zoom" })
+						@Html.RouteLink(Resources.AppMessages.Delete, "Default", new { controller = "Post", action = "Delete", id = modelitem.PostId }, new { @class = "bg-button-delete" })	                
+					</div>
+				</li> 
+			
+		}
+		</ul>
+	</div>
+
+	<div id="tabs-4">
+		<ul>
+			@foreach (var modelitem in Model.MostCommentedPosts)
+			{
+				<li class="ui-helper-relative ui-helper-padding ui-helper-margin-right ui-helper-margin-top-bottom ui-corner-all ui-state-default">
+					<h3>@modelitem.Title</h3>
+					<p class="ui-helper-padding-left">
+						<strong><em>@String.Format(Resources.AppMessages.Stats_NumberOfComments, modelitem.Comments.Count())</em></strong></p>
+					@if (modelitem.Image != null)
+					{
+						if (modelitem.Image.ThumbnailPath != String.Empty)
+						{
+						<img  class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(modelitem.Image.ThumbnailPath)" />
+					}
+					else if (modelitem.Image.Path != String.Empty)
+					{
+						<img class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(modelitem.Image.Path)" />
+					}
+					else
+					{
+						<img class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+					}
+				}
+					else
+					{
+						<img class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+				}
+					<p class="ui-helper-p-aside">
+						<em>@modelitem.Description</em></p>
+					<div class="ui-helper-reset-float">
+					</div>
+					<div>                       
+						@Html.RouteLink(Resources.AppMessages.Edit,"Default", new {controller = "Post" , action="Edit", id=modelitem.PostId}, new {@class="bg-button-edit" })
+						@Html.RouteLink(Resources.AppMessages.View_Detail, "Default", new { controller = "Post", action = "Details", id = modelitem.PostId }, new { @class = "bg-button-zoom" })
+						@Html.RouteLink(Resources.AppMessages.Delete, "Default", new { controller = "Post", action = "Delete", id = modelitem.PostId }, new { @class = "bg-button-delete" })	                
+					</div>
+				</li> 
+			
+		}
+		</ul>
+	</div>
+
+	<div id="tabs-5">
+		<ul>
+			@foreach (var modelitem in Model.PostWritenByUser)
+			{
+				<li class="ui-helper-padding ui-helper-margin-right ui-corner-all ui-state-default ui-helper-display-inline-block">
+					<div class="ui-helper-float-left">
+						@Gravatar.GetHtml(modelitem.Email)
+					</div>
+					<h3 class="ui-helper-p-aside">@modelitem.Username<span class="ui-helper-big-font-size ui-helper-padding-left">
+						<em class="ui-helper-p-aside">@modelitem.Posts.Count()</em></span></h3>
+					<div class="ui-helper-reset-float">
+					</div>
+					<div>
+						@Html.RouteLink(Resources.AppMessages.Edit,"Default", new {controller = "User" , action="Edit", id=modelitem.UserId}, new {@class="bg-button-edit" })
+						@Html.RouteLink(Resources.AppMessages.View_Detail, "Default", new { controller = "User", action = "Details", id = modelitem.UserId }, new { @class = "bg-button-zoom" })
+						@Html.RouteLink(Resources.AppMessages.Delete, "Default", new { controller = "User", action = "Delete", id = modelitem.UserId }, new { @class = "bg-button-delete" })	                
+					</div>
+				</li> 
+		}
+		</ul>
+	</div>
+	<div id="tabs-6">
+		<h2 class="ui-helper-margin ui-widget-content ui-state-highlight ui-corner-all ui-helper-padding">@Resources.AppMessages.Selected_To_Upload</h2>
+		@Html.Action("SWFUpload", "File")       
+	</div>    
+	<div id="tabs-7">
+	    @{ Html.RenderAction("ConfigOptions", "Stats"); }
+	</div>
+</div>

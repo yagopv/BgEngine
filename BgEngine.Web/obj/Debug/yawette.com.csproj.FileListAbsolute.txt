@@ -1,0 +1,89 @@
+E:\yawette.com\yawette.com\bin\yawette.com.dll
+E:\yawette.com\yawette.com\bin\yawette.com.pdb
+E:\yawette.com\yawette.com\bin\EntityFramework.dll
+E:\yawette.com\yawette.com\bin\EntityFramework.xml
+E:\yawette.com\yawette.com\obj\Debug\ResolveAssemblyReference.cache
+E:\yawette.com\yawette.com\obj\Debug\yawette.com.dll
+E:\yawette.com\yawette.com\obj\Debug\yawette.com.pdb
+H:\yawette.com\yawette.com\bin\yawette.com.dll
+H:\yawette.com\yawette.com\bin\yawette.com.pdb
+H:\yawette.com\yawette.com\bin\EntityFramework.dll
+H:\yawette.com\yawette.com\bin\EntityFramework.xml
+H:\yawette.com\yawette.com\obj\Debug\ResolveAssemblyReference.cache
+H:\yawette.com\yawette.com\obj\Debug\yawette.com.dll
+H:\yawette.com\yawette.com\obj\Debug\yawette.com.pdb
+H:\yawette.com\yawette.com\bin\PagedList.dll
+H:\yawette.com\yawette.com\bin\PagedList.Mvc.dll
+H:\yawette.com\yawette.com\bin\PagedList.pdb
+H:\yawette.com\yawette.com\bin\PagedList.xml
+H:\yawette.com\yawette.com\bin\PagedList.Mvc.pdb
+H:\yawette.com\yawette.com\bin\PagedList.Mvc.xml
+E:\yawette.com\yawette.com\bin\PagedList.dll
+E:\yawette.com\yawette.com\bin\PagedList.Mvc.dll
+E:\yawette.com\yawette.com\bin\PagedList.pdb
+E:\yawette.com\yawette.com\bin\PagedList.xml
+E:\yawette.com\yawette.com\bin\PagedList.Mvc.pdb
+E:\yawette.com\yawette.com\bin\PagedList.Mvc.xml
+H:\yawette.com\yawette.com\bin\Microsoft.Web.Helpers.dll
+E:\yawette.com\yawette.com\bin\Microsoft.Web.Helpers.dll
+D:\Proyectos .NET\yawette.com\yawette.com\bin\yawette.com.dll
+D:\Proyectos .NET\yawette.com\yawette.com\bin\yawette.com.pdb
+D:\Proyectos .NET\yawette.com\yawette.com\bin\EntityFramework.dll
+D:\Proyectos .NET\yawette.com\yawette.com\bin\Microsoft.Web.Helpers.dll
+D:\Proyectos .NET\yawette.com\yawette.com\bin\NotFoundMvc.dll
+D:\Proyectos .NET\yawette.com\yawette.com\bin\PagedList.dll
+D:\Proyectos .NET\yawette.com\yawette.com\bin\PagedList.Mvc.dll
+D:\Proyectos .NET\yawette.com\yawette.com\bin\StructureMap.dll
+D:\Proyectos .NET\yawette.com\yawette.com\bin\WebActivator.dll
+D:\Proyectos .NET\yawette.com\yawette.com\bin\EntityFramework.xml
+D:\Proyectos .NET\yawette.com\yawette.com\bin\NotFoundMvc.pdb
+D:\Proyectos .NET\yawette.com\yawette.com\bin\PagedList.pdb
+D:\Proyectos .NET\yawette.com\yawette.com\bin\PagedList.xml
+D:\Proyectos .NET\yawette.com\yawette.com\bin\PagedList.Mvc.pdb
+D:\Proyectos .NET\yawette.com\yawette.com\bin\PagedList.Mvc.xml
+D:\Proyectos .NET\yawette.com\yawette.com\bin\StructureMap.pdb
+D:\Proyectos .NET\yawette.com\yawette.com\bin\StructureMap.xml
+D:\Proyectos .NET\yawette.com\yawette.com\bin\WebActivator.pdb
+D:\Proyectos .NET\yawette.com\yawette.com\obj\Debug\ResolveAssemblyReference.cache
+D:\Proyectos .NET\yawette.com\yawette.com\obj\Debug\yawette.com.dll
+D:\Proyectos .NET\yawette.com\yawette.com\obj\Debug\yawette.com.pdb
+D:\Proyectos .NET\yawette.com\yawette.com\obj\Debug\yawette.com.Resources.AppConfiguration.resources
+D:\Proyectos .NET\yawette.com\yawette.com\obj\Debug\GenerateResource.read.1.tlog
+D:\Proyectos .NET\yawette.com\yawette.com\obj\Debug\GenerateResource.write.1.tlog
+D:\Proyectos .NET\yawette.com\yawette.com\obj\Debug\yawette.com.Resources.AppMessages.resources
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\obj\Debug\yawette.com.Resources.AppConfiguration.resources
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\obj\Debug\yawette.com.Resources.AppMessages.resources
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\obj\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\obj\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\obj\Debug\yawette.com.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\obj\Debug\yawette.com.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\yawette.com.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\yawette.com.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\EntityFramework.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\Microsoft.Web.Helpers.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\NotFoundMvc.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\PagedList.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\PagedList.Mvc.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\StructureMap.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\WebActivator.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\EntityFramework.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\NotFoundMvc.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\PagedList.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\PagedList.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\PagedList.Mvc.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\PagedList.Mvc.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\StructureMap.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\StructureMap.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\WebActivator.pdb
+E:\yawette.com\yawette.com\bin\NotFoundMvc.dll
+E:\yawette.com\yawette.com\bin\StructureMap.dll
+E:\yawette.com\yawette.com\bin\WebActivator.dll
+E:\yawette.com\yawette.com\bin\NotFoundMvc.pdb
+E:\yawette.com\yawette.com\bin\StructureMap.pdb
+E:\yawette.com\yawette.com\bin\StructureMap.xml
+E:\yawette.com\yawette.com\bin\WebActivator.pdb
+E:\yawette.com\yawette.com\obj\Debug\yawette.com.Resources.AppConfiguration.resources
+E:\yawette.com\yawette.com\obj\Debug\yawette.com.Resources.AppMessages.resources
+E:\yawette.com\yawette.com\obj\Debug\GenerateResource.read.1.tlog
+E:\yawette.com\yawette.com\obj\Debug\GenerateResource.write.1.tlog

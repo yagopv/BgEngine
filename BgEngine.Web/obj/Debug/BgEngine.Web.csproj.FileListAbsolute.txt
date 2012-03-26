@@ -1,0 +1,353 @@
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\obj\Debug\BgEngine.Resources.AppConfiguration.resources
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\obj\Debug\BgEngine.Resources.AppMessages.resources
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\obj\Debug\BgEngine.Resources.EmailTemplates.resources
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\obj\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\obj\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\obj\Debug\BgEngine.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\obj\Debug\BgEngine.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\BgEngine.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\BgEngine.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\AjaxMin.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\BgEngine.DependencyResolution.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\BgEngine.Domain.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\BgEngine.Infraestructure.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\BgEngine.Resources.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\BgEngine.Security.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\Combres.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\Combres.Mvc.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\dotless.Core.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\EcmaScript.NET.modified.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\EntityFramework.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\Fasterflect.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\Ionic.Zip.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\log4net.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\Microsoft.Web.Helpers.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\Mvc.Mailer.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\NotFoundMvc.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\PagedList.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\PagedList.Mvc.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\StructureMap.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\WebActivator.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\Yahoo.Yui.Compressor.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\BgEngine.DependencyResolution.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\BgEngine.Domain.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\BgEngine.Infraestructure.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\BgEngine.Resources.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\BgEngine.Security.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\Combres.xml
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\Combres.Mvc.xml
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\EntityFramework.xml
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\Fasterflect.xml
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\Ionic.Zip.xml
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\log4net.xml
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\NotFoundMvc.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\PagedList.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\PagedList.xml
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\PagedList.Mvc.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\PagedList.Mvc.xml
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\StructureMap.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\StructureMap.xml
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\bin\en\BgEngine.Resources.resources.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\obj\Debug\ResolveAssemblyReference.cache
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\obj\Debug\BgEngine.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine\obj\Debug\BgEngine.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\obj\Debug\ResolveAssemblyReference.cache
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\AjaxMin.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.DependencyResolution.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Domain.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Resources.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Security.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\Combres.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\Combres.Mvc.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\dotless.Core.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\EcmaScript.NET.modified.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\Fasterflect.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\Ionic.Zip.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\log4net.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\Microsoft.Web.Helpers.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\Mvc.Mailer.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\NotFoundMvc.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\PagedList.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\PagedList.Mvc.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\StructureMap.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\WebActivator.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\Yahoo.Yui.Compressor.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Infraestructure.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\EntityFramework.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.DependencyResolution.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Domain.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Resources.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Security.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\Combres.xml
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\Combres.Mvc.xml
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\Fasterflect.xml
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\Ionic.Zip.xml
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\log4net.xml
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\NotFoundMvc.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\PagedList.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\PagedList.xml
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\PagedList.Mvc.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\PagedList.Mvc.xml
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\StructureMap.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\StructureMap.xml
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Infraestructure.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\obj\Debug\BgEngine.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\obj\Debug\BgEngine.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\AjaxMin.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Application.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.DependencyResolution.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Domain.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Resources.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Security.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\Combres.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\Combres.Mvc.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\dotless.Core.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\EcmaScript.NET.modified.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\Fasterflect.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\Ionic.Zip.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\log4net.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\Microsoft.Web.Helpers.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\Mvc.Mailer.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\NotFoundMvc.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\PagedList.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\PagedList.Mvc.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\StructureMap.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\WebActivator.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\Yahoo.Yui.Compressor.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Infraestructure.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\EntityFramework.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Application.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.DependencyResolution.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Domain.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Resources.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Security.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\Combres.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\Combres.Mvc.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\Fasterflect.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\Ionic.Zip.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\log4net.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\NotFoundMvc.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\PagedList.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\PagedList.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\PagedList.Mvc.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\PagedList.Mvc.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\StructureMap.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\StructureMap.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Infraestructure.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\obj\Debug\BgEngine.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\obj\Debug\BgEngine.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Application.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\BgEngine.Application.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\AutoMapper.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\AutoMapper.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\AutoMapper.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\AutoMapper.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Web\bin\en\BgEngine.Resources.resources.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\en\BgEngine.Resources.resources.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Web\bin\HtmlAgilityPack.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\BgEngine.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\BgEngine.pdb
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\AjaxMin.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\AutoMapper.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\BgEngine.Application.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\BgEngine.DependencyResolution.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\BgEngine.Domain.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\BgEngine.Resources.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\BgEngine.Security.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\Combres.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\Combres.Mvc.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\dotless.Core.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\EcmaScript.NET.modified.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\Fasterflect.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\HtmlAgilityPack.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\Ionic.Zip.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\log4net.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\Microsoft.Web.Helpers.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\Mvc.Mailer.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\NotFoundMvc.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\PagedList.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\PagedList.Mvc.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\StructureMap.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\WebActivator.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\Yahoo.Yui.Compressor.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\BgEngine.Infraestructure.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\EntityFramework.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\BgEngine.Application.pdb
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\BgEngine.DependencyResolution.pdb
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\BgEngine.Domain.pdb
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\BgEngine.Resources.pdb
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\BgEngine.Security.pdb
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\AutoMapper.xml
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\Combres.xml
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\Combres.Mvc.xml
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\Fasterflect.xml
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\Ionic.Zip.xml
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\log4net.xml
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\NotFoundMvc.pdb
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\PagedList.pdb
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\PagedList.xml
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\PagedList.Mvc.pdb
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\PagedList.Mvc.xml
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\StructureMap.pdb
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\StructureMap.xml
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\BgEngine.Infraestructure.pdb
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\bin\en\BgEngine.Resources.resources.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\obj\Debug\ResolveAssemblyReference.cache
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\obj\Debug\BgEngine.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Web\obj\Debug\BgEngine.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\BgEngine.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\BgEngine.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\AjaxMin.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\AutoMapper.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\BgEngine.Application.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\BgEngine.DependencyResolution.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\BgEngine.Domain.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\BgEngine.Resources.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\BgEngine.Security.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\Combres.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\Combres.Mvc.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\dotless.Core.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\EcmaScript.NET.modified.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\Fasterflect.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\HtmlAgilityPack.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\Ionic.Zip.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\log4net.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\Microsoft.Web.Helpers.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\Mvc.Mailer.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\NotFoundMvc.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\PagedList.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\PagedList.Mvc.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\StructureMap.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\WebActivator.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\Yahoo.Yui.Compressor.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\BgEngine.Infraestructure.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\EntityFramework.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\BgEngine.Application.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\BgEngine.DependencyResolution.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\BgEngine.Domain.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\BgEngine.Resources.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\BgEngine.Security.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\AutoMapper.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\Combres.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\Combres.Mvc.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\Fasterflect.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\Ionic.Zip.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\log4net.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\NotFoundMvc.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\PagedList.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\PagedList.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\PagedList.Mvc.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\PagedList.Mvc.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\StructureMap.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\StructureMap.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\BgEngine.Infraestructure.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\bin\en\BgEngine.Resources.resources.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\obj\Debug\ResolveAssemblyReference.cache
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\obj\Debug\BgEngine.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Web\obj\Debug\BgEngine.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\BgEngine.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\BgEngine.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\AjaxMin.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\AutoMapper.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\BgEngine.Application.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\BgEngine.DependencyResolution.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\BgEngine.Domain.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\BgEngine.Resources.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\BgEngine.Security.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\Combres.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\Combres.Mvc.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\dotless.Core.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\EcmaScript.NET.modified.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\Fasterflect.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\HtmlAgilityPack.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\Ionic.Zip.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\log4net.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\Microsoft.Web.Helpers.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\Mvc.Mailer.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\NotFoundMvc.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\PagedList.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\PagedList.Mvc.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\StructureMap.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\WebActivator.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\Yahoo.Yui.Compressor.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\BgEngine.Infraestructure.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\EntityFramework.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\BgEngine.Application.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\BgEngine.DependencyResolution.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\BgEngine.Domain.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\BgEngine.Resources.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\BgEngine.Security.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\AutoMapper.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\Combres.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\Combres.Mvc.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\Fasterflect.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\Ionic.Zip.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\log4net.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\NotFoundMvc.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\PagedList.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\PagedList.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\PagedList.Mvc.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\PagedList.Mvc.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\StructureMap.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\StructureMap.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\BgEngine.Infraestructure.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\bin\en\BgEngine.Resources.resources.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\obj\Debug\BgEngine.Web.csprojResolveAssemblyReference.cache
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\obj\Debug\BgEngine.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Web\obj\Debug\BgEngine.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\BgEngine.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\BgEngine.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\AjaxMin.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\AutoMapper.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\BgEngine.Application.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\BgEngine.DependencyResolution.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\BgEngine.Domain.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\BgEngine.Resources.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\BgEngine.Security.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\Combres.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\Combres.Mvc.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\dotless.Core.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\EcmaScript.NET.modified.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\Fasterflect.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\HtmlAgilityPack.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\Ionic.Zip.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\log4net.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\Microsoft.Web.Helpers.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\Mvc.Mailer.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\NotFoundMvc.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\PagedList.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\PagedList.Mvc.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\StructureMap.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\WebActivator.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\Yahoo.Yui.Compressor.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\BgEngine.Infraestructure.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\EntityFramework.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\BgEngine.Application.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\BgEngine.DependencyResolution.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\BgEngine.Domain.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\BgEngine.Resources.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\BgEngine.Security.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\AutoMapper.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\Combres.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\Combres.Mvc.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\Fasterflect.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\Ionic.Zip.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\log4net.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\NotFoundMvc.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\PagedList.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\PagedList.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\PagedList.Mvc.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\PagedList.Mvc.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\StructureMap.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\StructureMap.xml
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\BgEngine.Infraestructure.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\bin\en\BgEngine.Resources.resources.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\obj\Debug\BgEngine.Web.csprojResolveAssemblyReference.cache
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\obj\Debug\BgEngine.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Web\obj\Debug\BgEngine.pdb

@@ -1,0 +1,1188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Actions" xml:space="preserve">
+    <value>Acciones</value>
+  </data>
+  <data name="Back_to_List" xml:space="preserve">
+    <value>Regresar a la lista</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Categoría</value>
+  </data>
+  <data name="Category_Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Category_Name_Prompt" xml:space="preserve">
+    <value>Introduce un Nombre</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comentario</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Nuevo</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Borrar</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>Detalle</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="home_index_title" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Imagen</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Indice</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Post" xml:space="preserve">
+    <value>Post</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Rol</value>
+  </data>
+  <data name="Tag" xml:space="preserve">
+    <value>Tag</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="View_Detail" xml:space="preserve">
+    <value>Ver detalle</value>
+  </data>
+  <data name="Category_Description" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="Category_Description_Prompt" xml:space="preserve">
+    <value>Introduce una Descripción</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="Sure_To_Delete" xml:space="preserve">
+    <value>¿Estas seguro de borrar el registro?</value>
+  </data>
+  <data name="Category_CategoryId" xml:space="preserve">
+    <value>Categoría</value>
+  </data>
+  <data name="Comment_CommentId" xml:space="preserve">
+    <value>Comentario</value>
+  </data>
+  <data name="Image_ImageId" xml:space="preserve">
+    <value>Imagen</value>
+  </data>
+  <data name="Post_Code" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="Post_Code_Prompt" xml:space="preserve">
+    <value>Introduce un valor para poder acceder vía url</value>
+  </data>
+  <data name="Post_DateCreated_Prompt" xml:space="preserve">
+    <value>Introduce la Fecha de Creación</value>
+  </data>
+  <data name="Post_IsHomePost" xml:space="preserve">
+    <value>¿Es visible en Inicio?</value>
+  </data>
+  <data name="Post_IsPublic" xml:space="preserve">
+    <value>¿Es Público?</value>
+  </data>
+  <data name="Post_PostId" xml:space="preserve">
+    <value>Post</value>
+  </data>
+  <data name="Post_Text" xml:space="preserve">
+    <value>Texto</value>
+  </data>
+  <data name="Post_Text_Prompt" xml:space="preserve">
+    <value>Introduce el Texto</value>
+  </data>
+  <data name="Post_Title" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="Post_Title_Prompt" xml:space="preserve">
+    <value>Introduce el Título</value>
+  </data>
+  <data name="Role_RoleId" xml:space="preserve">
+    <value>Rol</value>
+  </data>
+  <data name="Tag_TagId" xml:space="preserve">
+    <value>Tag</value>
+  </data>
+  <data name="User_UserId" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="DateCreated" xml:space="preserve">
+    <value>Fecha de creación</value>
+  </data>
+  <data name="DateCreated_Prompt" xml:space="preserve">
+    <value>Introduce la Fecha de Creación</value>
+  </data>
+  <data name="ErrorLenght" xml:space="preserve">
+    <value>El máximo número de caracteres permitidos en este campo son {1}</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>El campo es obligatorio</value>
+  </data>
+  <data name="Comment_Message" xml:space="preserve">
+    <value>Mensaje</value>
+  </data>
+  <data name="Comment_Message_Prompt" xml:space="preserve">
+    <value>Introduce el Mensaje</value>
+  </data>
+  <data name="Album_AlbumId" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="Description_Prompt" xml:space="preserve">
+    <value>Introduce una Descripcion</value>
+  </data>
+  <data name="Name_Prompt" xml:space="preserve">
+    <value>Introduce un Nombre</value>
+  </data>
+  <data name="Default_Album_Description" xml:space="preserve">
+    <value>Imagenes sin categorizar</value>
+  </data>
+  <data name="Default_Album_Name" xml:space="preserve">
+    <value>Uploads</value>
+  </data>
+  <data name="DateUpdated" xml:space="preserve">
+    <value>Fecha de Modificación</value>
+  </data>
+  <data name="DateUpdated_Prompt" xml:space="preserve">
+    <value>Introduce la Fecha de Modificación</value>
+  </data>
+  <data name="Post_Description" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="Post_Description_Prompt" xml:space="preserve">
+    <value>Introduce una descripción</value>
+  </data>
+  <data name="Confirmed" xml:space="preserve">
+    <value>Confirmado</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Pendiente</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Password_Prompt" xml:space="preserve">
+    <value>Introduce tu clave</value>
+  </data>
+  <data name="Remember_Me" xml:space="preserve">
+    <value>Recordarme</value>
+  </data>
+  <data name="User_Prompt" xml:space="preserve">
+    <value>Introduce tu usuario</value>
+  </data>
+  <data name="Time_NDaysAgo" xml:space="preserve">
+    <value>Hace {0} días</value>
+  </data>
+  <data name="Time_NHoursAgo" xml:space="preserve">
+    <value>Hace {0} horas</value>
+  </data>
+  <data name="Time_NMinutesAgo" xml:space="preserve">
+    <value>Hace {0} minutos</value>
+  </data>
+  <data name="Time_NWeekAgo" xml:space="preserve">
+    <value>Hace {0} semanas</value>
+  </data>
+  <data name="Time_OneHourAgo" xml:space="preserve">
+    <value>Hace una hora</value>
+  </data>
+  <data name="Time_OneMinuteAgo" xml:space="preserve">
+    <value>Hace 1 minuto</value>
+  </data>
+  <data name="Time_OneWeekAgo" xml:space="preserve">
+    <value>Hace una semana</value>
+  </data>
+  <data name="Time_Yesterday" xml:space="preserve">
+    <value>Ayer</value>
+  </data>
+  <data name="Resource_NotFound" xml:space="preserve">
+    <value>Recurso no encontrado</value>
+  </data>
+  <data name="Resource_NotFound_ErrorMessage" xml:space="preserve">
+    <value>El recurso al que se está intentando acceder no se encuentra en este servidor</value>
+  </data>
+  <data name="Comments_Authenticathed" xml:space="preserve">
+    <value>Tienes que estar autenticado para poder dejar un comentario</value>
+  </data>
+  <data name="Comments_InitSession" xml:space="preserve">
+    <value>Inicia una sesión</value>
+  </data>
+  <data name="Comments_Register" xml:space="preserve">
+    <value>Regístrate si todavía no tienes una cuenta</value>
+  </data>
+  <data name="Comment_Reply" xml:space="preserve">
+    <value>Responder</value>
+  </data>
+  <data name="Galleria_NoAlbum" xml:space="preserve">
+    <value>No hay albumes disponibles</value>
+  </data>
+  <data name="Back_to_Galleria" xml:space="preserve">
+    <value>Volver a la Galería de Albumes</value>
+  </data>
+  <data name="Album_LoadImages" xml:space="preserve">
+    <value>Cargar Imágenes</value>
+  </data>
+  <data name="Album_NoImage" xml:space="preserve">
+    <value>El Album no contiene imágenes</value>
+  </data>
+  <data name="Album_SelectImages" xml:space="preserve">
+    <value>Selecciona Imágenes para cargar</value>
+  </data>
+  <data name="Album_WidgetLoadImages" xml:space="preserve">
+    <value>Añade más con el widget para Cargar Imágenes</value>
+  </data>
+  <data name="No_Name" xml:space="preserve">
+    <value>Sin nombre</value>
+  </data>
+  <data name="Trash" xml:space="preserve">
+    <value>Papelera de reciclaje</value>
+  </data>
+  <data name="Empty_Trash" xml:space="preserve">
+    <value>Vaciar</value>
+  </data>
+  <data name="WithoutImage" xml:space="preserve">
+    <value>Sin imágenes</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>El password y su confirmación no son iguales</value>
+  </data>
+  <data name="PasswordLenght" xml:space="preserve">
+    <value>El {0} debe tener al menos {2} caracteres de longitud.</value>
+  </data>
+  <data name="User_Confirm_Password" xml:space="preserve">
+    <value>Confirma el Password</value>
+  </data>
+  <data name="User_Confirm_Password_Prompt" xml:space="preserve">
+    <value>Confirma el Password</value>
+  </data>
+  <data name="User_Culture" xml:space="preserve">
+    <value>Nacionalidad</value>
+  </data>
+  <data name="User_Culture_Prompt" xml:space="preserve">
+    <value>Selecciona tu Nacionalidad</value>
+  </data>
+  <data name="User_FirstName" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="User_FirstName_Prompt" xml:space="preserve">
+    <value>Introduce tu nombre</value>
+  </data>
+  <data name="User_LastName" xml:space="preserve">
+    <value>Apellidos</value>
+  </data>
+  <data name="User_LastName_Prompt" xml:space="preserve">
+    <value>Introduce tus Apellidos</value>
+  </data>
+  <data name="User_Mail" xml:space="preserve">
+    <value>Dirección de correo</value>
+  </data>
+  <data name="User_Mail_Prompt" xml:space="preserve">
+    <value>Introduce una dirección de correo electrónico</value>
+  </data>
+  <data name="User_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="User_Password_Prompt" xml:space="preserve">
+    <value>Introduce la clave</value>
+  </data>
+  <data name="User_TimeZone" xml:space="preserve">
+    <value>Zona Horaria</value>
+  </data>
+  <data name="User_TimeZone_Prompt" xml:space="preserve">
+    <value>Selecciona tu zona horaria</value>
+  </data>
+  <data name="User_UserName_Prompt" xml:space="preserve">
+    <value>Introduce el nombre de Usuario</value>
+  </data>
+  <data name="User_CreateDate" xml:space="preserve">
+    <value>Fecha de creación</value>
+  </data>
+  <data name="User_IsConfirmed" xml:space="preserve">
+    <value>¿Confirmado?</value>
+  </data>
+  <data name="User_PasswordFailures" xml:space="preserve">
+    <value>Intentos fallidos de Login</value>
+  </data>
+  <data name="User_LastPasswordFailureDate" xml:space="preserve">
+    <value>Fecha de último error en el password</value>
+  </data>
+  <data name="User_PasswordChangedDate" xml:space="preserve">
+    <value>Fecha de último cambio de password</value>
+  </data>
+  <data name="Role_RoleDescription" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="Role_RoleDescription_Prompt" xml:space="preserve">
+    <value>Introduce una Descripción para el Rol</value>
+  </data>
+  <data name="Role_RoleName_Prompt" xml:space="preserve">
+    <value>Introduce un nombre para el Rol</value>
+  </data>
+  <data name="Tag_TagDescription" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="Tag_TagDescription_Prompt" xml:space="preserve">
+    <value>Introduce una Descripción para el Tag</value>
+  </data>
+  <data name="Tag_TagName_Prompt" xml:space="preserve">
+    <value>Introduce un nombre para el Tag</value>
+  </data>
+  <data name="DeleteRelatedImages" xml:space="preserve">
+    <value>¿Borrar definitivamente las imágenes del Album?</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="Home_About" xml:space="preserve">
+    <value>Acerca de mi</value>
+  </data>
+  <data name="Home_Admin" xml:space="preserve">
+    <value>Zona de administración</value>
+  </data>
+  <data name="Home_Gallery" xml:space="preserve">
+    <value>Galería</value>
+  </data>
+  <data name="Home_Index" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="Home_Admin_Categories" xml:space="preserve">
+    <value>Categorias</value>
+  </data>
+  <data name="Home_Admin_Comments" xml:space="preserve">
+    <value>Comentarios</value>
+  </data>
+  <data name="Home_Admin_Gallery" xml:space="preserve">
+    <value>Galeria</value>
+  </data>
+  <data name="Home_Admin_Home" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="Home_Admin_Posts" xml:space="preserve">
+    <value>Posts</value>
+  </data>
+  <data name="Home_Admin_Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="Home_Admin_Tags" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="Home_Admin_Users" xml:space="preserve">
+    <value>Usuarios</value>
+  </data>
+  <data name="Localization_Create_Category" xml:space="preserve">
+    <value>Introduce los datos para crear una nueva Categoría</value>
+  </data>
+  <data name="Localization_Create_Comment" xml:space="preserve">
+    <value>Introduce los datos para crear un nuevo Comentario</value>
+  </data>
+  <data name="Localization_Create_Post" xml:space="preserve">
+    <value>Introduce los datos para crear un nuevo Post</value>
+  </data>
+  <data name="Localization_Create_Role" xml:space="preserve">
+    <value>Introduce los datos para crear un nuevo Rol</value>
+  </data>
+  <data name="Localization_Create_Tag" xml:space="preserve">
+    <value>Introduce los datos para crear un nuevo Tag</value>
+  </data>
+  <data name="Localization_Create_User" xml:space="preserve">
+    <value>Introduce los datos para crear un nuevo Usuario</value>
+  </data>
+  <data name="Localization_Delete" xml:space="preserve">
+    <value>Confirma el borrado - {0}</value>
+  </data>
+  <data name="Localization_Detail" xml:space="preserve">
+    <value>Detalle - {0}</value>
+  </data>
+  <data name="Localization_Edit" xml:space="preserve">
+    <value>Edición - {0}</value>
+  </data>
+  <data name="SideBar_Archive" xml:space="preserve">
+    <value>Archivo</value>
+  </data>
+  <data name="Sidebar_CategoryList" xml:space="preserve">
+    <value>Categorías</value>
+  </data>
+  <data name="SideBar_CloudTag" xml:space="preserve">
+    <value>Nube de Tags</value>
+  </data>
+  <data name="Share_On_Facebook" xml:space="preserve">
+    <value>Comparte esta página en Facebook</value>
+  </data>
+  <data name="Share_On_Twitter" xml:space="preserve">
+    <value>Comparte esta página en Twitter</value>
+  </data>
+  <data name="Album_Download" xml:space="preserve">
+    <value>Descargar el Album -  {0}</value>
+  </data>
+  <data name="Article" xml:space="preserve">
+    <value>artículo</value>
+  </data>
+  <data name="Articles" xml:space="preserve">
+    <value>artículos</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>comentarios</value>
+  </data>
+  <data name="DateCreatedFormat" xml:space="preserve">
+    <value>Este post se escribió el {0}</value>
+  </data>
+  <data name="NumberofComments" xml:space="preserve">
+    <value>El post tiene {0} comentarios</value>
+  </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>Leer el post</value>
+  </data>
+  <data name="Change_Theme" xml:space="preserve">
+    <value>Cambia el tema de la Web</value>
+  </data>
+  <data name="LogOn_Forget" xml:space="preserve">
+    <value>¿Te has olvidado de tus datos?</value>
+  </data>
+  <data name="LogOn_IntroKey" xml:space="preserve">
+    <value>Introduce tu nombre de usuario y tu contraseña</value>
+  </data>
+  <data name="LogOn_Legend" xml:space="preserve">
+    <value>Información de la cuenta</value>
+  </data>
+  <data name="LogOn_Register" xml:space="preserve">
+    <value>Registrate si no tienes una cuenta todavía</value>
+  </data>
+  <data name="LogOn_RegisterButton" xml:space="preserve">
+    <value>Regístrate</value>
+  </data>
+  <data name="CompleteRegister_Message" xml:space="preserve">
+    <value>Gracias por registrarse, un mail ha sido enviado a {0}, compruebe su bandeja de entrada y use el link incluido para completar el registro</value>
+  </data>
+  <data name="CompleteRegister_Title" xml:space="preserve">
+    <value>Completa el registro de tu cuenta</value>
+  </data>
+  <data name="CompleteReset_Account_Message" xml:space="preserve">
+    <value>Se ha enviado un mail a {0}, compruebe su bandeja de entrada y use el link incluido para completar el restablecimiento de su cuenta</value>
+  </data>
+  <data name="CompleteReset_Account_Title" xml:space="preserve">
+    <value>Completa el restablecimiento de tu cuenta</value>
+  </data>
+  <data name="Error_Recaptcha" xml:space="preserve">
+    <value>Las palabras introducidas no son correctas, prueba otra vez</value>
+  </data>
+  <data name="Error_Recaptcha_Key" xml:space="preserve">
+    <value>Ha ocurrido un error con el plugin de Recaptcha. Prueba otra vez más tarde</value>
+  </data>
+  <data name="Register_AccountData" xml:space="preserve">
+    <value>Introduce los datos de tu cuenta (Esta información es obligatoria)</value>
+  </data>
+  <data name="Register_Legend" xml:space="preserve">
+    <value>Información de la cuenta</value>
+  </data>
+  <data name="Register_PersonalData" xml:space="preserve">
+    <value>Introduce tus datos personales (No es obligatorio, el fin es estadístico)</value>
+  </data>
+  <data name="Register_Recaptcha" xml:space="preserve">
+    <value>Introduce las palabras que ves</value>
+  </data>
+  <data name="Register_Submit" xml:space="preserve">
+    <value>Iniciar registro</value>
+  </data>
+  <data name="Register_Title" xml:space="preserve">
+    <value>Crear una nueva cuenta</value>
+  </data>
+  <data name="RegistrationSuccesfull_Legend" xml:space="preserve">
+    <value>Registro completado con exito</value>
+  </data>
+  <data name="RegistrationSuccesfull_Message" xml:space="preserve">
+    <value>El proceso de registro ha finalizado correctamente</value>
+  </data>
+  <data name="RegistrationSuccesfull_Title" xml:space="preserve">
+    <value>Registro completado con exito</value>
+  </data>
+  <data name="ResetAccount_Legend" xml:space="preserve">
+    <value>Restablecimiento de cuenta</value>
+  </data>
+  <data name="ResetAccount_Submit" xml:space="preserve">
+    <value>Restablecer</value>
+  </data>
+  <data name="ResetAccount_Title" xml:space="preserve">
+    <value>Restablecimiento de cuenta</value>
+  </data>
+  <data name="Error_ConfirmAccount" xml:space="preserve">
+    <value>Se ha producido un error confirmando la cuenta</value>
+  </data>
+  <data name="Error_User_Is_Confirmed" xml:space="preserve">
+    <value>El usuario {0}  ya fué confirmado. Entra con tu contraseña.</value>
+  </data>
+  <data name="Confirmation_Token" xml:space="preserve">
+    <value>Código de confirmación</value>
+  </data>
+  <data name="Confirmation_Token_Prompt" xml:space="preserve">
+    <value>Introduce el código de confirmación que habrás recibido</value>
+  </data>
+  <data name="ConfirmManually_Title" xml:space="preserve">
+    <value>Confirma tu cuenta</value>
+  </data>
+  <data name="ConfirmManually_Submit" xml:space="preserve">
+    <value>Confirmar</value>
+  </data>
+  <data name="Error_ConfirmationToken" xml:space="preserve">
+    <value>El código introducido no es correcto</value>
+  </data>
+  <data name="Error_User_Confirmed_Yet" xml:space="preserve">
+    <value>El usuario ya está confirmado</value>
+  </data>
+  <data name="Error_User_Not_Exist" xml:space="preserve">
+    <value>El usuario no existe</value>
+  </data>
+  <data name="Error_SendMail" xml:space="preserve">
+    <value>Se ha producido un error en el envío del mail. Inténtelo de nuevo más tarde</value>
+  </data>
+  <data name="CompleteResetAccount_Message" xml:space="preserve">
+    <value>Se ha enviado un mail a tu dirección de correo {0}. Sigue las intrucciones para recuperar tu cuenta</value>
+  </data>
+  <data name="CompleteResetAccount_Title" xml:space="preserve">
+    <value>Completa el restablecimiento de la cuenta</value>
+  </data>
+  <data name="Error_Email_Not_Exist" xml:space="preserve">
+    <value>La cuenta de mail no existe</value>
+  </data>
+  <data name="ResetAccount_Message" xml:space="preserve">
+    <value>Introduce el email con el que te registraste y te enviaremos un email con las instrucciones para que recuperes tu cuenta</value>
+  </data>
+  <data name="Error_ResetAccount" xml:space="preserve">
+    <value>Se ha producido un error restableciendo la cuenta.</value>
+  </data>
+  <data name="Go_Home_Page" xml:space="preserve">
+    <value>Ir a la página de inicio</value>
+  </data>
+  <data name="ResetAccountSuccessfull_Legend" xml:space="preserve">
+    <value>Restablecimiento de cuenta finalizado correctamente</value>
+  </data>
+  <data name="ResetAccountSuccessfull_Message" xml:space="preserve">
+    <value>El restablecimiento de la cuenta ha finalizado correctamente</value>
+  </data>
+  <data name="ResetAccountSuccessfull_Title" xml:space="preserve">
+    <value>Restablecimiento de cuenta finalizado</value>
+  </data>
+  <data name="Album" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="Galleria" xml:space="preserve">
+    <value>Galería de Albumes</value>
+  </data>
+  <data name="Localization_Create_Album" xml:space="preserve">
+    <value>Introduce los datos para crear un nuevo Album</value>
+  </data>
+  <data name="Localization_Create_Image" xml:space="preserve">
+    <value>Introduce los datos para crear una nueva Imagen</value>
+  </data>
+  <data name="Stats" xml:space="preserve">
+    <value>Estadísticas</value>
+  </data>
+  <data name="Stats_MostCommentedPosts" xml:space="preserve">
+    <value>+ Comentados</value>
+  </data>
+  <data name="Stats_PostWritenByUser" xml:space="preserve">
+    <value>+ Usuarios</value>
+  </data>
+  <data name="Stats_TopRatedPosts" xml:space="preserve">
+    <value>+ Valorados</value>
+  </data>
+  <data name="Stats_TotalAlbums" xml:space="preserve">
+    <value>es el número total de Albumes creados</value>
+  </data>
+  <data name="Stats_TotalCategories" xml:space="preserve">
+    <value>es el total de Categorías creadas para categorizar los diferentes Post</value>
+  </data>
+  <data name="Stats_TotalComments" xml:space="preserve">
+    <value>es el número total de Comentarios realizados</value>
+  </data>
+  <data name="Stats_TotalImages" xml:space="preserve">
+    <value>es el total de Imágenes cargadas</value>
+  </data>
+  <data name="Stats_TotalPosts" xml:space="preserve">
+    <value>es el número de Post escritos en total</value>
+  </data>
+  <data name="Stats_TotalRoles" xml:space="preserve">
+    <value>es el número de Roles disponibles para los permisos de los distintos usuarios</value>
+  </data>
+  <data name="Stats_TotalTags" xml:space="preserve">
+    <value>es el número total de Tags creados para etiquetar los diferentes Post</value>
+  </data>
+  <data name="Stats_TotalUsers" xml:space="preserve">
+    <value>es el número total de usuarios registrados</value>
+  </data>
+  <data name="Stats_RatedWith" xml:space="preserve">
+    <value>Valorado con {0}</value>
+  </data>
+  <data name="Stats_NumberOfComments" xml:space="preserve">
+    <value>{0} comentarios</value>
+  </data>
+  <data name="Wait_Loading" xml:space="preserve">
+    <value>Por favor espera ...</value>
+  </data>
+  <data name="SearchBox" xml:space="preserve">
+    <value>Usa este campo para buscar posts ...</value>
+  </data>
+  <data name="Error_Request" xml:space="preserve">
+    <value>Se ha producido un error al tratar de procesar la peticion</value>
+  </data>
+  <data name="Error_NoPostFound" xml:space="preserve">
+    <value>No se ha encontrado Posts</value>
+  </data>
+  <data name="Post_Comment" xml:space="preserve">
+    <value>Comentarios</value>
+  </data>
+  <data name="Post_Leave_Comment" xml:space="preserve">
+    <value>Deja tu comentario</value>
+  </data>
+  <data name="Post_Comment_Writed" xml:space="preserve">
+    <value>El comentario se publico el {0}</value>
+  </data>
+  <data name="Post_Ratings" xml:space="preserve">
+    <value>valoraciones</value>
+  </data>
+  <data name="Post_TaggedWith" xml:space="preserve">
+    <value>Etiquetado con</value>
+  </data>
+  <data name="Post_Cancel_Edit_Image" xml:space="preserve">
+    <value>Borra la asociación con la imagen</value>
+  </data>
+  <data name="Post_Edit_Image" xml:space="preserve">
+    <value>Selecciona una imagen para el Post</value>
+  </data>
+  <data name="ImageSearchBox" xml:space="preserve">
+    <value>Busca imagenes ...</value>
+  </data>
+  <data name="Error_NoImageFound" xml:space="preserve">
+    <value>No se han encontrado imágenes que mostrar ...</value>
+  </data>
+  <data name="SelectFiles" xml:space="preserve">
+    <value>Archivos</value>
+  </data>
+  <data name="PostDetails_ShowComments" xml:space="preserve">
+    <value>Ver todos los comentarios ({0})</value>
+  </data>
+  <data name="PostDetails_HideComments" xml:space="preserve">
+    <value>Ocultar los comentarios ({0})</value>
+  </data>
+  <data name="Logon_Logout" xml:space="preserve">
+    <value>- Salir</value>
+  </data>
+  <data name="Logon_Welcome" xml:space="preserve">
+    <value>Bienvenido </value>
+  </data>
+  <data name="Video_VideoId" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="Home_Videos" xml:space="preserve">
+    <value>Videos</value>
+  </data>
+  <data name="Home_Admin_Videos" xml:space="preserve">
+    <value>Videos</value>
+  </data>
+  <data name="Localization_Create_Video" xml:space="preserve">
+    <value>Introduce los datos para crear un nuevo Video</value>
+  </data>
+  <data name="Video" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="Videos_NoVideo" xml:space="preserve">
+    <value>No hay videos disponibles</value>
+  </data>
+  <data name="VideoHtml_Prompt" xml:space="preserve">
+    <value>Introduce el código html que representa el video (iframe, object ...)</value>
+  </data>
+  <data name="VideoPath_Prompt" xml:space="preserve">
+    <value>Introduce la url del video</value>
+  </data>
+  <data name="Video_Html" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="Video_Path" xml:space="preserve">
+    <value>Url</value>
+  </data>
+  <data name="Video_Type" xml:space="preserve">
+    <value>Tipo de video</value>
+  </data>
+  <data name="Error_Saving_Changes" xml:space="preserve">
+    <value>Error guardando los cambios. Inténtalo otra vez más tarde ...</value>
+  </data>
+  <data name="Video_RemeberSize_Text" xml:space="preserve">
+    <value>Si el video se muestra y encaja en el contenedor es que has introducido correctamente los datos</value>
+  </data>
+  <data name="Video_RemeberSize_Tip" xml:space="preserve">
+    <value>(Si introduces código embebido directamente recuerda cambiar la medidas a ... width = 250 and height = 160)</value>
+  </data>
+  <data name="Ratings_Authenticathed" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Video_IsPublic" xml:space="preserve">
+    <value>Es publico</value>
+  </data>
+  <data name="Error_Category_With_Posts" xml:space="preserve">
+    <value>Categoría con Post asociados. No es posible borrarla</value>
+  </data>
+  <data name="Post_Code_Repeated" xml:space="preserve">
+    <value>El Código ya existe</value>
+  </data>
+  <data name="Selected_To_Upload" xml:space="preserve">
+    <value>Loas archivos seleccionados se subirán a la carpeta común "Uploads"</value>
+  </data>
+  <data name="Error_User_With_Comments" xml:space="preserve">
+    <value>No se puede borrar un usuario con Comentarios asociados</value>
+  </data>
+  <data name="Error_User_With_Posts" xml:space="preserve">
+    <value>No se puede borrar un usuario con Posts asociados</value>
+  </data>
+  <data name="Error_Role_With_Users" xml:space="preserve">
+    <value>No se puede borrar un Role con Usuarios asociados</value>
+  </data>
+  <data name="VideoSearchBox" xml:space="preserve">
+    <value>Busca videos ...</value>
+  </data>
+  <data name="Post_IsAboutMe" xml:space="preserve">
+    <value>¿Es la página Acerca de?</value>
+  </data>
+  <data name="exception_ApplicationValidationExceptionDefaultMessage" xml:space="preserve">
+    <value>Se ha producido una excepción. Chequea los errores de validación para más información</value>
+  </data>
+  <data name="About_Me_Exists" xml:space="preserve">
+    <value>Ya existe un Post  marcado para mostrarse en Acerca de. Para marcar este Post debes primero desmarcar el post con código : {0}</value>
+  </data>
+  <data name="Post_Visits" xml:space="preserve">
+    <value>Número de visitas</value>
+  </data>
+  <data name="Stats_NumberOfVisits" xml:space="preserve">
+    <value>{0} visitas</value>
+  </data>
+  <data name="Stats_MostVisitedPosts" xml:space="preserve">
+    <value>+ Visitas</value>
+  </data>
+  <data name="Error_NoCategoriesFound" xml:space="preserve">
+    <value>No se han encontrado Categorías</value>
+  </data>
+  <data name="Error_NoCommentsFound" xml:space="preserve">
+    <value>No se han encontrado Comentarios</value>
+  </data>
+  <data name="Error_NoRolesFound" xml:space="preserve">
+    <value>No se han encontrado Roles</value>
+  </data>
+  <data name="Error_NoTagsFound" xml:space="preserve">
+    <value>No se han encontrado Tags</value>
+  </data>
+  <data name="Error_NoUsersFound" xml:space="preserve">
+    <value>No se han encontrado Usuarios</value>
+  </data>
+  <data name="InvalidMail" xml:space="preserve">
+    <value>La dirección de mail introducida no es una dirección válida</value>
+  </data>
+  <data name="BlogResource_BlogResourceId" xml:space="preserve">
+    <value>Recurso</value>
+  </data>
+  <data name="Value_Prompt" xml:space="preserve">
+    <value>Valor</value>
+  </data>
+  <data name="Config" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="Config_AdminRole" xml:space="preserve">
+    <value>Rol administrador</value>
+  </data>
+  <data name="Config_AdminRolePrompt" xml:space="preserve">
+    <value>El rol que tendra privilegios de administrador</value>
+  </data>
+  <data name="Config_CategoriesPerPage" xml:space="preserve">
+    <value>Categorías por página</value>
+  </data>
+  <data name="Config_CategoriesPerPagePrompt" xml:space="preserve">
+    <value>Número de Categorías mostradas cuando exista paginación</value>
+  </data>
+  <data name="Config_CommentsPerPage" xml:space="preserve">
+    <value>Comentarios por página</value>
+  </data>
+  <data name="Config_CommentsPerPagePrompt" xml:space="preserve">
+    <value>Número de Comentarios mostrados cuando exista paginación</value>
+  </data>
+  <data name="Config_Copyright" xml:space="preserve">
+    <value>Copyright</value>
+  </data>
+  <data name="Config_CopyrightPrompt" xml:space="preserve">
+    <value>Copyright mostrado en el pié de página</value>
+  </data>
+  <data name="Config_DarkHeader" xml:space="preserve">
+    <value>Cabeceras oscuras</value>
+  </data>
+  <data name="Config_DarkHeaderPrompt" xml:space="preserve">
+    <value>Temas que mostrarán cabeceras oscuras</value>
+  </data>
+  <data name="Config_DefaultTheme" xml:space="preserve">
+    <value>Tema por defecto</value>
+  </data>
+  <data name="Config_DefaultThemePrompt" xml:space="preserve">
+    <value>Tema por defecto a mostrar cuando un usuario acceda al sitio por primera vez</value>
+  </data>
+  <data name="Config_EmailAccountfields" xml:space="preserve">
+    <value>Estos campos contienen los datos de la cuenta de email para el envío de mails en este sitio</value>
+  </data>
+  <data name="Config_EmailServer" xml:space="preserve">
+    <value>Servidor de mail</value>
+  </data>
+  <data name="Config_EmailServerPrompt" xml:space="preserve">
+    <value>Nombre del servidor de mail</value>
+  </data>
+  <data name="Config_EmailSmtpPort" xml:space="preserve">
+    <value>Puerto Smtp</value>
+  </data>
+  <data name="Config_EmailSmtpPortPrompt" xml:space="preserve">
+    <value>Puerto del servidor de mail</value>
+  </data>
+  <data name="Config_FolderNoImagePrompt" xml:space="preserve">
+    <value>Ruta de la imagen a mostrar cuando no exista ninguna definida</value>
+  </data>
+  <data name="Config_GoogleAnalytics" xml:space="preserve">
+    <value>Código de Google Analytics</value>
+  </data>
+  <data name="Config_GoogleAnalyticsPrompt" xml:space="preserve">
+    <value>El código de Google Analytics para análisis del sitio web </value>
+  </data>
+  <data name="Config_PaginationFields" xml:space="preserve">
+    <value>Configuración de la paginación</value>
+  </data>
+  <data name="Config_PostPerPage" xml:space="preserve">
+    <value>Post por página</value>
+  </data>
+  <data name="Config_PostPerPagePrompt" xml:space="preserve">
+    <value>Número de Post mostrados cuando exista paginación</value>
+  </data>
+  <data name="Config_PremiumRole" xml:space="preserve">
+    <value>Rol Premium</value>
+  </data>
+  <data name="Config_PremiumRolePrompt" xml:space="preserve">
+    <value>El Rol que tendrá privilegios de usuario premium</value>
+  </data>
+  <data name="Config_RecaptchaPrivate" xml:space="preserve">
+    <value>Clave privada</value>
+  </data>
+  <data name="Config_RecaptchaPrivatePrompt" xml:space="preserve">
+    <value>La clave privada para Recaptcha</value>
+  </data>
+  <data name="Config_RecaptchaPublic" xml:space="preserve">
+    <value>Clave pública</value>
+  </data>
+  <data name="Config_RecaptchaPublicPrompt" xml:space="preserve">
+    <value>La clave pública para Recaptcha</value>
+  </data>
+  <data name="Config_RolesPerPage" xml:space="preserve">
+    <value>Roles por página</value>
+  </data>
+  <data name="Config_RolesPerPagePrompt" xml:space="preserve">
+    <value>Number of Roles showed when pagination implemented</value>
+  </data>
+  <data name="Config_SearchImagesPerPage" xml:space="preserve">
+    <value>Imágenes por página</value>
+  </data>
+  <data name="Config_SearchImagesPerPagePrompt" xml:space="preserve">
+    <value>Número de Imágenes mostradas cuando exista paginación</value>
+  </data>
+  <data name="Config_SearchVideosPerPage" xml:space="preserve">
+    <value>Videos por página</value>
+  </data>
+  <data name="Config_SearchVideosPerPagePrompt" xml:space="preserve">
+    <value>Número de Videos mostrados cuando exista paginación</value>
+  </data>
+  <data name="Config_SiteTitle" xml:space="preserve">
+    <value>Título del sitio web</value>
+  </data>
+  <data name="Config_SiteTitlePrompt" xml:space="preserve">
+    <value>Título mostrado en la cabecera</value>
+  </data>
+  <data name="Config_SiteUrl" xml:space="preserve">
+    <value>Url del dominio</value>
+  </data>
+  <data name="Config_SiteUrlPrompt" xml:space="preserve">
+    <value>Url del dominio </value>
+  </data>
+  <data name="Config_TagsPerPage" xml:space="preserve">
+    <value>Tags por página</value>
+  </data>
+  <data name="Config_TagsPerPagePrompt" xml:space="preserve">
+    <value>Number of Tags showed when pagination implemented</value>
+  </data>
+  <data name="Config_UserName" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Config_UserNamePrompt" xml:space="preserve">
+    <value>Mail del usuario para la cuenta de mail</value>
+  </data>
+  <data name="Config_UserPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Config_UserPasswordPrompt" xml:space="preserve">
+    <value>Password para la cuenta de mail</value>
+  </data>
+  <data name="Config_UsersPerPage" xml:space="preserve">
+    <value>Usuarios por página</value>
+  </data>
+  <data name="Config_UsersPerPagePrompt" xml:space="preserve">
+    <value>Número de Usuarios mostrados cuando exista paginación</value>
+  </data>
+  <data name="Config_Analytics" xml:space="preserve">
+    <value>Configuración de la cuenta de Google Analytics</value>
+  </data>
+  <data name="Config_Messages" xml:space="preserve">
+    <value>Mensajes</value>
+  </data>
+  <data name="Config_Recaptcha" xml:space="preserve">
+    <value>Configuración de la cuenta de Recaptcha</value>
+  </data>
+  <data name="Config_Security" xml:space="preserve">
+    <value>Security configuration</value>
+  </data>
+  <data name="Config_Themes" xml:space="preserve">
+    <value>Temas</value>
+  </data>
+  <data name="Config_OptionsUpdated" xml:space="preserve">
+    <value>Actualización finalizada con éxito</value>
+  </data>
+  <data name="Pager_HomeIndexPostsPerPage" xml:space="preserve">
+    <value>Posts en la página de inicio</value>
+  </data>
+  <data name="Pager_HomeIndexPostsPerPagePrompt" xml:space="preserve">
+    <value>Número de Posts que se muestran en la página de inicio</value>
+  </data>
+  <data name="Config_OptionsError" xml:space="preserve">
+    <value>Se ha producido un error al procesar la petición</value>
+  </data>
+  <data name="Config_Twitter" xml:space="preserve">
+    <value>Introduce los datos para los widgets de Twitter</value>
+  </data>
+  <data name="Config_Twitter_Search_Query" xml:space="preserve">
+    <value>Cadena de búsqueda</value>
+  </data>
+  <data name="Config_Twitter_Search_Query_Prompt" xml:space="preserve">
+    <value>Introduce el patrón para el Widget de Twitter de búsqueda</value>
+  </data>
+  <data name="Config_Twitter_User" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="Config_Twitter_User_Prompt" xml:space="preserve">
+    <value>Introduce el usuario de la cuenta de Twitter del que se recuperará su perfil</value>
+  </data>
+  <data name="NoCommentsFound" xml:space="preserve">
+    <value>El Post no tiene comentarios aún</value>
+  </data>
+  <data name="Home_Contact" xml:space="preserve">
+    <value>Contacta con nosotros</value>
+  </data>
+  <data name="Contact_Message" xml:space="preserve">
+    <value>Mensaje</value>
+  </data>
+  <data name="Contact_MessagePrompt" xml:space="preserve">
+    <value>Escribe el mensaje</value>
+  </data>
+  <data name="Contact_Subject" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="Contact_SubjectPrompt" xml:space="preserve">
+    <value>Escribe el tema del mensaje</value>
+  </data>
+  <data name="Home_Contact_SendMessage" xml:space="preserve">
+    <value>Enviar mensaje</value>
+  </data>
+  <data name="Contact_Mail_Error" xml:space="preserve">
+    <value>Se ha producido un error al tratar de enviar el mensaje. Inténtalo más tarde</value>
+  </data>
+  <data name="Contact_Mail_Sent" xml:space="preserve">
+    <value>El mensaje se ha enviado correctamente</value>
+  </data>
+  <data name="Trash_Error_Deleting_Images" xml:space="preserve">
+    <value>Se ha producido un error eliminando imágenes. Las imágenes con el borde rojo se están usando en alguna parte de la aplicación y no se pueden borrar</value>
+  </data>
+  <data name="Rss_Tooltip" xml:space="preserve">
+    <value>Suscribete al canal RSS y obtén los últimos artículos que se han publicado</value>
+  </data>
+  <data name="Tweets_Reference" xml:space="preserve">
+    <value>Que se está diciendo de </value>
+  </data>
+  <data name="Tweets_Site" xml:space="preserve">
+    <value>Tweets haciendo referencia a este sitio</value>
+  </data>
+  <data name="Tweets_Us" xml:space="preserve">
+    <value>Que se está diciendo de nosotros</value>
+  </data>
+  <data name="Switch_Theme" xml:space="preserve">
+    <value>Cambiar tema</value>
+  </data>
+  <data name="Rss_Latest_Post_Description" xml:space="preserve">
+    <value>Este feed ofrece una lista de los últimos artículos que se han publicado en el sitio web indicado</value>
+  </data>
+  <data name="Rss_Latest_Post_Title" xml:space="preserve">
+    <value>Lista de los últimos artículos publicados en {0}</value>
+  </data>
+  <data name="Latest_Post_Added" xml:space="preserve">
+    <value>Últimos posts añadidos</value>
+  </data>
+  <data name="Latest_Videos_Added" xml:space="preserve">
+    <value>Últimos Videos añadidos</value>
+  </data>
+  <data name="Posts_Tagged_With" xml:space="preserve">
+    <value>Posts marcados con {0}</value>
+  </data>
+  <data name="Post_Written_In" xml:space="preserve">
+    <value>Posts publicados en {0}</value>
+  </data>
+  <data name="Related_Videos" xml:space="preserve">
+    <value>Videos relacionados</value>
+  </data>
+  <data name="Config_SSL" xml:space="preserve">
+    <value>Usar SSL</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Iniciar sesión</value>
+  </data>
+  <data name="VideoType" xml:space="preserve">
+    <value>Tipo de video</value>
+  </data>
+  <data name="User_ContactMail" xml:space="preserve">
+    <value>Dirección de correo</value>
+  </data>
+  <data name="User_ContactMail_Prompt" xml:space="preserve">
+    <value>Introduce una dirección de correo electrónico. No se publicará</value>
+  </data>
+  <data name="User_Web" xml:space="preserve">
+    <value>Página web</value>
+  </data>
+  <data name="User_Web_Prompt" xml:space="preserve">
+    <value>Introduce tu página web</value>
+  </data>
+</root>

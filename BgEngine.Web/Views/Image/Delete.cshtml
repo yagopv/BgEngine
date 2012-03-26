@@ -1,0 +1,63 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model BgEngine.Domain.EntityModel.Image
+
+@{
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+    ViewBag.Title = Resources.AppMessages.Image + " - " + Resources.AppMessages.Delete;
+}
+
+<fieldset class="ui-widget ui-widget-content ui-corner-all">
+    <legend class="bg-panel ui-widget-header ui-corner-all">@String.Format(Resources.AppMessages.Localization_Delete,Model.Name)</legend>
+	<table class="table-template">
+		<tr>
+			<td>
+				<div class="display-label">
+                    @Html.LabelFor(model => model.Name)
+                </div>
+			</td>
+			<td>
+				<div class="display-field">
+					@Html.DisplayFor(model => model.Name)
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="display-label">
+                    @Html.LabelFor(model => model.Description)
+                </div>
+			</td>
+			<td>
+				<div class="display-field">
+					@Html.DisplayFor(model => model.Description)
+				</div>
+			</td>
+		</tr>
+    </table>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <p>
+            <input type="submit" value="Delete" />
+            @Html.RouteLink(Resources.AppMessages.Back_to_List, new { controller = "Image", action = "Index" }, new { @class = "bg-button-back" })
+        </p>
+    }
+</fieldset>

@@ -1,0 +1,93 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model IEnumerable<BgEngine.Domain.EntityModel.Post>
+
+@using Microsoft.Web.Helpers;
+@using BgEngine.Web.Helpers;
+@using Combres.Mvc;
+@using BgEngine.Extensions;
+
+@{
+    ViewBag.Title = Resources.AppMessages.home_index_title;
+    bool left = true;
+    bool right = false;
+}
+
+@Html.CombresLink("HomeIndexJs")
+
+<div id="maincontent">    
+    <h2 class="ui-helper-clear-both ui-widget-content ui-state-default ui-corner-all bg-title ui-helper-text-center ui-helper-inset">@Resources.AppMessages.Latest_Post_Added</h2>
+    <div class="sortable ui-helper-float-left ui-helper-width-49pc">
+        @{ int primary = 0; }
+        @foreach (var item in Model)
+        {
+            if (Utilities.IsEvenNumber(primary))
+            {
+                <div class="primarypost ui-widget-content ui-corner-all">
+                    @{ViewBag.IsMain = false;}
+                    @Html.Partial("_postView", item)
+                 </div>
+            }
+            primary++;    
+        }
+    </div>
+    <div class="sortable ui-helper-float-right ui-helper-width-49pc">
+        @{ int secondary = 0; }
+        @foreach (var item in Model)
+        {
+            if (!Utilities.IsEvenNumber(secondary))
+            {
+                <div class="secondarypost ui-widget-content ui-corner-all">
+                    @{ViewBag.IsMain = true;}
+                    @Html.Partial("_postView",item)
+                </div>
+            }
+            secondary++;
+        }
+      </div>
+</div>
+
+
+@section Sidebar {
+    <div id="sidebar-sharebar" class="bg-align-center-sidebar">
+        @CustomHelper.GooglePlusOne(Request.Url.AbsoluteUri.ToString(), CultureHelper.GetCurrentCulture())
+        @CustomHelper.ShareOnFacebook(Request.Url.AbsoluteUri.ToString(), ViewBag.Title) 
+        @CustomHelper.ShareOnTwitter(Request.Url.AbsoluteUri.ToString(), ViewBag.Title)        
+        @CustomHelper.SubscribeRssChannel(Url.AbsoluteAction("RssFeed", "Post"))        
+    </div>
+    <div class="ui-helper-margin-top-bottom">
+        @CustomHelper.GoogleSearch()
+    </div>
+    <div class="ui-helper-margin-top-bottom">
+        @Html.Partial("ChangeTheme")
+    </div>   
+    <div id="categories" class="ui-helper-hidden"></div>
+    <div id="archive" class="ui-helper-hidden"></div>
+    <div id="tagcloud" class="ui-helper-hidden"></div>
+    <div id="sidebar-stats" class="ui-helper-hidden ui-helper-margin-top-bottom"></div>
+    @CustomHelper.GetSidebarStatsAsync(Url.Action("SidebarStats", "Stats"))
+    @CustomHelper.GetCategoryListAsync(Url.Action("CategoryList", "Category"))
+    @CustomHelper.GetArchiveListAsync(Url.Action("ArchiveList", "Post"))
+    @CustomHelper.GetTagCloudListAsync(Url.Action("TagCloud", "Tag"))    
+    @CustomHelper.RenderTwitterWidgets(BgEngine.Application.ResourceConfiguration.BgResources.Twitter_User, BgEngine.Application.ResourceConfiguration.BgResources.Twitter_Search_Query, Resources.AppMessages.Tweets_Us, BgEngine.Application.ResourceConfiguration.BgResources.Twitter_Search_Query)
+}
+
+

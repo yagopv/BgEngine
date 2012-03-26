@@ -1,0 +1,147 @@
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\EntityFramework.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\Microsoft.Web.Helpers.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\NotFoundMvc.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\PagedList.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\PagedList.Mvc.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\StructureMap.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\WebActivator.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\EntityFramework.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\NotFoundMvc.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\PagedList.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\PagedList.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\PagedList.Mvc.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\PagedList.Mvc.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\StructureMap.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\StructureMap.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\bin\WebActivator.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\obj\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\obj\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\obj\Debug\BlogEngine.Resources.AppConfiguration.resources
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\obj\Debug\BlogEngine.Resources.AppMessages.resources
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\obj\Debug\BlogEngine.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\yawette.com\yawette.com\obj\Debug\BlogEngine.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\BgEngine.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\BgEngine.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\EntityFramework.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\Microsoft.Web.Helpers.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\NotFoundMvc.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\PagedList.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\PagedList.Mvc.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\StructureMap.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\WebActivator.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\EntityFramework.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\NotFoundMvc.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\PagedList.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\PagedList.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\PagedList.Mvc.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\PagedList.Mvc.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\StructureMap.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\StructureMap.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\obj\Debug\BgEngine.Resources.AppConfiguration.resources
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\obj\Debug\BgEngine.Resources.AppMessages.resources
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\obj\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\obj\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\obj\Debug\BgEngine.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\obj\Debug\BgEngine.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\Ionic.Zip.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\Ionic.Zip.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\AjaxMin.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\Combres.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\Combres.Mvc.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\dotless.Core.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\EcmaScript.NET.modified.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\Fasterflect.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\log4net.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\Yahoo.Yui.Compressor.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\Combres.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\Combres.Mvc.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\Fasterflect.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\log4net.xml
+E:\BgEngine\BgEngine\obj\Debug\ResolveAssemblyReference.cache
+E:\BgEngine\BgEngine\obj\Debug\BgEngine.Resources.AppConfiguration.resources
+E:\BgEngine\BgEngine\obj\Debug\BgEngine.Resources.AppMessages.resources
+E:\BgEngine\BgEngine\obj\Debug\BgEngine.Resources.EmailTemplates.resources
+E:\BgEngine\BgEngine\obj\Debug\GenerateResource.read.1.tlog
+E:\BgEngine\BgEngine\obj\Debug\GenerateResource.write.1.tlog
+E:\BgEngine\BgEngine\obj\Debug\BgEngine.dll
+E:\BgEngine\BgEngine\obj\Debug\BgEngine.pdb
+E:\BgEngine\BgEngine\bin\BgEngine.dll
+E:\BgEngine\BgEngine\bin\BgEngine.pdb
+E:\BgEngine\BgEngine\bin\AjaxMin.dll
+E:\BgEngine\BgEngine\bin\Combres.dll
+E:\BgEngine\BgEngine\bin\Combres.Mvc.dll
+E:\BgEngine\BgEngine\bin\dotless.Core.dll
+E:\BgEngine\BgEngine\bin\EcmaScript.NET.modified.dll
+E:\BgEngine\BgEngine\bin\EntityFramework.dll
+E:\BgEngine\BgEngine\bin\Fasterflect.dll
+E:\BgEngine\BgEngine\bin\Ionic.Zip.dll
+E:\BgEngine\BgEngine\bin\log4net.dll
+E:\BgEngine\BgEngine\bin\Microsoft.Web.Helpers.dll
+E:\BgEngine\BgEngine\bin\Mvc.Mailer.dll
+E:\BgEngine\BgEngine\bin\NotFoundMvc.dll
+E:\BgEngine\BgEngine\bin\PagedList.dll
+E:\BgEngine\BgEngine\bin\PagedList.Mvc.dll
+E:\BgEngine\BgEngine\bin\StructureMap.dll
+E:\BgEngine\BgEngine\bin\WebActivator.dll
+E:\BgEngine\BgEngine\bin\Yahoo.Yui.Compressor.dll
+E:\BgEngine\BgEngine\bin\Combres.xml
+E:\BgEngine\BgEngine\bin\Combres.Mvc.xml
+E:\BgEngine\BgEngine\bin\EntityFramework.xml
+E:\BgEngine\BgEngine\bin\Fasterflect.xml
+E:\BgEngine\BgEngine\bin\Ionic.Zip.xml
+E:\BgEngine\BgEngine\bin\log4net.xml
+E:\BgEngine\BgEngine\bin\NotFoundMvc.pdb
+E:\BgEngine\BgEngine\bin\PagedList.pdb
+E:\BgEngine\BgEngine\bin\PagedList.xml
+E:\BgEngine\BgEngine\bin\PagedList.Mvc.pdb
+E:\BgEngine\BgEngine\bin\PagedList.Mvc.xml
+E:\BgEngine\BgEngine\bin\StructureMap.pdb
+E:\BgEngine\BgEngine\bin\StructureMap.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\bin\Mvc.Mailer.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine\obj\Debug\BgEngine.Resources.EmailTemplates.resources
+D:\Proyectos .NET\BgEngine\BgEngine\bin\BgEngine.dll
+D:\Proyectos .NET\BgEngine\BgEngine\bin\BgEngine.pdb
+D:\Proyectos .NET\BgEngine\BgEngine\bin\AjaxMin.dll
+D:\Proyectos .NET\BgEngine\BgEngine\bin\Combres.dll
+D:\Proyectos .NET\BgEngine\BgEngine\bin\Combres.Mvc.dll
+D:\Proyectos .NET\BgEngine\BgEngine\bin\dotless.Core.dll
+D:\Proyectos .NET\BgEngine\BgEngine\bin\EcmaScript.NET.modified.dll
+D:\Proyectos .NET\BgEngine\BgEngine\bin\EntityFramework.dll
+D:\Proyectos .NET\BgEngine\BgEngine\bin\Fasterflect.dll
+D:\Proyectos .NET\BgEngine\BgEngine\bin\Ionic.Zip.dll
+D:\Proyectos .NET\BgEngine\BgEngine\bin\log4net.dll
+D:\Proyectos .NET\BgEngine\BgEngine\bin\Microsoft.Web.Helpers.dll
+D:\Proyectos .NET\BgEngine\BgEngine\bin\Mvc.Mailer.dll
+D:\Proyectos .NET\BgEngine\BgEngine\bin\NotFoundMvc.dll
+D:\Proyectos .NET\BgEngine\BgEngine\bin\PagedList.dll
+D:\Proyectos .NET\BgEngine\BgEngine\bin\PagedList.Mvc.dll
+D:\Proyectos .NET\BgEngine\BgEngine\bin\StructureMap.dll
+D:\Proyectos .NET\BgEngine\BgEngine\bin\WebActivator.dll
+D:\Proyectos .NET\BgEngine\BgEngine\bin\Yahoo.Yui.Compressor.dll
+D:\Proyectos .NET\BgEngine\BgEngine\bin\Combres.xml
+D:\Proyectos .NET\BgEngine\BgEngine\bin\Combres.Mvc.xml
+D:\Proyectos .NET\BgEngine\BgEngine\bin\EntityFramework.xml
+D:\Proyectos .NET\BgEngine\BgEngine\bin\Fasterflect.xml
+D:\Proyectos .NET\BgEngine\BgEngine\bin\Ionic.Zip.xml
+D:\Proyectos .NET\BgEngine\BgEngine\bin\log4net.xml
+D:\Proyectos .NET\BgEngine\BgEngine\bin\NotFoundMvc.pdb
+D:\Proyectos .NET\BgEngine\BgEngine\bin\PagedList.pdb
+D:\Proyectos .NET\BgEngine\BgEngine\bin\PagedList.xml
+D:\Proyectos .NET\BgEngine\BgEngine\bin\PagedList.Mvc.pdb
+D:\Proyectos .NET\BgEngine\BgEngine\bin\PagedList.Mvc.xml
+D:\Proyectos .NET\BgEngine\BgEngine\bin\StructureMap.pdb
+D:\Proyectos .NET\BgEngine\BgEngine\bin\StructureMap.xml
+D:\Proyectos .NET\BgEngine\BgEngine\obj\Debug\ResolveAssemblyReference.cache
+D:\Proyectos .NET\BgEngine\BgEngine\obj\Debug\BgEngine.Resources.AppConfiguration.resources
+D:\Proyectos .NET\BgEngine\BgEngine\obj\Debug\BgEngine.Resources.AppMessages.resources
+D:\Proyectos .NET\BgEngine\BgEngine\obj\Debug\BgEngine.Resources.EmailTemplates.resources
+D:\Proyectos .NET\BgEngine\BgEngine\obj\Debug\GenerateResource.read.1.tlog
+D:\Proyectos .NET\BgEngine\BgEngine\obj\Debug\GenerateResource.write.1.tlog
+D:\Proyectos .NET\BgEngine\BgEngine\obj\Debug\BgEngine.dll
+D:\Proyectos .NET\BgEngine\BgEngine\obj\Debug\BgEngine.pdb
+D:\Proyectos .NET\BgEngine\BgEngine\bin\en\BgEngine.resources.dll
+D:\Proyectos .NET\BgEngine\BgEngine\obj\Debug\BgEngine.Resources.AppMessages.en.resources
+D:\Proyectos .NET\BgEngine\BgEngine\obj\Debug\BgEngine.Resources.EmailTemplates.en.resources
+D:\Proyectos .NET\BgEngine\BgEngine\obj\Debug\en\BgEngine.resources.dll

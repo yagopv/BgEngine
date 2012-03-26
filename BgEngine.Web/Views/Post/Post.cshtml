@@ -1,0 +1,314 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model BgEngine.Domain.EntityModel.Post
+
+@using BgEngine.Security.Services;
+@using Microsoft.Web.Helpers;
+@using Combres.Mvc;
+@using BgEngine.Extensions;
+
+
+@{
+    string usermail = (CodeFirstSecurity.IsAuthenticated ? CodeFirstSecurity.GetUserMail(CodeFirstSecurity.CurrentUserName) : "mail@mail.com");
+    string actualvalue;
+    if (Request.Cookies["rating_" + Model.PostId.ToString()] != null)
+    {
+        actualvalue = Request.Cookies["rating_" + Model.PostId.ToString()].Value;
+    }
+    else
+    {
+        actualvalue = "0";
+    }
+    ViewBag.Title = Model.Title;
+}
+
+@Html.CombresLink("ViewPostCss")
+<script src="@Url.Content("~/Scripts/tiny_mce/tiny_mce.js")" type="text/javascript"></script>
+@Html.CombresLink("ViewPostJs")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.view_post_startup("<h1>@Resources.AppMessages.Wait_Loading</h1>"
+                            , @Model.PostId
+                            ,"@Url.RouteUrl("Default", new { controller = "Post", action = "GetPostByCode", id = Model.Code }) #comments>*"
+                            , @Model.Comments.Count()
+                            ,"@Url.Content("~/Scripts/")"
+                            ,"@CultureHelper.GetNeutralCulture(CultureHelper.GetCurrentCulture())"
+                            ,'@Gravatar.GetHtml(usermail)'
+                            ,"@Resources.AppMessages.Post_Leave_Comment")
+    });
+</script>
+
+<div id="maincontent">
+
+    @* Post *@
+
+    <div class="ui-widget-content ui-corner-all ui-helper-margin-top-bottom ui-helper-shadow">    
+        <h1 id="post-title" class="bg-panel ui-widget-header ui-helper-margin ui-corner-all ui-helper-inset">@Html.DisplayFor(modelitem => Model.Title)</h1>       
+        <div id="post-contents" class="ui-helper-width-100pc">
+            <div class="ui-helper-margin">
+                @if (Model.Image != null)
+                {
+                    if (Model.Image.ThumbnailPath != String.Empty)
+                    {
+                    <img src="@Url.Content(Model.Image.ThumbnailPath)" class="ui-helper-float-left" />
+                    }
+                    else if (Model.Image.Path != String.Empty)
+                    {
+                    <img src="@Url.Content(Model.Image.Path)" class="ui-helper-float-left" />
+                    }
+                    else
+                    {
+                    <img src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" class="ui-helper-float-left"/>
+                    }
+                }
+                else
+                {
+                    <img src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" class="ui-helper-float-left" />
+                }
+                <div id="post-description" class="ui-helper-sidetext">
+                    <em>@Html.Raw(Model.Description.Replace(Environment.NewLine,"<br/>"))</em>
+                </div>
+            </div>
+            <div class="ui-helper-reset-float">
+                @Html.Partial("_informationButtons", Model)
+            </div>
+            <div class="ui-helper-reset-float ui-helper-margin">
+                <div class="rateit bigstars ui-helper-arrange-rateit-stars" data-rateit-min="0" data-rateit-max="10"
+                    data-rateit-starwidth="32" data-rateit-starheight="32">
+                </div>                    
+                <img id="rateit-loading" src="@Url.Content("~/Content/Icons/ajax-loader-b.gif")" class="ui-helper-arrange-rateit-loading ui-helper-hidden" />
+                <div id="rateit-vote" class="ui-widget ui-widget-header ui-state-default ui-helper-padding ui-corner-all ui-helper-float-left ui-helper-arrange-rateit-rating ui-helper-relative">
+                    <h1 id="rateit-average">
+                        @if (Model.Ratings.Any())
+                        { 
+                            <text>@Math.Round(Model.Ratings.Average(r => r.Value),1)</text>
+                        }
+                        else
+                        { 
+                            <text>0</text>
+                        }
+                    </h1>
+                    <p class="ui-helper-absolute ui-helper-rating-votes">
+                        <span id="rateit-votes">
+                            @if (Model.Ratings.Any())
+                            { 
+                               <text>@Model.Ratings.Count()</text>
+                            }
+                            else
+                            { 
+                                <text>0</text>
+                            }
+                        </span>&nbsp;@Resources.AppMessages.Post_Ratings
+                    </p>
+               </div>
+            </div>
+            @if (CodeFirstSecurity.IsAuthenticated)
+            {
+                <script type="text/javascript">
+                    $('.rateit').rateit({ max: 10,step: 1});        
+                    $('.rateit').rateit("value",@actualvalue);
+                    $('.rateit').bind('rated', function (e) {
+                        var ri = $(this);
+                        $("#rateit-loading").toggleClass("ui-helper-hidden");
+                        ri.rateit('readonly', true);
+                        var ri = $(this);
+                        var value = ri.rateit('value');         
+                        $.post("@Url.RouteUrl("Default", new { controller = "Rating", action = "SetRating" })", { PostId: @Model.PostId, Value: value },
+                            function(data, status) {         
+                                $( "#rateit-average").text(data.roundedaverage);
+                                $("#rateit-votes").text(data.totalvotes);                                              
+                                $("#rateit-loading").toggleClass("ui-helper-hidden");
+                                ri.rateit('readonly', false);
+                            },
+                            "json"
+                        );
+                    });                
+                </script> 
+            }
+            else
+            {
+                <script type="text/javascript">
+                    $('.rateit').rateit({ max: 10,step: 1});        
+                    $('.rateit').rateit("value",@actualvalue);
+                    $('.rateit').rateit("readonly",true);
+                </script>                  
+            }
+            <div id="post-content" class="ui-helper-reset-float ui-helper-margin reset-bold">
+                  @{                   
+                      string text = null;
+                      HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+                      if (!String.IsNullOrEmpty(Model.Text))
+                      {                          
+                          doc.LoadHtml(Model.Text);
+                          foreach (HtmlAgilityPack.HtmlNode node in doc.DocumentNode.SelectNodes("//p"))
+                          {
+                              foreach (var tag in Model.Tags)
+                              {
+                                  node.InnerHtml = node.InnerHtml.Replace(tag.TagName, "<span data-tag>" + tag.TagName + "</span>");
+                              }
+                          }
+                          text = doc.DocumentNode.InnerHtml;
+                      }
+                      else
+                      {
+                          text = String.Empty;
+                      }
+                  }
+                  @Html.Raw(text)
+            </div>
+            @Html.Partial("_informationButtons", Model)
+            <div class="ui-helper-reset-float ui-helper-margin">
+                <h3><strong>@Resources.AppMessages.Post_TaggedWith&nbsp&nbsp&nbsp&nbsp</strong></h3>
+                @foreach (var tag in Model.Tags)
+                {
+                    @Html.RouteLink(tag.TagName, "Default", new { controller = "Post", action = "GetPostsByTag", id = tag.TagName }, new { @class = "tooltip bg-button-no-icon", title = (String.IsNullOrEmpty(tag.TagDescription) ? tag.TagName : tag.TagDescription) })
+                }   
+            </div>
+        </div>
+    </div>
+
+    @* Comments *@
+
+    <div class="ui-widget-content ui-corner-all ui-helper-margin-top-bottom ui-helper-reset-float ui-helper-shadow">
+        <h1 id="comment-title" class="bg-panel ui-widget-header ui-helper-margin-left-right ui-corner-all ui-helper-inset">@Resources.AppMessages.Post_Comment </h1>
+        <div id="comments" class="ui-helper-width-100pc reset-bold">    
+            @if (Model.Comments.Any())
+            {
+            <ul id="comment-comments">
+                @foreach (var item in Model.Comments.Where(c => !c.isRelatedComment).OrderBy(c => c.DateCreated))
+                {
+                    <li class="thread ui-helper-reset-float ui-helper-relative">
+                        <div class="bg-widget-image-left">
+                            @Gravatar.GetHtml(item.User.Email)
+                        </div>
+                        <div class="bg-widget-content-right">
+                            <p class="ui-helper-width-100pc">@Html.Raw(item.Message)</p>
+                            <div class="ui-helper-width-100pc bg-align-center">
+                                <a href="@Url.RouteUrl("Default", new { controller = "User", action = "GetTooltipData", id = item.User.UserId })" class="tooltip-ajax ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" >
+                                    <span class="ui-button bg-icon-left ui-icon ui-icon-person"></span>@Html.DisplayFor(modelitem => item.User.Username)</a>
+                                <p class="tooltip ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" title="@String.Format(Resources.AppMessages.Post_Comment_Writed, item.DateCreated.ToLongDateString())">
+                                    <span class="ui-button bg-icon-left ui-icon ui-icon-calendar"></span>@CustomHelper.DateTime2Text(item.DateCreated)</p>
+                            </div>
+                        </div>
+                        @if (CodeFirstSecurity.IsAuthenticated)
+                        { 
+                            <div class="bg-toolbar tooltip">
+                                <a id="@item.CommentId" class="reply bg-button-reply ui-state-default ui-corner-all"  href="#" title="@Resources.AppMessages.Comment_Reply">@Resources.AppMessages.Comment_Reply</a>
+                            </div>
+                        }
+                        @if (item.RelatedComments.Any())
+                        {
+                            <ul class="related-comments-list">
+                                @foreach (var relatedcomment in item.RelatedComments.OrderBy(c => c.DateCreated))
+                                {
+                                    <li class="ui-helper-reset-float ui-helper-relative ui-helper-margin">
+                                        <div class="bg-widget-image-left">
+                                            @Gravatar.GetHtml(relatedcomment.User.Email)
+                                        </div>
+                                        <div class="bg-widget-content-right">
+                                            <p class="ui-helper-width-100pc">@Html.Raw(relatedcomment.Message)</p>
+                                            <div class="ui-helper-width-100pc bg-align-center">
+                                                <a href="@Url.RouteUrl("Default", new { controller = "User", action = "GetTooltipData", id = item.User.UserId })" class="tooltip-ajax ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" >
+                                                    <span class="ui-button bg-icon-left ui-icon ui-icon-person"></span>@Html.DisplayFor(modelitem => relatedcomment.User.Username)</a>
+                                                <p class="tooltip ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" title="@String.Format(Resources.AppMessages.Post_Comment_Writed, relatedcomment.DateCreated.ToLongDateString())">
+                                                    <span class="ui-button bg-icon-left ui-icon ui-icon-calendar"></span>@CustomHelper.DateTime2Text(relatedcomment.DateCreated)</p>
+                                            </div>
+                                        </div>
+                                        @if (CodeFirstSecurity.IsAuthenticated)
+                                        {
+                                            <div class="bg-toolbar tooltip">
+                                                <a id="@item.CommentId" class="reply bg-button-reply ui-state-default ui-corner-all"  href="#" title="@Resources.AppMessages.Comment_Reply">@Resources.AppMessages.Comment_Reply</a>
+                                            </div>
+                                        }
+                                        <div class="ui-helper-reset-float">
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                        <div class="ui-helper-reset-float">
+                        </div>
+                    </li>
+                }
+            </ul>
+            }
+            else
+            {
+                <h2 class="ui-widget-content ui-state-highlight ui-corner-all ui-helper-padding ui-helper-margin-left-right">@Resources.AppMessages.NoCommentsFound</h2>
+            }
+            <div class="ui-helper-reset-float"></div>
+        </div>     
+    </div>
+
+     <div id="comment-container" class="ui-widget-content ui-corner-all ui-helper-margin-top-bottom ui-helper-reset-float ui-helper-shadow">
+            <h1 id="comment-leave-title" class="bg-panel ui-widget-header ui-helper-margin-left-right ui-corner-all ui-helper-inset">@Resources.AppMessages.Post_Leave_Comment</h1>
+            @if (CodeFirstSecurity.IsAuthenticated)
+            {
+                <div class="comment-area ui-helper-width-100pc">
+                    <div class="bg-widget-image-left">
+                        <div class="bg-align-center">
+                            @Gravatar.GetHtml(CodeFirstSecurity.GetUserMail(CodeFirstSecurity.CurrentUserName))
+                        </div>
+                    </div>
+                    <div class="bg-widget-content-right">
+                        <textarea id="comment-textarea" rows="5" class="ui-helper-width-100pc ui-state-default ui-corner-all">
+                        </textarea>
+                        <div class="bg-input-search ui-helper-margin-top-bottom">							
+                            <input id="comment-submit"   type="button" value="@Resources.AppMessages.Post_Leave_Comment" />   
+                        </div>
+                    </div>
+                </div>	
+            }
+            else
+            {
+                <h2 class="ui-helper-margin ui-widget-content ui-state-highlight ui-corner-all ui-helper-padding">@Resources.AppMessages.Comments_Authenticathed</h2>    
+                <p class="ui-helper-margin">@Resources.AppMessages.Comments_InitSession   @Html.RouteLink("Login", "Default", new { controller = "Account", action = "LogOn", returnUrl = Request.Url.ToString() }, new { @class = "bg-button-locked" })</p>
+                <p class="ui-helper-margin">@Resources.AppMessages.Comments_Register  @Html.RouteLink("Registrate", "Default", new { controller = "Account", action = "Register" }, new { @class = "bg-button-edit" })</p>
+            }
+            <div class="ui-helper-reset-float"></div>
+     </div>
+     @Html.AntiForgeryToken()
+</div>
+
+@section Sidebar {
+    <div id="sidebar-sharebar" class="bg-align-center-sidebar">
+        @CustomHelper.GooglePlusOne(Request.Url.AbsoluteUri.ToString(), CultureHelper.GetCurrentCulture())            
+        @CustomHelper.ShareOnFacebook(Request.Url.AbsoluteUri.ToString(), ViewBag.Title) 
+        @CustomHelper.ShareOnTwitter(Request.Url.AbsoluteUri.ToString(), ViewBag.Title)
+        @CustomHelper.SubscribeRssChannel(Url.AbsoluteAction("RssFeed","Post"))
+    </div>
+    <div class="ui-helper-margin-top-bottom">
+        @CustomHelper.GoogleSearch()
+    </div>
+    <div class="ui-helper-margin-top-bottom">
+        @Html.Partial("ChangeTheme")
+    </div>
+    <div id="categories" class="ui-helper-hidden"></div>
+    <div id="archive" class="ui-helper-hidden"></div>
+    <div id="tagcloud" class="ui-helper-hidden"></div>
+    <div id="sidebar-stats" class="ui-helper-hidden ui-helper-margin-top-bottom"></div>
+    @CustomHelper.GetSidebarStatsAsync(Url.Action("SidebarStats", "Stats"))
+    @CustomHelper.GetCategoryListAsync(Url.Action("CategoryList", "Category"))
+    @CustomHelper.GetArchiveListAsync(Url.Action("ArchiveList", "Post"))
+    @CustomHelper.GetTagCloudListAsync(Url.Action("TagCloud", "Tag"))
+    @CustomHelper.RenderTwitterWidgets(BgEngine.Application.ResourceConfiguration.BgResources.Twitter_User, Model.Category.Name, Resources.AppMessages.Tweets_Reference, Model.Category.Name)
+}

@@ -1,0 +1,75 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model IEnumerable<BgEngine.Domain.EntityModel.Image>
+
+@using PagedList.Mvc;
+@using PagedList;
+@using Combres.Mvc;
+
+<style type="text/css">
+	.elements ul {float: left;}
+	.elements ul li  {background: #fff; color: #fff; margin: 0 8px 8px 0; padding: 0; position: relative;}
+	.elements li {float: left; list-style: none; width:100px;  height:100px;}
+	.elements li img  {width:100px;  height:100px;}
+	.elements li img:hover  {cursor: pointer;}
+</style>
+
+@Html.CombresLink("ShowAllImagesJs")
+
+<script type="text/javascript">
+	$(document).ready(function () {
+        $.showallimages_startup("@Url.RouteUrl("Default", new { controller = "Image", action = "ShowAllImages" })",
+                                "@Url.RouteUrl("Default",new {controller="Image", action="GetImageAutoCompleteSuggestions"})",
+                                "<h1>@Resources.AppMessages.Wait_Loading</h1>",
+                                "@Resources.AppMessages.ImageSearchBox")
+    });
+</script>
+
+@CustomHelper.GetTooltipInitializationCode()
+
+<div class="bg-input-search">
+	<input id="searchimage" name="Title" type="text"/>
+	<a id="searchbutton" class="bg-panel bg-button-search"></a>
+</div>
+
+
+<div id="images">
+	@if (Model.Any())
+	{
+		<div class="elements">
+			<ul>
+				@foreach (var modelitem in Model)
+				{               
+					<li>
+						<img id="@modelitem.ImageId" title="@modelitem.FileName" class="tooltip image" src="@Url.Content(modelitem.ThumbnailPath)" />
+					</li> 
+				}
+			</ul>
+		</div>
+		<div id="pager" class="ui-helper-reset-float ui-margin-top-bottom">
+			@Html.PagedListPager((IPagedList)Model, page => Url.RouteUrl("Default", new { controller = "Image", action = "ShowAllImages", page }), PagedListRenderOptions.PageNumbersOnly)
+		</div>
+	}
+	else
+	{
+		   <h2 class="ui-widget-content ui-state-highlight ui-corner-all ui-helper-padding" style="height:50px;">@Resources.AppMessages.Error_NoImageFound</h2>
+	}        
+</div>

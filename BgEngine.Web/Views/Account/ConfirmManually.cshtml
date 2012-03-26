@@ -1,0 +1,75 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model BgEngine.Web.ViewModels.ConfirmationModel
+
+@using Combres.Mvc
+
+@{
+    ViewBag.Title = Resources.AppMessages.ConfirmManually_Title;
+}
+
+@Html.CombresLink("FormJs")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("form").form();
+    });
+</script>
+
+@using (Html.BeginForm()) {
+    <div>
+        <fieldset>
+            <legend>@Resources.AppMessages.Confirmation_Token_Prompt</legend>            
+            <table class="table-template">
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(m => m.UserName)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(m => m.UserName)
+                            @Html.ValidationMessageFor(m => m.UserName)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(m => m.Token)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(m => m.Token)
+                            @Html.ValidationMessageFor(m => m.Token)
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <p>
+                <input type="submit" value="@Resources.AppMessages.ConfirmManually_Submit" />
+            </p>    
+        </fieldset>
+    </div>
+}
+

@@ -1,0 +1,50 @@
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine.Domain\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine.Domain\bin\Debug\BgEngine.Domain.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine.Domain\bin\Debug\BgEngine.Domain.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine.Domain\bin\Debug\BgEngine.Resources.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine.Domain\bin\Debug\EntityFramework.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine.Domain\bin\Debug\BgEngine.Resources.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine.Domain\bin\Debug\EntityFramework.xml
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine.Domain\obj\Debug\BgEngine.Domain.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine\BgEngine.Domain\obj\Debug\BgEngine.Domain.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Domain\bin\Debug\BgEngine.Domain.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Domain\bin\Debug\BgEngine.Domain.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Domain\bin\Debug\BgEngine.Resources.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Domain\bin\Debug\BgEngine.Resources.pdb
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Domain\obj\Debug\ResolveAssemblyReference.cache
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Domain\obj\Debug\BgEngine.Domain.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Domain\obj\Debug\BgEngine.Domain.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Domain\bin\Debug\BgEngine.Domain.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Domain\bin\Debug\BgEngine.Domain.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Domain\bin\Debug\BgEngine.Resources.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Domain\bin\Debug\EntityFramework.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Domain\bin\Debug\BgEngine.Resources.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Domain\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Domain\obj\Debug\BgEngine.Domain.dll
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Domain\obj\Debug\BgEngine.Domain.pdb
+C:\Documents and Settings\T08062\Mis documentos\Web\BgEngine.NLayer\BgEngine.Domain\bin\Debug\en\BgEngine.Resources.resources.dll
+D:\Proyectos .NET\BgEngine.NLayer\BgEngine.Domain\bin\Debug\en\BgEngine.Resources.resources.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Domain\bin\Debug\BgEngine.Domain.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Domain\bin\Debug\BgEngine.Domain.pdb
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Domain\bin\Debug\BgEngine.Resources.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Domain\bin\Debug\BgEngine.Resources.pdb
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Domain\bin\Debug\en\BgEngine.Resources.resources.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Domain\obj\Debug\ResolveAssemblyReference.cache
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Domain\obj\Debug\BgEngine.Domain.dll
+D:\Proyectos .NET\BgEngine.Beta\BgEngine.Domain\obj\Debug\BgEngine.Domain.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Domain\bin\Debug\BgEngine.Domain.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Domain\bin\Debug\BgEngine.Domain.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Domain\bin\Debug\BgEngine.Resources.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Domain\bin\Debug\BgEngine.Resources.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Domain\bin\Debug\en\BgEngine.Resources.resources.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Domain\obj\Debug\ResolveAssemblyReference.cache
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Domain\obj\Debug\BgEngine.Domain.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.1\BgEngine.Domain\obj\Debug\BgEngine.Domain.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Domain\bin\Debug\BgEngine.Domain.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Domain\bin\Debug\BgEngine.Domain.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Domain\bin\Debug\BgEngine.Resources.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Domain\bin\Debug\BgEngine.Resources.pdb
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Domain\bin\Debug\en\BgEngine.Resources.resources.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Domain\obj\Debug\BgEngine.Domain.csprojResolveAssemblyReference.cache
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Domain\obj\Debug\BgEngine.Domain.dll
+D:\Proyectos .NET\BgEngine.Beta_v0.2\BgEngine.Domain\obj\Debug\BgEngine.Domain.pdb

@@ -1,0 +1,107 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model IEnumerable<BgEngine.Domain.EntityModel.Post>
+
+@using PagedList.Mvc;
+@using PagedList;
+@using Combres.Mvc;
+@using BgEngine.Extensions;
+
+@Html.CombresLink("ViewPostsJs")
+
+@{
+    string category = "";
+    string tag = "";
+    if (ViewBag.Action == "GetPostsByCategory")
+    {
+        category = ViewBag.Tag;
+    }
+    else
+    {
+        if (ViewBag.Action == "GetPostsByTag")
+        {
+            tag = ViewBag.Tag; 
+        }
+    }
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.view_posts_startup("@CultureHelper.GetNeutralCulture(CultureHelper.GetCurrentCulture())","@category","@tag");
+    });
+</script>
+
+<div id="maincontent" class="ui-helper-float-left">
+    @if (!String.IsNullOrEmpty(ViewBag.Tag))
+    {
+        <h2 class="ui-widget-content ui-state-default ui-corner-all ui-helper-margin-top-bottom ui-helper-text-center bg-title ui-helper-inset">@String.Format(Resources.AppMessages.Posts_Tagged_With,ViewBag.Tag)</h2>
+    }
+    else
+    {        
+        <h2 class="ui-widget-content ui-state-default ui-corner-all ui-helper-margin-top-bottom ui-helper-text-center bg-title ui-helper-inset">@String.Format(Resources.AppMessages.Post_Written_In, new DateTime(ViewBag.Year, ViewBag.Month,1).ToString("y"))</h2>     
+    }        
+	<div id="list">
+		<ul id="grid" class="ui-helper-reset">
+		@foreach (var post in Model)
+        {
+			<li>
+				<div class="mainpost ui-widget-content ui-corner-all">
+					@{ViewBag.IsMain = true;}
+					@Html.Partial("_postView", post)
+				</div>
+			</li>
+        }
+		</ul>
+		<div id="pager" class="ui-helper-reset-float ui-margin-top-bottom">
+			@Html.PagedListPager((IPagedList)Model, page => Url.RouteUrl(ViewBag.Route, new { controller = "Post", action = ViewBag.Action, page }), PagedListRenderOptions.PageNumbersOnly)
+		</div>
+	</div>
+</div>
+
+
+@section Sidebar {
+	<div id="sidebar-sharebar" class="bg-align-center-sidebar">
+        @CustomHelper.GooglePlusOne(Request.Url.AbsoluteUri.ToString(), CultureHelper.GetCurrentCulture())
+        @CustomHelper.ShareOnFacebook(Request.Url.AbsoluteUri.ToString(), ViewBag.Title) 
+        @CustomHelper.ShareOnTwitter(Request.Url.AbsoluteUri.ToString(), ViewBag.Title)
+        @CustomHelper.SubscribeRssChannel(Url.AbsoluteAction("RssFeed", "Post"))
+	</div>
+	<div class="ui-helper-margin-top-bottom">
+		@CustomHelper.GoogleSearch()
+	</div>
+		<div class="ui-helper-margin-top-bottom">
+		@Html.Partial("ChangeTheme")
+	</div>
+    <div id="categories" class="ui-helper-hidden"></div>
+    <div id="archive" class="ui-helper-hidden"></div>
+    <div id="tagcloud" class="ui-helper-hidden"></div>
+    <div id="sidebar-stats" class="ui-helper-hidden ui-helper-margin-top-bottom"></div>
+    @CustomHelper.GetSidebarStatsAsync(Url.Action("SidebarStats", "Stats"))
+    @CustomHelper.GetCategoryListAsync(Url.Action("CategoryList", "Category"))
+    @CustomHelper.GetArchiveListAsync(Url.Action("ArchiveList", "Post"))
+    @CustomHelper.GetTagCloudListAsync(Url.Action("TagCloud", "Tag"))
+    @if (ViewBag.Action != "GetPostsByDate")
+    {
+        <text>@CustomHelper.RenderTwitterWidgets(BgEngine.Application.ResourceConfiguration.BgResources.Twitter_User, ViewBag.Tag, Resources.AppMessages.Tweets_Reference, ViewBag.Tag)</text>
+    }    
+}
+
+

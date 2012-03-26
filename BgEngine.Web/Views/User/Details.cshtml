@@ -1,0 +1,187 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model BgEngine.Domain.EntityModel.User
+
+@using BgEngine.Security.Services;
+@using Combres.Mvc;
+
+@{
+	Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+    ViewBag.Title = Resources.AppMessages.User + " - " + Resources.AppMessages.Detail; ;
+}
+
+<fieldset class="ui-widget ui-widget-content ui-corner-all">
+	<legend class="bg-panel ui-widget-header ui-corner-all">@String.Format(Resources.AppMessages.Localization_Detail,Model.Username)</legend>
+	<table class="table-template">
+		<tr>
+			<td>
+				<div class="display-label">
+                    @Html.LabelFor(model => model.FirstName)
+                </div>
+			</td>
+			<td>
+				<div class="display-field">
+					@Html.DisplayFor(model => model.FirstName)
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="display-label">
+                    @Html.LabelFor(model => model.LastName)
+                </div>
+			</td>
+			<td>
+				<div class="display-field">
+					@Html.DisplayFor(model => model.LastName)
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="display-label">
+                    @Html.LabelFor(model => model.Email)
+                </div>
+			</td>
+			<td>
+				<div class="display-field">
+					@Html.DisplayFor(model => model.Email)
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="display-label">
+                    @Html.LabelFor(model => model.Username)
+                </div>
+			</td>
+			<td>
+				<div class="display-field">
+					@Html.DisplayFor(model => model.Username)
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="display-label">
+                    @Html.LabelFor(model => model.TimeZone)
+                </div>
+			</td>
+			<td>
+				<div class="display-field">
+					@Html.DisplayFor(model => model.TimeZone)
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="display-label">
+                    @Html.LabelFor(model => model.Culture)
+                </div>
+			</td>
+			<td>
+				<div class="display-field">
+					@Html.DisplayFor(model => model.Culture)
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="display-label">
+                    @Html.LabelFor(model => model.CreateDate)
+                </div>
+			</td>
+			<td>
+				<div class="display-field">
+					@Html.DisplayFor(model => model.CreateDate)
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="display-label">
+                    @Html.LabelFor(model => model.IsConfirmed)
+                </div>
+			</td>
+			<td>
+				<div class="display-field">
+					@Html.DisplayFor(model => model.IsConfirmed)
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="display-label">
+                    @Html.LabelFor(model => model.PasswordFailuresSinceLastSuccess)
+                </div>
+			</td>
+			<td>
+				<div class="display-field">
+					@Html.DisplayFor(model => model.PasswordFailuresSinceLastSuccess)
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="display-label">
+                    @Html.LabelFor(model => model.LastPasswordFailureDate)
+                </div>
+			</td>
+			<td>
+				<div class="display-field">
+					@Html.DisplayFor(model => model.LastPasswordFailureDate)
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="display-label">
+                    @Html.LabelFor(model => model.PasswordChangedDate)
+                </div>
+			</td>
+			<td>
+				<div class="display-field">
+					@Html.DisplayFor(model => model.PasswordChangedDate)
+				</div>
+			</td>
+		</tr>
+	</table>
+		<div class="ui-helper-margin">
+			@foreach (var role in CodeFirstRoleServices.GetAllRoles())
+			{
+				<div class="ui-helper-float-left ui-helper-margin-left-right">                   
+					@if (CodeFirstRoleServices.IsUserInRole(Model.Username, role))
+					{         
+                        @Html.CheckBox("selectedroles", true, new { disabled = "disabled" })						
+					}
+					else
+					{
+                        @Html.CheckBox("selectedroles", false, new { disabled = "disabled" })						
+                    }
+					@Html.Label(role)
+				</div>
+            }
+		</div>
+	<p class="ui-helper-reset-float">
+		@Html.ActionLink(@Resources.AppMessages.Edit, "Edit", new { id = Model.UserId }, new { @class = "bg-button-edit" })
+		@Html.RouteLink(Resources.AppMessages.Back_to_List, new { controller = "User", action = "Index" }, new { @class = "bg-button-back" })
+	</p>
+</fieldset>

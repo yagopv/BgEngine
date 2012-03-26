@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E9EAC78D-6388-4561-9B67-B10B2246AC7F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BgEngine.Application</RootNamespace>
+    <AssemblyName>BgEngine.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.2.1.0\lib\40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Archivos de programa\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\Assemblies\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationValidationErrorsException.cs" />
+    <Compile Include="DTO\ConfigOptionsDTO.cs" />
+    <Compile Include="DTO\StringValueDTO.cs" />
+    <Compile Include="DTO\ImageDTO.cs" />
+    <Compile Include="Resource Config\BgResources.cs" />
+    <Compile Include="Resource Config\BlogResourceServices.cs" />
+    <Compile Include="Resource Config\IBlogResourceServices.cs" />
+    <Compile Include="Services\AccountServices.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BlogServices.cs" />
+    <Compile Include="Services\IAccountServices.cs" />
+    <Compile Include="Services\IMediaServices.cs" />
+    <Compile Include="Services\IBlogServices.cs" />
+    <Compile Include="Services\IService.cs" />
+    <Compile Include="Services\IStatsServices.cs" />
+    <Compile Include="Services\MediaServices.cs" />
+    <Compile Include="Services\Service.cs" />
+    <Compile Include="DTO\StatsDTO.cs" />
+    <Compile Include="Services\StatsServices.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BgEngine.Domain\BgEngine.Domain.csproj">
+      <Project>{5D0827AB-F93D-4CB0-BF47-062A39AEFDF6}</Project>
+      <Name>BgEngine.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BgEngine.Infraestructure\BgEngine.Infraestructure.csproj">
+      <Project>{C384ED72-35AE-47C8-84C9-F38454475313}</Project>
+      <Name>BgEngine.Infraestructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BgEngine.Resources\BgEngine.Resources.csproj">
+      <Project>{3BB0C361-BE7E-483E-9A4B-38545371F630}</Project>
+      <Name>BgEngine.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BgEngine.Security\BgEngine.Security.csproj">
+      <Project>{C40A9B37-D42D-4913-BD31-5A781ECB9D7B}</Project>
+      <Name>BgEngine.Security</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

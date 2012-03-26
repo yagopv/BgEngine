@@ -1,0 +1,99 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model IEnumerable<BgEngine.Domain.EntityModel.Post>
+
+@using Combres.Mvc;
+
+@{
+	Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+	ViewBag.Title = @Resources.AppMessages.Index + " - " + Resources.AppMessages.Post;
+	WebGrid grid = new WebGrid(ajaxUpdateContainerId: "grid-container", rowsPerPage:Int32.Parse(ViewBag.RowsPerPage));
+	grid.Bind(Model, autoSortAndPage: false, rowCount: ViewBag.TotalPosts);
+}
+
+@Html.CombresLink("PostIndexInitViewsJs")
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$.index_startup('<h1>@Resources.AppMessages.Wait_Loading</h1>');
+		$.post_startup("@Url.RouteUrl("Default",new {controller="Post", action="Index"})",
+					   "@Url.RouteUrl("Default",new {controller="Post", action="GetPostAutoCompleteSuggestions"})",
+					   "@Resources.AppMessages.SearchBox");
+	});
+</script>
+
+<p>
+	@Html.RouteLink(Resources.AppMessages.Create, "Default", new { controller = "Post", action = "Create" }, new { @class = "bg-button-new" })
+</p>
+
+@if (Model.Any())
+{ 
+    <div class="bg-input-search">
+	    <input id="searchpost" name="Title" type="text"/>
+	    <a id="searchbutton" class="bg-panel bg-button-search"></a>
+    </div>
+
+    <div id="grid-container" class="ui-helper-margin-top-bottom">
+	    @grid.GetHtml(htmlAttributes: new { id = "table-content", @class = "ui-helper-width-100pc" }, columns: new[] {
+		    grid.Column("ImageURL",
+			    header:"Imagen asociada",
+			    format: @<div class="bg-align-center ui-helper-image-100-100">
+					    @if (item.Image != null)  
+					     {
+						    if (item.Image.ThumbnailPath != String.Empty)   
+						    {
+							    <img class="image ui-helper-image-100-100" src="@Url.Content(item.Image.ThumbnailPath)" />
+						    }
+						    else if (item.Image.Path != String.Empty)  
+						    {
+							    <img class="image ui-helper-image-100-100" src="@Url.Content(item.Image.Path)" />
+						    } 
+						    else  
+						    {
+							    <img class="image ui-helper-image-100-100"  src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+						    }
+					    }    
+					    else  {
+						    <img class="image ui-helper-image-100-100"  src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+					    }                           
+					    </div>,
+			    canSort:false),
+		    grid.Column("Title",header:Resources.AppMessages.Post_Title, canSort:true),
+		    grid.Column("Description",header:Resources.AppMessages.Post_Description, format: @<span>@CustomHelper.TruncateString(item.Description,100)</span>,canSort:false),
+		    grid.Column("DateCreated",header: Resources.AppMessages.DateCreated, canSort:true),
+		    grid.Column("Category",header:Resources.AppMessages.Category, canSort:true, format: @<span>@item.Category.Name</span>),
+		    grid.Column("User",header:Resources.AppMessages.User, canSort:true,format:@<span>@item.User.Username</span>),
+		    grid.Column("Visits",header:Resources.AppMessages.Post_Visits, canSort:true,format:@<span><p class="ui-helper-medium-font-size ui-helper-text-center">@item.Visits</p></span>),
+		    grid.Column("", header: Resources.AppMessages.Actions, 
+						    format: @<span class="options">
+									    @Html.ActionLink("Editar", "Edit", new { id = item.PostId }, new { @class = "bg-button-grid-edit tooltip" })
+									    @Html.ActionLink("Ver detalle", "Details", new { id = item.PostId }, new { @class = "bg-button-grid-zoom tooltip" })
+									    @Html.ActionLink("Eliminar", "Delete", new { id = item.PostId }, new { @class = "bg-button-grid-delete tooltip" })
+								    </span>,
+						    canSort:false,
+						    style: "ui-helper-minwidth")
+	    }, mode: WebGridPagerModes.All)
+    </div>
+}
+else
+{
+	<h2 class="ui-widget-content ui-state-highlight ui-corner-all ui-helper-padding">@Resources.AppMessages.Error_NoPostFound</h2>
+}

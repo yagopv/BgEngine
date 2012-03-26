@@ -1,0 +1,166 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model BgEngine.Web.ViewModels.RegisterModel
+
+@using System.Globalization;
+@using BgEngine.Security.Services;
+@using Combres.Mvc;
+
+@{
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+    ViewBag.Title = Resources.AppMessages.User + " - " + Resources.AppMessages.Create; ;
+}
+
+@Html.CombresLink("FormJs")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("form").form();
+    });
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>@Resources.AppMessages.Localization_Create_User</legend>
+        <table class="table-template">
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.FirstName)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.FirstName)
+                        @Html.ValidationMessageFor(model => model.FirstName)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.LastName)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.LastName)
+                        @Html.ValidationMessageFor(model => model.LastName)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                 <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Email)
+                    </div>
+                 </td>
+                 <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Email)
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                 </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.UserName)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.UserName)
+                        @Html.ValidationMessageFor(model => model.UserName)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Password)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Password)
+                        @Html.ValidationMessageFor(model => model.Password)
+                    </div>
+                 </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ConfirmPassword)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.ConfirmPassword)
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                    </div>
+                 </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.TimeZone)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.DropDownListFor(m => m.TimeZone, new SelectList(TimeZoneInfo.GetSystemTimeZones().OrderBy(tz => tz.DisplayName).Select(tz => tz.DisplayName)))
+                        @Html.ValidationMessageFor(model => model.TimeZone)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Culture)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.DropDownListFor(m => m.Culture, new SelectList(CultureInfo.GetCultures(CultureTypes.AllCultures).OrderBy(c => c.DisplayName).Select(c => c.DisplayName)))
+                        @Html.ValidationMessageFor(model => model.Culture)
+                    </div>      
+                </td>
+            </tr>
+        </table>
+        <div class="ui-helper-margin multiselect ui-helper-margin-top-bottom">
+            @foreach (var role in CodeFirstRoleServices.GetAllRoles())
+            {
+                <div class="multiselect-check">
+                    <input type="checkbox" name="selectedroles" value="@role" />
+                    <span>@role</span>
+                </div>
+            }
+        </div>
+        <p class="ui-helper-reset-float">
+            <input type="submit" value="@Resources.AppMessages.Create" />
+            @Html.RouteLink(Resources.AppMessages.Back_to_List, new { controller = "User", action = "Index" }, new { @class = "bg-button-back" })
+        </p>
+    </fieldset>
+}

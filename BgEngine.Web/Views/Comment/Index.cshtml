@@ -1,0 +1,70 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model IEnumerable<BgEngine.Domain.EntityModel.Comment>
+
+@using Combres.Mvc;
+
+@{
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+    ViewBag.Title = Resources.AppMessages.Comment + "-" + Resources.AppMessages.Index;
+
+    WebGrid grid = new WebGrid(ajaxUpdateContainerId: "grid-container", rowsPerPage: Int32.Parse(ViewBag.RowsPerPage));
+    grid.Bind(Model, autoSortAndPage: false, rowCount: ViewBag.TotalComments);    
+    var culture = CultureHelper.GetNeutralCulture(CultureHelper.GetCurrentCulture());
+}
+
+@Html.CombresLink("IndexViewsJs")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.index_startup('<h1>@Resources.AppMessages.Wait_Loading</h1>');
+    });
+</script>
+
+<p>
+    @Html.RouteLink(Resources.AppMessages.Create, "Default", new { controller = "Comment", action = "Create" }, new { @class = "bg-button-new" })
+</p>
+
+@if (Model.Any())
+{
+    <div id="grid-container">
+        @grid.GetHtml(htmlAttributes: new {@class="ui-helper-width-100pc"}, columns: new[] {
+            grid.Column("CommentId",  header:Resources.AppMessages.Comment, format: @<span><text>#@item.CommentId</text></span>, canSort:false),
+            grid.Column("Message",    header:Resources.AppMessages.Comment,canSort:false,style:"ui-helper-width-50pc",format:@<span>@Html.Raw(item.Message)</span>),
+            grid.Column("DateCreated",header:Resources.AppMessages.DateCreated, canSort:true),
+            grid.Column("Post.Title", header:Resources.AppMessages.Post, canSort:false),
+            grid.Column("User.Username",header:Resources.AppMessages.User, canSort:true),
+            grid.Column("", header:Resources.AppMessages.Actions, 
+                            format: @<span class="options">
+                                        @Html.ActionLink(Resources.AppMessages.Edit, "Edit", new { id = item.CommentId }, new { @class = "bg-button-grid-edit tooltip" })
+                                        @Html.ActionLink(Resources.AppMessages.View_Detail, "Details", new { id = item.CommentId }, new { @class = "bg-button-grid-zoom tooltip" })
+                                        @Html.ActionLink(Resources.AppMessages.Delete, "Delete", new { id = item.CommentId }, new { @class = "bg-button-grid-delete tooltip" })
+                                    </span>,
+                            canSort:false,
+                            style: "ui-helper-minwidth")
+        },mode:WebGridPagerModes.All)
+    </div>
+
+}
+else
+{
+	<h2 class="ui-widget-content ui-state-highlight ui-corner-all ui-helper-padding">@Resources.AppMessages.Error_NoCommentsFound</h2>
+}

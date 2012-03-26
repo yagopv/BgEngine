@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  This file contains basic settings needed for most web apps.
+  For full Combres settings (with explanation), refer to the sample definition file: combres_full_with_annotation.xml
+  Also, refer to Combres' documentation: http://combres.codeplex.com/documentation	
+-->
+<combres xmlns='urn:combres'>
+  <filters>
+    <filter type="Combres.Filters.FixUrlsInCssFilter, Combres" />
+  </filters>
+  <resourceSets url="~/combres.axd"
+                defaultDuration="30"
+                defaultVersion="auto"
+                defaultDebugEnabled="auto"
+                defaultIgnorePipelineWhenDebug="true"
+                localChangeMonitorInterval="30"
+                remoteChangeMonitorInterval="60"
+                >
+    
+    <resourceSet name="siteCss" type="css">
+      <resource path="~/Content/Site.css" />
+      <resource path="~/Content/jCrumb.css" />
+      <resource path="~/Content/fancybox/jquery.fancybox-1.3.4.css" />
+    </resourceSet>
+    
+    <resourceSet name="siteJs" type="js">
+      <resource path="~/Scripts/jquery-1.5.1.min.js" />
+      <resource path="~/Scripts/jquery-ui-1.9m5.min.js" />
+      <resource path="~/Scripts/jquery.validate.min.js" />
+      <resource path="~/Scripts/jquery.validate.unobtrusive.min.js" />
+      <resource path="~/Scripts/jquery.ui.selectmenu.js" />
+      <resource path="~/Scripts/jquery.ui.tooltip.js" />
+      <resource path="~/Scripts/jquery.jcrumb.js" />
+      <resource path="~/Scripts/globalize.js" />
+      <resource path="~/Scripts/cultures/globalize.culture.es.js" />
+      <resource path="~/Scripts/internal/bg.core.js" />
+      <resource path="~/Scripts/jquery.cookie.js" />
+      <resource path="~/Scripts/jquery.myimgscale.min.js" />
+      <resource path="~/Scripts/jquery.fancybox-1.3.4.pack.js" />
+    </resourceSet>
+    
+    <resourceSet name="adminJs" type="js">
+      <resource path="~/Scripts/jquery-1.5.1.min.js" />
+      <resource path="~/Scripts/jquery-ui-1.9m5.min.js" />
+      <resource path="~/Scripts/jquery.validate.min.js" />
+      <resource path="~/Scripts/jquery.validate.unobtrusive.min.js" />
+      <resource path="~/Scripts/jquery.ui.selectmenu.js" />
+      <resource path="~/Scripts/jquery.ui.tooltip.js" />
+      <resource path="~/Scripts/jquery.jcrumb.js" />
+      <resource path="~/Scripts/internal/bg.core.js" />
+      <resource path="~/Scripts/globalize.js" />
+      <resource path="~/Scripts/jquery.cookie.js" />
+    </resourceSet>
+    
+    <resourceSet name="FormJs" type="js">
+      <resource path="~/Scripts/internal/bg.form.js" />
+    </resourceSet>
+
+    <resourceSet name="ConfigOptionsJs" type="js">
+      <resource path="~/Scripts/internal/bg.form.js" />
+      <resource path="~/Scripts/jquery.unobtrusive-ajax.min.js" />
+      <resource path="~/Scripts/internal/bg.configoptions.js" />
+    </resourceSet>
+    
+    <resourceSet name="GalleriaJs" type="js">
+      <resource path="~/Scripts/galleria/galleria-1.2.4.min.js" />
+    </resourceSet>
+    
+    <resourceSet name="AlbumIndexJs" type="js">      
+      <resource path="~/Scripts/jquery.myimgscale.min.js" />
+      <resource path="~/Scripts/internal/bg.galleria_startup.js" />
+    </resourceSet>
+    
+    <resourceSet name="IndexViewsJs" type="js">
+      <resource path="~/Scripts/jquery-block-ui.js" />
+      <resource path="~/Scripts/internal/bg.grid.js" />
+      <resource path="~/Scripts/internal/bg.index_startup.js" />
+    </resourceSet>
+      
+    <resourceSet name="PostIndexInitViewsJs" type="js">
+        <resource path="~/Scripts/jquery-block-ui.js" />
+        <resource path="~/Scripts/internal/bg.grid.js" />
+        <resource path="~/Scripts/jquery.watermark.min.js" />
+        <resource path="~/Scripts/jquery.myimgscale.min.js" />
+        <resource path="~/Scripts/internal/bg.index_startup.js" />
+        <resource path="~/Scripts/internal/bg.post_startup.js" />
+    </resourceSet>
+
+      <resourceSet name="VideoIndexInitViewsJs" type="js">
+          <resource path="~/Scripts/jquery-block-ui.js" />
+          <resource path="~/Scripts/jquery.watermark.min.js" />
+          <resource path="~/Scripts/internal/bg.video_startup.js" />
+      </resourceSet>
+
+    <resourceSet name="CommentCss" type="css">
+      <resource path="~/Content/shCore.css" />
+      <resource path="~/Content/shThemeDefault.css" />
+    </resourceSet>
+
+    <resourceSet name="CommentJs" type="js">
+      <resource path="~/Scripts/shCore.js" />
+      <resource path="~/Scripts/internal/bg.form.js" />
+      <resource path="~/Scripts/internal/bg.tiny_comment_init.js" />
+    </resourceSet>
+
+    <resourceSet name="AlbumGalleriaJs" type="js">
+      <resource path="~/Scripts/internal/bg.galleria_startup.js" />
+    </resourceSet>
+
+    <resourceSet name="HomeIndexJs" type="js">
+      <resource path="~/Scripts/internal/bg.home_index_startup.js" />
+    </resourceSet>
+
+    <resourceSet name="VideoIndexJs" type="js">
+      <resource path="~/Scripts/jquery-block-ui.js" />
+      <resource path="~/Scripts/jquery.watermark.min.js" />
+      <resource path="~/Scripts/internal/bg.home_videos_startup.js" />
+    </resourceSet>
+
+     <resourceSet name="ShowAllImagesJs" type="js">
+         <resource path="~/Scripts/jquery-block-ui.js" />
+         <resource path="~/Scripts/jquery.watermark.min.js" />
+         <resource path="~/Scripts/jquery.myimgscale.min.js" />
+         <resource path="~/Scripts/internal/bg.showallimages_startup.js" />
+     </resourceSet>
+
+
+      <resourceSet name="ImageIndexJs" type="js">
+          <resource path="~/Scripts/swfupload.js" />
+          <resource path="~/Scripts/swfupload.queue.js" />
+          <resource path="~/Scripts/swfupload.fileprogress.js" />
+          <resource path="~/Scripts/swfupload.handlers.js" />
+          <resource path="~/Scripts/jquery.fancybox-1.3.4.pack.js" />
+          <resource path="~/Scripts/jquery.myimgscale.min.js" />
+      </resourceSet>
+
+      <resourceSet name="ImageCss" type="css">
+          <resource path="~/Content/swfupload.css" />
+          <resource path="~/Content/fancybox/jquery.fancybox-1.3.4.css" />
+      </resourceSet>
+
+      <resourceSet name="CreatePostCss" type="css">
+          <resource path="~/Content/fancybox/jquery.fancybox-1.3.4.css" />
+      </resourceSet>
+      
+      <resourceSet name="CreatePostJs" type="js">
+          <resource path="~/Scripts/tinyMCE_init.js" />          
+          <resource path="~/Scripts/internal/bg.form.js" />
+          <resource path="~/Scripts/jquery.fancybox-1.3.4.pack.js" />
+          <resource path="~/Scripts/internal/bg.create_post_startup.js" />
+      </resourceSet>
+
+      <resourceSet name="PostDetailsJs" type="js">
+          <resource path="~/Scripts/shCore.js" />
+          <resource path="~/Scripts/shAutoloader.js" />
+          <resource path="~/Scripts/internal/bg.post_details_startup.js" />
+      </resourceSet>
+
+      <resourceSet name="ViewPostCss" type="css">
+          <resource path="~/Content/shCore.css" />
+          <resource path="~/Content/shThemeDefault.css" />
+          <resource path="~/Content/rateit.css" />
+          <resource path="~/Content/bigstars.css" />
+      </resourceSet>
+
+      <resourceSet name="ViewPostJs" type="js">
+          <resource path="~/Scripts/shCore.js" />
+          <resource path="~/Scripts/shAutoloader.js" />
+          <resource path="~/Scripts/jquery.rateit.min.js" />
+          <resource path="~/Scripts/jquery-block-ui.js" />
+          <resource path="~/Scripts/internal/bg.infobox.js" />
+          <resource path="~/Scripts/internal/bg.tagger.js" />
+          <resource path="~/Scripts/internal/bg.view_post_startup.js" />
+      </resourceSet>
+
+      <resourceSet name="ViewPostsJs" type="js">
+          <resource path="~/Scripts/jquery-block-ui.js" />
+          <resource path="~/Scripts/internal/bg.view_posts_startup.js" />
+      </resourceSet>
+
+    <resourceSet name="ContactJs" type="js">
+      <resource path="~/Scripts/internal/bg.form.js" />      
+      <resource path="~/Scripts/jquery.validate.min.js" />
+      <resource path="~/Scripts/jquery.validate.unobtrusive.min.js" />
+      <resource path="~/Scripts/jquery.unobtrusive-ajax.min.js" />
+    </resourceSet>
+  </resourceSets>
+</combres>

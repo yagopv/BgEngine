@@ -1,0 +1,421 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@using System.Web.Helpers;
+@using System.Web.Mvc;
+@using System.Text;
+
+@functions {
+
+	public static string ConvertDate2String(DateTime datetime)
+	{
+		if (datetime == null) return String.Empty;
+
+		TimeSpan s = DateTime.Now.Subtract(datetime);
+
+		int dayDiff = (int)s.TotalDays;
+
+		int secDiff = (int)s.TotalSeconds;
+
+		if (dayDiff >= 31)
+		{
+			return datetime.ToLongDateString();
+		}
+
+		if (dayDiff == 0)
+		{
+			if (secDiff < 120)
+			{
+				return Resources.AppMessages.Time_OneMinuteAgo;
+			}
+
+			if (secDiff < 3600)
+			{
+				return String.Format(Resources.AppMessages.Time_NMinutesAgo, Math.Floor((double)secDiff / 60));
+			}
+
+			if (secDiff < 7200)
+			{
+				return Resources.AppMessages.Time_OneHourAgo;
+			}
+
+			if (secDiff < 86400)
+			{
+				return String.Format(Resources.AppMessages.Time_NHoursAgo, Math.Floor((double)secDiff / 3600));
+			}
+		}
+
+		if (dayDiff == 1)
+		{
+			return Resources.AppMessages.Time_Yesterday;
+		}
+
+		if (dayDiff < 7)
+		{
+			return String.Format(Resources.AppMessages.Time_NDaysAgo, dayDiff);
+
+		}
+
+		if (dayDiff < 31)
+		{
+			return String.Format(Resources.AppMessages.Time_NWeekAgo, Math.Ceiling((double)dayDiff / 7));
+		}
+
+		return String.Empty;
+
+	}
+}
+
+
+@helper TruncateString(string input, int length)
+{
+	if (input.Length <= length)
+	{
+			@input<text>...</text>
+	}
+	else
+	{                  
+			@input.Substring(0, length)<text>...</text>
+	}
+}
+
+@helper RenderSocialButtons()
+{
+	<div id="facebook-login" class="bg-button ui-state-default ui-corner-all ui-helper-float-right">
+		@FacebookHelper.GetInitializationScripts()
+		@FacebookHelper.LoginButtonTagOnly(autoLogoutLink: true)
+	</div>
+
+	<div class="ui-widget-content ui-corner-all">
+		<h2 class="bg-panel ui-widget-header ui-helper-margin ui-corner-all">Social</h2>
+		<div>
+		   <div>
+				@FacebookHelper.LikeButton(height: 20, width: 100)
+			</div>
+			<div>
+				@TwitterHelper.TweetButton(dataCount: TwitterHelper.DataCount.Horizontal)
+			</div>
+		</div>
+	</div>
+}
+	
+@helper GoogleSearch()
+{
+	<div id="cse"  class="ui-helper-width-100pc">
+		Loading
+	</div>
+	<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+	<script type="text/javascript">
+		google.load('search', '1', { style: google.loader.themes.MINIMALIST });
+		google.setOnLoadCallback(function () {
+			var cse = new google.search.CustomSearchControl();
+			cse.draw('cse');
+		}, true);
+	</script>
+}
+
+@helper DateTime2Text(DateTime datetime)
+{
+	@ConvertDate2String(datetime)
+}
+
+@helper ShareOnFacebook(string url, string title = " ")
+{
+	<a  title="@Resources.AppMessages.Share_On_Facebook" href="http://www.facebook.com/sharer.php?u=@url&amp;t=@title" target="_blank">
+		<img alt="@Resources.AppMessages.Share_On_Facebook" src="/Content/Icons/facebook48x48.jpg" style="border:0; height:48px; width:48px; margin:0 1px;" class="tooltip" title="@Resources.AppMessages.Share_On_Facebook" />
+	</a>
+}
+
+@helper ShareOnTwitter(string url, string title = " ")
+{
+	<a title="@Resources.AppMessages.Share_On_Twitter" href="http://twitter.com/home/?status=@title%3a+@url" target="_blank">
+		 <img title="@Resources.AppMessages.Share_On_Twitter" style="border:0; height:48px; width:48px; margin:0 1px;" src="/Content/Icons/Twitter48x48.jpg" class="tooltip" alt="@Resources.AppMessages.Share_On_Twitter" />
+	</a>    
+}
+
+@helper GooglePlusOne(string url, string lang)
+{    
+    <g:plusone annotation="bubble" size="tall" href="@url"></g:plusone>
+
+    <script type="text/javascript">
+        window.___gcfg = {lang: '@lang'};
+
+        (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+    </script>
+}
+
+@helper SubscribeRssChannel(string url)
+{
+	<a title="@Resources.AppMessages.Rss_Tooltip" href="@url" target="_blank">
+		 <img title="@Resources.AppMessages.Rss_Tooltip" style="border:0; height:48px; width:48px; margin:0 1px;" src="/Content/Icons/RSS48x48.jpg" class="tooltip" alt="@Resources.AppMessages.Rss_Tooltip" />
+	</a>  
+}
+
+@helper GetClientGlobalizationMessages(string culture = "en")
+{   
+	<script type="text/javascript">
+		$(document).ready(function () {
+			Globalize.addCultureInfo("@culture", {
+				messages: {
+					"loading": "@Resources.AppMessages.Wait_Loading"
+				}
+			});
+		});
+	</script>
+}
+
+@helper GetTooltipInitializationCode()
+{
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$(".tooltip-default").tooltip();
+			$(".tooltip, .tooltip-ajax").tooltip({
+				items: "[href], [title]",
+				open: function () {
+					var tooltip = $(".ui-tooltip");
+					$(document).mousemove(function (event) {
+						tooltip.position({
+							my: "left+25 center",
+							at: "right+25 center",
+							of: event
+						});
+					})
+					// trigger once to override element-relative positioning 
+				.mousemove();
+				},
+				content: function (response) {
+					var href = $(this).attr("href");
+					if ($(this).hasClass("tooltip-ajax")) {
+						$.get(href, response);
+						return Globalize.localize("loading", "@CultureHelper.GetNeutralCulture(CultureHelper.GetCurrentCulture())");
+					}
+					else {
+						if (/^#/.test(href)) {
+							return $(href).html();
+						}
+					}
+					// using string.replace for line break substitution
+					return this.title.replace(new RegExp( "\\n", "g" ),"<br/>");
+				},
+				close: function () {
+					$(document).unbind("mousemove");
+				}
+			});
+			$(".tooltip-ajax").click(function () { return false; });
+		});
+	</script>
+}
+
+@helper RenderTwitterWidgets(string twitter_user, string twitter_search, string title = null, string subject = null)
+{    
+	if (!String.IsNullOrEmpty(twitter_user))
+	{
+	   <div id="twitter_div_1" class="ui-helper-margin-top-bottom ui-helper-hidden"></div>
+	}
+	if (!String.IsNullOrEmpty(twitter_search))
+	{
+		<div id="twitter_div_2" class="ui-helper-margin-top-bottom ui-helper-hidden"></div>
+	}
+	if (!String.IsNullOrEmpty(twitter_user) ||
+		 !String.IsNullOrEmpty(twitter_search)
+		)
+	{
+		<script type="text/javascript">
+            $(document).ready(function () {
+			    $.getScript('http://widgets.twimg.com/j/2/widget.js', function () {
+				    var t_profile = '@twitter_user';
+				    var t_search = '@twitter_search';
+				    if (t_profile != "") {
+					    new TWTR.Widget({
+						    version: 2,
+						    type: 'profile',
+						    rpp: 4,
+						    interval: 6000,
+						    width: 'auto',
+						    height: 300,
+						    id: 'twitter_div_1',
+						    theme: {
+							    shell: {
+								    background: '#333333',
+								    color: '#ffffff'
+							    },
+							    tweets: {
+								    background: '#000000',
+								    color: '#ffffff',
+								    links: '#4aed05'
+							    }
+						    },
+						    features: {
+							    scrollbar: false,
+							    loop: false,
+							    live: false,
+							    hashtags: true,
+							    timestamp: true,
+							    avatars: false,
+							    behavior: 'all'
+						    }
+					    }).render().setUser(t_profile).start();
+					    $('#twtr-widget-1').appendTo('#twitter_p');
+				    }
+				    if (t_search != "") {
+					    new TWTR.Widget({
+						    version: 2,
+						    type: 'search',
+						    search: t_search,
+						    interval: 6000,
+						    id: 'twitter_div_2',
+						    title: '@title',
+						    subject: '@subject',
+						    width: 'auto',
+						    height: 300,
+						    theme: {
+							    shell: {
+								    background: '#8ec1da',
+								    color: '#ffffff'
+							    },
+							    tweets: {
+								    background: '#ffffff',
+								    color: '#444444',
+								    links: '#1985b5'
+							    }
+						    },
+						    features: {
+							    scrollbar: false,
+							    loop: true,
+							    live: true,
+							    hashtags: true,
+							    timestamp: true,
+							    avatars: true,
+							    toptweets: true,
+							    behavior: 'all'
+						    }
+					    }).render().start();
+				    }
+				    $(".twtr-doc").css("width", "100%");
+				    $("#twitter_div_1").fadeIn(1000);
+				    $("#twitter_div_2").fadeIn(1000);
+			    });
+            });
+		</script>
+	}    
+}
+
+@helper GetCategoryListAsync(string url)
+{     
+	<script type="text/javascript">
+       $(document).ready(function () {
+	       $.get("@url", function (data, status) {
+					    $("#categories").append(data);
+					    $("#categories").accordion({ collapsible: true, autoHeight: false });
+					    $("#categories").fadeIn(1000); 
+				    },
+				    "html"
+			    );
+        });
+	</script>
+}
+
+@helper GetArchiveListAsync(string url)
+	{     
+	<script type="text/javascript">
+        $(document).ready(function () {
+		    $.get("@url", function (data, status) {
+				    $("#archive").append(data);
+				    $("#archive").accordion({ collapsible: true, autoHeight: false });
+				    $("#archive div p").hover(function () {
+					    $(this).css("cursor", "pointer");
+				    });
+				    $("#archive div p").click(function () {
+					    if ($(this).next().css("display") == "none") {
+						    $(this).find("span").removeClass("ui-icon-circle-plus");
+						    $(this).find("span").addClass("ui-icon-circle-minus");
+						    $(this).next().slideDown("fast");
+					    }
+					    else {
+						    $(this).find("span").removeClass("ui-icon-circle-minus");
+						    $(this).find("span").addClass("ui-icon-circle-plus");
+						    $(this).next().slideUp("fast");
+					    }
+				    });
+				    $("#archive").fadeIn(1000); 
+			    },
+			    "html"
+		    );
+        });
+	</script>
+}
+
+@helper GetTagCloudListAsync(string url)
+{     
+	<script type="text/javascript">
+        $(document).ready(function () {
+		    $.get("@url", function (data, status) {
+				    $("#tagcloud").append(data);
+				    $("#tagcloud").accordion({ collapsible: true, autoHeight: false });
+				    $("#tagcloud").fadeIn(1000); 
+			    },
+			    "html"
+		    );
+        });
+	</script>
+}
+
+@helper GetSidebarStatsAsync(string url)
+{     
+	<script type="text/javascript">
+        $(document).ready(function () {
+		    $.get("@url", function (data, status) {
+				    $("#sidebar-stats").append(data);
+				    $("#sidebar-stats").tabs({ fx: { opacity: 'toggle'} });
+				    $("#sidebar-stats").fadeIn(1000);
+				    $(".sidebar-stats-post").hover(
+					    function () {
+						    $(this).toggleClass("ui-state-hover");
+						    $(".album-holder").not(this).removeClass("ui-state-hover");
+					    },
+					    function () {
+						    $(this).removeClass("ui-state-hover");
+					    }
+				    );
+			    },
+			    "html"
+		    );
+        });
+	</script>
+}
+
+@helper GetGoogleAnalyticsCode(string gaCode)
+{
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', '@gaCode']);
+		_gaq.push(['_trackPageview']);
+
+		(function () {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+}

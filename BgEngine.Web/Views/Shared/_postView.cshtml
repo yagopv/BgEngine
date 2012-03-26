@@ -1,0 +1,54 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model BgEngine.Domain.EntityModel.Post
+
+@if (Model.Image != null)
+{
+	if (Model.Image.ThumbnailPath != String.Empty)
+	{
+	<img src="@Url.Content(Model.Image.ThumbnailPath)" />
+	}
+	else if (Model.Image.Path != String.Empty)
+	{
+	<img src="@Url.Content(Model.Image.Path)" />
+	}
+	else
+	{
+	<img src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+	}
+}
+else
+{
+	<img src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+}
+
+<div>
+	<div class="ui-helper-margin">
+	   <h2 class="ui-widget-header ui-corner-all bg-post-view-header">@Html.DisplayFor(modelitem => Model.Title)</h2>              
+	   <p>@Html.Raw(Model.Description.Replace(Environment.NewLine,"<br/>"))
+		  @Html.RouteLink(Resources.AppMessages.ReadMore, "Default", new { controller = "Post", action = "GetPostByCode", id = Model.Code }, new { @class = "tooltip bg-button-readmore ui-state-default ui-corner-all" })</p>  
+	</div>   
+	<div class="ui-helper-reset-float">
+		<p class="tooltip ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" title="@String.Format(Resources.AppMessages.DateCreatedFormat,Model.DateCreated.ToLongDateString())" ><span class="ui-button bg-icon-left ui-icon ui-icon-calendar"></span>@Model.DateCreated.ToShortDateString()</p>    
+		<a href="@Url.RouteUrl("Default", new { controller = "User", action = "GetTooltipData", id = Model.User.UserId })" class="getuser-link tooltip-ajax ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" ><span class="ui-button bg-icon-left ui-icon ui-icon-person"></span>@Html.DisplayFor(modelitem => Model.User.Username)</a>
+		<p class="tooltip ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" title="@String.Format(Resources.AppMessages.NumberofComments,Model.Comments.Count())"><span class="ui-button bg-icon-left ui-icon ui-icon-comment"></span>@Model.Comments.Count().ToString()</p>
+	</div>
+</div>
