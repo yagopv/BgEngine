@@ -32,6 +32,7 @@ namespace BgEngine.Infraestructure.DatabaseInitialization
     {
         public void Initialize()
         {
+            //hjhkjh
             Database.SetInitializer<BlogUnitOfWork>(new ModelContextInit());
         }
     }
