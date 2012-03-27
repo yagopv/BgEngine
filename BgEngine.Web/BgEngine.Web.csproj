@@ -193,6 +193,7 @@
     <Content Include="Content\fancybox\fancy_title_over.png" />
     <Content Include="Content\fancybox\fancy_title_right.png" />
     <Content Include="Content\fancybox\jquery.fancybox-1.3.4.css" />
+    <Content Include="Content\Files\readme.txt" />
     <Content Include="Content\Icons\addressbook.gif" />
     <Content Include="Content\Icons\ajax-loader-b.gif" />
     <Content Include="Content\Icons\delete.gif" />
@@ -214,6 +215,8 @@
     <Content Include="Content\Icons\star.gif" />
     <Content Include="Content\Icons\TestImageNoText_65x29.png" />
     <Content Include="Content\Icons\Twitter48x48.jpg" />
+    <Content Include="Content\Images\readme.txt" />
+    <Content Include="Content\Images\Thumbnails\readme.txt" />
     <Content Include="Content\jCrumb.css" />
     <Content Include="Content\rateit.css" />
     <Content Include="Content\swfupload.css" />
@@ -712,8 +715,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
-    <Folder Include="Content\Files\" />
-    <Folder Include="Content\Images\Thumbnails\" />
     <Folder Include="Scripts\tiny_mce\plugins\spellchecker\classes\utils\" />
     <Folder Include="Scripts\tiny_mce\plugins\spellchecker\includes\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
