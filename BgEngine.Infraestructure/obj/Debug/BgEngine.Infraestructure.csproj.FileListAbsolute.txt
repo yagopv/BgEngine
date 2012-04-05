@@ -51,3 +51,10 @@ D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Infraestructure\bin\Debug\BgEngine
 D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Infraestructure\obj\Debug\BgEngine.Infraestructure.csprojResolveAssemblyReference.cache
 D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Infraestructure\obj\Debug\BgEngine.Infraestructure.dll
 D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Infraestructure\obj\Debug\BgEngine.Infraestructure.pdb
+D:\Proyectos .NET\BgEngine\BgEngine.Infraestructure\bin\Debug\BgEngine.Infraestructure.dll
+D:\Proyectos .NET\BgEngine\BgEngine.Infraestructure\bin\Debug\BgEngine.Infraestructure.pdb
+D:\Proyectos .NET\BgEngine\BgEngine.Infraestructure\bin\Debug\BgEngine.Domain.dll
+D:\Proyectos .NET\BgEngine\BgEngine.Infraestructure\bin\Debug\BgEngine.Domain.pdb
+D:\Proyectos .NET\BgEngine\BgEngine.Infraestructure\obj\Debug\BgEngine.Infraestructure.csprojResolveAssemblyReference.cache
+D:\Proyectos .NET\BgEngine\BgEngine.Infraestructure\obj\Debug\BgEngine.Infraestructure.dll
+D:\Proyectos .NET\BgEngine\BgEngine.Infraestructure\obj\Debug\BgEngine.Infraestructure.pdb

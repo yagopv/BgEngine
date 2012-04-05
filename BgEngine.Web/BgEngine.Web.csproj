@@ -913,6 +913,10 @@
     <Content Include="Views\Stats\SidebarStats.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Video\LatestVideos.cshtml" />
+    <Content Include="Views\Home\Index_ajax.cshtml" />
+    <Content Include="Views\Home\Videos_ajax.cshtml" />
+    <Content Include="Views\Home\About_ajax.cshtml" />
+    <Content Include="Views\Home\Galeria_ajax.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BgEngine.Application\BgEngine.Application.csproj">

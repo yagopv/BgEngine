@@ -24,80 +24,80 @@
 
 @functions {
 
-	public static string ConvertDate2String(DateTime datetime)
-	{
-		if (datetime == null) return String.Empty;
+    public static string ConvertDate2String(DateTime datetime)
+    {
+        if (datetime == null) return String.Empty;
 
-		TimeSpan s = DateTime.Now.Subtract(datetime);
+        TimeSpan s = DateTime.Now.Subtract(datetime);
 
-		int dayDiff = (int)s.TotalDays;
+        int dayDiff = (int)s.TotalDays;
 
-		int secDiff = (int)s.TotalSeconds;
+        int secDiff = (int)s.TotalSeconds;
 
-		if (dayDiff >= 31)
-		{
-			return datetime.ToLongDateString();
-		}
+        if (dayDiff >= 31)
+        {
+            return datetime.ToLongDateString();
+        }
 
-		if (dayDiff == 0)
-		{
-			if (secDiff < 120)
-			{
-				return Resources.AppMessages.Time_OneMinuteAgo;
-			}
+        if (dayDiff == 0)
+        {
+            if (secDiff < 120)
+            {
+                return Resources.AppMessages.Time_OneMinuteAgo;
+            }
 
-			if (secDiff < 3600)
-			{
-				return String.Format(Resources.AppMessages.Time_NMinutesAgo, Math.Floor((double)secDiff / 60));
-			}
+            if (secDiff < 3600)
+            {
+                return String.Format(Resources.AppMessages.Time_NMinutesAgo, Math.Floor((double)secDiff / 60));
+            }
 
-			if (secDiff < 7200)
-			{
-				return Resources.AppMessages.Time_OneHourAgo;
-			}
+            if (secDiff < 7200)
+            {
+                return Resources.AppMessages.Time_OneHourAgo;
+            }
 
-			if (secDiff < 86400)
-			{
-				return String.Format(Resources.AppMessages.Time_NHoursAgo, Math.Floor((double)secDiff / 3600));
-			}
-		}
+            if (secDiff < 86400)
+            {
+                return String.Format(Resources.AppMessages.Time_NHoursAgo, Math.Floor((double)secDiff / 3600));
+            }
+        }
 
-		if (dayDiff == 1)
-		{
-			return Resources.AppMessages.Time_Yesterday;
-		}
+        if (dayDiff == 1)
+        {
+            return Resources.AppMessages.Time_Yesterday;
+        }
 
-		if (dayDiff < 7)
-		{
-			return String.Format(Resources.AppMessages.Time_NDaysAgo, dayDiff);
+        if (dayDiff < 7)
+        {
+            return String.Format(Resources.AppMessages.Time_NDaysAgo, dayDiff);
 
-		}
+        }
 
-		if (dayDiff < 31)
-		{
-			return String.Format(Resources.AppMessages.Time_NWeekAgo, Math.Ceiling((double)dayDiff / 7));
-		}
+        if (dayDiff < 31)
+        {
+            return String.Format(Resources.AppMessages.Time_NWeekAgo, Math.Ceiling((double)dayDiff / 7));
+        }
 
-		return String.Empty;
+        return String.Empty;
 
-	}
+    }
 }
 
 
 @helper TruncateString(string input, int length)
-{
-	if (input.Length <= length)
-	{
+    {
+    if (input.Length <= length)
+    {
 			@input<text>...</text>
-	}
-	else
-	{                  
+    }
+    else
+    {                  
 			@input.Substring(0, length)<text>...</text>
-	}
+    }
 }
 
 @helper RenderSocialButtons()
-{
+    {
 	<div id="facebook-login" class="bg-button ui-state-default ui-corner-all ui-helper-float-right">
 		@FacebookHelper.GetInitializationScripts()
 		@FacebookHelper.LoginButtonTagOnly(autoLogoutLink: true)
@@ -117,7 +117,7 @@
 }
 	
 @helper GoogleSearch()
-{
+    {
 	<div id="cse"  class="ui-helper-width-100pc">
 		Loading
 	</div>
@@ -132,26 +132,26 @@
 }
 
 @helper DateTime2Text(DateTime datetime)
-{
+    {
 	@ConvertDate2String(datetime)
 }
 
 @helper ShareOnFacebook(string url, string title = " ")
-{
+    {
 	<a  title="@Resources.AppMessages.Share_On_Facebook" href="http://www.facebook.com/sharer.php?u=@url&amp;t=@title" target="_blank">
 		<img alt="@Resources.AppMessages.Share_On_Facebook" src="/Content/Icons/facebook48x48.jpg" style="border:0; height:48px; width:48px; margin:0 1px;" class="tooltip" title="@Resources.AppMessages.Share_On_Facebook" />
 	</a>
 }
 
 @helper ShareOnTwitter(string url, string title = " ")
-{
-	<a title="@Resources.AppMessages.Share_On_Twitter" href="http://twitter.com/home/?status=@title%3a+@url" target="_blank">
+    {
+	<a title="@Resources.AppMessages.Share_On_Twitter" href="http://twitter.com/share?text=@title" target="_blank">
 		 <img title="@Resources.AppMessages.Share_On_Twitter" style="border:0; height:48px; width:48px; margin:0 1px;" src="/Content/Icons/Twitter48x48.jpg" class="tooltip" alt="@Resources.AppMessages.Share_On_Twitter" />
-	</a>    
+	</a>            
 }
 
 @helper GooglePlusOne(string url, string lang)
-{    
+    {    
     <g:plusone annotation="bubble" size="tall" href="@url"></g:plusone>
 
     <script type="text/javascript">
@@ -166,14 +166,14 @@
 }
 
 @helper SubscribeRssChannel(string url)
-{
+    {
 	<a title="@Resources.AppMessages.Rss_Tooltip" href="@url" target="_blank">
 		 <img title="@Resources.AppMessages.Rss_Tooltip" style="border:0; height:48px; width:48px; margin:0 1px;" src="/Content/Icons/RSS48x48.jpg" class="tooltip" alt="@Resources.AppMessages.Rss_Tooltip" />
 	</a>  
 }
 
 @helper GetClientGlobalizationMessages(string culture = "en")
-{   
+    {   
 	<script type="text/javascript">
 		$(document).ready(function () {
 			Globalize.addCultureInfo("@culture", {
@@ -186,7 +186,7 @@
 }
 
 @helper GetTooltipInitializationCode()
-{
+    {
 	<script type="text/javascript">
 		$(document).ready(function () {
 			$(".tooltip-default").tooltip();
@@ -228,19 +228,19 @@
 }
 
 @helper RenderTwitterWidgets(string twitter_user, string twitter_search, string title = null, string subject = null)
-{    
-	if (!String.IsNullOrEmpty(twitter_user))
-	{
+    {    
+    if (!String.IsNullOrEmpty(twitter_user))
+    {
 	   <div id="twitter_div_1" class="ui-helper-margin-top-bottom ui-helper-hidden"></div>
-	}
-	if (!String.IsNullOrEmpty(twitter_search))
-	{
+    }
+    if (!String.IsNullOrEmpty(twitter_search))
+    {
 		<div id="twitter_div_2" class="ui-helper-margin-top-bottom ui-helper-hidden"></div>
-	}
-	if (!String.IsNullOrEmpty(twitter_user) ||
-		 !String.IsNullOrEmpty(twitter_search)
-		)
-	{
+    }
+    if (!String.IsNullOrEmpty(twitter_user) ||
+         !String.IsNullOrEmpty(twitter_search)
+        )
+    {
 		<script type="text/javascript">
             $(document).ready(function () {
 			    $.getScript('http://widgets.twimg.com/j/2/widget.js', function () {
@@ -318,11 +318,11 @@
 			    });
             });
 		</script>
-	}    
+    }    
 }
 
 @helper GetCategoryListAsync(string url)
-{     
+    {     
 	<script type="text/javascript">
        $(document).ready(function () {
 	       $.get("@url", function (data, status) {
@@ -337,7 +337,7 @@
 }
 
 @helper GetArchiveListAsync(string url)
-	{     
+    {     
 	<script type="text/javascript">
         $(document).ready(function () {
 		    $.get("@url", function (data, status) {
@@ -367,7 +367,7 @@
 }
 
 @helper GetTagCloudListAsync(string url)
-{     
+    {     
 	<script type="text/javascript">
         $(document).ready(function () {
 		    $.get("@url", function (data, status) {
@@ -382,7 +382,7 @@
 }
 
 @helper GetSidebarStatsAsync(string url)
-{     
+    {     
 	<script type="text/javascript">
         $(document).ready(function () {
 		    $.get("@url", function (data, status) {
@@ -406,7 +406,7 @@
 }
 
 @helper GetGoogleAnalyticsCode(string gaCode)
-{
+    {
 	<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', '@gaCode']);
