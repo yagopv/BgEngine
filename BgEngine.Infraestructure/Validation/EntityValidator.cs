@@ -72,13 +72,12 @@ namespace BgEngine.Infraestructure.Validation
                 errors.AddRange(result);
             }
         }
-
         /// <summary>
-        /// <see cref="Microsoft.Samples.NLayerApp.Infrastructure.CrossCutting.Validator.IEntityValidator"/>
+        /// Check if the Entity is valid
         /// </summary>
-        /// <typeparam name="TEntity"><see cref="Microsoft.Samples.NLayerApp.Infrastructure.CrossCutting.Validator.IEntityValidator"/></typeparam>
-        /// <param name="item"><see cref="Microsoft.Samples.NLayerApp.Infrastructure.CrossCutting.Validator.IEntityValidator"/></param>
-        /// <returns><see cref="Microsoft.Samples.NLayerApp.Infrastructure.CrossCutting.Validator.IEntityValidator"/></returns>
+        /// <typeparam name="TEntity">The Entity type</typeparam>
+        /// <param name="item">The Entity</param>
+        /// <returns>true of valid</returns>
         public bool IsValid<TEntity>(TEntity item) where TEntity : class
         {
 
@@ -93,11 +92,11 @@ namespace BgEngine.Infraestructure.Validation
             return !validationErrors.Any();
         }
         /// <summary>
-        /// <see cref="Microsoft.Samples.NLayerApp.Infrastructure.CrossCutting.Validator.IEntityValidator"/>
+        /// Get the validdation messages
         /// </summary>
-        /// <typeparam name="TEntity"><see cref="Microsoft.Samples.NLayerApp.Infrastructure.CrossCutting.Validator.IEntityValidator"/></typeparam>
-        /// <param name="item"><see cref="Microsoft.Samples.NLayerApp.Infrastructure.CrossCutting.Validator.IEntityValidator"/></param>
-        /// <returns><see cref="Microsoft.Samples.NLayerApp.Infrastructure.CrossCutting.Validator.IEntityValidator"/></returns>
+        /// <typeparam name="TEntity">Entity type</typeparam>
+        /// <param name="item">The Entity</param>
+        /// <returns>List of messages</returns>
         public IEnumerable<string> GetInvalidMessages<TEntity>(TEntity item) where TEntity : class
         {
             if (item == null)
