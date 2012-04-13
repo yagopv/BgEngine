@@ -198,9 +198,11 @@ namespace BgEngine.Infraestructure.UnitOfWork
         {
             return base.Database.ExecuteSqlCommand(sqlCommand, parameters);
         }
-
+       
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
+            this.Configuration.LazyLoadingEnabled = false;
+
 			modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
 			modelBuilder.Entity<Comment>()
