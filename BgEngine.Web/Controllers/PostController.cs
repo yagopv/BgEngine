@@ -285,7 +285,7 @@ namespace BgEngine.Controllers
         public ActionResult GetPostById(int id)
         {
             Post post = BlogServices.FindPost(id);
-            if ((post.IsPublic) || (CodeFirstRoleServices.IsUserInRole(CodeFirstSecurity.CurrentUserName, BgResources.Security_PremiumRole)))
+            if ((post.IsPublic) || (CodeFirstRoleServices.IsUserInRole(CodeFirstSecurity.IsAuthenticated ? CodeFirstSecurity.CurrentUserName : " ", BgResources.Security_PremiumRole)))
             {
                 return View("Post", post);
             }
