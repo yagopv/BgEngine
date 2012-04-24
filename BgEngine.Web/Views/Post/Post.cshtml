@@ -163,7 +163,13 @@
                           {
                               foreach (var tag in Model.Tags)
                               {
-                                  node.InnerHtml = node.InnerHtml.Replace(tag.TagName, "<span data-tag>" + tag.TagName + "</span>");
+                                  foreach (var child in node.ChildNodes)
+                                  {
+                                      if (child.Name == "#text")
+                                      {
+                                          child.InnerHtml = child.InnerHtml.Replace(tag.TagName, "<span data-tag>" + tag.TagName + "</span>");        
+                                      }
+                                  }                                  
                               }
                           }
                           text = doc.DocumentNode.InnerHtml;

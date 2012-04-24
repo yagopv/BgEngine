@@ -155,6 +155,7 @@ namespace BgEngine.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         [HandleError(ExceptionType = typeof(HttpAntiForgeryException), View = "AntiForgeryError")]
         public ActionResult Create(Post post, int[] selectedtags)
         {
@@ -200,6 +201,7 @@ namespace BgEngine.Controllers
         [HttpPost]
         [EnableCompression]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         [HandleError(ExceptionType = typeof(HttpAntiForgeryException), View = "AntiForgeryError")]
         public ActionResult Edit(Post post, int[] selectedtags)
         {
