@@ -78,7 +78,6 @@ D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Resources\obj\Debug\BgEngine.Resou
 D:\Proyectos .NET\BgEngine\BgEngine.Resources\bin\Debug\BgEngine.Resources.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Resources\bin\Debug\BgEngine.Resources.pdb
 D:\Proyectos .NET\BgEngine\BgEngine.Resources\bin\Debug\en\BgEngine.Resources.resources.dll
-D:\Proyectos .NET\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.csprojResolveAssemblyReference.cache
 D:\Proyectos .NET\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.AppConfiguration.resources
 D:\Proyectos .NET\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.AppMessages.resources
 D:\Proyectos .NET\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.EmailTemplates.resources
