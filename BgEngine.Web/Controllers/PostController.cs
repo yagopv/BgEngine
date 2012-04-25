@@ -145,7 +145,7 @@ namespace BgEngine.Controllers
             ViewBag.ImageId = new SelectList(ImageServices.FindAllEntities(null,null,null), "ImageId", "FileName");
             ViewBag.CategoryId = new SelectList(CategoryServices.FindAllEntities(null,null,null), "CategoryId", "Name");
             ViewBag.UserId = new SelectList(UserServices.FindAllEntities(null,null,null), "UserId", "Username", CodeFirstSecurity.CurrentUserId);
-            ViewBag.Tags = TagServices.FindAllEntities(null, null, null).ToDictionary<Tag, int, string>(t => t.TagId, t => t.TagName);
+            ViewBag.Tags = TagServices.FindAllEntities(null, o => o.OrderBy(t => t.TagName), null).ToDictionary<Tag, int, string>(t => t.TagId, t => t.TagName);
             return View();
         }
 
@@ -177,7 +177,7 @@ namespace BgEngine.Controllers
             ViewBag.ImageId = new SelectList(ImageServices.FindAllEntities(null, null, null), "ImageId", "FileName", post.ImageId);
             ViewBag.CategoryId = new SelectList(CategoryServices.FindAllEntities(null, null, null), "CategoryId", "Name", post.CategoryId);
             ViewBag.UserId = new SelectList(UserServices.FindAllEntities(null, null, null), "UserId", "Username", post.UserId);
-            ViewBag.Tags = TagServices.FindAllEntities(null,null,null).ToDictionary<Tag, int, string>(t => t.TagId, t => t.TagName);
+            ViewBag.Tags = TagServices.FindAllEntities(null, o => o.OrderBy(t => t.TagName), null).ToDictionary<Tag, int, string>(t => t.TagId, t => t.TagName);
             return View(post);
         }
 
@@ -191,7 +191,7 @@ namespace BgEngine.Controllers
             ViewBag.ImageId = new SelectList(ImageServices.FindAllEntities(null, null, null), "ImageId", "FileName", post.ImageId);
             ViewBag.CategoryId = new SelectList(CategoryServices.FindAllEntities(null, null, null), "CategoryId", "Name", post.CategoryId);
             ViewBag.UserId = new SelectList(UserServices.FindAllEntities(null, null, null), "UserId", "Username", post.UserId);
-            ViewBag.Tags = TagServices.FindAllEntities(null, null, null).ToDictionary<Tag, int, string>(t => t.TagId, t => t.TagName);
+            ViewBag.Tags = TagServices.FindAllEntities(null, o => o.OrderBy(t => t.TagName), null).ToDictionary<Tag, int, string>(t => t.TagId, t => t.TagName);
             return View(post);
         }
 
@@ -229,7 +229,7 @@ namespace BgEngine.Controllers
             ViewBag.ImageId = new SelectList(ImageServices.FindAllEntities(null, null, null), "ImageId", "FileName", post.ImageId);
             ViewBag.CategoryId = new SelectList(CategoryServices.FindAllEntities(null, null, null), "CategoryId", "Name", post.CategoryId);
             ViewBag.UserId = new SelectList(UserServices.FindAllEntities(null, null, null), "UserId", "Username", post.UserId);
-            ViewBag.Tags = TagServices.FindAllEntities(null, null, null).ToDictionary<Tag, int, string>(t => t.TagId, t => t.TagName);
+            ViewBag.Tags = TagServices.FindAllEntities(null, o => o.OrderBy(t => t.TagName), null).ToDictionary<Tag, int, string>(t => t.TagId, t => t.TagName);
             return View(posttoupdate);
         }
 
