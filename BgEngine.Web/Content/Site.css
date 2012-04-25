@@ -278,7 +278,7 @@ body .galleria-thumbnails .galleria-image { width:150px }
 /* Checkbox multiselect styles */
 
 .multiselect { width: 80%; }
-.multiselect-check { float:left; margin-left: 10px; min-width: 225px; }
+.multiselect-check { float:left; margin-left: 10px; min-width: 225px; min-height:30px; }
 
 /* Items for sortable widgets */
 .ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; height: 250px !important; filter:alpha(opacity=10); /* msie */  -moz-opacity: 0.10; /* firefox 1.0 */  -khtml-opacity: 0.10; /* webkit */  opacity: 0.10; /* css 3 */ }
