@@ -103,6 +103,20 @@ namespace BgEngine.Domain.EntityModel
         public bool IsAboutMe { get; set; }
 
         /// <summary>
+        /// If true the Post allow comments from not authenticathed Users
+        /// </summary>
+        [Required]
+        [Display(ResourceType = typeof(Resources.AppMessages), Name = "Post_AllowAnonymousComments")]
+        public bool AllowAnonymousComments { get; set; }
+
+        /// <summary>
+        /// If true, the Post don´t allow Comments
+        /// </summary>
+        [Required]
+        [Display(ResourceType = typeof(Resources.AppMessages), Name = "Post_IsPostCommentsClosed")]
+        public bool IsPostCommentsClosed { get; set; }
+
+        /// <summary>
         /// Number of visits of teh Post
         /// </summary>
         [Display(ResourceType = typeof(Resources.AppMessages), Name = "Post_Visits")]

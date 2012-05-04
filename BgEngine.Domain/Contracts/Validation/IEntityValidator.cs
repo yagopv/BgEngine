@@ -20,7 +20,7 @@
 
 using System.Collections.Generic;
 
-namespace BgEngine.Infraestructure.Validation
+namespace BgEngine.Domain.Validation
 {
     public interface IEntityValidator
     {

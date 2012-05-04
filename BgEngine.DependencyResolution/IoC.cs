@@ -27,6 +27,7 @@ using BgEngine.Domain.DatabaseContracts;
 using BgEngine.Infraestructure.DatabaseInitialization;
 using BgEngine.Infraestructure.UnitOfWork;
 using BgEngine.Application.Services;
+using BgEngine.Domain.Validation;
 using BgEngine.Infraestructure.Validation;
 using BgEngine.Application.ResourceConfiguration;
 

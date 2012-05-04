@@ -136,6 +136,32 @@
             <tr>
                 <td>
                     <div class="editor-label">
+                        @Html.LabelFor(model => model.IsPostCommentsClosed)
+                      </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.IsPostCommentsClosed)
+                        @Html.ValidationMessageFor(model => model.IsPostCommentsClosed)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.AllowAnonymousComments)
+                      </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.CheckBoxFor(model => model.AllowAnonymousComments, new { @checked="checked" })
+                        @Html.ValidationMessageFor(model => model.AllowAnonymousComments)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="editor-label">
                         @Html.LabelFor(model => model.Category.CategoryId)
                       </div>
                 </td>

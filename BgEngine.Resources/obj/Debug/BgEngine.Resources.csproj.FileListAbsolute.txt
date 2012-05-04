@@ -87,3 +87,4 @@ D:\Proyectos .NET\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.cspro
 D:\Proyectos .NET\BgEngine\BgEngine.Resources\obj\Debug\en\BgEngine.Resources.resources.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.pdb
+D:\Proyectos .NET\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.csprojResolveAssemblyReference.cache

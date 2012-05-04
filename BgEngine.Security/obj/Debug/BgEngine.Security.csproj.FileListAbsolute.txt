@@ -73,3 +73,4 @@ D:\Proyectos .NET\BgEngine\BgEngine.Security\bin\Debug\BgEngine.Domain.pdb
 D:\Proyectos .NET\BgEngine\BgEngine.Security\obj\Debug\BgEngine.Security.csprojResolveAssemblyReference.cache
 D:\Proyectos .NET\BgEngine\BgEngine.Security\obj\Debug\BgEngine.Security.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Security\obj\Debug\BgEngine.Security.pdb
+D:\Proyectos .NET\BgEngine\BgEngine.Security\bin\Debug\EntityFramework.xml

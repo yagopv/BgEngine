@@ -21,12 +21,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using PagedList;
+
 using BgEngine.Domain.EntityModel;
 using BgEngine.Domain.RepositoryContracts;
-using System.Linq.Expressions;
 using BgEngine.Application.DTO;
-using PagedList;
 using BgEngine.Application.ResourceConfiguration;
+using BgEngine.Domain.Validation;
 
 namespace BgEngine.Application.Services
 {
@@ -38,7 +40,6 @@ namespace BgEngine.Application.Services
         IPostRepository PostRepository;
         ICommentRepository CommentRepository;
         ITagRepository TagRepository;
-
         /// <summary>
         /// ctor
         /// </summary>
@@ -241,7 +242,14 @@ namespace BgEngine.Application.Services
         /// <param name="user">User who write the Comment</param>
         public void CreateComment(Comment comment, User user)
         {
-            comment.User = user;
+            if (user != null)
+            {
+                comment.User = user;
+            }
+            if (comment.AnonymousUser == null)
+            {
+                comment.AnonymousUser = new AnonymousUser();
+            }
             CommentRepository.Insert(comment);
             CommentRepository.UnitOfWork.Commit();
         }
@@ -253,12 +261,19 @@ namespace BgEngine.Application.Services
         /// <param name="user">The User who writes the Comment</param>
         public void AddRelatedComment(Comment comment, int parent, User user)
         {
-            comment.isRelatedComment = true;            
-            comment.User = user;
+            if (user != null)
+            {
+                comment.User = user;
+            }
+            if (comment.AnonymousUser == null)
+            {
+                comment.AnonymousUser = new AnonymousUser();
+            }
+            comment.isRelatedComment = true;
             CommentRepository.Insert(comment);
             Comment parentComment = CommentRepository.GetByID(parent);
             parentComment.AddRelatedComment(comment);
-            CommentRepository.UnitOfWork.Commit(); ;
+            CommentRepository.UnitOfWork.Commit();
         }
         /// <summary>
         /// Get Tags with weight to show in Tag Cloud

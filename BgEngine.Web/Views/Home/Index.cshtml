@@ -79,10 +79,10 @@
     <div class="ui-helper-margin-top-bottom">
         @Html.Partial("ChangeTheme")
     </div>   
-    <div id="categories" class="ui-helper-hidden"></div>
-    <div id="archive" class="ui-helper-hidden"></div>
-    <div id="tagcloud" class="ui-helper-hidden"></div>
-    <div id="sidebar-stats" class="ui-helper-hidden ui-helper-margin-top-bottom"></div>
+    <div id="categories" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>
+    <div id="archive" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>
+    <div id="tagcloud" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>
+    <div id="sidebar-stats" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>
     @CustomHelper.GetSidebarStatsAsync(Url.Action("SidebarStats", "Stats"))
     @CustomHelper.GetCategoryListAsync(Url.Action("CategoryList", "Category"))
     @CustomHelper.GetArchiveListAsync(Url.Action("ArchiveList", "Post"))

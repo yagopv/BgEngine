@@ -34,7 +34,7 @@ h3 { font-size: 1.2em; }
 h4 { font-size: 1.1em; }
 h5, h6 { font-size: 1em; }
 
-blockquote { margin: 1em 3em; padding: .5em 1em; border-left: 5px solid #fce27c; background-color: #f6ebc1; } blockquote p { margin: 0; }
+blockquote { margin-top: 10px;  margin-bottom: 10px;  margin-left: 50px;  padding-left: 15px;  border-left: 3px solid #ccc; } */
 
 /* Primary Layout elements */
 .page { width: 100%; position:relative;	min-height:100%; }
@@ -104,6 +104,13 @@ div#title {	display: block;	float: left; text-align: left; font-family: Arial; f
 body .ui-tooltip { max-width: 400px; }
 #logindisplay a { font-size:1.1em; }
 
+/*  Styles for anonymous comment fields */
+.anonymous-comment-fields { margin-bottom:20px;}
+.anonymous-comment-fields tr { width: 100%;}
+.anonymous-comment-fields table tr td:first-child { width: 25%;}
+.anonymous-comment-fields table tr td:last-child { width: 75%;}
+.anonymous-comment-fields input { width:100%;}
+
 /* Styles for validation helpers */
 .field-validation-error { color: #ff0000; display:block; margin-top:2px; }
 .field-validation-valid { display: none; }
@@ -122,11 +129,11 @@ body .ui-tooltip { max-width: 400px; }
 .user-data-text-box { width: 15em; }
 
 /* Post widgets styles */
-.mainpost {	width:97%; height:100%; float:left;	margin-top: 1%; box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.2);}
+.mainpost {	width:100%; height:100%; float:left;	margin-top: 1%; box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.2);}
 .mainpost img, .secondarypost img, .primarypost img { max-width:200px; max-height:150px; float:left; margin:2%; }
 .mainpost .post div { margin-right:7%; }
-.secondarypost { float:right; width:100%; height:100%; margin:1% 1% 1% 0; box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.2);}
-.primarypost { float:left; width:100%; height:100%; margin:1% 1% 1% 0; box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.2);}
+.secondarypost { float:right; width:100%; height:100%; margin:1% 0 3% 0; box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.2);}
+.primarypost { float:left; width:100%; height:100%; margin:1% 0 3% 0; box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.2);}
 .postimage { padding: 15px; max-height:75px; max-width:100px; width:25%; float:left; }
 .post { display:none; width:100%; }
 .postitem { display:inline; text-align:left; font-style: italic; }
@@ -240,6 +247,7 @@ body .galleria-thumbnails .galleria-image { width:150px }
 .ui-helper-padding-left {padding-left:10px;}
 .ui-helper-margin {margin:2%;}
 .ui-helper-margin-top-bottom { margin-top:2%;margin-bottom:2%; }
+.ui-helper-margin-top-bottom-4pc { margin-top:4%;margin-bottom:4%; }
 .ui-helper-margin-left-right { margin-left:2%;margin-right:2%; }
 .ui-helper-display-inline {display:inline;}
 .ui-helper-display-inline-block {display:inline-block;}
@@ -310,18 +318,17 @@ body .galleria-thumbnails .galleria-image { width:150px }
     .sidebar { float:none; height: auto; margin: 0 auto; width: 90%; clear:both; padding-top:5%; }
     #body { min-width: 0px; }
     #categories, #archive, #tagcloud, #sidebar-stats, #themeselector-button { margin-top: 4%; /*font-size:1.5em;*/ }
+    .primarypost, .secondarypost { font-size:0.8em; margin: 1% 0 2% 0;}
     .twtr-doc { margin-top: 4%; }
     #gsc-i-id1 { height: 40px;  }
     .gsc-search-button input  { height: 50px !important;  }
     .getuser-link {line-height:1.6em; }
-    .ui-helper-rating-votes {font-size:0.6em;}
+    .ui-helper-rating-votes {font-size:0.8em;}
     .album-holder { font-size: 0.80em !important; }
     #fancybox-overlay { width:1200px !important; }  
     body .ui-tooltip { max-width: 300px; font-size: 0.8em;}  
     #sidebar-sharebar a { text-decoration:none; margin-left: 20px; }
-    #menu, #logindisplay {font-size:0.8em;}  
-          
-    
+    #menu, #logindisplay {font-size:0.8em;}                
 }
 
 @media only screen and (max-width: 678px) 
@@ -336,7 +343,7 @@ body .galleria-thumbnails .galleria-image { width:150px }
     #body ul#menu li a { width:94%; }    
     #body .video-description { font-size: 0.7em; }
     #body .video-header { font-size: 0.9em; }        
-    .primarypost, .secondarypost { font-size:0.8em; }
+    .primarypost, .secondarypost { font-size:0.8em; margin: 1% 0 2% 0;}
     .mainpost img, .primarypost img, .secondarypost img  { max-height:70px; max-width:110px;}    
     #home-contact { position:relative; margin: 0 5%; width:90%; margin-top:2%; }
     #copyright { position:relative; margin: 0 5%; width:90%; margin-top:2%; text-align:center; }
@@ -347,6 +354,7 @@ body .galleria-thumbnails .galleria-image { width:150px }
     .rateit { display:none !important; top:-5px; left:0; width:100%;  }
     #rateit-vote { top:15px; }
     #rateit-loading { display:none; }
+    .ui-helper-rating-votes {font-size:0.8em !important;}
     .thread .bg-widget-content-right {width:90%;}
     #body .thread .tooltip, .thread .tooltip-ajax, #post-contents .tooltip, #post-contents .tooltip-ajax  { font-size: 0.8em; } 
     #comment-container .bg-input-search, #comments .bg-input-search { margin-left: 5%; margin-right:5%; width:90%; }
@@ -363,4 +371,5 @@ body .galleria-thumbnails .galleria-image { width:150px }
     #title img { max-height:90px; max-width: 300px; }
     #body #galleria-options a { margin-top:3%; font-size:0.95em;}
     #information-buttons p:last-child { display:none !important; }
+    .anonymous-comment-fields input { width:100% !important;}
 }

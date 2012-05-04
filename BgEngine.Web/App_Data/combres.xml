@@ -171,6 +171,7 @@
           <resource path="~/Scripts/internal/bg.infobox.js" />
           <resource path="~/Scripts/internal/bg.tagger.js" />
           <resource path="~/Scripts/internal/bg.view_post_startup.js" />
+          <resource path="~/Scripts/internal/bg.form.js" />
       </resourceSet>
 
       <resourceSet name="ViewPostsJs" type="js">

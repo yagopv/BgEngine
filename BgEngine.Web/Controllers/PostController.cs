@@ -270,6 +270,7 @@ namespace BgEngine.Controllers
         public ActionResult GetPostByCode(string id)
         {
             Post post = BlogServices.FindPost(id);
+            ViewBag.MetaDescription = post.Description;
             if ((post.IsPublic) || (CodeFirstRoleServices.IsUserInRole(CodeFirstSecurity.IsAuthenticated ? CodeFirstSecurity.CurrentUserName : " ", BgResources.Security_PremiumRole)))
             {
                 return View("Post", post);
@@ -287,6 +288,7 @@ namespace BgEngine.Controllers
         public ActionResult GetPostById(int id)
         {
             Post post = BlogServices.FindPost(id);
+            ViewBag.MetaDescription = post.Description;
             if ((post.IsPublic) || (CodeFirstRoleServices.IsUserInRole(CodeFirstSecurity.IsAuthenticated ? CodeFirstSecurity.CurrentUserName : " ", BgResources.Security_PremiumRole)))
             {
                 return View("Post", post);

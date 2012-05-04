@@ -20,13 +20,15 @@
 
 using System;
 using System.Web.Mvc;
-
+using System.Linq;
 
 using BgEngine.Domain.EntityModel;
 using BgEngine.Security.Services;
 using BgEngine.Domain.Filters;
 using BgEngine.Application.Services;
 using BgEngine.Application.ResourceConfiguration;
+using BgEngine.Web.ViewModels;
+using System.Collections.Generic;
 
 namespace BgEngine.Controllers
 {
@@ -210,15 +212,34 @@ namespace BgEngine.Controllers
         /// </summary>
         /// <param name="comment">Comment object</param>
         /// <returns>Json object with result of the operation</returns>
-        [EnableCompression]
+        [ValidateInput(false)]
         public ActionResult AddComment(Comment comment)
         {
-            if (ModelState.IsValid)
-            {
-                BlogServices.CreateComment(comment, UserServices.FindEntityByIdentity(CodeFirstSecurity.CurrentUserId));
-                return Json(new { result = "ok" });
-            }
-            return Json(new { result = "error" });
+           if (TryValidateModel(comment))
+           {
+               if (!CodeFirstSecurity.IsAuthenticated)
+               {
+                   AnonymousCommentViewModel user;
+                   if (comment.AnonymousUser != null)
+                   {
+                        user = AutoMapper.Mapper.Map<AnonymousUser, AnonymousCommentViewModel>(comment.AnonymousUser);
+                   }
+                   else
+                   {
+                       user = new AnonymousCommentViewModel();
+                   }
+                   if (TryValidateModel(user))
+                   {                                                  
+                       BlogServices.CreateComment(comment, CodeFirstSecurity.IsAuthenticated ? UserServices.FindEntityByIdentity(CodeFirstSecurity.CurrentUserId) : null);
+                       return Json(new { result = "ok" });
+                   }
+                   else
+                   {
+                       return Json(new { result = "error", errors = ModelState.Where(s => s.Value.Errors.Count > 0).Select(s => new KeyValuePair<string, string>(s.Key, s.Value.Errors.First().ErrorMessage)).ToArray() });
+                   }
+               }                              
+           }
+           return Json(new { result = "error", errors = ModelState.Where(s => s.Value.Errors.Count > 0).Select(s => new KeyValuePair<string, string>(s.Key, s.Value.Errors.First().ErrorMessage)).ToArray() });
         }
 
         /// <summary>
@@ -227,15 +248,34 @@ namespace BgEngine.Controllers
         /// <param name="comment">Comment object</param>
         /// <param name="parent">Identity of the parent</param>
         /// <returns>Json object with result of the operation</returns>
-        [EnableCompression]
+        [ValidateInput(false)]
         public ActionResult AddRelatedComment(Comment comment, int parent)
         {
-            if (ModelState.IsValid)
+            if (TryValidateModel(comment))
             {
-                BlogServices.AddRelatedComment(comment, parent, UserServices.FindEntityByIdentity(CodeFirstSecurity.CurrentUserId));
-                return Json(new { result = "ok" });
+                if (!CodeFirstSecurity.IsAuthenticated)
+                {
+                    AnonymousCommentViewModel user;
+                    if (comment.AnonymousUser != null)
+                    {
+                        user = AutoMapper.Mapper.Map<AnonymousUser, AnonymousCommentViewModel>(comment.AnonymousUser);
+                    }
+                    else
+                    {
+                        user = new AnonymousCommentViewModel();
+                    }
+                    if (TryValidateModel(user))
+                    {
+                        BlogServices.AddRelatedComment(comment, parent, CodeFirstSecurity.IsAuthenticated ? UserServices.FindEntityByIdentity(CodeFirstSecurity.CurrentUserId) : null);                    
+                        return Json(new { result = "ok" });
+                    }
+                    else
+                    {
+                        return Json(new { result = "error", errors = ModelState.Where(s => s.Value.Errors.Count > 0).Select(s => new KeyValuePair<string, string>(s.Key, s.Value.Errors.First().ErrorMessage)).ToArray() });
+                    }
+                }
             }
-            return Json(new { result = "error" });
+            return Json(new { result = "error", errors = ModelState.Where(s => s.Value.Errors.Count > 0).Select(s => new KeyValuePair<string, string>(s.Key, s.Value.Errors.First().ErrorMessage)).ToArray() });
         }
 
         /// <summary>
@@ -247,6 +287,15 @@ namespace BgEngine.Controllers
         public PartialViewResult GetPostComments(int postid)
         {
             return PartialView(CommentServices.FindAllEntities(c => c.PostId == postid,null,null));
+        }
+
+        /// <summary>
+        /// Retrieve Anonymous Comment fields
+        /// </summary>
+        /// <returns>Partial View showing Anonymous Comment field</returns>
+        public PartialViewResult AnonymousComment()
+        {
+            return PartialView();
         }
     }
 }

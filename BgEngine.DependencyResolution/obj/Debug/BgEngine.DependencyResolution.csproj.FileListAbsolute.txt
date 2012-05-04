@@ -178,3 +178,4 @@ D:\Proyectos .NET\BgEngine\BgEngine.DependencyResolution\bin\Debug\en\BgEngine.R
 D:\Proyectos .NET\BgEngine\BgEngine.DependencyResolution\obj\Debug\BgEngine.DependencyResolution.csprojResolveAssemblyReference.cache
 D:\Proyectos .NET\BgEngine\BgEngine.DependencyResolution\obj\Debug\BgEngine.DependencyResolution.dll
 D:\Proyectos .NET\BgEngine\BgEngine.DependencyResolution\obj\Debug\BgEngine.DependencyResolution.pdb
+D:\Proyectos .NET\BgEngine\BgEngine.DependencyResolution\bin\Debug\EntityFramework.xml

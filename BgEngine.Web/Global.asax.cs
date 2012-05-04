@@ -91,6 +91,7 @@ namespace BgEngine
             Mapper.CreateMap<StatsDTO, StatsModel>();
             Mapper.CreateMap<ConfigOptionsDTO, ConfigOptionsModel>();
             Mapper.CreateMap<ConfigOptionsModel, ConfigOptionsDTO>();
+            Mapper.CreateMap<AnonymousUser, AnonymousCommentViewModel>();
 
             //Init Recaptcha helper
             ReCaptcha.PublicKey = BgResources.Recaptcha_PublicKeyHttp;

@@ -84,6 +84,11 @@ namespace BgEngine.Domain.EntityModel
         public virtual User User { get; set; }
 
         /// <summary>
+        /// The anonymous user will be set when comments anonymous
+        /// </summary>
+        public AnonymousUser AnonymousUser { get; set; }
+
+        /// <summary>
         /// The collection of related Comments if any
         /// </summary>
         public virtual ICollection<Comment> RelatedComments { get; set; }

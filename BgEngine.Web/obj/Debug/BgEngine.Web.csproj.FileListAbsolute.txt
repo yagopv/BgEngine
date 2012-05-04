@@ -400,3 +400,4 @@ D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\en\BgEngine.Resources.resources.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Web\obj\Debug\BgEngine.Web.csprojResolveAssemblyReference.cache
 D:\Proyectos .NET\BgEngine\BgEngine.Web\obj\Debug\BgEngine.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Web\obj\Debug\BgEngine.pdb
+D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\EntityFramework.xml

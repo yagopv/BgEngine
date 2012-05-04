@@ -58,3 +58,5 @@ D:\Proyectos .NET\BgEngine\BgEngine.Infraestructure\bin\Debug\BgEngine.Domain.pd
 D:\Proyectos .NET\BgEngine\BgEngine.Infraestructure\obj\Debug\BgEngine.Infraestructure.csprojResolveAssemblyReference.cache
 D:\Proyectos .NET\BgEngine\BgEngine.Infraestructure\obj\Debug\BgEngine.Infraestructure.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Infraestructure\obj\Debug\BgEngine.Infraestructure.pdb
+D:\Proyectos .NET\BgEngine\BgEngine.Infraestructure\bin\Debug\EntityFramework.dll
+D:\Proyectos .NET\BgEngine\BgEngine.Infraestructure\bin\Debug\EntityFramework.xml

@@ -1179,4 +1179,22 @@
   <data name="User_Web_Prompt" xml:space="preserve">
     <value>Enter your web</value>
   </data>
+  <data name="AnonymousUser_Email" xml:space="preserve">
+    <value>Mail (not going to be published)</value>
+  </data>
+  <data name="AnonymousUser_Username" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AnonymousUser_Web" xml:space="preserve">
+    <value>Web</value>
+  </data>
+  <data name="Post_AllowAnonymousComments" xml:space="preserve">
+    <value>Allow anonymous comments ?</value>
+  </data>
+  <data name="Post_IsPostCommentsClosed" xml:space="preserve">
+    <value>Closed Comments?</value>
+  </data>
+  <data name="Comments_Closed" xml:space="preserve">
+    <value>Comments for this post are closed</value>
+  </data>
 </root>

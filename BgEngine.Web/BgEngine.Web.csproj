@@ -130,6 +130,7 @@
     <Compile Include="Results\FeedResult.cs" />
     <Compile Include="Results\FileUploadJsonResult.cs" />
     <Compile Include="Results\ZipResult.cs" />
+    <Compile Include="ViewModels\AnonymousCommentViewModel.cs" />
     <Compile Include="ViewModels\ChangePasswordModel.cs" />
     <Compile Include="ViewModels\ConfigOptionsModel.cs" />
     <Compile Include="ViewModels\ConfirmationModel.cs" />
@@ -913,10 +914,7 @@
     <Content Include="Views\Stats\SidebarStats.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Video\LatestVideos.cshtml" />
-    <Content Include="Views\Home\Index_ajax.cshtml" />
-    <Content Include="Views\Home\Videos_ajax.cshtml" />
-    <Content Include="Views\Home\About_ajax.cshtml" />
-    <Content Include="Views\Home\Galeria_ajax.cshtml" />
+    <Content Include="Views\Shared\AnonymousComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BgEngine.Application\BgEngine.Application.csproj">

@@ -23,6 +23,8 @@ using System.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 
+using BgEngine.Domain.Validation;
+
 namespace BgEngine.Infraestructure.Validation
 {
 
