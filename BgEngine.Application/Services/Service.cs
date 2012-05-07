@@ -107,6 +107,21 @@ namespace BgEngine.Application.Services
             return Repository.GetPagedElements(pageindex, pagecount, orderbyexpression, sortdirection);
         }
         /// <summary>
+        /// Get List of Entity Paged
+        /// </summary>
+        /// <typeparam name="TKey">Order Key</typeparam>
+        /// <param name="pageindex">The index of the page to get</param>
+        /// <param name="pagecount">The total number of Entities to page</param>
+        /// <param name="orderbyexpression">The order Expression</param>
+        /// <param name="sortdirection">The Sort direction</param>
+        /// <param name="includeProperties">Includes</param>
+        /// <returns>List of Entities</returns>
+        public virtual IEnumerable<TEntity> RetrievePaged<TKey>(int pageindex, int pagecount, Expression<Func<TEntity, TKey>> orderbyexpression, bool sortdirection, string includeProperties="")
+        {
+            return Repository.GetPagedElements(pageindex, pagecount, orderbyexpression, sortdirection,includeProperties);
+        }
+
+        /// <summary>
         /// Execute query
         /// </summary>
         /// <param name="sqlQuery">The Query to be executed</param>

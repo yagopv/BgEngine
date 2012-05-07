@@ -42,7 +42,8 @@ namespace BgEngine.Domain.RepositoryContracts
         void Delete(object id);
         void Delete(TEntity entityToDelete);
         void Update(TEntity entityToUpdate);
-        IEnumerable<TEntity> GetPagedElements<S>(int pageIndex, int pageCount, Expression<Func<TEntity, S>> orderByExpression, bool ascending = true);
+        IEnumerable<TEntity> GetPagedElements<TKey>(int pageIndex, int pageCount, Expression<Func<TEntity, TKey>> orderByExpression, bool ascending = true);
+        IEnumerable<TEntity> GetPagedElements<TKey>(int pageIndex, int pageCount, Expression<Func<TEntity, TKey>> orderByExpression, bool ascending = true, string includeProperties = "");
         IEnumerable<TEntity> GetFromDatabaseWithQuery(string sqlQuery, params object[] parameters);
         int ExecuteInDatabaseByQuery(string sqlCommand, params object[] parameters);
         int GetCount();

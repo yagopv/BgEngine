@@ -79,22 +79,22 @@ namespace BgEngine.Controllers
             }
             if (sort == null)
             {
-                return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.DateCreated, false));
+                return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.DateCreated, false,"User"));
             }
             else
             {
                 switch (sort.ToLower())
                 {
                     case "message":
-                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.Message, dir));
+                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.Message, dir, "User"));
                     case "datecreated":
-                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.DateCreated, dir));
+                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.DateCreated, dir, "User"));
                     case "post.code":
-                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.Post.Code, false));
+                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.Post.Code, false, "User"));
                     case "user.username":
-                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.User.Username, false));
+                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.User.Username, false, "User"));
                     default:
-                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.DateCreated, false));                        
+                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.DateCreated, false, "User"));                        
                 }
             }
         }

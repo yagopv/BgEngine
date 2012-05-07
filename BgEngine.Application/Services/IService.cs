@@ -38,6 +38,7 @@ namespace BgEngine.Application.Services
         void DeleteEntity(object id);
         void DeleteEntity(TEntity entity);
         IEnumerable<TEntity> RetrievePaged<TKey>(int pageindex, int pagecount, Expression<Func<TEntity,TKey>> orderbyexpression, bool sortdirection);
+        IEnumerable<TEntity> RetrievePaged<TKey>(int pageindex, int pagecount, Expression<Func<TEntity, TKey>> orderbyexpression, bool sortdirection, string includeProperties = "");
         IEnumerable<TEntity> GetFromDatabaseWithQuery(string sqlQuery, params object[] parameters);
         int ExecuteInDatabaseByQuery(string sqlCommand, params object[] parameters);
         int TotalNumberOfEntity();

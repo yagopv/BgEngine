@@ -171,7 +171,46 @@ namespace BgEngine.Infraestructure.Repositories
                             .Take(pageCount)
                             .ToList();
         }
+        /// <summary>
+        /// Generic implementation for get Paged Entities
+        /// </summary>
+        /// <typeparam name="TKey">Key for order Expression</typeparam>
+        /// <param name="pageIndex">Index of the Page</param>/// 
+        /// <param name="pageCount">Number of Entities to get</param>
+        /// <param name="orderByExpression">Order expression</param>
+        /// <param name="ascending">If the order is ascending or descending</param>
+        /// <param name="includeProperties">Includes</param>
+        /// <returns>Enumerable of Entities matching the conditions</returns>        
+        public IEnumerable<TEntity> GetPagedElements<TKey>(int pageIndex, int pageCount, Expression<Func<TEntity, TKey>> orderByExpression, bool ascending = true, string includeProperties = "")
+        {
+            IQueryable<TEntity> query = unitofwork.Set<TEntity>();
 
+            if (!String.IsNullOrEmpty(includeProperties))
+            {
+                foreach (var includeProperty in includeProperties.Split
+                    (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProperty);
+                }
+            }
+            
+            if (pageIndex < 1) { pageIndex = 1; }
+
+            if (orderByExpression == (Expression<Func<TEntity, TKey>>)null)
+                throw new ArgumentNullException();
+
+            return (ascending)
+                            ?
+                        query.OrderBy(orderByExpression)
+                            .Skip((pageIndex - 1) * pageCount)
+                            .Take(pageCount)
+                            .ToList()
+                            :
+                        query.OrderByDescending(orderByExpression)
+                            .Skip((pageIndex - 1) * pageCount)
+                            .Take(pageCount)
+                            .ToList();
+        }
         /// <summary>
         /// Execute query
         /// </summary>
