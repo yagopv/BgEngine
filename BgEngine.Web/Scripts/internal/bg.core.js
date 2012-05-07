@@ -31,6 +31,7 @@ $(function () {
     $(".bg-button-delete").button({ icons: { primary: "ui-icon-circle-close" }, text: true });
     $(".bg-button-delete-no-text").button({ icons: { primary: "ui-icon-circle-close" }, text: false });
     $(".bg-button-save").button({ icons: { primary: "ui-icon-disk" }, text: true });
+    $(".bg-button-gear").button({ icons: { primary: "ui-icon-gear" }, text: true });
     $(".bg-button-question").button({ icons: { primary: "ui-icon-help" }, text: true });
     $(".bg-button-locked").button({ icons: { primary: "ui-icon-locked" }, text: true });
     $(".bg-button-zoom").button({ icons: { primary: "ui-icon-zoomin" }, text: true });
