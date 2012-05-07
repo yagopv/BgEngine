@@ -19,118 +19,138 @@
 *==============================================================================*/
 
 (function ($) {
-	$.view_post_startup = function (loading_message, postid, getposturl, commentcount, scriptspath, culture, usermail, leavecomment, isauthenticated) {
-		tinyMCE.init({
-			mode: "textareas",
-			theme: "advanced",
-			skin: "cirkuit",
-			theme_advanced_toolbar_location: "top",
-			theme_advanced_buttons1: "bold,italic,underline,blockquote,link,unlink",
-			theme_advanced_buttons2: "",
-			width: "100%"
-		});
+    $.view_post_startup = function (loading_message, postid, getposturl, commentcount, scriptspath, culture, usermail, leavecomment, isauthenticated) {
+        // TyneMCE init for comment textareas
+        tinyMCE.init({
+            mode: "textareas",
+            theme: "advanced",
+            skin: "cirkuit",
+            theme_advanced_toolbar_location: "top",
+            theme_advanced_buttons1: "bold,italic,underline,blockquote,link,unlink",
+            theme_advanced_buttons2: "",
+            width: "100%"
+        });
 
-		$("#comment-container form").form();
+        // Enhance form comment fields
+        $("#comment-container form").form();
 
-		$("#comment-submit").live("click", function () {
-			if (isauthenticated == "True" || (isauthenticated != "True" && $("#comment-container .anonymous-comment-fields").valid())) {
-				var message = tinyMCE.get("comment-textarea").getContent();
-				if (message != "") {
-					$("#comment-container").block({ css: {
-						border: 'none',
-						padding: '15px',
-						backgroundColor: '#000',
-						'-webkit-border-radius': '10px',
-						'-moz-border-radius': '10px',
-						opacity: .5,
-						color: '#fff'
-					},
-						message: loading_message
-					});
-					$.post("/Comment/AddComment/", (isauthenticated == "True"
+        //Control standard comment submission
+        $("#comment-submit").live("click", function (event) {
+            // Process comment when user is authenticathed or not authenticathed and anonymous fields are correct
+            if (isauthenticated == "True" || (isauthenticated != "True" && $("#comment-container .anonymous-comment-fields").valid())) {
+                var message = tinyMCE.get("comment-textarea").getContent();
+                if (message != "") {
+                    $("#comment-container").block({ css: {
+                        border: 'none',
+                        padding: '15px',
+                        backgroundColor: '#000',
+                        '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
+                        opacity: .5,
+                        color: '#fff'
+                    },
+                        message: loading_message
+                    });
+                    // Set comment message to spaces because tyneMCE is showing the HTML content
+                    tinyMCE.get("comment-textarea").setContent("");
+                    $.post("/Comment/AddComment/", (isauthenticated == "True"
 						? { Message: message, PostId: postid }
 						: { Message: message, PostId: postid, "AnonymousUser.Username": $("#comment-container #Username").val(), "AnonymousUser.Email": $("#comment-container #Email").val(), "AnonymousUser.Web": $("#comment-container #Web").val() }),
 						   function (data) {
-							   if (data.result == "ok") {
-								   $("#comments").load(getposturl,
+						       if (data.result == "ok") {
+						           $("#comments").load(getposturl,
 														function (text, status, request) {
-															var numberofcomments = commentcount + 1;
-															$("#comment.count").text(numberofcomments);
-															$(".bg-button-reply").button({ icons: { primary: "ui-icon-pencil" }, text: false });
-															$("#comment-container").unblock();
-															$("#comment-container #Username").val("");
-															$("#comment-container #Email").val("");
-															$("#comment-container #Web").val("");
-															reconnectTooltips();
+														    var numberofcomments = commentcount + 1;
+														    $("#comment.count").text(numberofcomments);
+														    $(".bg-button-reply").button({ icons: { primary: "ui-icon-pencil" }, text: false });
+														    $("#comment-container").unblock();
+														    $("#comment-container #Username").val("");
+														    $("#comment-container #Email").val("");
+														    $("#comment-container #Web").val("");
+														    var comments = parseInt($("#information-buttons :nth-child(4)").first().text());
+														    comments++;
+														    $("#information-buttons :nth-child(4)").html('<span class="ui-button bg-icon-left ui-icon ui-icon-comment"></span>' + comments.toString());
+														    reconnectTooltips();
 														});
-							   }
-							   else {
-							       $("#comment-container").unblock();
-								   var validator = $("#comment-container form").validate();
-								   errors = { };
-								   for (var i = 0; i < data.errors.length; i++) {
-									   errors[data.errors[i].Key] = data.errors[i].Value;
-								   }
-								   validator.showErrors(errors);
-							   }
-							   tinyMCE.get("comment-textarea").setContent("");
+						       }
+						       else {
+						           $("#comment-container").unblock();
+						           // If validation errors revalidate the form and show errors
+						           var validator = $("#comment-container form").validate();
+						           errors = {};
+						           for (var i = 0; i < data.errors.length; i++) {
+						               errors[data.errors[i].Key] = data.errors[i].Value;
+						           }
+						           validator.showErrors(errors);
+						           tinyMCE.get("comment-textarea").setContent(message);
+						       }
 						   }
 						   , "json");
-				}
-			}
-		});
+                }
+            }
+        });
 
-		$("#related-comment-submit").live("click", function () {
-			if (isauthenticated == "True" || (isauthenticated != "True" && $("#comments .anonymous-comment-fields").valid())) {
-				var message = tinyMCE.get("dynamic-textarea").getContent();
-				if (message != "") {
-					$("#newcomment").block({ css: {
-						border: 'none',
-						padding: '15px',
-						backgroundColor: '#000',
-						'-webkit-border-radius': '10px',
-						'-moz-border-radius': '10px',
-						opacity: .5,
-						color: '#fff'
-					},
-						message: loading_message
-					});
-					$.post("/Comment/AddRelatedComment/", (isauthenticated == "True"
+        //Control related comment submission
+        $("#related-comment-submit").live("click", function () {
+            // Process comment when user is authenticathed or not authenticathed and anonymous fields are correct
+            if (isauthenticated == "True" || (isauthenticated != "True" && $("#comments .anonymous-comment-fields").valid())) {
+                var message = tinyMCE.get("dynamic-textarea").getContent();
+                if (message != "") {
+                    $("#newcomment").block({ css: {
+                        border: 'none',
+                        padding: '15px',
+                        backgroundColor: '#000',
+                        '-webkit-border-radius': '10px',
+                        '-moz-border-radius': '10px',
+                        opacity: .5,
+                        color: '#fff'
+                    },
+                        message: loading_message
+                    });
+                    // Set comment message to spaces because tyneMCE is showing the HTML content
+                    tinyMCE.get("dynamic-textarea").setContent("");
+                    $.post("/Comment/AddRelatedComment/", (isauthenticated == "True"
 						 ? { Message: message, PostId: postid, parent: $("#related-comment-submit").attr("title") }
 						 : { Message: message, PostId: postid, parent: $("#related-comment-submit").attr("title"), "AnonymousUser.Username": $("#comments #Username").val(), "AnonymousUser.Email": $("#comments #Email").val(), "AnonymousUser.Web": $("#comments #Web").val() }),
 						   function (data) {
-							   if (data.result == "ok") {
-								   tinyMCE.execCommand('mceFocus', false, 'dynamic-textarea');
-								   tinyMCE.execCommand('mceRemoveControl', false, 'dynamic-textarea');
-								   $(".reply .ui-icon").removeClass("ui-icon-cancel").addClass("ui-icon-pencil");
-								   $("#comments").load(getposturl,
+						       if (data.result == "ok") {
+						           tinyMCE.execCommand('mceFocus', false, 'dynamic-textarea');
+						           $(".reply .ui-icon").removeClass("ui-icon-cancel").addClass("ui-icon-pencil");
+						           $("#comments").load(getposturl,
 														function (text, status, request) {
-															var numberofcomments = commentcount + 1;
-															$("#comment.count").text(numberofcomments);
-															$(".bg-button-reply").button({ icons: { primary: "ui-icon-pencil" }, text: false });
-															$("#newcomment").unblock();
-															$("#comments #Username").val("");
-															$("#comments #Email").val("");
-															$("#comments #Web").val("");
-															reconnectTooltips();
+														    var numberofcomments = commentcount + 1;
+														    $("#comment.count").text(numberofcomments);
+														    $(".bg-button-reply").button({ icons: { primary: "ui-icon-pencil" }, text: false });
+														    $("#newcomment").unblock();
+														    $("#comments #Username").val("");
+														    $("#comments #Email").val("");
+														    $("#comments #Web").val("");
+														    var comments = parseInt($("#information-buttons :nth-child(4)").first().text());
+														    comments++;
+														    $("#information-buttons :nth-child(4)").html('<span class="ui-button bg-icon-left ui-icon ui-icon-comment"></span>' + comments.toString());
+														    reconnectTooltips();
+														    tinyMCE.execCommand('mceRemoveControl', false, 'dynamic-textarea');
 														});
-							   }
-							   else {
-							       $("#newcomment").unblock();
-								   var validator = $("#comments form").validate();
-								   errors = { };
-								   for (var i = 0; i < data.errors.length; i++) {
-									   errors[data.errors[i].Key] = data.errors[i].Value;
-								   }
-								   validator.showErrors(errors);
-							   }
-							   tinyMCE.get("dynamic-textarea").setContent("");
+						       }
+						       else {
+						           $("#newcomment").unblock();
+						           // If validation errors revalidate the form and show errors
+						           var validator = $("#comments form").validate();
+						           errors = {};
+						           for (var i = 0; i < data.errors.length; i++) {
+						               errors[data.errors[i].Key] = data.errors[i].Value;
+						           }
+						           validator.showErrors(errors);
+						           tinyMCE.get("dynamic-textarea").setContent(message);
+						       }
 						   }
 						   , "json");
-				}
-			}
-		});
-		SyntaxHighlighter.autoloader(
+                }
+            }
+        });
+
+        //Load SyntaxHighlighter brushes for enhance <pre> labels in the page
+        SyntaxHighlighter.autoloader(
 			'js jscript javascript  ' + scriptspath + 'syntaxhlBrushes/shBrushJScript.js',
 			'c# c-sharp csharp      ' + scriptspath + 'syntaxhlBrushes/shBrushCSharp.js',
 			'css                    ' + scriptspath + 'syntaxhlBrushes/shBrushCss.js',
@@ -138,55 +158,66 @@
 			'xml xhtml xslt html    ' + scriptspath + 'syntaxhlBrushes/shBrushXml.js',
 			'sql                    ' + scriptspath + 'syntaxhlBrushes/shBrushSql.js'
 		);
-		SyntaxHighlighter.all();
+        SyntaxHighlighter.all();
 
-		$(".reply").live("hover", function () {
-			//var element = $(this).closest("div").prev("div").toggleClass("ui-widget-content ui-helper-corner-all");
-			var element = $(this).closest("li").toggleClass("ui-widget-content ui-helper-corner-all");
-			var a = 1;
-		});
-		$(".reply").live("click", function () {
-			var self = this;
-			if ($("#newcomment").length == 0) {
-				if (isauthenticated == "True") {
-					createComment(self, " ", usermail, leavecomment);
-				}
-				else {
+        //Styles for interaction with the reply buttons
+        $(".reply").live("hover", function () {
+            var element = $(this).closest("li").toggleClass("ui-widget-content ui-helper-corner-all");
+            var a = 1;
+        });
 
-					$.get("/Comment/AnonymousComment", function (data) {
-						createComment(self, data, usermail, leavecomment);
-						$("#comments form").form();
-					});
-				}
-			}
-			else {
-				$(".reply").not(this).show("slow");
-				$(".ui-icon", this).removeClass("ui-icon-cancel").addClass("ui-icon-pencil");
-				tinyMCE.execCommand('mceFocus', false, 'dynamic-textarea');
-				tinyMCE.execCommand('mceRemoveControl', false, 'dynamic-textarea');
-				$("#newcomment").remove();
-			}
-			return false;
-		});
+        // Control reply button click event
+        $(".reply").live("click", function () {
+            var self = this;
+            if ($("#newcomment").length == 0) {
+                if (isauthenticated == "True") {
+                    if ($(self).data("retrieving") != "true") {
+                        $(self).data("retrieving", "true");
+                        createComment(self, " ", usermail, leavecomment);
+                        $(self).data("retrieving", "false");
+                    }
+                }
+                else {
+                    if ($(self).data("retrieving") != "true") {
+                        $(self).data("retrieving", "true");
+                        $.get("/Comment/AnonymousComment", function (data) {
+                            createComment(self, data, usermail, leavecomment);
+                            $("#comments form").form();
+                            $(self).data("retrieving", "false");
+                        });
+                    }
+                }
+            }
+            else {
+                $(".reply").not(this).show("slow");
+                $(".ui-icon", this).removeClass("ui-icon-cancel").addClass("ui-icon-pencil");
+                tinyMCE.execCommand('mceFocus', false, 'dynamic-textarea');
+                tinyMCE.execCommand('mceRemoveControl', false, 'dynamic-textarea');
+                $("#newcomment").remove();
+            }
+            return false;
+        });
 
-		var infobox = $('body').infobox({
-			dataUrl: 'http://feeds.delicious.com/v2/json/popular/'
-		});
+        // Show delicious widget with tag matching words
+        var infobox = $('body').infobox({
+            dataUrl: 'http://feeds.delicious.com/v2/json/popular/'
+        });
 
-		$('span[data-tag]').tagger({
-			activated: function (event, data) {
-				infobox.infobox('displayTagLinks', event, data.name);
-			},
-			deactivated: function () {
-				infobox.infobox('hideTagLinks');
-			}
-		});
-	};
+        $('span[data-tag]').tagger({
+            activated: function (event, data) {
+                infobox.infobox('displayTagLinks', event, data.name);
+            },
+            deactivated: function () {
+                infobox.infobox('hideTagLinks');
+            }
+        });
+    };
 
-	function createComment(object, htmldata, usermail, leavecomment) {
-		$(".reply").not(object).hide("slow");
-		$(".ui-icon", object).removeClass("ui-icon-pencil").addClass("ui-icon-cancel");
-		$(object).closest("li.thread").after('<li id="newcomment" class="ui-state-highlight ui-corner-all ui-helper-margin">' +
+    // Create comment function
+    function createComment(object, htmldata, usermail, leavecomment) {
+        $(".reply").not(object).hide("slow");
+        $(".ui-icon", object).removeClass("ui-icon-pencil").addClass("ui-icon-cancel");
+        $(object).closest("li.thread").after('<li id="newcomment" class="ui-state-highlight ui-corner-all ui-helper-margin">' +
 													'<div class="comment-area ui-helper-width-100pc">' +
 													   '<div class="bg-widget-image-left">' +
 														   usermail +
@@ -201,45 +232,46 @@
 													'</div>' +
 												'<div class="ui-helper-reset-float"></div>' +
 											'</li>');
-		$('html,body').animate({ scrollTop: $("#newcomment").closest("li").position().top }, { duration: 'slow', easing: 'swing' });
-		$.validator.unobtrusive.parse($("#comments .anonymous-comment-fields"));
-		$("#related-comment-submit").button();
-		tinyMCE.execCommand('mceAddControl', false, 'dynamic-textarea');
-	}
+        $('html,body').animate({ scrollTop: $("#newcomment").closest("li").position().top }, { duration: 'slow', easing: 'swing' });
+        $.validator.unobtrusive.parse($("#comments .anonymous-comment-fields"));
+        $("#related-comment-submit").button();
+        tinyMCE.execCommand('mceAddControl', false, 'dynamic-textarea');
+    }
 
-	function reconnectTooltips() {
-		$(".tooltip-default").tooltip();
-		$(".tooltip, .tooltip-ajax").tooltip({
-			items: "[href], [title]",
-			open: function () {
-				var tooltip = $(".ui-tooltip");
-				$(document).mousemove(function (event) {
-					tooltip.position({
-						my: "left+25 center",
-						at: "right+25 center",
-						of: event
-					});
-				})
-				// trigger once to override element-relative positioning 
+    // Reconnect tooltips after ajax load
+    function reconnectTooltips() {
+        $(".tooltip-default").tooltip();
+        $(".tooltip, .tooltip-ajax").tooltip({
+            items: "[href], [title]",
+            open: function () {
+                var tooltip = $(".ui-tooltip");
+                $(document).mousemove(function (event) {
+                    tooltip.position({
+                        my: "left+25 center",
+                        at: "right+25 center",
+                        of: event
+                    });
+                })
+                // trigger once to override element-relative positioning 
 				.mousemove();
-			},
-			content: function (response) {
-				var href = $(this).attr("href");
-				if ($(this).hasClass("tooltip-ajax")) {
-					$.get(href, response);
-					return Globalize.localize("loading", culture);
-				}
-				else {
-					if (/^#/.test(href)) {
-						return $(href).html();
-					}
-				}
-				return this.title;
-			},
-			close: function () {
-				$(document).unbind("mousemove");
-			}
-		});
-		$(".tooltip-ajax").click(function () { return false; });
-	}
+            },
+            content: function (response) {
+                var href = $(this).attr("href");
+                if ($(this).hasClass("tooltip-ajax")) {
+                    $.get(href, response);
+                    return Globalize.localize("loading", culture);
+                }
+                else {
+                    if (/^#/.test(href)) {
+                        return $(href).html();
+                    }
+                }
+                return this.title;
+            },
+            close: function () {
+                $(document).unbind("mousemove");
+            }
+        });
+        $(".tooltip-ajax").click(function () { return false; });
+    }
 })(jQuery);

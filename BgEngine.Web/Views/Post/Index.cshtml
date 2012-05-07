@@ -42,13 +42,77 @@
 
 <p>
 	@Html.RouteLink(Resources.AppMessages.Create, "Default", new { controller = "Post", action = "Create" }, new { @class = "bg-button-new" })
+    @if (Model.Any()) {
+        <a href="#" id="options" class="bg-button-gear">Options</a>	   
+    }    
 </p>
 
 @if (Model.Any())
 { 
-    <div class="bg-input-search">
-	    <input id="searchpost" name="Title" type="text"/>
-	    <a id="searchbutton" class="bg-panel bg-button-search"></a>
+    <div id="options-container" class="ui-helper-hidden">
+        <div class="ui-helper-margin multiselect ui-helper-margin-top-bottom">
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-1" data-column="1" data-default="true" />
+                <span>Imagen asociada</span>
+            </div>            
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-2" data-column="2" data-default="true" />
+                <span>@Resources.AppMessages.Post_Title</span>
+            </div>
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-3" data-column="3" data-default="true"/>
+                <span>@Resources.AppMessages.Post_Description</span>
+            </div>
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-4" data-column="4" data-default="true"/>
+                <span>@Resources.AppMessages.DateCreated</span>
+            </div>
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-5" data-column="5" />
+                <span>@Resources.AppMessages.DateUpdated</span>
+            </div>            
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-6" data-column="6" />
+                <span>@Resources.AppMessages.Post_Code</span>
+            </div>                        
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-7" data-column="7" />
+                <span>@Resources.AppMessages.Post_IsPublic</span>
+            </div>                                    
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-8" data-column="8" />
+                <span>@Resources.AppMessages.Post_IsHomePost</span>
+            </div>                                     
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-9" data-column="9" />
+                <span>@Resources.AppMessages.Post_IsAboutMe</span>
+            </div>                                     
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-10" data-column="10" />
+                <span>@Resources.AppMessages.Post_AllowAnonymousComments</span>
+            </div>     
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-11" data-column="11" />
+                <span>@Resources.AppMessages.Post_IsPostCommentsClosed</span>
+            </div>                    
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-12" data-column="12" data-default="true"/>
+                <span>@Resources.AppMessages.Category</span>
+            </div>
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-13" data-column="13" data-default="true"/>
+                <span>@Resources.AppMessages.User</span>
+            </div>
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-14" data-column="14" data-default="true"/>
+                <span>@Resources.AppMessages.Post_Visits</span>
+            </div>
+        </div>
+    
+        <div class="bg-input-search">
+	        <input id="searchpost" name="Title" type="text"/>
+	        <a id="searchbutton" class="bg-panel bg-button-search"></a>
+        </div>        
     </div>
 
     <div id="grid-container" class="ui-helper-margin-top-bottom">
@@ -79,6 +143,13 @@
 		    grid.Column("Title",header:Resources.AppMessages.Post_Title, canSort:true),
 		    grid.Column("Description",header:Resources.AppMessages.Post_Description, format: @<span>@CustomHelper.TruncateString(item.Description,100)</span>,canSort:false),
 		    grid.Column("DateCreated",header: Resources.AppMessages.DateCreated, canSort:true),
+            grid.Column("DateUpdated",header: Resources.AppMessages.DateUpdated, canSort:false),
+            grid.Column("Code",header: Resources.AppMessages.Post_Code, canSort:false),
+            grid.Column("IsPublic",header: Resources.AppMessages.Post_IsPublic, canSort:false,format:@<span>@(item.IsPublic ? "Si" : "No" )</span>),
+            grid.Column("IsHomePost",header: Resources.AppMessages.Post_IsHomePost, canSort:false,format:@<span>@(item.IsHomePost ? "Si" : "No" )</span>),
+            grid.Column("IsAboutMe",header: Resources.AppMessages.Post_IsAboutMe, canSort:false,format:@<span>@(item.IsAboutMe ? "Si" : "No" )</span>),
+            grid.Column("AllowAnonymousComments",header: Resources.AppMessages.Post_AllowAnonymousComments, canSort:false,format:@<span>@(item.AllowAnonymousComments ? "Si" : "No" )</span>),
+            grid.Column("IsPostCommentsClosed",header: Resources.AppMessages.Post_IsPostCommentsClosed, canSort:false,format:@<span>@(item.IsPostCommentsClosed ? "Si" : "No" )</span>),
 		    grid.Column("Category",header:Resources.AppMessages.Category, canSort:true, format: @<span>@item.Category.Name</span>),
 		    grid.Column("User",header:Resources.AppMessages.User, canSort:true,format:@<span>@item.User.Username</span>),
 		    grid.Column("Visits",header:Resources.AppMessages.Post_Visits, canSort:true,format:@<span><p class="ui-helper-medium-font-size ui-helper-text-center">@item.Visits</p></span>),
