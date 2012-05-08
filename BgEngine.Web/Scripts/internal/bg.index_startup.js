@@ -21,7 +21,7 @@
 (function ($) {
     $.index_startup = function (text) {
         $("table").grid();
-        $("th a").button({ icons: { primary: "ui-icon-triangle-2-n-s" }, text: true });
+		$("th a").button({ icons: { primary: "ui-icon-triangle-2-n-s" }, text: true });
         $("#grid-container").ajaxStart(function () {
             $("#grid-container").block({ css: {
                 border: 'none',
@@ -40,25 +40,26 @@
             $("table").grid();
             ajaxconnect();
         });
-
-        $(".multiselect-check input[type='checkbox']").bind("enhancedCheckbox_click", function () {
-            if ($(this).attr("checked")) {
-                $.cookie($(this).attr("id"), "true");
-                hideShowColumn($(this).attr("data-column"), true);
-            }
-            else {
-                $.cookie($(this).attr("id"), "false");
-                hideShowColumn($(this).attr("data-column"), false);
-            }
+        
+        $(".multiselect-check input[type='checkbox']").bind("enhancedCheckbox_click",function() {
+           if ($(this).attr("checked")) {
+               $.cookie($(this).attr("id"),"true");
+               hideShowColumn($(this).attr("data-column"),true);
+           }
+           else {
+               $.cookie($(this).attr("id"),"false");
+               hideShowColumn($(this).attr("data-column"),false);
+           }
+        });          
+        
+        $("#options").click(function() {
+           $("#options-container").slideToggle("slow");
+           return false;
         });
-
-        $("#options").click(function () {
-            $("#options-container").slideToggle("slow");
-        });
-
+        
         loadCheckBoxes();
         loadColumns();
-        ajaxconnect();
+        ajaxconnect();   
         enhanceCheckboxes();
     };
 
@@ -66,65 +67,65 @@
         $(".bg-button-grid-edit").button({ icons: { primary: "ui-icon-pencil" }, text: false });
         $(".bg-button-grid-delete").button({ icons: { primary: "ui-icon-circle-close" }, text: false });
         $(".bg-button-grid-zoom").button({ icons: { primary: "ui-icon-zoomin" }, text: false });
-        $("th a").button({ icons: { primary: "ui-icon-triangle-2-n-s" }, text: true });
+		$("th a").button({ icons: { primary: "ui-icon-triangle-2-n-s" }, text: true });
         $(".options").buttonset();
-        loadColumns();
+        loadColumns();        
     }
-
+    
     function hideShowColumn(column, show) {
         if (show) {
-            $("table thead tr th:nth-child(" + column + ")").show();
-            $("table tbody tr td:nth-child(" + column + ")").show();
+            $("table thead tr th:nth-child(" + column  + ")").show();
+            $("table tbody tr td:nth-child(" + column  + ")").show();
         }
         else {
-            $("table thead tr th:nth-child(" + column + ")").hide();
-            $("table tbody tr td:nth-child(" + column + ")").hide();
-        }
+            $("table thead tr th:nth-child(" + column  + ")").hide();
+            $("table tbody tr td:nth-child(" + column  + ")").hide();
+        }        
     }
-
+    
     function loadCheckBoxes() {
-        $(".multiselect-check input[type='checkbox']").each(function () {
-            var cookieValue = $.cookie($(this).attr("id"));
+        $(".multiselect-check input[type='checkbox']").each(function() {
+            var cookieValue = $.cookie($(this).attr("id"));            
             if (cookieValue == "true") {
-                $(this).attr("checked", "true");
+                $(this).attr("checked","true");
             }
             else {
                 if (cookieValue == "false") {
-                    $(this).removeAttr("checked");
+                    $(this).removeAttr("checked");    
                 }
                 else {
                     if ($(this).attr("data-default") == "true") {
-                        $(this).attr("checked", "true");
-                    }
-                }
-            }
-        });
-    }
-
+                        $(this).attr("checked","true");   
+                    }                                    
+                }                
+            }                               
+        }); 
+    }    
+    
     function loadColumns() {
-        $(".multiselect-check input[type='checkbox']").each(function () {
+        $(".multiselect-check input[type='checkbox']").each(function() {                        
             var cookieValue = $.cookie($(this).attr("id"));
             if (cookieValue == "true") {
-                hideShowColumn($(this).attr("data-column"), true);
+                hideShowColumn($(this).attr("data-column"),true);                
             }
             else {
                 if (cookieValue == "false") {
-                    hideShowColumn($(this).attr("data-column"), false);
+                    hideShowColumn($(this).attr("data-column"),false);
                 }
                 else {
                     if ($(this).attr("data-default") == "true") {
-                        hideShowColumn($(this).attr("data-column"), true);
-                    }
+                        hideShowColumn($(this).attr("data-column"),true);
+                    }                                    
                     else {
-                        hideShowColumn($(this).attr("data-column"), false);
-                    }
-                }
+                        hideShowColumn($(this).attr("data-column"),false);
+                    }                    
+                }                
             }
-        });
+        }); 
     }
-
+ 
     function enhanceCheckboxes() {
-        $(".multiselect-check input[type='checkbox']").each(function () {
+        $(".multiselect-check input[type='checkbox']").each(function() {
             var element = this;
             $(element).addClass('ui-state-default ui-corner-all');
             $(element).wrap("<label />");
@@ -146,8 +147,9 @@
                 parent.toggleClass("ui-icon ui-icon-check");
                 $(element).click();
                 $(element).trigger("enhancedCheckbox_click");
-            });
+                return false;
+            });        
         });
     }
-
+            
 })(jQuery);

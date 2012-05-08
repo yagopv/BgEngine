@@ -47,6 +47,7 @@
                     $(this).click(function () {
                         $("tfoot a").removeClass("ui-state-active");
                         $(this).addClass("ui-state-active");
+                        return false;
                     });
                 }
                 else 

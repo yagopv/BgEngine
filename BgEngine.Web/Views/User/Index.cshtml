@@ -40,11 +40,75 @@
 
 <p>
     @Html.RouteLink(Resources.AppMessages.Create, "Default", new { controller = "User", action = "Create" }, new { @class = "bg-button-new" })
+    @if (Model.Any()) {
+        <a href="#" id="options" class="bg-button-gear">Options</a>	   
+    }    
 </p>
 
 @if (Model.Any())
 {
-    <div id="grid-container">
+    <div id="options-container" class="ui-helper-hidden">
+        <div class="ui-helper-margin multiselect ui-helper-margin-top-bottom">
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-1" data-column="1" data-default="true" />
+                <span>@Resources.AppMessages.Name</span>
+            </div>            
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-2" data-column="2" data-default="true" />
+                <span>Email</span>
+            </div>
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-3" data-column="3" data-default="true" />
+                <span>¿Confirmado?</span>
+            </div>            
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-4" data-column="4" />
+                <span>@Resources.AppMessages.DateCreated</span>
+            </div>                        
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-5" data-column="5" />
+                <span>@Resources.AppMessages.User_PasswordFailures</span>
+            </div>                                    
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-6" data-column="6" />
+                <span>@Resources.AppMessages.User_LastPasswordFailureDate</span>
+            </div>                                     
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-7" data-column="7" />
+                <span>@Resources.AppMessages.User_PasswordChangedDate</span>
+            </div>                                     
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-8" data-column="8" />
+                <span>@Resources.AppMessages.User_FirstName</span>
+            </div>                         
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-9" data-column="9" />
+                <span>@Resources.AppMessages.User_LastName</span>
+            </div>                         
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-10" data-column="10" />
+                <span>@Resources.AppMessages.User_TimeZone</span>
+            </div>                         
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-11" data-column="11" />
+                <span>@Resources.AppMessages.User_Culture</span>
+            </div>                                     
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-12" data-column="12" data-default="true" />
+                <span>Roles</span>
+            </div>                        
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-13" data-column="13" data-default="true" />
+                <span>Comentarios</span>
+            </div>                        
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-14" data-column="14" data-default="true" />
+                <span>Posts</span>
+            </div>                                                                 
+        </div>            
+    </div>    
+
+    <div id="grid-container" class="ui-helper-margin-top-bottom ui-helper-clear-both">
         @grid.GetHtml(htmlAttributes: new {@class="ui-helper-width-100pc"},columns: new[] {
             grid.Column("Username", header: Resources.AppMessages.Name,canSort:true),
             grid.Column("Email",header: "Email", canSort:true),
@@ -58,8 +122,15 @@
                                         {
                                             <span>@Resources.AppMessages.Pending</span>
                                         }
-                                     </span>, canSort:true),
+                                     </span>, canSort:true),            
             grid.Column("CreateDate",header: Resources.AppMessages.DateCreated, canSort:true),
+            grid.Column("PasswordFailuresSinceLastSuccess",header: Resources.AppMessages.User_PasswordFailures, canSort:false),
+            grid.Column("LastPasswordFailureDate",header: Resources.AppMessages.User_LastPasswordFailureDate, canSort:false),
+            grid.Column("PasswordChangedDate",header: Resources.AppMessages.User_PasswordChangedDate, canSort:false),
+            grid.Column("FirstName",header: Resources.AppMessages.User_FirstName, canSort:false),
+            grid.Column("LastName",header: Resources.AppMessages.User_LastName, canSort:false),
+            grid.Column("TimeZone",header: Resources.AppMessages.User_TimeZone, canSort:false),
+            grid.Column("Culture",header: Resources.AppMessages.User_Culture, canSort:false),                                    
             grid.Column("Roles",header: "Roles", canSort:false, format: @<span><p class="ui-helper-medium-font-size ui-helper-text-center">@item.Roles.Count</p></span>,style: "ui-helper-minwidth"),
             grid.Column("Comments",header: "Comentarios", canSort:false, format: @<span><p class="ui-helper-medium-font-size ui-helper-text-center">@item.Comments.Count</p></span>,style: "ui-helper-minwidth"),
             grid.Column("Posts",header:"Posts", canSort:false, format: @<span><p class="ui-helper-medium-font-size ui-helper-text-center">@item.Posts.Count</p></span>,style: "ui-helper-minwidth"),
