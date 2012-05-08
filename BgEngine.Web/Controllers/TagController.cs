@@ -65,10 +65,7 @@ namespace BgEngine.Controllers
                 switch (sort.ToLower())
                 {
                     case "tagname":
-                        return View(TagServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_TagsPerPage), t => t.TagName, dir));                
-                        break;
-                    case "tagdescription ":
-                        return View(TagServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_TagsPerPage), t => t.TagDescription, dir));                
+                        return View(TagServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_TagsPerPage), t => t.TagName, dir));
                     default:
                         return View(TagServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_TagsPerPage), t => t.TagName, false));
                 }

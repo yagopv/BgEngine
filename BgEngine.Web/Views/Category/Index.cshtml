@@ -42,7 +42,7 @@
 <p>
     @Html.RouteLink(Resources.AppMessages.Create, "Default", new { controller = "Category", action = "Create" }, new {@class="bg-button-new" })
     @if (Model.Any()) {
-        <a href="#" id="options" class="bg-button-gear">Options</a>	   
+        <a href="#" id="options" class="bg-button-gear">@Resources.AppMessages.Show_Hide_ColumnsFilters</a>	   
     }    
 </p>
 
@@ -76,15 +76,15 @@
     <div id="grid-container" class="ui-helper-margin-top-bottom ui-helper-clear-both">
         @grid.GetHtml(htmlAttributes: new { @class = "ui-helper-width-100pc" }, columns: new[] {
             grid.Column("Name", header: Resources.AppMessages.Name , canSort:true),
-            grid.Column("Description",header:Resources.AppMessages.Description, canSort:true),
-            grid.Column("DateCreated",header:Resources.AppMessages.DateCreated, canSort:false),
+            grid.Column("Description",header:Resources.AppMessages.Description, canSort:false),
+            grid.Column("DateCreated",header:Resources.AppMessages.DateCreated, canSort:true),
             grid.Column("Posts",header:"Posts", canSort:false, format:@<span><p class="ui-helper-medium-font-size ui-helper-text-center">@item.Posts.Count</p></span>),
             grid.Column("Videos",header:"Videos", canSort:false, format:@<span><p class="ui-helper-medium-font-size ui-helper-text-center">@item.Videos.Count</p></span>),            
             grid.Column("", header:Resources.AppMessages.Actions, 
                             format: @<span class="options">
-                                        @Html.ActionLink("Editar", "Edit", new { id = item.CategoryId }, new { @class = "bg-button-grid-edit tooltip" })
-                                        @Html.ActionLink("Ver detalle", "Details", new { id = item.CategoryId }, new { @class = "bg-button-grid-zoom tooltip" })
-                                        @Html.ActionLink("Eliminar", "Delete", new { id = item.CategoryId }, new { @class = "bg-button-grid-delete tooltip" })
+                                        @Html.ActionLink(Resources.AppMessages.Edit, "Edit", new { id = item.CategoryId }, new { @class = "bg-button-grid-edit tooltip" })
+                                        @Html.ActionLink(Resources.AppMessages.View_Detail, "Details", new { id = item.CategoryId }, new { @class = "bg-button-grid-zoom tooltip" })
+                                        @Html.ActionLink(Resources.AppMessages.Delete, "Delete", new { id = item.CategoryId }, new { @class = "bg-button-grid-delete tooltip" })
                                     </span>,
                             canSort:false,
                             style: "ui-helper-minwidth")

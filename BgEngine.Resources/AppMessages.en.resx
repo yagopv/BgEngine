@@ -1197,4 +1197,28 @@
   <data name="Comments_Closed" xml:space="preserve">
     <value>Comments for this post are closed</value>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Show_Hide_ColumnsFilters" xml:space="preserve">
+    <value>Show/Hide column filters</value>
+  </data>
+  <data name="AnonymousUser_Anonymous_Username" xml:space="preserve">
+    <value>Anonymous user name</value>
+  </data>
+  <data name="Comment_IsRelated" xml:space="preserve">
+    <value>Is related comment?</value>
+  </data>
+  <data name="AnonymousUser_Email_Prompt" xml:space="preserve">
+    <value>Enter your mail, is not going to be published of course. If you are a www.gravatar.com registered user, your gravatar is going to be showed</value>
+  </data>
+  <data name="AnonymousUser_Username_Prompt" xml:space="preserve">
+    <value>Enter a user name</value>
+  </data>
+  <data name="AnonymousUser_Web_Prompt" xml:space="preserve">
+    <value>Enter your web if you have any</value>
+  </data>
 </root>

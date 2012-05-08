@@ -99,19 +99,31 @@ namespace BgEngine.Controllers
                     case "title":
                         Posts = BlogServices.SearchForPagedPostsByParam(pageIndex, Int32.Parse(BgResources.Pager_PostPerPage), p => p.Title, dir, Session["searchstring"].ToString());
                         break;
-                    case "text":
-                        Posts = BlogServices.SearchForPagedPostsByParam(pageIndex, Int32.Parse(BgResources.Pager_PostPerPage), p => p.Text, dir, Session["searchstring"].ToString());
-                        break;
                     case "datecreated":
                         Posts = BlogServices.SearchForPagedPostsByParam(pageIndex, Int32.Parse(BgResources.Pager_PostPerPage), p => p.DateCreated, dir, Session["searchstring"].ToString());
+                        break;
+                    case "dateupdated":
+                        Posts = BlogServices.SearchForPagedPostsByParam(pageIndex, Int32.Parse(BgResources.Pager_PostPerPage), p => p.DateUpdated, dir, Session["searchstring"].ToString());
                         break;
                     case "ispublic":
                         Posts = BlogServices.SearchForPagedPostsByParam(pageIndex, Int32.Parse(BgResources.Pager_PostPerPage), p => p.IsPublic, dir, Session["searchstring"].ToString());
                         break;
-                    case "category":
+                    case "ishomepost":
+                        Posts = BlogServices.SearchForPagedPostsByParam(pageIndex, Int32.Parse(BgResources.Pager_PostPerPage), p => p.IsHomePost, dir, Session["searchstring"].ToString());
+                        break;
+                    case "isaboutme":
+                        Posts = BlogServices.SearchForPagedPostsByParam(pageIndex, Int32.Parse(BgResources.Pager_PostPerPage), p => p.IsAboutMe, dir, Session["searchstring"].ToString());
+                        break;
+                    case "allowanonymouscomments":
+                        Posts = BlogServices.SearchForPagedPostsByParam(pageIndex, Int32.Parse(BgResources.Pager_PostPerPage), p => p.AllowAnonymousComments, dir, Session["searchstring"].ToString());
+                        break;
+                    case "ispostcommentsclosed":
+                        Posts = BlogServices.SearchForPagedPostsByParam(pageIndex, Int32.Parse(BgResources.Pager_PostPerPage), p => p.IsPostCommentsClosed, dir, Session["searchstring"].ToString());
+                        break;
+                    case "category.name":
                         Posts = BlogServices.SearchForPagedPostsByParam(pageIndex, Int32.Parse(BgResources.Pager_PostPerPage), p => p.Category.Name, dir, Session["searchstring"].ToString());
                         break;
-                    case "user":
+                    case "user.username":
                         Posts = BlogServices.SearchForPagedPostsByParam(pageIndex, Int32.Parse(BgResources.Pager_PostPerPage), p => p.User.Username, dir, Session["searchstring"].ToString());
                         break;
                     case "visits":

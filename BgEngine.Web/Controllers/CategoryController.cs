@@ -60,7 +60,7 @@ namespace BgEngine.Controllers
             }
             if (sort == null)
             {
-                return View(CategoryServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CategoriesPerPage), c => c.Name, true));
+                return View(CategoryServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CategoriesPerPage), c => c.DateCreated, false));
             }
             else
             {
@@ -68,10 +68,10 @@ namespace BgEngine.Controllers
                 {
                     case "name":
                         return View(CategoryServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CategoriesPerPage), c => c.Name, dir));                       
-                    case "description":
-                        return View(CategoryServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CategoriesPerPage), c => c.Description, dir));
+                    case "datecreated":
+                        return View(CategoryServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CategoriesPerPage), c => c.DateCreated, dir));
                     default:
-                        return View(CategoryServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CategoriesPerPage), c => c.Name, true));
+                        return View(CategoryServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CategoriesPerPage), c => c.DateCreated, false));
                 }
             }           
         }

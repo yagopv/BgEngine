@@ -142,11 +142,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nombre del usuario anónimo.
+        /// </summary>
+        public static string AnonymousUser_Anonymous_Username {
+            get {
+                return ResourceManager.GetString("AnonymousUser_Anonymous_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mail (no se publicará).
         /// </summary>
         public static string AnonymousUser_Email {
             get {
                 return ResourceManager.GetString("AnonymousUser_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Introduce un email. No se publicará por supuesto. Si estás dado de alta en www.gravatar.com se mostrará tu gravatar.
+        /// </summary>
+        public static string AnonymousUser_Email_Prompt {
+            get {
+                return ResourceManager.GetString("AnonymousUser_Email_Prompt", resourceCulture);
             }
         }
         
@@ -160,11 +178,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Introduce un nombre de usuario para dejar un comentario.
+        /// </summary>
+        public static string AnonymousUser_Username_Prompt {
+            get {
+                return ResourceManager.GetString("AnonymousUser_Username_Prompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Web.
         /// </summary>
         public static string AnonymousUser_Web {
             get {
                 return ResourceManager.GetString("AnonymousUser_Web", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Introduce tu sitio web si tienes uno.
+        /// </summary>
+        public static string AnonymousUser_Web_Prompt {
+            get {
+                return ResourceManager.GetString("AnonymousUser_Web_Prompt", resourceCulture);
             }
         }
         
@@ -291,6 +327,15 @@ namespace Resources {
         public static string Comment_CommentId {
             get {
                 return ResourceManager.GetString("Comment_CommentId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Es comentario hijo?.
+        /// </summary>
+        public static string Comment_IsRelated {
+            get {
+                return ResourceManager.GetString("Comment_IsRelated", resourceCulture);
             }
         }
         
@@ -1888,6 +1933,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sin nombre.
         /// </summary>
         public static string No_Name {
@@ -2559,6 +2613,15 @@ namespace Resources {
         public static string Share_On_Twitter {
             get {
                 return ResourceManager.GetString("Share_On_Twitter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mostrar/Ocultar filtros de columnas.
+        /// </summary>
+        public static string Show_Hide_ColumnsFilters {
+            get {
+                return ResourceManager.GetString("Show_Hide_ColumnsFilters", resourceCulture);
             }
         }
         
@@ -3315,6 +3378,15 @@ namespace Resources {
         public static string WithoutImage {
             get {
                 return ResourceManager.GetString("WithoutImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Si.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

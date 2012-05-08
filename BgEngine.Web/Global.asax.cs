@@ -73,6 +73,7 @@ namespace BgEngine
             // Init Database
             // Uncomment next lines to Init the database
             // You should change between Initializers in IoC.cs if you want to load test data or not
+            // Drop the Database if exists before creating a empty or test one
             //var database = ObjectFactory.GetInstance<IDatabaseInitialize>();
             //database.Initialize();
 

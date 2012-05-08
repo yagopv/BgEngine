@@ -1203,4 +1203,28 @@
   <data name="Comments_Closed" xml:space="preserve">
     <value>Los comentarios para este post están cerrados</value>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Si</value>
+  </data>
+  <data name="Show_Hide_ColumnsFilters" xml:space="preserve">
+    <value>Mostrar/Ocultar filtros de columnas</value>
+  </data>
+  <data name="AnonymousUser_Anonymous_Username" xml:space="preserve">
+    <value>Nombre del usuario anónimo</value>
+  </data>
+  <data name="Comment_IsRelated" xml:space="preserve">
+    <value>¿Es comentario hijo?</value>
+  </data>
+  <data name="AnonymousUser_Email_Prompt" xml:space="preserve">
+    <value>Introduce un email. No se publicará por supuesto. Si estás dado de alta en www.gravatar.com se mostrará tu gravatar</value>
+  </data>
+  <data name="AnonymousUser_Username_Prompt" xml:space="preserve">
+    <value>Introduce un nombre de usuario para dejar un comentario</value>
+  </data>
+  <data name="AnonymousUser_Web_Prompt" xml:space="preserve">
+    <value>Introduce tu sitio web si tienes uno</value>
+  </data>
 </root>

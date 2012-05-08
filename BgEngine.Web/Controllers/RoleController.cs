@@ -55,7 +55,6 @@ namespace BgEngine.Controllers
                 dir = sortdir.Equals("ASC", StringComparison.CurrentCultureIgnoreCase) ? true : false;
             }
             return View(AccountServices.RetrievePagedRoles(sort, pageIndex,dir));
-
         }
 
         //

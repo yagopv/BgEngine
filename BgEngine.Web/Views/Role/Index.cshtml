@@ -42,7 +42,7 @@
 <p>
     @Html.RouteLink(Resources.AppMessages.Create, "Default", new { controller = "Role", action = "Create" }, new { @class = "bg-button-new" })
     @if (Model.Any()) {
-        <a href="#" id="options" class="bg-button-gear">Options</a>	   
+        <a href="#" id="options" class="bg-button-gear">@Resources.AppMessages.Show_Hide_ColumnsFilters</a>	   
     }    
 </p>
 
@@ -68,8 +68,8 @@
     <div id="grid-container" class="ui-helper-margin-top-bottom ui-helper-clear-both">
         @grid.GetHtml(htmlAttributes: new {@class="ui-helper-width-100pc"},columns: new[] {
             grid.Column("RoleName",  header:Resources.AppMessages.Name,canSort:true),
-            grid.Column("Description",header:Resources.AppMessages.Description, canSort:true),
-            grid.Column("Users",header:"Users", canSort:true,format: @<span><p class="ui-helper-medium-font-size ui-helper-text-center">@item.Users.Count</p></span>),
+            grid.Column("Description",header:Resources.AppMessages.Description, canSort:false),
+            grid.Column("Users",header:"Users", canSort:false,format: @<span><p class="ui-helper-medium-font-size ui-helper-text-center">@item.Users.Count</p></span>),
             grid.Column("", header:Resources.AppMessages.Actions, 
                             format: @<span class="options">
                                         @Html.ActionLink(Resources.AppMessages.Edit, "Edit", new { id = item.RoleId },new {@class="bg-button-grid-edit"})

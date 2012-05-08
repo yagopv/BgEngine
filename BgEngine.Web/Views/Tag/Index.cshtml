@@ -42,7 +42,7 @@
 <p>
     @Html.RouteLink(Resources.AppMessages.Create, "Default", new { controller = "Tag", action = "Create" }, new { @class = "bg-button-new" })
     @if (Model.Any()) {
-        <a href="#" id="options" class="bg-button-gear">Options</a>	   
+        <a href="#" id="options" class="bg-button-gear">@Resources.AppMessages.Show_Hide_ColumnsFilters</a>	   
     }    
 </p>
 
@@ -72,8 +72,8 @@
     <div id="grid-container" class="ui-helper-margin-top-bottom ui-helper-clear-both">
         @grid.GetHtml(htmlAttributes: new {@class="ui-helper-width-100pc"},columns: new[] {
             grid.Column("TagName",  header:Resources.AppMessages.Name,canSort:true),
-            grid.Column("TagDescription",header:Resources.AppMessages.Description, canSort:true),
-            grid.Column("Posts",header:"Posts", canSort:true,format: @<span><p class="ui-helper-medium-font-size ui-helper-text-center">@item.Posts.Count</p></span>),
+            grid.Column("TagDescription",header:Resources.AppMessages.Description, canSort:false),
+            grid.Column("Posts",header:"Posts", canSort:false,format: @<span><p class="ui-helper-medium-font-size ui-helper-text-center">@item.Posts.Count</p></span>),
             grid.Column("Videos",header:"Videos", canSort:false,format: @<span><p class="ui-helper-medium-font-size ui-helper-text-center">@item.Videos.Count</p></span>),
             grid.Column("", header:Resources.AppMessages.Actions, 
                             format: @<span class="options">

@@ -27,7 +27,7 @@
     ViewBag.Title = Resources.AppMessages.Comment + "-" + Resources.AppMessages.Index;
 
     WebGrid grid = new WebGrid(ajaxUpdateContainerId: "grid-container", rowsPerPage: Int32.Parse(ViewBag.RowsPerPage));
-    grid.Bind(Model, autoSortAndPage: false, rowCount: ViewBag.TotalComments);    
+    grid.Bind(Model, autoSortAndPage: false, rowCount: ViewBag.TotalComments);
     var culture = CultureHelper.GetNeutralCulture(CultureHelper.GetCurrentCulture());
 }
 
@@ -41,17 +41,76 @@
 
 <p>
     @Html.RouteLink(Resources.AppMessages.Create, "Default", new { controller = "Comment", action = "Create" }, new { @class = "bg-button-new" })
+    @if (Model.Any())
+    {
+        <a href="#" id="options" class="bg-button-gear">@Resources.AppMessages.Show_Hide_ColumnsFilters</a>	   
+    }    
 </p>
 
 @if (Model.Any())
 {
-    <div id="grid-container">
-        @grid.GetHtml(htmlAttributes: new {@class="ui-helper-width-100pc"}, columns: new[] {
-            grid.Column("CommentId",  header:Resources.AppMessages.Comment, format: @<span><text>#@item.CommentId</text></span>, canSort:false),
+    <div id="options-container" class="ui-helper-hidden">
+        <div class="ui-helper-margin multiselect ui-helper-margin-top-bottom">
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-1" data-column="1" data-default="true" />
+                <span>@Resources.AppMessages.Comment_CommentId</span>
+            </div>            
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-2" data-column="2" data-default="true" />
+                <span>@Resources.AppMessages.Comment_Message</span>
+            </div>
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-3" data-column="3" />
+                <span>@Resources.AppMessages.Comment_IsRelated</span>
+            </div>            
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-4" data-column="4" />
+                <span>@Resources.AppMessages.DateCreated</span>
+            </div>                        
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-5" data-column="5" />
+                <span>@Resources.AppMessages.DateUpdated</span>
+            </div>                                    
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-6" data-column="6" />
+                <span>@Resources.AppMessages.User</span>
+            </div>                                     
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-7" data-column="7" />
+                <span>@Resources.AppMessages.AnonymousUser_Anonymous_Username</span>
+            </div>                                     
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-8" data-column="8" />
+                <span>@Resources.AppMessages.AnonymousUser_Email</span>
+            </div>                         
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-9" data-column="9" />
+                <span>@Resources.AppMessages.AnonymousUser_Web</span>
+            </div>                         
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-10" data-column="10" />
+                <span>@Resources.AppMessages.Post</span>
+            </div>                         
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-11" data-column="11" />
+                <span>@Resources.AppMessages.Post_Code</span>
+            </div>                                     
+        </div>            
+    </div>    
+
+    <div id="grid-container" class="ui-helper-margin-top-bottom ui-helper-clear-both">
+        @grid.GetHtml(htmlAttributes: new { @class = "ui-helper-width-100pc" }, columns: new[] {
+            grid.Column("CommentId",  header:Resources.AppMessages.Comment_CommentId, format: @<span><text>#@item.CommentId</text></span>, canSort:true),
             grid.Column("Message",    header:Resources.AppMessages.Comment,canSort:false,style:"ui-helper-width-50pc",format:@<span>@Html.Raw(item.Message)</span>),
+            grid.Column("IsRelatedComment",    header:Resources.AppMessages.Comment_IsRelated,canSort:true,style:"ui-helper-width-50pc",format:@<span>@(item.IsRelatedComment ? Resources.AppMessages.Yes : Resources.AppMessages.No)</span>),
             grid.Column("DateCreated",header:Resources.AppMessages.DateCreated, canSort:true),
-            grid.Column("Post.Title", header:Resources.AppMessages.Post, canSort:false),
-            grid.Column("User.Username",header:Resources.AppMessages.User, canSort:true),
+            grid.Column("DateUpdated",header:Resources.AppMessages.DateUpdated, canSort:true),            
+            grid.Column("User.Username",header:Resources.AppMessages.User, canSort:true, format: @<span>@(item.User !=null ? item.User.Username : " ")</span>),
+            grid.Column("AnonymousUser.Username",header:Resources.AppMessages.AnonymousUser_Anonymous_Username, canSort:true,format: @<span>@item.AnonymousUser.Username</span>),
+            grid.Column("AnonymousUser.Email",header:Resources.AppMessages.AnonymousUser_Email, canSort:true,format: @<span>@item.AnonymousUser.Email</span>),
+            grid.Column("AnonymousUser.Web",header:Resources.AppMessages.AnonymousUser_Web, canSort:false,format: @<span>@item.AnonymousUser.Web</span>),
+            grid.Column("Post.Title", header:Resources.AppMessages.Post, canSort:true,format: @<span>@item.Post.Title</span>),
+            grid.Column("Post.Code", header:Resources.AppMessages.Post_Code, canSort:true,format: @<span>@item.Post.Code</span>),
             grid.Column("", header:Resources.AppMessages.Actions, 
                             format: @<span class="options">
                                         @Html.ActionLink(Resources.AppMessages.Edit, "Edit", new { id = item.CommentId }, new { @class = "bg-button-grid-edit tooltip" })
@@ -60,7 +119,7 @@
                                     </span>,
                             canSort:false,
                             style: "ui-helper-minwidth")
-        },mode:WebGridPagerModes.All)
+        }, mode: WebGridPagerModes.All)
     </div>
 
 }

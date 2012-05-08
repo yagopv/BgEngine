@@ -194,14 +194,22 @@ namespace BgEngine.Application.Services
                 {
                     case "username":
                         return UserRepository.GetPagedElements(pageIndex, Int32.Parse(BgResources.Pager_UsersPerPage), u => u.Username, dir);
-                    case "isconfirmed ":
-                        return UserRepository.GetPagedElements(pageIndex, Int32.Parse(BgResources.Pager_UsersPerPage), u => u.IsConfirmed, dir);
                     case "email":
                         return UserRepository.GetPagedElements(pageIndex, Int32.Parse(BgResources.Pager_UsersPerPage), u => u.Email, dir);
+                    case "isconfirmed ":
+                        return UserRepository.GetPagedElements(pageIndex, Int32.Parse(BgResources.Pager_UsersPerPage), u => u.IsConfirmed, dir);
                     case "createdate":
                         return UserRepository.GetPagedElements(pageIndex, Int32.Parse(BgResources.Pager_UsersPerPage), u => u.CreateDate, dir);
+                    case "passwordfailuressincelastsuccess":
+                        return UserRepository.GetPagedElements(pageIndex, Int32.Parse(BgResources.Pager_UsersPerPage), u => u.PasswordFailuresSinceLastSuccess, dir);
+                    case "lastpasswordfailuredate":
+                        return UserRepository.GetPagedElements(pageIndex, Int32.Parse(BgResources.Pager_UsersPerPage), u => u.LastPasswordFailureDate, dir);
                     case "passwordchangeddate":
                         return UserRepository.GetPagedElements(pageIndex, Int32.Parse(BgResources.Pager_UsersPerPage), u => u.PasswordChangedDate, dir);
+                    case "firstname":
+                        return UserRepository.GetPagedElements(pageIndex, Int32.Parse(BgResources.Pager_UsersPerPage), u => u.FirstName, dir);
+                    case "lastname":
+                        return UserRepository.GetPagedElements(pageIndex, Int32.Parse(BgResources.Pager_UsersPerPage), u => u.LastName, dir);
                     case "timezone":
                         return UserRepository.GetPagedElements(pageIndex, Int32.Parse(BgResources.Pager_UsersPerPage), u => u.TimeZone, dir);
                     case "culture":
@@ -230,8 +238,6 @@ namespace BgEngine.Application.Services
                 {
                     case "rolename":
                         return RoleRepository.GetPagedElements(pageIndex, Int32.Parse(BgResources.Pager_RolesPerPage), r => r.RoleName, dir);
-                    case "description":
-                        return RoleRepository.GetPagedElements(pageIndex, Int32.Parse(BgResources.Pager_RolesPerPage), r => r.Description, dir);
                     default:
                         return RoleRepository.GetPagedElements(pageIndex, Int32.Parse(BgResources.Pager_RolesPerPage), r => r.RoleName, false);
                 }

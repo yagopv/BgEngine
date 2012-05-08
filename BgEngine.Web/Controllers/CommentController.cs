@@ -85,14 +85,26 @@ namespace BgEngine.Controllers
             {
                 switch (sort.ToLower())
                 {
+                    case "commentid":
+                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.CommentId, dir, "User"));
                     case "message":
                         return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.Message, dir, "User"));
+                    case "isrelatedcomment":
+                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.isRelatedComment, dir, "User"));
                     case "datecreated":
                         return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.DateCreated, dir, "User"));
+                    case "dateupdated":
+                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.DateUpdated, dir, "User"));
+                    case "anonymoususer.username":
+                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.AnonymousUser.Username, dir, "User"));
+                    case "anonymoususer.email":
+                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.AnonymousUser.Email, dir, "User"));
+                    case "post.title":
+                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.Post.Title, dir, "User"));
                     case "post.code":
-                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.Post.Code, false, "User"));
+                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.Post.Code, dir, "User"));
                     case "user.username":
-                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.User.Username, false, "User"));
+                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.User.Username, dir, "User"));
                     default:
                         return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.DateCreated, false, "User"));                        
                 }
