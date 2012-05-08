@@ -34,7 +34,7 @@
         @foreach (var item in Model)
         {
             <div class="album-holder ui-state-default ui-corner-all">
-               <p class="album-title ui-widget-header ui-corner-all ui-helper-margin-left-right"><strong>@Html.DisplayFor(modelitem => item.Name)</strong></p>
+               <p class="album-title ui-widget-header ui-corner-all ui-helper-margin-left-right"><strong class="tooltip" title="@item.Name">@CustomHelper.TruncateString(item.Name, 23)</strong></p>
                 @if (item.Images.Any())
                 {
                     <p class="album-title"><em>@item.Images.Count().ToString() @Resources.AppMessages.Image</em></p>
