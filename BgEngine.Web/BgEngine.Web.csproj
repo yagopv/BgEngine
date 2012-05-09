@@ -205,7 +205,6 @@
     <Content Include="Content\Icons\favicon.ico" />
     <Content Include="Content\Icons\greenback.gif" />
     <Content Include="Content\Icons\lightbulb.gif" />
-    <Content Include="Content\Icons\logoSite.png" />
     <Content Include="Content\Icons\penpaper.gif" />
     <Content Include="Content\Icons\rss48x48.jpg" />
     <Content Include="Content\Icons\spade.gif" />
@@ -316,7 +315,6 @@
     <Content Include="Content\Icons\icon-image.gif" />
     <Content Include="Content\Icons\icon-media.gif" />
     <Content Include="Content\Icons\icon-zip.gif" />
-    <Content Include="Content\Icons\logo.jpg" />
     <Content Include="Content\Icons\no_image.jpg" />
     <Content Include="Content\shCore.css" />
     <Content Include="Content\shThemeDefault.css" />
