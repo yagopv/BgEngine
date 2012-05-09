@@ -31,8 +31,8 @@
 				</div>
 			</td>
 			<td>
-				<div class="editor-field">
-					@Html.EditorFor(model => model.Username)
+				<div class="editor-field">                    
+					@Html.EditorFor(model => model.Username, "AnonymousComment_Editor")                                            
 					@Html.ValidationMessageFor(model => model.Username)
 				</div>
 			</td>
@@ -45,7 +45,7 @@
 			</td>
 			<td>
 				<div class="editor-field">
-					@Html.EditorFor(model => model.Email)
+					@Html.EditorFor(model => model.Email, "AnonymousComment_Editor")
 					@Html.ValidationMessageFor(model => model.Email)
 				</div>
 			</td>
@@ -58,7 +58,7 @@
 			</td>
 			<td>
 				<div class="editor-field">
-					@Html.EditorFor(model => model.Web)
+					@Html.EditorFor(model => model.Web, "AnonymousComment_Editor")
 					@Html.ValidationMessageFor(model => model.Web)
 				</div>
 			</td>
