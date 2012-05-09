@@ -12,7 +12,7 @@
 * GNU General Public License for more details.
 *
 * You should have received a copy of the GNU General Public License
-* along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+* along with BgEngine. If not, see <htanontp://www.gnu.org/licenses/>.
 *==============================================================================
 * Copyright (c) 2011 Yago Pérez Vázquez
 * Version: 1.0
@@ -107,11 +107,11 @@ body .ui-tooltip { max-width: 400px; }
 /*  Styles for anonymous comment fields */
 .anonymous-comment-fields { margin-bottom:20px;}
 .anonymous-comment-fields tr { width: 100%;}
-.anonymous-comment-fields table tr td:first-child { width: 25%;}
-.anonymous-comment-fields table tr td:last-child { width: 75%;}
-.anonymous-comment-fields #container { width:100%; position:relative; }
-.anonymous-comment-fields #container input { width:90%; float:left;}
-.anonymous-comment-fields #container span { top:-2px; float:left;}
+.anonymous-comment-fields table tr td:first-child { width: 25%; }
+.anonymous-comment-fields table tr td:last-child { width: 75%; }
+.anonymous-comment-fields #container {width:100%; position:relative; }
+.anonymous-comment-fields #container input { width:90%; float:left; }
+.anonymous-comment-fields #container span { top:5px; float:left; position:relative; }
 
 
 /* Styles for validation helpers */

@@ -235,6 +235,7 @@
         $('html,body').animate({ scrollTop: $("#newcomment").closest("li").position().top }, { duration: 'slow', easing: 'swing' });
         $.validator.unobtrusive.parse($("#comments .anonymous-comment-fields"));
         $("#related-comment-submit").button();
+        reconnectTooltips();
         tinyMCE.execCommand('mceAddControl', false, 'dynamic-textarea');
     }
 
