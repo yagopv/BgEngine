@@ -109,7 +109,10 @@ body .ui-tooltip { max-width: 400px; }
 .anonymous-comment-fields tr { width: 100%;}
 .anonymous-comment-fields table tr td:first-child { width: 25%;}
 .anonymous-comment-fields table tr td:last-child { width: 75%;}
-.anonymous-comment-fields input { width:100%;}
+.anonymous-comment-fields #container { width:100%; position:relative; }
+.anonymous-comment-fields #container input { width:90%; float:left;}
+.anonymous-comment-fields #container span { top:-2px; float:left;}
+
 
 /* Styles for validation helpers */
 .field-validation-error { color: #ff0000; display:block; margin-top:2px; }
@@ -372,5 +375,5 @@ body .galleria-thumbnails .galleria-image { width:150px }
     #title img { max-height:90px; max-width: 300px; }
     #body #galleria-options a { margin-top:3%; font-size:0.95em;}
     #information-buttons p:last-child { display:none !important; }
-    .anonymous-comment-fields input { width:100% !important;}
+    .anonymous-comment-fields input { width:90% !important;}
 }

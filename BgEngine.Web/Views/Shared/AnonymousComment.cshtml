@@ -33,7 +33,7 @@
 			<td>
 				<div class="editor-field">                    
 					@Html.EditorFor(model => model.Username, "AnonymousComment_Editor")                                            
-					@Html.ValidationMessageFor(model => model.Username)
+					@Html.ValidationMessageFor(model => model.Username, null, new { @class="ui-helper-clear-both"})
 				</div>
 			</td>
 		</tr>
@@ -46,7 +46,7 @@
 			<td>
 				<div class="editor-field">
 					@Html.EditorFor(model => model.Email, "AnonymousComment_Editor")
-					@Html.ValidationMessageFor(model => model.Email)
+					@Html.ValidationMessageFor(model => model.Email, null, new { @class="ui-helper-clear-both"})
 				</div>
 			</td>
 		</tr>
@@ -59,7 +59,7 @@
 			<td>
 				<div class="editor-field">
 					@Html.EditorFor(model => model.Web, "AnonymousComment_Editor")
-					@Html.ValidationMessageFor(model => model.Web)
+					@Html.ValidationMessageFor(model => model.Web, null, new { @class="ui-helper-clear-both"})
 				</div>
 			</td>
 		</tr>
