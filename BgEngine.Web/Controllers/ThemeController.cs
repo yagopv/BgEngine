@@ -31,8 +31,7 @@ namespace BgEngine.Controllers
         /// </summary>
 		/// <param name="theme">The name of the Theme stored in Themes folder</param>
         /// <returns>Json representing result of the operation</returns>
-        [HttpPost]
-        public JsonResult SetThemeCookie(string theme)
+        public ActionResult SetThemeCookie(string theme, string returnurl)
         {
             if (!string.IsNullOrEmpty(theme))
             {
@@ -48,7 +47,16 @@ namespace BgEngine.Controllers
                     Response.Cookies.Add(cookie);
                 }
             }
-            return Json(true);
+            return Redirect(returnurl);
+        }
+        /// <summary>
+        /// This action gets the Partial View with the available Themes
+        /// </summary>
+        /// <returns>Themes Partial View</returns>
+        public ActionResult ChangeTheme(string returnurl)
+        {
+            ViewBag.Url = returnurl;
+            return PartialView("ChangeTheme");
         }
     }
 }

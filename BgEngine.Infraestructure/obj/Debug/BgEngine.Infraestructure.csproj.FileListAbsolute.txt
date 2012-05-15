@@ -60,3 +60,12 @@ D:\Proyectos .NET\BgEngine\BgEngine.Infraestructure\obj\Debug\BgEngine.Infraestr
 D:\Proyectos .NET\BgEngine\BgEngine.Infraestructure\obj\Debug\BgEngine.Infraestructure.pdb
 D:\Proyectos .NET\BgEngine\BgEngine.Infraestructure\bin\Debug\EntityFramework.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Infraestructure\bin\Debug\EntityFramework.xml
+F:\Projects\BgEngine\BgEngine.Infraestructure\bin\Debug\BgEngine.Infraestructure.dll
+F:\Projects\BgEngine\BgEngine.Infraestructure\bin\Debug\BgEngine.Infraestructure.pdb
+F:\Projects\BgEngine\BgEngine.Infraestructure\bin\Debug\BgEngine.Domain.dll
+F:\Projects\BgEngine\BgEngine.Infraestructure\bin\Debug\EntityFramework.dll
+F:\Projects\BgEngine\BgEngine.Infraestructure\bin\Debug\BgEngine.Domain.pdb
+F:\Projects\BgEngine\BgEngine.Infraestructure\bin\Debug\EntityFramework.xml
+F:\Projects\BgEngine\BgEngine.Infraestructure\obj\Debug\BgEngine.Infraestructure.csprojResolveAssemblyReference.cache
+F:\Projects\BgEngine\BgEngine.Infraestructure\obj\Debug\BgEngine.Infraestructure.dll
+F:\Projects\BgEngine\BgEngine.Infraestructure\obj\Debug\BgEngine.Infraestructure.pdb

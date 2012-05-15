@@ -87,3 +87,16 @@ D:\Proyectos .NET\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.cspro
 D:\Proyectos .NET\BgEngine\BgEngine.Resources\obj\Debug\en\BgEngine.Resources.resources.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.pdb
+F:\Projects\BgEngine\BgEngine.Resources\bin\Debug\BgEngine.Resources.dll
+F:\Projects\BgEngine\BgEngine.Resources\bin\Debug\BgEngine.Resources.pdb
+F:\Projects\BgEngine\BgEngine.Resources\bin\Debug\en\BgEngine.Resources.resources.dll
+F:\Projects\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.csprojResolveAssemblyReference.cache
+F:\Projects\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.AppConfiguration.resources
+F:\Projects\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.AppMessages.resources
+F:\Projects\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.EmailTemplates.resources
+F:\Projects\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.AppMessages.en.resources
+F:\Projects\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.EmailTemplates.en.resources
+F:\Projects\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.csproj.GenerateResource.Cache
+F:\Projects\BgEngine\BgEngine.Resources\obj\Debug\en\BgEngine.Resources.resources.dll
+F:\Projects\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.dll
+F:\Projects\BgEngine\BgEngine.Resources\obj\Debug\BgEngine.Resources.pdb

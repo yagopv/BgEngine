@@ -62,6 +62,7 @@
 				);
 				return false;
 			});
+			$("#themeselector").themeselector({ url: '@Url.RouteUrl("Default",new {controller="Theme", action="ChangeTheme", returnurl=Request.Url.AbsoluteUri })' });
 	   });
 	</script>        
 	@CustomHelper.GetClientGlobalizationMessages(@CultureHelper.GetNeutralCulture(CultureHelper.GetCurrentCulture()))

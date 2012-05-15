@@ -20,7 +20,7 @@
 
 (function ($) {
     $.create_post_startup = function (imageurl, no_image_path) {
-        $("#select-image").click(function (e) {           
+        $("#select-image").click(function (e) {
             $.get(imageurl,
                 function(data, status) {
                     $.fancybox({

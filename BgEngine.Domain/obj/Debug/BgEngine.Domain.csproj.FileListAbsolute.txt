@@ -64,3 +64,11 @@ D:\Proyectos .NET\BgEngine\BgEngine.Domain\bin\Debug\en\BgEngine.Resources.resou
 D:\Proyectos .NET\BgEngine\BgEngine.Domain\obj\Debug\BgEngine.Domain.csprojResolveAssemblyReference.cache
 D:\Proyectos .NET\BgEngine\BgEngine.Domain\obj\Debug\BgEngine.Domain.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Domain\obj\Debug\BgEngine.Domain.pdb
+F:\Projects\BgEngine\BgEngine.Domain\bin\Debug\BgEngine.Domain.dll
+F:\Projects\BgEngine\BgEngine.Domain\bin\Debug\BgEngine.Domain.pdb
+F:\Projects\BgEngine\BgEngine.Domain\bin\Debug\BgEngine.Resources.dll
+F:\Projects\BgEngine\BgEngine.Domain\bin\Debug\BgEngine.Resources.pdb
+F:\Projects\BgEngine\BgEngine.Domain\bin\Debug\en\BgEngine.Resources.resources.dll
+F:\Projects\BgEngine\BgEngine.Domain\obj\Debug\BgEngine.Domain.csprojResolveAssemblyReference.cache
+F:\Projects\BgEngine\BgEngine.Domain\obj\Debug\BgEngine.Domain.dll
+F:\Projects\BgEngine\BgEngine.Domain\obj\Debug\BgEngine.Domain.pdb

@@ -20,22 +20,9 @@
 
 @model BgEngine.Domain.EntityModel.Post
 
-    <div id="information-buttons" class="tooltip ui-helper-width-100pc">
-        <p class="ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" title="@(String.IsNullOrEmpty(Model.Category.Description) ? Model.Category.Name : Model.Category.Description)" ><span class="ui-button bg-icon-left ui-icon ui-icon-document" ></span>@Model.Category.Name</p>
-        <p class="ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" title="@String.Format(Resources.AppMessages.DateCreatedFormat,Model.DateCreated.ToLongDateString())"><span class="ui-button bg-icon-left ui-icon ui-icon-calendar"></span>@Model.DateCreated.ToShortDateString()</p>
-        <a href="#footnote1" class="ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" ><span class="ui-button bg-icon-left ui-icon ui-icon-person"></span>@Html.DisplayFor(modelitem => Model.User.Username)</a>        
-        <p class="ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" title="@String.Format(Resources.AppMessages.NumberofComments,Model.Comments.Count())" ><span class="ui-button bg-icon-left ui-icon ui-icon-comment"></span>@Model.Comments.Count().ToString()</p>
+    <div id="information-buttons" class="ui-helper-width-100pc">
+        <p class="tooltip ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" title="@(String.IsNullOrEmpty(Model.Category.Description) ? Model.Category.Name : Model.Category.Description)" ><span class="ui-button bg-icon-left ui-icon ui-icon-document" ></span>@Model.Category.Name</p>
+        <p class="tooltip ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" title="@String.Format(Resources.AppMessages.DateCreatedFormat,Model.DateCreated.ToLongDateString())"><span class="ui-button bg-icon-left ui-icon ui-icon-calendar"></span>@Model.DateCreated.ToShortDateString()</p>
+        <a href="@Url.RouteUrl("Default", new { controller = "User", action = "GetTooltipData", id = Model.User.UserId })" class="tooltip-ajax ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" ><span class="ui-button bg-icon-left ui-icon ui-icon-person"></span>@Html.DisplayFor(modelitem => Model.User.Username)</a>
+        <p class="tooltip ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" title="@String.Format(Resources.AppMessages.NumberofComments,Model.Comments.Count())" ><span class="ui-button bg-icon-left ui-icon ui-icon-comment"></span>@Model.Comments.Count().ToString()</p>
     </div>
-
-<div id="footnotes" class="ui-helper-hidden">
-	<div id="footnote1">
-		<div class="ui-helper-float-left">
-			@Gravatar.GetHtml(Model.User.Email)
-		</div>
-		<div class="ui-helper-float-left ui-helper-padding">
-			<text><strong>@Model.User.Username</strong></text></br>             
-			<text><em>@Model.User.Posts.Count() @(Model.User.Posts.Count == 1 ? Resources.AppMessages.Article : Resources.AppMessages.Articles)</em></text></br>
-			<text><em>@Model.User.Comments.Count() @(Model.User.Comments.Count == 1 ? Resources.AppMessages.Comment : Resources.AppMessages.Comments)</em></text>
-		</div>
-	</div>
-</div>

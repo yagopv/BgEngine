@@ -125,3 +125,22 @@ D:\Proyectos .NET\BgEngine\BgEngine.Application\obj\Debug\BgEngine.Application.c
 D:\Proyectos .NET\BgEngine\BgEngine.Application\obj\Debug\BgEngine.Application.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Application\obj\Debug\BgEngine.Application.pdb
 D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\EntityFramework.xml
+F:\Projects\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Application.dll
+F:\Projects\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Application.pdb
+F:\Projects\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Domain.dll
+F:\Projects\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Infraestructure.dll
+F:\Projects\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Resources.dll
+F:\Projects\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Security.dll
+F:\Projects\BgEngine\BgEngine.Application\bin\Debug\PagedList.dll
+F:\Projects\BgEngine\BgEngine.Application\bin\Debug\EntityFramework.dll
+F:\Projects\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Domain.pdb
+F:\Projects\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Infraestructure.pdb
+F:\Projects\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Resources.pdb
+F:\Projects\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Security.pdb
+F:\Projects\BgEngine\BgEngine.Application\bin\Debug\PagedList.pdb
+F:\Projects\BgEngine\BgEngine.Application\bin\Debug\PagedList.xml
+F:\Projects\BgEngine\BgEngine.Application\bin\Debug\EntityFramework.xml
+F:\Projects\BgEngine\BgEngine.Application\bin\Debug\en\BgEngine.Resources.resources.dll
+F:\Projects\BgEngine\BgEngine.Application\obj\Debug\BgEngine.Application.csprojResolveAssemblyReference.cache
+F:\Projects\BgEngine\BgEngine.Application\obj\Debug\BgEngine.Application.dll
+F:\Projects\BgEngine\BgEngine.Application\obj\Debug\BgEngine.Application.pdb

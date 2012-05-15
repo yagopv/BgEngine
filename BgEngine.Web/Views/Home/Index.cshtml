@@ -71,13 +71,13 @@
         @CustomHelper.GooglePlusOne(Request.Url.AbsoluteUri.ToString(), CultureHelper.GetCurrentCulture())
         @CustomHelper.ShareOnFacebook(Request.Url.AbsoluteUri.ToString(), ViewBag.Title) 
         @CustomHelper.ShareOnTwitter(Request.Url.AbsoluteUri.ToString(), ViewBag.Title)        
-        @CustomHelper.SubscribeRssChannel(Url.AbsoluteAction("RssFeed", "Post"))        
+        @CustomHelper.SubscribeRssChannel(Url.AbsoluteAction("RssFeed", "Post"))
     </div>
     <div class="ui-helper-margin-top-bottom">
         @CustomHelper.GoogleSearch()
     </div>
     <div class="ui-helper-margin-top-bottom">
-        @Html.Partial("ChangeTheme")
+        <a id="themeselector" href="#">@Resources.AppMessages.Switch_Theme</a>
     </div>   
     <div id="categories" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>
     <div id="archive" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>

@@ -74,3 +74,14 @@ D:\Proyectos .NET\BgEngine\BgEngine.Security\obj\Debug\BgEngine.Security.csprojR
 D:\Proyectos .NET\BgEngine\BgEngine.Security\obj\Debug\BgEngine.Security.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Security\obj\Debug\BgEngine.Security.pdb
 D:\Proyectos .NET\BgEngine\BgEngine.Security\bin\Debug\EntityFramework.xml
+F:\Projects\BgEngine\BgEngine.Security\bin\Debug\BgEngine.Security.dll
+F:\Projects\BgEngine\BgEngine.Security\bin\Debug\BgEngine.Security.pdb
+F:\Projects\BgEngine\BgEngine.Security\bin\Debug\BgEngine.Infraestructure.dll
+F:\Projects\BgEngine\BgEngine.Security\bin\Debug\BgEngine.Domain.dll
+F:\Projects\BgEngine\BgEngine.Security\bin\Debug\EntityFramework.dll
+F:\Projects\BgEngine\BgEngine.Security\bin\Debug\BgEngine.Infraestructure.pdb
+F:\Projects\BgEngine\BgEngine.Security\bin\Debug\BgEngine.Domain.pdb
+F:\Projects\BgEngine\BgEngine.Security\bin\Debug\EntityFramework.xml
+F:\Projects\BgEngine\BgEngine.Security\obj\Debug\BgEngine.Security.csprojResolveAssemblyReference.cache
+F:\Projects\BgEngine\BgEngine.Security\obj\Debug\BgEngine.Security.dll
+F:\Projects\BgEngine\BgEngine.Security\obj\Debug\BgEngine.Security.pdb

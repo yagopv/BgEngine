@@ -337,6 +337,8 @@
     <Content Include="Content\themes\UI Lightness\jquery.ui.tabs.css" />
     <Content Include="Content\themes\UI Lightness\jquery.ui.theme.css" />
     <Content Include="Content\themes\UI Lightness\jquery.ui.tooltip.css" />
+    <Content Include="Content\tipTip.css" />
+    <Content Include="Scripts\internal\bg.themeselector.js" />
     <Content Include="Scripts\internal\bg.configoptions.js" />
     <Content Include="Scripts\internal\bg.create_post_startup.js" />
     <Content Include="Scripts\internal\bg.galleria_startup.js" />
@@ -352,16 +354,18 @@
     <Content Include="Scripts\internal\bg.view_post_startup.js" />
     <Content Include="Scripts\internal\bg.infobox.js" />
     <Content Include="Scripts\internal\bg.tagger.js" />
-    <Content Include="Scripts\jquery-ui-1.9m5.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\internal\bg.grid.js" />
     <Content Include="Scripts\cultures\globalize.culture.en-US.js" />
     <Content Include="Scripts\cultures\globalize.culture.es-ES.js" />
     <Content Include="Scripts\cultures\globalize.culture.es.js" />
     <Content Include="Scripts\cultures\globalize.cultures.js" />
+    <Content Include="Scripts\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.13.min.js" />
     <Content Include="Scripts\jquery.fancybox-1.3.4.pack.js" />
     <Content Include="Scripts\jquery.jcrumb.js" />
     <Content Include="Scripts\jquery.myimgscale.min.js" />
+    <Content Include="Scripts\jquery.tipTip.js" />
     <Content Include="Scripts\swfupload.fileprogress.js" />
     <Content Include="Scripts\galleria\galleria-1.2.4.js" />
     <Content Include="Scripts\galleria\galleria-1.2.4.min.js" />
@@ -399,7 +403,6 @@
     <Content Include="Scripts\jquery.form.js" />
     <Content Include="Scripts\jquery.rateit.min.js" />
     <Content Include="Scripts\jquery.ui.selectmenu.js" />
-    <Content Include="Scripts\jquery.ui.tooltip.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -881,7 +884,6 @@
     <Content Include="Views\Album\Edit.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\MultilineText.cshtml" />
     <Content Include="Views\Album\Delete.cshtml" />
-    <Content Include="Views\Shared\ChangeTheme.cshtml" />
     <Content Include="Views\File\SWFUpload.cshtml" />
     <Content Include="Views\UserMailer\_Layout.cshtml" />
     <Content Include="Views\UserMailer\PasswordReset.cshtml" />
@@ -913,6 +915,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Video\LatestVideos.cshtml" />
     <Content Include="Views\Shared\AnonymousComment.cshtml" />
+    <Content Include="Views\Shared\ChangeTheme.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BgEngine.Application\BgEngine.Application.csproj">

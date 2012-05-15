@@ -100,7 +100,8 @@ div#title {	display: block;	float: left; text-align: left; font-family: Arial; f
 .image-border-error { border: 2px solid red;}
 #title h1 a { font-size:1.35em; text-shadow: 4px 4px 6px #888; top:-10px;}
 #title h1 a img { border: none; height:93px;}
-#categories, #archive, #tag-cloud, #sidebar-stats, .twtr-doc, .jCrumb, #themeselector-button, #trash, #gallery li, .galleria-image { box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.2); }
+#categories, #archive, #tag-cloud, #sidebar-stats, .twtr-doc, .jCrumb, #themeselector, #trash, #gallery li, .galleria-image { box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.2); }
+#themeselector { width:100%;}
 body .ui-tooltip { max-width: 400px; }
 #logindisplay a { font-size:1.1em; }
 
@@ -321,7 +322,7 @@ body .galleria-thumbnails .galleria-image { width:150px }
     #maincontent .sortable { width: 100%; }    
     .sidebar { float:none; height: auto; margin: 0 auto; width: 90%; clear:both; padding-top:5%; }
     #body { min-width: 0px; }
-    #categories, #archive, #tagcloud, #sidebar-stats, #themeselector-button { margin-top: 4%; /*font-size:1.5em;*/ }
+    #categories, #archive, #tagcloud, #sidebar-stats, #themeselector { margin-top: 4%; /*font-size:1.5em;*/ }
     .primarypost, .secondarypost { font-size:0.8em; margin: 1% 0 2% 0;}
     .twtr-doc { margin-top: 4%; }
     #gsc-i-id1 { height: 40px;  }

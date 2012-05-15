@@ -188,21 +188,26 @@
 @helper GetTooltipInitializationCode()
     {
 	<script type="text/javascript">
-		$(document).ready(function () {  
-            $(".tooltip, .tooltip-default").tipTip();
-            $(".tooltip-ajax").tipTip({
-                content: function (data) {
-                    $.ajax({ 
-                            url: $(this).attr("href"), 
-                            success: function (response) {
-                                data.content.html(response); 
-                                }
-                    });
-                    return 'Please wait...'; 
-                }
-            });
-            $(".tooltip-ajax").click(function () { return false; });
-		});
+	    $(document).ready(function () {
+	        $(".tooltip, .tooltip-default").tipTip();
+	        $(".tooltip-ajax").tipTip({
+	            content: function (data) {
+	                $.ajax({
+	                    url: $(this).attr("href"),
+	                    success: function (response) {
+	                        data.content.width("200px");
+	                        data.content.height("90px");
+	                        data.content.html(response); t
+	                    }
+	                });
+	                return Globalize.localize("loading", "@CultureHelper.GetNeutralCulture(CultureHelper.GetCurrentCulture())");
+	            },
+	            exit: function (data) {
+	                data.content.removeAttr("style");	                
+	            }
+	        });
+	        $(".tooltip-ajax").click(function () { return false; });
+	    });
 	</script>
 }
 

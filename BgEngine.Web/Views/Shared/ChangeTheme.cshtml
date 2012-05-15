@@ -1,62 +1,24 @@
-﻿@*==============================================================================
- This file is part of BgEngine.
+﻿@using System.Web.Helpers
 
- BgEngine is free software: you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation, either version 3 of the License, or
- (at your option) any later version.
+@if (Request.Cookies["app_theme"] == null)
+{
+    Themes.Initialize("~/Content/themes/", BgEngine.Application.ResourceConfiguration.BgResources.Themes_Default);
+}
+else
+{
+    try
+    {
+        Themes.Initialize("~/Content/themes/", Request.Cookies["app_theme"].Value);
+    }
+    catch (ArgumentException)
+    {
+        Themes.Initialize("~/Content/themes/", BgEngine.Application.ResourceConfiguration.BgResources.Themes_Default);
+    }
+}   
 
- BgEngine is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
-
- You should have received a copy of the GNU General Public License
- along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
-==============================================================================
- Copyright (c) 2011 Yago Pérez Vázquez
- Version: 1.0
-==============================================================================*@
-
-@using System.Web.Helpers;
-
-<script type="text/javascript">
-    $(document).ready(function () {        
-        $("#themeselector").selectmenu({
-            width: "100%",
-            style: "default",
-            menuWidth:400,
-            maxHeight: 400,
-            positionOptions: {
-                my: "right center",
-                at: "left center",
-                offset: "-20 0"                
-            }
-        });
-        $("#themeselector").change(function () {
-            $.post("@Url.RouteUrl("Default", new { controller = "Theme", action = "SetThemeCookie"})", 
-                    { theme: $(this).val() },
-                    function(data,status) {
-                        window.location.reload();
-                    },"json"
-             );                         
-        });
-    });
-</script>
-
-
-<div id="config">
-    <select id="themeselector" name="Theme">
-        <optgroup label="@Resources.AppMessages.Change_Theme">
-            @foreach(var Theme in Themes.AvailableThemes){ 
-            <option value="@Theme" 
-            @if(IsPost){
-               if(Request.Form["Theme"]==Theme){<text>Selected</text>}
-               } else {
-               if(Themes.DefaultTheme == Theme){<text>Selected</text>}
-              }
-           >@Theme</option>
-            }
-        </optgroup>
-    </select>
-</div>
+<ul>
+    @foreach (var Theme in Themes.AvailableThemes)
+    {
+        <li>@Html.RouteLink(Theme, "Default", new { controller="Theme", action="SetThemeCookie", theme=Theme, returnurl=ViewBag.Url })</li> 
+    }
+</ul>
