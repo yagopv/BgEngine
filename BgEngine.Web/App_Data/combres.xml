@@ -21,15 +21,16 @@
       <resource path="~/Content/Site.css" />
       <resource path="~/Content/jCrumb.css" />
       <resource path="~/Content/fancybox/jquery.fancybox-1.3.4.css" />
+      <resource path="~/Content/tipTip.css" />
     </resourceSet>
     
     <resourceSet name="siteJs" type="js">
-      <resource path="~/Scripts/jquery-1.5.1.min.js" />
-      <resource path="~/Scripts/jquery-ui-1.9m5.min.js" />
+      <resource path="~/Scripts/jquery-1.7.2.min.js" />
+      <resource path="~/Scripts/jquery-ui-1.8.13.min.js" />
       <resource path="~/Scripts/jquery.validate.min.js" />
       <resource path="~/Scripts/jquery.validate.unobtrusive.min.js" />
       <resource path="~/Scripts/jquery.ui.selectmenu.js" />
-      <resource path="~/Scripts/jquery.ui.tooltip.js" />
+      <resource path="~/Scripts/jquery.tipTip.js" />
       <resource path="~/Scripts/jquery.jcrumb.js" />
       <resource path="~/Scripts/globalize.js" />
       <resource path="~/Scripts/cultures/globalize.culture.es.js" />
@@ -40,12 +41,12 @@
     </resourceSet>
     
     <resourceSet name="adminJs" type="js">
-      <resource path="~/Scripts/jquery-1.5.1.min.js" />
-      <resource path="~/Scripts/jquery-ui-1.9m5.min.js" />
+      <resource path="~/Scripts/jquery-1.7.2.min.js" />
+      <resource path="~/Scripts/jquery-ui-1.8.13.min.js" />
       <resource path="~/Scripts/jquery.validate.min.js" />
       <resource path="~/Scripts/jquery.validate.unobtrusive.min.js" />
       <resource path="~/Scripts/jquery.ui.selectmenu.js" />
-      <resource path="~/Scripts/jquery.ui.tooltip.js" />
+      <resource path="~/Scripts/jquery.tipTip.js" />
       <resource path="~/Scripts/jquery.jcrumb.js" />
       <resource path="~/Scripts/internal/bg.core.js" />
       <resource path="~/Scripts/globalize.js" />

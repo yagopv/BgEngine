@@ -48,14 +48,7 @@
 
                     if ($(this).is("select")) {
                         $(this).selectmenu({
-                            width: "25em",
-                            style: "popup",
-                            positionOptions: {
-                                my: "left center",
-                                at: "right center",
-                                offset: "10 0",
-                                collision: "none none"
-                            }
+                            width: "25em"
                         });
                     }
                 }
