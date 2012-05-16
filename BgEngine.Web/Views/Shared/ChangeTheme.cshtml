@@ -1,4 +1,24 @@
-﻿@using System.Web.Helpers
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@using System.Web.Helpers
 
 @if (Request.Cookies["app_theme"] == null)
 {
@@ -16,9 +36,32 @@ else
     }
 }   
 
-<ul>
-    @foreach (var Theme in Themes.AvailableThemes)
-    {
-        <li>@Html.RouteLink(Theme, "Default", new { controller="Theme", action="SetThemeCookie", theme=Theme, returnurl=ViewBag.Url })</li> 
-    }
-</ul>
+<div id="changetheme">    
+        @foreach (var Theme in Themes.AvailableThemes)
+        {
+            <div class="changetheme-item ui-widget ui-widget-content ui-state-default ui-corner-all">                
+                @switch (Theme)
+                {
+                    case "Aristo":
+                        <div class="changetheme-preview-color" style="background:#cecece"></div>
+                        break;
+                    case "Cobalt":
+                        <div class="changetheme-preview-color" style="background:#cfdef0"></div>
+                        break;
+                    case "Cupertino":
+                        <div class="changetheme-preview-color" style="background:#e9f4fb"></div>
+                        break;
+                    case "Rocket":
+                        <div class="changetheme-preview-color" style="background:#242122"></div>
+                        break;
+                    case "UI Lightness":
+                        <div class="changetheme-preview-color" style="background:#f6af3a"></div>
+                        break;
+                    default:
+                        <div class="changetheme-preview-color" style="background:white"></div>
+                        break;
+                }     
+                @Html.RouteLink(Theme, "Default", new { controller="Theme", action="SetThemeCookie", theme=Theme, returnurl=ViewBag.Url })                                
+            </div> 
+        }
+</div>

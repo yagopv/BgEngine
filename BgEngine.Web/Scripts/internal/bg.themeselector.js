@@ -13,6 +13,7 @@
                         'content': data,
                         'scrolling': 'no',
                         'autoDimensions': false,
+                        'autoScale':true,
                         'width': tsOptions.width,
                         'height': tsOptions.height
                     });
