@@ -108,3 +108,11 @@ else
 {
     <h2 class="ui-widget-content ui-state-highlight ui-corner-all ui-helper-padding">@Resources.AppMessages.Videos_NoVideo</h2>
 }
+
+<script>
+    /* Correct youtube embedded videos z-index for showing tooltips above them */
+    $('#videos iframe').each(function() {
+        var url = $(this).attr('src');
+        $(this).attr('src',url+'?wmode=transparent'); 
+   });
+</script>

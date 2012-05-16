@@ -54,7 +54,7 @@
 
 <script>
     /* Correct youtube embedded videos z-index for showing tooltips above them */
-    $('iframe').each(function() {
+    $('#home-videos iframe').each(function() {
         var url = $(this).attr('src');
         $(this).attr('src',url+'?wmode=transparent'); 
    });
