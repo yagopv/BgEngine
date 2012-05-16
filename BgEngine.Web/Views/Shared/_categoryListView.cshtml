@@ -28,7 +28,7 @@
     {
         foreach (var category in Model)
         {        
-            <p class="ui-helper-reset-margin">@Html.RouteLink(category.Name, "Default", new { controller = "Post", action = "GetPostsByCategory", id = category.Name })<span>(@category.Posts.Count(p => p.IsAboutMe == false))</span></p>
+            <p class="ui-helper-reset-margin">@Html.RouteLink(category.Name, "Default", new { controller = "Post", action = "GetPostsByCategory", id = category.Name }, new {@class="tooltip", title=(String.IsNullOrEmpty(category.Description) ? category.Name : category.Description)})<span>(@category.Posts.Count(p => p.IsAboutMe == false))</span></p>
         }
     }
     else
@@ -39,3 +39,7 @@
         }         
     }
 </div>
+
+<script>
+    $("#categories .tooltip").tipTip();
+</script>

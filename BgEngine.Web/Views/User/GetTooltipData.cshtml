@@ -20,14 +20,15 @@
 
 @model BgEngine.Domain.EntityModel.User
 
-<div id="footnote1">
-	<div class="ui-helper-float-left">
+<div  class="usertooltip">
+	<div class="usertooltip-image">
 		@Gravatar.GetHtml(Model.Email)
 	</div>
-	<div class="ui-helper-float-left ui-helper-padding">
+	<div class="usertooltip-comments">
 		<text><strong>@Model.Username</strong></text></br>             
 		<text><em>@Model.Posts.Count() @(Model.Posts.Count == 1 ? Resources.AppMessages.Article : Resources.AppMessages.Articles)</em></text></br>
 		<text><em>@Model.Comments.Count() @(Model.Comments.Count == 1 ? Resources.AppMessages.Comment : Resources.AppMessages.Comments)</em></text>
 	</div>
+    <div class="ui-helper-clear-both">
 </div>
 

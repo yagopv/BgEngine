@@ -138,14 +138,14 @@
 
 @helper ShareOnFacebook(string url, string title = " ")
     {
-	<a  title="@Resources.AppMessages.Share_On_Facebook" href="http://www.facebook.com/sharer.php?u=@url&amp;t=@title" target="_blank">
+	<a href="http://www.facebook.com/sharer.php?u=@url&amp;t=@title" target="_blank">
 		<img alt="@Resources.AppMessages.Share_On_Facebook" src="/Content/Icons/facebook48x48.jpg" style="border:0; height:48px; width:48px; margin:0 1px;" class="tooltip" title="@Resources.AppMessages.Share_On_Facebook" />
 	</a>
 }
 
 @helper ShareOnTwitter(string url, string title = " ")
     {
-	<a title="@Resources.AppMessages.Share_On_Twitter" href="http://twitter.com/share?text=@title" target="_blank">
+	<a href="http://twitter.com/share?text=@title" target="_blank">
 		 <img title="@Resources.AppMessages.Share_On_Twitter" style="border:0; height:48px; width:48px; margin:0 1px;" src="/Content/Icons/Twitter48x48.jpg" class="tooltip" alt="@Resources.AppMessages.Share_On_Twitter" />
 	</a>            
 }
@@ -167,7 +167,7 @@
 
 @helper SubscribeRssChannel(string url)
     {
-	<a title="@Resources.AppMessages.Rss_Tooltip" href="@url" target="_blank">
+	<a href="@url" target="_blank">
 		 <img title="@Resources.AppMessages.Rss_Tooltip" style="border:0; height:48px; width:48px; margin:0 1px;" src="/Content/Icons/RSS48x48.jpg" class="tooltip" alt="@Resources.AppMessages.Rss_Tooltip" />
 	</a>  
 }
@@ -195,15 +195,10 @@
 	                $.ajax({
 	                    url: $(this).attr("href"),
 	                    success: function (response) {
-	                        data.content.width("200px");
-	                        data.content.height("90px");
-	                        data.content.html(response); t
+	                        data.content.html(response);
 	                    }
 	                });
 	                return Globalize.localize("loading", "@CultureHelper.GetNeutralCulture(CultureHelper.GetCurrentCulture())");
-	            },
-	            exit: function (data) {
-	                data.content.removeAttr("style");	                
 	            }
 	        });
 	        $(".tooltip-ajax").click(function () { return false; });

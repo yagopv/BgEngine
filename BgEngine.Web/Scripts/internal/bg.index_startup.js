@@ -69,7 +69,8 @@
         $(".bg-button-grid-zoom").button({ icons: { primary: "ui-icon-zoomin" }, text: false });
 		$("th a").button({ icons: { primary: "ui-icon-triangle-2-n-s" }, text: true });
         $(".options").buttonset();
-        loadColumns();        
+        loadColumns();   
+        reconnectTooltips();
     }
     
     function hideShowColumn(column, show) {
@@ -151,5 +152,21 @@
             });        
         });
     }
-            
+          
+    // Reconnect tooltips after ajax load
+    function reconnectTooltips() {
+        $(".tooltip, .tooltip-default").tipTip();
+        $(".tooltip-ajax").tipTip({
+            content: function (data) {
+                $.ajax({
+                    url: $(this).attr("href"),
+                    success: function (response) {
+                        data.content.html(response);
+                    }
+                });
+                return Globalize.localize("loading", "@CultureHelper.GetNeutralCulture(CultureHelper.GetCurrentCulture())");
+            }
+        });
+        $(".tooltip-ajax").click(function () { return false; });
+    }            
 })(jQuery);

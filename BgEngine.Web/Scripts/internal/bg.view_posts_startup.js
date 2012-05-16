@@ -41,32 +41,7 @@
                     $(this).removeClass("ui-state-highlight");
                 }
             );
-            $(".tooltip").tooltip({
-                items: "[href], [title]",
-                open: function () {
-                    var tooltip = $(".ui-tooltip");
-                    $(document).mousemove(function (event) {
-                        tooltip.position({
-                            my: "left+25 center",
-                            at: "right+25 center",
-                            of: event
-                        });
-                    })
-                    // trigger once to override element-relative positioning 
-			    .mousemove();
-                },
-                content: function (response) {
-                    var href = $(this).attr("href");
-                    if (/^#/.test(href)) {
-                        return $(href).html();
-                    }
-                    // using string.replace for line break substitution
-                    return this.title.replace(new RegExp("\\n", "g"), "<br/>");
-                },
-                close: function () {
-                    $(document).unbind("mousemove");
-                }
-            });
+            reconnectTooltips();
             $("#home-videos").fadeIn(1000);
         });
     };
@@ -107,18 +82,12 @@
                 $.ajax({
                     url: $(this).attr("href"),
                     success: function (response) {
-                        data.content.width("200px");
-                        data.content.height("90px");
-                        data.content.html(response); t
+                        data.content.html(response);
                     }
                 });
                 return Globalize.localize("loading", "@CultureHelper.GetNeutralCulture(CultureHelper.GetCurrentCulture())");
-            },
-            exit: function (data) {
-                data.content.removeAttr("style");
             }
         });
         $(".tooltip-ajax").click(function () { return false; });
     }
-
 })(jQuery);

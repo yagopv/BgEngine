@@ -247,15 +247,10 @@
                 $.ajax({
                     url: $(this).attr("href"),
                     success: function (response) {
-                        data.content.width("200px");
-                        data.content.height("90px");
-                        data.content.html(response); t
+                        data.content.html(response);
                     }
                 });
                 return Globalize.localize("loading", "@CultureHelper.GetNeutralCulture(CultureHelper.GetCurrentCulture())");
-            },
-            exit: function (data) {
-                data.content.removeAttr("style");
             }
         });
         $(".tooltip-ajax").click(function () { return false; });

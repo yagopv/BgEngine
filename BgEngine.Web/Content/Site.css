@@ -120,6 +120,11 @@ body .ui-tooltip { max-width: 400px; }
 #changetheme .changetheme-preview-color { width:20%; height:100%; float:left;}    
 #changetheme a { display:inline-block; width:75%; text-align:center; font-size:1.3em;}
     
+/*  Styles for the user tooltip  */
+.usertooltip { width:100%; height:100%; }
+.usertooltip-image { width:20%; height:100%; float:left; }
+.usertooltip-comments { display:inline-block; width:78%; text-align:right; font-size:1.1em; margin-left: 2%; }
+
 /* Styles for validation helpers */
 .field-validation-error { color: #ff0000; display:block; margin-top:2px; }
 .field-validation-valid { display: none; }
