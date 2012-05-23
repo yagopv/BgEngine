@@ -186,10 +186,13 @@ namespace BgEngine.Application.Services
                     {
                         WebImage image = new WebImage(file.InputStream);
                         imagepath = "~/Content/Images/" + unique + "_" + file.FileName;
-                        image.Save(server.MapPath(imagepath));
-                        image.Resize(Int32.Parse(BgResources.Media_ThumbnailWidth), Int32.Parse(BgResources.Media_ThumbnailHeight), preserveAspectRatio: true, preventEnlarge: true);
+                        image.Resize(1024, 768, preserveAspectRatio: true, preventEnlarge: true)
+                             .Crop(1, 1)
+                             .Save(server.MapPath(imagepath));
                         thumbnailpath = "~/Content/Images/Thumbnails/" + unique + "_" + file.FileName;
-                        image.Save(server.MapPath(thumbnailpath));
+                        image.Resize(Int32.Parse(BgResources.Media_ThumbnailWidth), Int32.Parse(BgResources.Media_ThumbnailHeight), preserveAspectRatio: true, preventEnlarge: true)
+                             .Crop(1,1)
+                             .Save(server.MapPath(thumbnailpath));
                         Album album;
                         if (albumid == null)
                         {
