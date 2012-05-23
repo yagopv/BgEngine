@@ -65,7 +65,7 @@
     </resourceSet>
     
     <resourceSet name="GalleriaJs" type="js">
-      <resource path="~/Scripts/galleria/galleria-1.2.4.min.js" />
+      <resource path="~/Scripts/galleria/galleria-1.2.7.min.js" />
     </resourceSet>
     
     <resourceSet name="AlbumIndexJs" type="js">      
