@@ -340,6 +340,7 @@
     <Content Include="Content\tipTip.css" />
     <Content Include="Scripts\galleria\galleria-1.2.7.js" />
     <Content Include="Scripts\galleria\galleria-1.2.7.min.js" />
+    <Content Include="Scripts\html5shiv.js" />
     <Content Include="Scripts\internal\bg.themeselector.js" />
     <Content Include="Scripts\internal\bg.configoptions.js" />
     <Content Include="Scripts\internal\bg.create_post_startup.js" />
@@ -368,6 +369,7 @@
     <Content Include="Scripts\jquery.jcrumb.js" />
     <Content Include="Scripts\jquery.myimgscale.min.js" />
     <Content Include="Scripts\jquery.tipTip.js" />
+    <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\swfupload.fileprogress.js" />
     <Content Include="Scripts\galleria\themes\classic\classic-demo.html" />
     <Content Include="Scripts\galleria\themes\classic\classic-loader.gif" />
