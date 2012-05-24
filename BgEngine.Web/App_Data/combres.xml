@@ -171,7 +171,7 @@
       <resourceSet name="ViewPostJs" type="js">
           <resource path="~/Scripts/shCore.js" />
           <resource path="~/Scripts/shAutoloader.js" />
-          <resource path="~/Scripts/jquery.rateit.min.js" />
+          <resource path="~/Scripts/jquery.rateit.js" />
           <resource path="~/Scripts/jquery-block-ui.js" />
           <resource path="~/Scripts/internal/bg.infobox.js" />
           <resource path="~/Scripts/internal/bg.tagger.js" />

@@ -368,6 +368,7 @@
     <Content Include="Scripts\jquery.fancybox-1.3.4.pack.js" />
     <Content Include="Scripts\jquery.jcrumb.js" />
     <Content Include="Scripts\jquery.myimgscale.min.js" />
+    <Content Include="Scripts\jquery.rateit.js" />
     <Content Include="Scripts\jquery.tipTip.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\swfupload.fileprogress.js" />
@@ -398,7 +399,6 @@
     <Content Include="Scripts\jquery-block-ui.js" />
     <Content Include="Scripts\jquery.cookie.js" />
     <Content Include="Scripts\jquery.form.js" />
-    <Content Include="Scripts\jquery.rateit.min.js" />
     <Content Include="Scripts\jquery.ui.selectmenu.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />

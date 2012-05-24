@@ -1,23 +1,3 @@
-/*==============================================================================
-* This file is part of BgEngine.
-*
-* BgEngine is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-*
-* BgEngine is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
-*==============================================================================
-* Copyright (c) 2011 Yago Pérez Vázquez
-* Version: 1.0
-*==============================================================================*/
-
 div.rateit
 {
     display: -moz-inline-box;
@@ -36,8 +16,8 @@ div.rateit div.rateit-range
     position: relative;
     display: -moz-inline-box;
     display: inline-block;
-    background: url(Icons/star.gif);
-    height: 32px;
+    background: url("/Content/Icons/star.gif");
+    height: 16px;
 }
 
 /* for IE 6 */
@@ -55,11 +35,18 @@ div.rateit div.rateit-range
 div.rateit div.rateit-hover, div.rateit div.rateit-selected
 {
     position: absolute;
+    left: 0px;
+}
+
+div.rateit div.rateit-hover-rtl, div.rateit div.rateit-selected-rtl
+{
+    left: auto;
+    right: 0px;
 }
 
 div.rateit div.rateit-hover
 {
-    background: url(Icons/star.gif) left -32px;
+    background: url("/Content/Icons/star.gif") left -32px;
 }
 
 div.rateit div.rateit-hover-rtl
@@ -69,29 +56,29 @@ div.rateit div.rateit-hover-rtl
 
 div.rateit div.rateit-selected
 {
-    background: url(Icons/star.gif) left -32px;
+    background: url("/Content/Icons/star.gif") left -16px;
 }
 
 div.rateit div.rateit-selected-rtl
 {
-    background-position: right -32px;
+    background-position: right -16px;
 }
 
 div.rateit div.rateit-preset
 {
-    background: url(Icons/star.gif) left -48px;
+    background: url("/Content/Icons/star.gif") left -48px;
 }
 
 div.rateit div.rateit-preset-rtl
 {
-    background: url(Icons/star.gif) left -48px;
+    background: url("/Content/Icons/star.gif") left -48px;
 }
 
 div.rateit div.rateit-reset
 {
-    background: url(Icons/delete.gif) 0 0;
-    width: 32px;
-    height: 32px;
+    background: url("/Content/Icons/delete.gif") 0 0;
+    width: 16px;
+    height: 16px;
     display: -moz-inline-box;
     display: inline-block;
     float: left;
@@ -99,5 +86,5 @@ div.rateit div.rateit-reset
 
 div.rateit div.rateit-reset:hover
 {
-    background-position: 0 -32px;
+    background-position: 0 -16px;
 }
