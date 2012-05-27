@@ -335,5 +335,22 @@ namespace BgEngine.Application.Services
             PostRepository.UnitOfWork.Commit();
             return post;
         }
+        /// <summary>
+        /// Get Posts for the RSS feed
+        /// </summary>
+        /// <param name="ispremium">If the user is premium</param>
+        /// <param name="howmany">Numbre of Posts to retrieve</param>
+        /// <returns>List of Posts</returns>
+        public IEnumerable<Post> FindRSSPosts(bool ispremium, int howmany)
+        {
+            if (ispremium)
+            {
+                return PostRepository.Get(p => p.IsAboutMe == false, o => o.OrderByDescending(p => p.DateCreated)).Take(howmany);
+            }
+            else
+            {
+                return PostRepository.Get(p => p.IsPublic && p.IsAboutMe == false, o => o.OrderBy(p => p.DateCreated)).Take(howmany);
+            }
+        }
     }
 }

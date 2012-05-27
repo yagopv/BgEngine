@@ -40,6 +40,7 @@ namespace BgEngine.Application.Services
         IPagedList<Post> FindPagedPostsByCategory(bool ispremium, string category, int pageindex, int pagecount);
         IPagedList<Post> FindPagedPostsByDate(bool ispremium, int year, int month, int pageindex, int pagecount);
         IPagedList<Post> FindPagedPostsByTag(bool ispremium, string tag, int pageindex, int pagecount);
+        IEnumerable<Post> FindRSSPosts(bool ispremium, int howmany);
         void CreatePost(Post post, int[] tags);
         void UpdatePost(Post post, int[] tags);
         void CreateComment(Comment comment, User user);

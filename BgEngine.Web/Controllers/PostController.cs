@@ -399,8 +399,17 @@ namespace BgEngine.Controllers
         /// </summary>
         /// <returns>Xml rss 2.0 formatted Posts</returns>
         public ActionResult RssFeed()
-        {            
-            var postItems = BlogServices.HomePostsForRole(false, 20)
+        {
+            bool ispremium;
+            if ((CodeFirstSecurity.IsAuthenticated) && (CodeFirstRoleServices.IsUserInRole(CodeFirstSecurity.CurrentUserName, BgResources.Security_PremiumRole)))
+            {
+                ispremium = true;
+            }
+            else
+            {
+                ispremium = false;
+            }
+            var postItems = BlogServices.FindRSSPosts(ispremium, 20)
                 .Select(p => new SyndicationItem(p.Title, p.Description, new Uri(Url.AbsoluteAction("GetPostByCode", "Post", new { id = p.Code }))) 
                 {
                     PublishDate = new DateTimeOffset(p.DateCreated),
