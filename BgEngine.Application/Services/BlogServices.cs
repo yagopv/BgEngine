@@ -349,7 +349,7 @@ namespace BgEngine.Application.Services
             }
             else
             {
-                return PostRepository.Get(p => p.IsPublic && p.IsAboutMe == false, o => o.OrderBy(p => p.DateCreated)).Take(howmany);
+                return PostRepository.Get(p => p.IsPublic && p.IsAboutMe == false, o => o.OrderByDescending(p => p.DateCreated)).Take(howmany);
             }
         }
     }
