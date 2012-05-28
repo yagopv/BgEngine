@@ -184,15 +184,6 @@ namespace BgEngine.Application.Services
                     Guid unique = Guid.NewGuid();
                     if (file.FileName.ToUpper().Contains("JPG") || file.FileName.ToUpper().Contains("JPEG") || file.FileName.ToUpper().Contains("GIF") || file.FileName.ToUpper().Contains("PNG"))
                     {
-                        WebImage image = new WebImage(file.InputStream);
-                        imagepath = "~/Content/Images/" + unique + "_" + file.FileName;
-                        image.Resize(1024, 768, preserveAspectRatio: true, preventEnlarge: true)
-                             .Crop(1, 1)
-                             .Save(server.MapPath(imagepath));
-                        thumbnailpath = "~/Content/Images/Thumbnails/" + unique + "_" + file.FileName;
-                        image.Resize(Int32.Parse(BgResources.Media_ThumbnailWidth), Int32.Parse(BgResources.Media_ThumbnailHeight), preserveAspectRatio: true, preventEnlarge: true)
-                             .Crop(1,1)
-                             .Save(server.MapPath(thumbnailpath));
                         Album album;
                         if (albumid == null)
                         {
@@ -204,11 +195,22 @@ namespace BgEngine.Application.Services
                                 AlbumRepository.UnitOfWork.Commit(); ;
                                 AlbumRepository.Get(a => a.Name == album.Name);
                             }
+                            albumid = album.AlbumId;
                         }
                         else
                         {
                             album = AlbumRepository.GetByID(albumid);
                         }
+                        CheckDirectoryForAlbum(albumid, server);
+                        WebImage image = new WebImage(file.InputStream);
+                        imagepath = "~/Content/Images/" + albumid + "/" + unique + "_" + file.FileName;
+                        image.Resize(1024, 768, preserveAspectRatio: true, preventEnlarge: true)
+                             .Crop(1, 1)
+                             .Save(server.MapPath(imagepath));
+                        thumbnailpath = "~/Content/Images/Thumbnails/" + albumid + "/" + unique + "_" + file.FileName;
+                        image.Resize(Int32.Parse(BgResources.Media_ThumbnailWidth), Int32.Parse(BgResources.Media_ThumbnailHeight), preserveAspectRatio: true, preventEnlarge: true)
+                             .Crop(1, 1)
+                             .Save(server.MapPath(thumbnailpath));
                         ImageRepository.Insert(new Image { Name= file.FileName, Path = imagepath, ThumbnailPath = thumbnailpath, Album = album, DateCreated = DateTime.Now, FileName = file.FileName });
                         ImageRepository.UnitOfWork.Commit();
                         fileUploadedCount++;
@@ -246,15 +248,6 @@ namespace BgEngine.Application.Services
                 Album album = null;
                 if (file.FileName.ToUpper().Contains("JPG") || file.FileName.ToUpper().Contains("JPEG") || file.FileName.ToUpper().Contains("GIF") || file.FileName.ToUpper().Contains("PNG"))
                 {
-                    WebImage image = new WebImage(file.InputStream);
-                    imagepath = "~/Content/Images/" + unique + "_" + file.FileName;
-                    image.Resize(1024, 768, preserveAspectRatio: true, preventEnlarge: true)
-                         .Crop(1, 1)
-                         .Save(server.MapPath(imagepath));
-                    thumbnailpath = "~/Content/Images/Thumbnails/" + unique + "_" + file.FileName;
-                    image.Resize(Int32.Parse(BgResources.Media_ThumbnailWidth), Int32.Parse(BgResources.Media_ThumbnailHeight), preserveAspectRatio: true, preventEnlarge: true)
-                         .Crop(1, 1)
-                         .Save(server.MapPath(thumbnailpath));
                     if (albumid == null)
                     {
                         album = AlbumRepository.Get(a => a.Name == Resources.AppMessages.Default_Album_Name).FirstOrDefault();
@@ -265,17 +258,46 @@ namespace BgEngine.Application.Services
                             AlbumRepository.UnitOfWork.Commit(); ;
                             AlbumRepository.Get(a => a.Name == album.Name);
                         }
+                        albumid = album.AlbumId;
                     }
                     else
                     {
                         album = AlbumRepository.GetByID(albumid);
                     }
+                    CheckDirectoryForAlbum(albumid, server);
+                    WebImage image = new WebImage(file.InputStream);
+                    imagepath = "~/Content/Images/" + albumid + "/" + unique + "_" + file.FileName;
+                    image.Resize(1024, 768, preserveAspectRatio: true, preventEnlarge: true)
+                         .Crop(1, 1)
+                         .Save(server.MapPath(imagepath));
+                    thumbnailpath = "~/Content/Images/Thumbnails/" + albumid + "/" + unique + "_" + file.FileName;
+                    image.Resize(Int32.Parse(BgResources.Media_ThumbnailWidth), Int32.Parse(BgResources.Media_ThumbnailHeight), preserveAspectRatio: true, preventEnlarge: true)
+                         .Crop(1, 1)
+                         .Save(server.MapPath(thumbnailpath));
                     ImageRepository.Insert(new Image { Name = file.FileName, Path = imagepath, ThumbnailPath = thumbnailpath, Album = album, DateCreated = DateTime.Now, FileName = file.FileName });
                     ImageRepository.UnitOfWork.Commit();
                 }
                 else
                 {
                     file.SaveAs(server.MapPath("~/Content/Files/" + unique + "_" + file.FileName));
+                }
+            }
+        }
+        /// <summary>
+        /// Check if the images directories exists and create them if necessary
+        /// </summary>
+        /// <param name="albumid"></param>
+        private void CheckDirectoryForAlbum(int? albumid, HttpServerUtilityBase server)
+        {
+            if (albumid != null)
+            {
+                if (!Directory.Exists(server.MapPath("~/Content/Images/" + albumid)))
+                {
+                    Directory.CreateDirectory(server.MapPath("~/Content/Images/" + albumid));
+                }
+                if (!Directory.Exists(server.MapPath("~/Content/Images/Thumbnails/" + albumid)))
+                {
+                    Directory.CreateDirectory(server.MapPath("~/Content/Images/Thumbnails/" + albumid));
                 }
             }
         }
