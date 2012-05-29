@@ -65,7 +65,7 @@
 			</ul>
 		</div>
 		<div id="pager" class="ui-helper-reset-float ui-margin-top-bottom">
-			@Html.PagedListPager((IPagedList)Model, page => Url.RouteUrl("Default", new { controller = "Image", action = "ShowAllImages", page }), PagedListRenderOptions.PageNumbersOnly)
+			@Html.PagedListPager((IPagedList)Model, page => Url.RouteUrl("Default", new { controller = "Image", action = "ShowAllImages", page }), PagedListRenderOptions.Minimal)
 		</div>
 	}
 	else
