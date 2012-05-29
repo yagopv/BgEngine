@@ -72,12 +72,12 @@ namespace BgEngine.Infraestructure.Repositories
             if (!String.IsNullOrEmpty(searchstring))
             {
                 return currentunitofwork.Images.Where(image => image.FileName.Contains(searchstring) || image.Name.Contains(searchstring) || image.Description.Contains(searchstring))
-                                   .OrderBy(orderByExpression)
+                                   .OrderByDescending(orderByExpression)
                                    .ToList();
             }
             else
             {
-                return currentunitofwork.Images.OrderBy(orderByExpression).ToList();
+                return currentunitofwork.Images.OrderByDescending(orderByExpression).ToList();
             }
         }
     }
