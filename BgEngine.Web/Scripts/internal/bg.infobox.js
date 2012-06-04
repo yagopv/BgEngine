@@ -58,8 +58,8 @@
                 that = this,
                 options = this.options,
                 elem = this.infoboxElement,
-                top = event.pageY + offsetY,
-                left = event.pageX + offsetX,
+                top = event.originalEvent.pageY + offsetY,
+                left = event.originalEvent.pageX + offsetX,
                 url = options.dataUrl + tagName + '?count=' + options.maxItems,
                 displayResult = function () {
                     elem.html(html);
