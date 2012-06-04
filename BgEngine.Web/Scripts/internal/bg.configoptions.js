@@ -94,9 +94,9 @@ $(function () {
         });
         $(".homepost-slider").slider({
             value: $("#Pager_HomeIndexPostsPerPage").val(),
-            min: 5,
+            min: 4,
             max: 120,
-            step: 5,
+            step: 2,
             slide: function (event, ui) {
                 $("#Pager_HomeIndexPostsPerPage").val(ui.value);
             }
