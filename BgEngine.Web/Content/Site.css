@@ -105,6 +105,13 @@ div#title {	display: block;	float: left; text-align: left; font-family: Arial; f
 body .ui-tooltip { max-width: 400px; }
 #logindisplay a { font-size:1.1em; }
 
+/*Link styles*/
+.ui-widget-content a { text-decoration:none; }
+.ui-widget-content a:hover { text-decoration:underline; outline:0 none;}
+#post-content  a { color: #0088CC; text-decoration:none; }
+#post-content  a:hover { color: #005580; text-decoration: underline; outline:0 none;}
+
+
 /*  Styles for anonymous comment fields */
 .anonymous-comment-fields { margin-bottom:20px;}
 .anonymous-comment-fields tr { width: 100%;}
