@@ -2032,7 +2032,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ¿Permitir comentarios anónimos?.
+        ///   Looks up a localized string similar to ¿Permitir comentarios y valoraciones anónimas?.
         /// </summary>
         public static string Post_AllowAnonymousComments {
             get {
@@ -2149,7 +2149,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ¿Comentarios cerrados?.
+        ///   Looks up a localized string similar to ¿Comentarios y valoraciones cerrados?.
         /// </summary>
         public static string Post_IsPostCommentsClosed {
             get {
