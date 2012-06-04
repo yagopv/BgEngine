@@ -121,7 +121,7 @@
                     </p>
                </div>
             </div>
-            @if (CodeFirstSecurity.IsAuthenticated)
+            @if ((CodeFirstSecurity.IsAuthenticated || Model.AllowAnonymousComments) && (!Model.IsPostCommentsClosed))            
             {
                 <script type="text/javascript">
                     $('.rateit').rateit({ max: 10,step: 1});        
