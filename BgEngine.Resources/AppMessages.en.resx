@@ -1189,7 +1189,7 @@
     <value>Web</value>
   </data>
   <data name="Post_AllowAnonymousComments" xml:space="preserve">
-    <value>Allow anonymous comments and ratings ?</value>
+    <value>Anonymous comments and ratings ?</value>
   </data>
   <data name="Post_IsPostCommentsClosed" xml:space="preserve">
     <value>Closed comments and ratings?</value>

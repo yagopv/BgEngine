@@ -1195,7 +1195,7 @@
     <value>Web</value>
   </data>
   <data name="Post_AllowAnonymousComments" xml:space="preserve">
-    <value>¿Permitir comentarios y valoraciones anónimas?</value>
+    <value>¿Comentarios y valoraciones anónimas?</value>
   </data>
   <data name="Post_IsPostCommentsClosed" xml:space="preserve">
     <value>¿Comentarios y valoraciones cerrados?</value>
