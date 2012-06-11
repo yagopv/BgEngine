@@ -234,22 +234,27 @@ namespace BgEngine.Controllers
                    AnonymousCommentViewModel user;
                    if (comment.AnonymousUser != null)
                    {
-                        user = AutoMapper.Mapper.Map<AnonymousUser, AnonymousCommentViewModel>(comment.AnonymousUser);
+                       user = AutoMapper.Mapper.Map<AnonymousUser, AnonymousCommentViewModel>(comment.AnonymousUser);
                    }
                    else
                    {
                        user = new AnonymousCommentViewModel();
                    }
                    if (TryValidateModel(user))
-                   {                                                  
-                       BlogServices.CreateComment(comment, CodeFirstSecurity.IsAuthenticated ? UserServices.FindEntityByIdentity(CodeFirstSecurity.CurrentUserId) : null);
+                   {
+                       BlogServices.CreateComment(comment, null);
                        return Json(new { result = "ok" });
                    }
                    else
                    {
                        return Json(new { result = "error", errors = ModelState.Where(s => s.Value.Errors.Count > 0).Select(s => new KeyValuePair<string, string>(s.Key, s.Value.Errors.First().ErrorMessage)).ToArray() });
                    }
-               }                              
+               }
+               else
+               {
+                   BlogServices.CreateComment(comment, UserServices.FindEntityByIdentity(CodeFirstSecurity.CurrentUserId));
+                   return Json(new { result = "ok" });
+               }
            }
            return Json(new { result = "error", errors = ModelState.Where(s => s.Value.Errors.Count > 0).Select(s => new KeyValuePair<string, string>(s.Key, s.Value.Errors.First().ErrorMessage)).ToArray() });
         }
@@ -278,13 +283,18 @@ namespace BgEngine.Controllers
                     }
                     if (TryValidateModel(user))
                     {
-                        BlogServices.AddRelatedComment(comment, parent, CodeFirstSecurity.IsAuthenticated ? UserServices.FindEntityByIdentity(CodeFirstSecurity.CurrentUserId) : null);                    
+                        BlogServices.AddRelatedComment(comment, parent, null);
                         return Json(new { result = "ok" });
                     }
                     else
                     {
                         return Json(new { result = "error", errors = ModelState.Where(s => s.Value.Errors.Count > 0).Select(s => new KeyValuePair<string, string>(s.Key, s.Value.Errors.First().ErrorMessage)).ToArray() });
                     }
+                }
+                else
+                {
+                    BlogServices.AddRelatedComment(comment, parent, UserServices.FindEntityByIdentity(CodeFirstSecurity.CurrentUserId));
+                    return Json(new { result = "ok" });
                 }
             }
             return Json(new { result = "error", errors = ModelState.Where(s => s.Value.Errors.Count > 0).Select(s => new KeyValuePair<string, string>(s.Key, s.Value.Errors.First().ErrorMessage)).ToArray() });
