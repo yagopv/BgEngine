@@ -451,3 +451,9 @@ F:\Projects\BgEngine\BgEngine.Web\bin\en\BgEngine.Resources.resources.dll
 F:\Projects\BgEngine\BgEngine.Web\obj\Debug\BgEngine.Web.csprojResolveAssemblyReference.cache
 F:\Projects\BgEngine\BgEngine.Web\obj\Debug\BgEngine.dll
 F:\Projects\BgEngine\BgEngine.Web\obj\Debug\BgEngine.pdb
+D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\System.Web.Helpers.dll
+D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\System.Web.Mvc.dll
+D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\System.Web.WebPages.dll
+D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\System.Web.Helpers.xml
+D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\System.Web.Mvc.xml
+D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\System.Web.WebPages.xml

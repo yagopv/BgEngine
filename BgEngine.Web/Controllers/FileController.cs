@@ -45,24 +45,24 @@ namespace BgEngine.Controllers
         }
 
         /// <summary>
-        /// Render SWF Object control for Upload file using this flash object
+        /// Render Uploader control for Upload files
         /// </summary>
-		/// <param name="albumid">Identity of the album</param>
-        /// <returns>Render SWF Object</returns>
+        /// <param name="albumid">Identity of the album</param>
+        /// <returns>Render Uploader</returns>
         [ChildActionOnly]        
-        public ActionResult SWFUpload(int? albumid)
+        public ActionResult Upload(int? albumid)
         {
             Album album = null;
             if (albumid != null)
             {
                 album = AlbumServices.FindEntityByIdentity(albumid);
-                return PartialView("SWFUpload", album);
+                return PartialView("Uploader", album);
             }
             else
             {
                 album = AlbumServices.FindAllEntities(a => a.Name == Resources.AppMessages.Default_Album_Name,null,null).FirstOrDefault();                
             }
-            return PartialView("SWFUpload", album);
+            return PartialView("Uploader", album);
             
         }
 
@@ -71,8 +71,8 @@ namespace BgEngine.Controllers
         /// </summary>
 		/// <param name="albumid">Identity of the album</param>
         /// <returns>Json representing the upload result</returns>
-        [HttpPost,ActionName("SWFUpload")]
-        public FileUploadJsonResult SWFUploadToAlbum(int? albumid)
+        [HttpPost, ActionName("Upload")]
+        public FileUploadJsonResult UploadToAlbum(int? albumid)
         {
 
             MediaServices.UploadFileToAlbum(Request.Files[0], Server, albumid);

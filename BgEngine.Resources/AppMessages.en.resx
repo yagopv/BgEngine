@@ -280,7 +280,7 @@
     <value>Post</value>
   </data>
   <data name="Post_Code" xml:space="preserve">
-    <value>Code</value>
+    <value>Url code</value>
   </data>
   <data name="Post_Code_Prompt" xml:space="preserve">
     <value>Enter the code to access the post by url</value>
@@ -1096,7 +1096,7 @@
     <value>Post has no comments yet</value>
   </data>
   <data name="Home_Contact" xml:space="preserve">
-    <value>Contact with us</value>
+    <value>Contact us</value>
   </data>
   <data name="Contact_Message" xml:space="preserve">
     <value>Message</value>
@@ -1220,5 +1220,8 @@
   </data>
   <data name="AnonymousUser_Web_Prompt" xml:space="preserve">
     <value>Enter your web if you have any</value>
+  </data>
+  <data name="InvalidUrlCode" xml:space="preserve">
+    <value>Invalid code (Accepted values:  A-Z, a-z, 0-9, -, _)</value>
   </data>
 </root>

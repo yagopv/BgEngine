@@ -79,6 +79,7 @@ namespace BgEngine.Domain.EntityModel
         [Required(ErrorMessageResourceType = typeof(Resources.AppMessages), ErrorMessageResourceName = "Required")]
         [StringLength(100, ErrorMessageResourceType = typeof(Resources.AppMessages), ErrorMessageResourceName = "ErrorLenght")]
         [Display(ResourceType = typeof(Resources.AppMessages), Name = "Post_Code", Prompt = "Post_Code_Prompt")]
+        [RegularExpression("^[a-zA-Z0-9-_áéíóúñ]+$", ErrorMessageResourceType = typeof(Resources.AppMessages), ErrorMessageResourceName = "InvalidUrlCode")]
         public string Code {get; set;}
 
         /// <summary>

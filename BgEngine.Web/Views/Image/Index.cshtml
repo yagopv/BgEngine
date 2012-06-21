@@ -33,62 +33,6 @@
 
 <script type="text/javascript">
 
-    /* Executes when images upload finish ok */
-    function uploadSuccessForAlbum(file, serverData) {
-        try {
-            var progress = new FileProgress(file, this.customSettings.progressTarget);
-            progress.setComplete();
-            progress.setStatus("Complete.");
-            progress.toggleCancel(false);
-        } catch (ex) {
-            this.debug(ex);
-        }
-        $("#content").load("@Request.Path #content", reloadscripts);
-
-    }
-
-    /* Load swf component widget */
-    var swfu;
-    window.onload = function () {
-        var settings = {
-            flash_url: "@Url.Content("~/Content/SWF/swfupload.swf")",
-            flash9_url : "@Url.Content("~/Content/SWF/swfupload_fp9.swf")",
-            upload_url: "@Url.RouteUrl("Default", new { controller = "File", action = "SWFUpload" })",
-            post_params: { "PHPSESSID": "" },
-            file_size_limit: "5 MB",
-            file_types: "*.*",
-            file_types_description: "All Files",
-            file_upload_limit: 100,
-            file_queue_limit: 0,
-            custom_settings: {
-                progressTarget: "fsUploadProgress",
-                cancelButtonId: "btnCancel"
-            },
-            post_params : { "albumid" : "@Model.AlbumId"},
-            debug: false,
-            use_query_string:true,
-            // Button settings
-            button_width: "100",
-            button_height: "30",
-            button_placeholder_id: "spanButtonPlaceHolder",
-            button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
-            button_cursor: SWFUpload.CURSOR.HAND,
-
-
-            // The event handler functions are defined in handlers.js
-            file_queued_handler: fileQueued,
-            file_queue_error_handler: fileQueueError,
-            file_dialog_complete_handler: fileDialogComplete,
-            upload_start_handler: uploadStart,
-            upload_progress_handler: uploadProgress,
-            upload_error_handler: uploadError,
-            upload_success_handler: uploadSuccessForAlbum,
-            upload_complete_handler: uploadComplete,
-            queue_complete_handler: queueComplete	// Queue plugin event
-        };
-        swfu = new SWFUpload(settings);
-    };
-
     function reloadscripts() {
         $("#DeleteAll").bind("click",function (e) {
             var objectids = $("#trash li a.edit");
@@ -240,11 +184,18 @@
         $(".fancy-image").fancybox({
             'titlePosition'	: 'inside'
         });
-    }		
+    }
 
-     $(document).ready(function () {
-         reloadscripts();
-     });
+    $(document).ready(function () {
+        reloadscripts();
+        $('#file_upload').uploadifive({
+            'uploadScript': '@Url.RouteUrl("Default", new { controller = "File", action = "Upload"})',
+            'onUploadComplete': function (file, data) {
+                $("#content").load("@Request.Path #content", reloadscripts);
+            },
+            'formData': { "albumid": "@Model.AlbumId" }
+        });
+    });
 </script>
 
 <div id="content" class="ui-widget ui-helper-clearfix ui-helper-margin-top-bottom">
@@ -299,14 +250,10 @@ else
 
 </div>
 <div>
-    <form id="ajaxUploadForm" action="@Url.RouteUrl("Default", new { controller = "File", action = "SWFUpload" })" method="post" enctype="multipart/form-data">
-        <fieldset class="ui-widget ui-widget-content ui-corner-all fieldset" id="fsUploadProgress">
-            <legend class="legend bg-panel ui-widget-header ui-corner-all ">@Resources.AppMessages.Album_LoadImages</legend>			
-            <div class="ui-helper-margin-top-bottom">
-                <span id="spanButtonPlaceHolder"></span>
-                <input id="btnUpload" type="button" value="Select Files" style="width: 100px; height: 30px; font-size: 8pt;" />
-                <input id="btnCancel" type="button" value="Cancel All Uploads" onclick="swfu.cancelQueue();" style="margin-left: 2px; font-size: 8pt; height: 30px;" />
-            </div>
-        </fieldset>
-    </form>
+    <fieldset class="ui-widget ui-widget-content ui-corner-all fieldset">
+        <legend class="legend bg-panel ui-widget-header ui-corner-all ">@Resources.AppMessages.Album_LoadImages</legend>			
+        <div class="ui-helper-margin-top-bottom">
+            <input id="file_upload" type="file" name="file_upload" />
+        </div>
+    </fieldset>    
 </div>

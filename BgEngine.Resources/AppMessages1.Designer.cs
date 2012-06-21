@@ -1717,6 +1717,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Código no válido (Valores aceptaddos:  A-Z, a-z, 0-9, -, _).
+        /// </summary>
+        public static string InvalidUrlCode {
+            get {
+                return ResourceManager.GetString("InvalidUrlCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Últimos posts añadidos.
         /// </summary>
         public static string Latest_Post_Added {
@@ -2050,7 +2059,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Código.
+        ///   Looks up a localized string similar to Código Url.
         /// </summary>
         public static string Post_Code {
             get {
