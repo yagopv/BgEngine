@@ -21,10 +21,12 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Data;
 
 using BgEngine.Domain.EntityModel;
 using BgEngine.Infraestructure.EFExtensions;
-using System.Data;
+using BgEngine.Infraestructure.DatabaseInitialization;
+
 
 namespace BgEngine.Infraestructure.UnitOfWork
 {
@@ -34,6 +36,16 @@ namespace BgEngine.Infraestructure.UnitOfWork
 	/// </summary>
 	public class BlogUnitOfWork : DbContext, IBlogUnitOfWork
 	{
+        /// <summary>
+        /// ctor
+        /// </summary>
+        /// <param name="initializer">Default initializer. Change it in IoC.cs unde DependencyResolution folder</param>
+        public BlogUnitOfWork(IDatabaseInitializer<BlogUnitOfWork> Initializer)
+        {
+            //setting the default initializer
+            Database.SetInitializer<BlogUnitOfWork>(Initializer);
+        }
+
 		IDbSet<Post> posts;
 		public IDbSet<Post> Posts
 		{

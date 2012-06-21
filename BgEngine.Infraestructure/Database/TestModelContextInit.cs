@@ -32,7 +32,7 @@ namespace BgEngine.Infraestructure.DatabaseInitialization
     /// <summary>
     /// Test data for testing purposes
     /// </summary>
-    public class TestModelContextInit : DropCreateDatabaseAlways<BlogUnitOfWork>
+    public class TestModelContextInit : CreateDatabaseIfNotExists<BlogUnitOfWork>
     {
         protected override void Seed(BlogUnitOfWork context)
         {            

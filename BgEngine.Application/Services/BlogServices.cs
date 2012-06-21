@@ -320,7 +320,11 @@ namespace BgEngine.Application.Services
 
         public Post FindPost(string postcode)
         {
-            Post post = PostRepository.Get(p => p.Code == postcode, p => p.OrderBy(o => o.DateCreated), "Category,User,Tags,Ratings,Image,Comments").Single();
+            Post post = PostRepository.Get(p => p.Code == postcode, p => p.OrderBy(o => o.DateCreated), "Category,User,Tags,Ratings,Image,Comments").SingleOrDefault();
+            if (post == null)
+            {
+                return null;
+            }
             post.IncreaseVisitCounter();
             PostRepository.Update(post);
             PostRepository.UnitOfWork.Commit();
@@ -329,7 +333,11 @@ namespace BgEngine.Application.Services
 
         public Post FindPost(int  postid)
         {
-            Post post = PostRepository.Get(p => p.PostId == postid, p => p.OrderBy(o => o.DateCreated), "Category,User,Tags,Ratings,Image,Comments").Single();
+            Post post = PostRepository.Get(p => p.PostId == postid, p => p.OrderBy(o => o.DateCreated), "Category,User,Tags,Ratings,Image,Comments").SingleOrDefault();
+            if (post == null)
+            {
+                return null;
+            }
             post.IncreaseVisitCounter();
             PostRepository.Update(post);
             PostRepository.UnitOfWork.Commit();

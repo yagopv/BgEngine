@@ -106,25 +106,6 @@ D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Application\bin\Debug\en\BgEngine.
 D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Application\obj\Debug\BgEngine.Application.csprojResolveAssemblyReference.cache
 D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Application\obj\Debug\BgEngine.Application.dll
 D:\Proyectos .NET\BgEngine.Beta_v0.3\BgEngine.Application\obj\Debug\BgEngine.Application.pdb
-D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Application.dll
-D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Application.pdb
-D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Domain.dll
-D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Infraestructure.dll
-D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Resources.dll
-D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Security.dll
-D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\PagedList.dll
-D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\EntityFramework.dll
-D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Domain.pdb
-D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Infraestructure.pdb
-D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Resources.pdb
-D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Security.pdb
-D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\PagedList.pdb
-D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\PagedList.xml
-D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\en\BgEngine.Resources.resources.dll
-D:\Proyectos .NET\BgEngine\BgEngine.Application\obj\Debug\BgEngine.Application.csprojResolveAssemblyReference.cache
-D:\Proyectos .NET\BgEngine\BgEngine.Application\obj\Debug\BgEngine.Application.dll
-D:\Proyectos .NET\BgEngine\BgEngine.Application\obj\Debug\BgEngine.Application.pdb
-D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\EntityFramework.xml
 F:\Projects\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Application.dll
 F:\Projects\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Application.pdb
 F:\Projects\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Domain.dll
@@ -144,3 +125,22 @@ F:\Projects\BgEngine\BgEngine.Application\bin\Debug\en\BgEngine.Resources.resour
 F:\Projects\BgEngine\BgEngine.Application\obj\Debug\BgEngine.Application.csprojResolveAssemblyReference.cache
 F:\Projects\BgEngine\BgEngine.Application\obj\Debug\BgEngine.Application.dll
 F:\Projects\BgEngine\BgEngine.Application\obj\Debug\BgEngine.Application.pdb
+D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Application.dll
+D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Application.pdb
+D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Domain.dll
+D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Infraestructure.dll
+D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Resources.dll
+D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Security.dll
+D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\PagedList.dll
+D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\EntityFramework.dll
+D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Domain.pdb
+D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Infraestructure.pdb
+D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Resources.pdb
+D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\BgEngine.Security.pdb
+D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\PagedList.pdb
+D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\PagedList.xml
+D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\EntityFramework.xml
+D:\Proyectos .NET\BgEngine\BgEngine.Application\bin\Debug\en\BgEngine.Resources.resources.dll
+D:\Proyectos .NET\BgEngine\BgEngine.Application\obj\Debug\BgEngine.Application.csprojResolveAssemblyReference.cache
+D:\Proyectos .NET\BgEngine\BgEngine.Application\obj\Debug\BgEngine.Application.dll
+D:\Proyectos .NET\BgEngine\BgEngine.Application\obj\Debug\BgEngine.Application.pdb

@@ -25,6 +25,7 @@ using System.Web.Security;
 
 using BgEngine.Domain.EntityModel;
 using BgEngine.Infraestructure.UnitOfWork;
+using BgEngine.Infraestructure.DatabaseInitialization;
 
 
 namespace BgEngine.Infraestructure.Security
@@ -66,7 +67,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("roleName");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         dynamic result = context.Roles.FirstOrDefault(Rl => Rl.RoleName == roleName);
                         if (result != null)
@@ -90,7 +91,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("roleName");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -108,7 +109,7 @@ namespace BgEngine.Infraestructure.Security
 
                 public override string[] GetAllRoles()
                 {
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         return context.Roles.Select(Rl => Rl.RoleName).ToArray();
                     }
@@ -120,7 +121,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("roleName");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         var role = context.Roles.FirstOrDefault(Rl => Rl.RoleName == roleName);
                         if (role == null)
@@ -139,7 +140,8 @@ namespace BgEngine.Infraestructure.Security
     if (string.IsNullOrEmpty(usernameToMatch)) {
         throw CreateArgumentNullOrEmptyException("usernameToMatch");
     }
-    using (BlogUnitOfWork context = new BlogUnitOfWork()) {
+    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
+    {
         var query = from Rl in context.Roles from Usr in Rl.Users where Rl.RoleName == roleName && Usr.Username.Contains(usernameToMatch) select Usr.Username;
         return query.ToArray();
     }
@@ -151,7 +153,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("roleName");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         dynamic role = context.Roles.FirstOrDefault(Rl => Rl.RoleName == roleName);
                         if (role == null)
@@ -186,7 +188,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("userName");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         var user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -203,7 +205,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("roleName");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         dynamic role = context.Roles.FirstOrDefault(Rl => Rl.RoleName == roleName);
                         if (role != null)
@@ -222,7 +224,7 @@ namespace BgEngine.Infraestructure.Security
 
                 public override void AddUsersToRoles(string[] usernames, string[] roleNames)
                 {
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         var users = context.Users.Where(usr => usernames.Contains(usr.Username)).ToList();
                         var roles = context.Roles.Where(rl => roleNames.Contains(rl.RoleName)).ToList();
@@ -244,7 +246,7 @@ namespace BgEngine.Infraestructure.Security
 
                 public override void RemoveUsersFromRoles(string[] usernames, string[] roleNames)
                 {
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         foreach (string username_loopVariable in usernames)
                         {

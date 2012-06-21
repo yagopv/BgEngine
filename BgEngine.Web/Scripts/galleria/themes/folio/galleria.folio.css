@@ -1,11 +1,9 @@
-/*
- * Galleria Folio Theme 2011-06-07
- * Copyright (c) 2011, Aino
- */
- 
+/* Galleria Folio Theme 2012-04-04 | http://galleria.io/license/ | (c) Aino */
+
 .galleria-container {
     position:relative;
     font-family:arial,sans-serif;
+    background:#fff;
 }
 .galleria-container img {
     -moz-user-select: none;
@@ -141,8 +139,23 @@
 .galleria-image-nav-left:hover{background-image:url(left-hover.png);}
 .galleria-image-nav-right:hover{background-image:url(right-hover.png);}
 
-.galleria-image-nav-right.cur{cursor:url(right-cursor.png),pointer;background:none!important}
 .galleria-image-nav-left.cur{cursor:url(left-cursor.png),pointer;background:none!important}
+.galleria-image-nav-right.cur{cursor:url(right-cursor.png),pointer;background:none!important}
+
+.galleria-container.iframe .galleria-image-nav{height:100px;top:50%;margin-top:-50px}
+
+.galleria-container.iframe.touch .galleria-images iframe{margin-top:40px}
+.galleria-container.iframe.touch .galleria-info{bottom:40px}
+
+.galleria-container.iframe .galleria-image-nav-left,
+.galleria-container.iframe .galleria-image-nav-left.cur{cursor:pointer;background:url(left.png) no-repeat 0 50%!important;width:100px;}
+.galleria-container.iframe .galleria-image-nav-right,
+.galleria-container.iframe .galleria-image-nav-right.cur{cursor:pointer;background:url(right.png) no-repeat 100% 50%!important;width:100px}
+
+.galleria-container.iframe .galleria-image-nav-left:hover,
+.galleria-container.iframe .galleria-image-nav-left.cur:hover{background-image:url(left-hover.png)!important;}
+.galleria-container.iframe .galleria-image-nav-right:hover,
+.galleria-container.iframe .galleria-image-nav-right.cur:hover{background-image:url(right-hover.png)!important;}
 
 .galleria-preloader{height:4px;width:180px;background:#eee;position:absolute;top:0;}
 .galleria-loaded{height:4px;width:0%;background:#444;}

@@ -282,6 +282,10 @@ namespace BgEngine.Controllers
         public ActionResult GetPostByCode(string id)
         {
             Post post = BlogServices.FindPost(id);
+            if (post == null)
+            {
+                return new NotFoundMvc.NotFoundViewResult();
+            }
             ViewBag.MetaDescription = post.Description;
             if ((post.IsPublic) || (CodeFirstRoleServices.IsUserInRole(CodeFirstSecurity.IsAuthenticated ? CodeFirstSecurity.CurrentUserName : " ", BgResources.Security_PremiumRole)))
             {
@@ -300,6 +304,10 @@ namespace BgEngine.Controllers
         public ActionResult GetPostById(int id)
         {
             Post post = BlogServices.FindPost(id);
+            if (post == null)
+            {
+                return new NotFoundMvc.NotFoundViewResult();
+            }
             ViewBag.MetaDescription = post.Description;
             if ((post.IsPublic) || (CodeFirstRoleServices.IsUserInRole(CodeFirstSecurity.IsAuthenticated ? CodeFirstSecurity.CurrentUserName : " ", BgResources.Security_PremiumRole)))
             {

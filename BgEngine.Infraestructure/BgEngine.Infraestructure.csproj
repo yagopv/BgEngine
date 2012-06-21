@@ -49,9 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\DatabaseInitialize.cs" />
     <Compile Include="Database\ModelContextInit.cs" />
-    <Compile Include="Database\TestDatabaseInitialize.cs" />
     <Compile Include="UnitOfWork\IBlogUnitOfWork.cs" />
     <Compile Include="EFExtensions\EntityTypeConfigurationExtensions.cs" />
     <Compile Include="UnitOfWork\IQueryableUnitOfWork.cs" />

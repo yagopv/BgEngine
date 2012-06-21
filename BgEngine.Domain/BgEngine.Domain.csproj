@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\UnitOfWork\IUnitOfWork.cs" />
-    <Compile Include="Contracts\Database\IDatabaseInitialize.cs" />
     <Compile Include="Contracts\Validation\IEntityValidator.cs" />
     <Compile Include="EntityModel\Album.cs" />
     <Compile Include="EntityModel\AnonymousUser.cs" />

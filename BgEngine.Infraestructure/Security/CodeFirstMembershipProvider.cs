@@ -24,6 +24,7 @@ using System.Web.Security;
 
 using BgEngine.Domain.EntityModel;
 using BgEngine.Infraestructure.UnitOfWork;
+using BgEngine.Infraestructure.DatabaseInitialization;
 
 namespace BgEngine.Infraestructure.Security
 {
@@ -73,7 +74,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw new MembershipCreateUserException(MembershipCreateStatus.InvalidEmail);
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         dynamic emailuser = context.Users.FirstOrDefault(Usr => Usr.Email == email);
@@ -130,7 +131,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw new MembershipCreateUserException(MembershipCreateStatus.InvalidEmail);
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         dynamic emailuser = context.Users.FirstOrDefault(Usr => Usr.Email == email);
@@ -178,7 +179,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("accountConfirmationToken");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         dynamic row = context.Users.FirstOrDefault(Usr => Usr.ConfirmationToken == accountConfirmationToken);
                         if (row != null)
@@ -205,7 +206,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("newPassword");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -247,7 +248,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("userName");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -266,7 +267,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("userName");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -290,7 +291,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("userName");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -323,7 +324,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("newPassword");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.PasswordVerificationToken == token && Usr.PasswordVerificationTokenExpirationDate > DateTime.Now);
                         if (user != null)
@@ -357,7 +358,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("password");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         User user = null;
                         user = context.Users.FirstOrDefault(Usr => Usr.Username == userNameOrEmail);
@@ -415,7 +416,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("userName");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -432,7 +433,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("userName");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -449,7 +450,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("userName");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -466,7 +467,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("userName");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)
@@ -484,7 +485,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("token");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         dynamic result = context.Users.FirstOrDefault(Usr => Usr.PasswordVerificationToken == token);
                         if (result != null)
@@ -501,7 +502,7 @@ namespace BgEngine.Infraestructure.Security
                     {
                         throw CreateArgumentNullOrEmptyException("userName");
                     }
-                    using (BlogUnitOfWork context = new BlogUnitOfWork())
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
                     {
                         dynamic user = context.Users.FirstOrDefault(Usr => Usr.Username == userName);
                         if (user == null)

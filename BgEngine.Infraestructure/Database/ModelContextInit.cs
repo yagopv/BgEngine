@@ -32,7 +32,7 @@ namespace BgEngine.Infraestructure.DatabaseInitialization
     /// <summary>
     /// Creates a clean Database
     /// </summary>
-    public class ModelContextInit : DropCreateDatabaseAlways<BlogUnitOfWork>
+    public class ModelContextInit : CreateDatabaseIfNotExists<BlogUnitOfWork>
     {
         protected override void Seed(BlogUnitOfWork context)
         {
