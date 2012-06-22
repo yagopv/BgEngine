@@ -281,6 +281,10 @@ namespace BgEngine.Controllers
         [EnableCompression]
         public ActionResult GetPostByCode(string id)
         {
+            if (id == null)
+            {
+                return new NotFoundMvc.NotFoundViewResult();
+            }
             Post post = BlogServices.FindPost(id);
             if (post == null)
             {
