@@ -22,7 +22,7 @@ using System;
 using System.Web.Mvc;
 
 using BgEngine.Domain.EntityModel;
-using BgEngine.Domain.Filters;
+using BgEngine.Filters;
 using BgEngine.Application.Services;
 using BgEngine.Application.ResourceConfiguration;
 

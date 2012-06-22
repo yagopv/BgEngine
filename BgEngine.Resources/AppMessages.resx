@@ -1230,4 +1230,10 @@
   <data name="InvalidUrlCode" xml:space="preserve">
     <value>Código no válido (Valores aceptaddos:  A-Z, a-z, 0-9, -, _)</value>
   </data>
+  <data name="RequestError" xml:space="preserve">
+    <value>Se ha producido un error al procesar la peticion</value>
+  </data>
+  <data name="ArgumentError" xml:space="preserve">
+    <value>No es posible identificar el recurso buscado a través de la url introducida. Quizás has olvidado algo?</value>
+  </data>
 </root>

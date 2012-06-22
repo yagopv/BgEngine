@@ -29,6 +29,8 @@ using BgEngine.Web.ViewModels;
 using BgEngine.Application.ResourceConfiguration;
 using BgEngine.Application.DTO;
 using BgEngine.Domain.EntityModel;
+using BgEngine.Security.Services;
+using System;
 
 namespace BgEngine
 {
@@ -68,10 +70,13 @@ namespace BgEngine
         }
 
         protected void Application_Start()
-        {            
+        {
             // Load Resources
             var bgresource = ObjectFactory.GetInstance<IBlogResourceServices>();
             bgresource.LoadResources();
+
+            // Check if any user exists. If not, create one
+            CheckForAdminUser();
 
             //Register areas
             AreaRegistration.RegisterAllAreas();
@@ -95,6 +100,16 @@ namespace BgEngine
         protected void Application_EndRequest()
         {
             ObjectFactory.ReleaseAndDisposeAllHttpScopedObjects();
+        }
+
+        private void CheckForAdminUser()
+        {            
+             var roles = CodeFirstRoleServices.GetUsersInRole(BgResources.Security_AdminRole);
+             if (roles.Length == 0)
+             {
+                CodeFirstSecurity.CreateAccount(BgResources.Security_AdminRole, "admin", BgResources.Email_UserName, false);
+                CodeFirstRoleServices.AddUsersToRoles(new string[] { "admin" }, new string[] { BgResources.Security_AdminRole, BgResources.Security_PremiumRole });
+             }
         }
     }
 }

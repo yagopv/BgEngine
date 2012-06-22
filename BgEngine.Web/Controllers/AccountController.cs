@@ -29,7 +29,7 @@ using BgEngine.Security.Services;
 using BgEngine.Web.Mailers;
 using BgEngine.Application.Services;
 using BgEngine.Domain.EntityModel;
-using BgEngine.Domain.Filters;
+using BgEngine.Filters;
 using BgEngine.Application.ResourceConfiguration;
 using System.Net.Mail;
 using System.Net;

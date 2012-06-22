@@ -133,19 +133,19 @@ namespace BgEngine.Infraestructure.Security
                 }
 
                 public override string[] FindUsersInRole(string roleName, string usernameToMatch)
-{
-    if (string.IsNullOrEmpty(roleName)) {
-        throw CreateArgumentNullOrEmptyException("roleName");
-    }
-    if (string.IsNullOrEmpty(usernameToMatch)) {
-        throw CreateArgumentNullOrEmptyException("usernameToMatch");
-    }
-    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
-    {
-        var query = from Rl in context.Roles from Usr in Rl.Users where Rl.RoleName == roleName && Usr.Username.Contains(usernameToMatch) select Usr.Username;
-        return query.ToArray();
-    }
-}
+                {
+                    if (string.IsNullOrEmpty(roleName)) {
+                        throw CreateArgumentNullOrEmptyException("roleName");
+                    }
+                    if (string.IsNullOrEmpty(usernameToMatch)) {
+                        throw CreateArgumentNullOrEmptyException("usernameToMatch");
+                    }
+                    using (BlogUnitOfWork context = new BlogUnitOfWork(new ModelContextInit()))
+                    {
+                        var query = from Rl in context.Roles from Usr in Rl.Users where Rl.RoleName == roleName && Usr.Username.Contains(usernameToMatch) select Usr.Username;
+                        return query.ToArray();
+                    }
+                }
 
                 public override bool DeleteRole(string roleName, bool throwOnPopulatedRole)
                 {

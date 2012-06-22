@@ -915,6 +915,7 @@
     <Content Include="Views\Video\LatestVideos.cshtml" />
     <Content Include="Views\Shared\AnonymousComment.cshtml" />
     <Content Include="Views\Shared\ChangeTheme.cshtml" />
+    <Content Include="Views\Shared\MissedArgumentError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BgEngine.Application\BgEngine.Application.csproj">

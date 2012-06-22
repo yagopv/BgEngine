@@ -24,7 +24,7 @@ using System.Web.Security;
 
 using BgEngine.Domain.EntityModel;
 using BgEngine.Web.ViewModels;
-using BgEngine.Domain.Filters;
+using BgEngine.Filters;
 using BgEngine.Application.Services;
 using BgEngine.Application.ResourceConfiguration;
 

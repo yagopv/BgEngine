@@ -205,6 +205,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No es posible identificar el recurso buscado a través de la url introducida. Quizás has olvidado algo?.
+        /// </summary>
+        public static string ArgumentError {
+            get {
+                return ResourceManager.GetString("ArgumentError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to artículo.
         /// </summary>
         public static string Article {
@@ -2406,6 +2415,15 @@ namespace Resources {
         public static string Remember_Me {
             get {
                 return ResourceManager.GetString("Remember_Me", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Se ha producido un error al procesar la peticion.
+        /// </summary>
+        public static string RequestError {
+            get {
+                return ResourceManager.GetString("RequestError", resourceCulture);
             }
         }
         

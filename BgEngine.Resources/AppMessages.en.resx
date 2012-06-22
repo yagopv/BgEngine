@@ -1224,4 +1224,10 @@
   <data name="InvalidUrlCode" xml:space="preserve">
     <value>Invalid code (Accepted values:  A-Z, a-z, 0-9, -, _)</value>
   </data>
+  <data name="RequestError" xml:space="preserve">
+    <value>There was an error processing the request</value>
+  </data>
+  <data name="ArgumentError" xml:space="preserve">
+    <value>It is not possible to identify the resources searched through the url entered. Perhaps you've forgotten something?</value>
+  </data>
 </root>

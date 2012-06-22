@@ -22,7 +22,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO.Compression;
 
-namespace BgEngine.Domain.Filters
+namespace BgEngine.Filters
 {
     public class EnableCompressionAttribute : ActionFilterAttribute
     {

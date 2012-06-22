@@ -48,5 +48,17 @@ namespace BgEngine.Security.Services
             CodeFirstRoleProvider rp = new CodeFirstRoleProvider();
             rp.AddUsersToRoles(usernames, rolenames);
         }
+
+        public static string[] GetUsersInRole(string role)
+        {
+            CodeFirstRoleProvider rp = new CodeFirstRoleProvider();
+            return rp.GetUsersInRole(role);
+        }
+
+        public static bool RoleExist(string role)
+        {
+            CodeFirstRoleProvider rp = new CodeFirstRoleProvider();
+            return rp.RoleExists(role);
+        }
     }
 }

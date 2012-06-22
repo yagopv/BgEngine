@@ -27,7 +27,7 @@ using System.ServiceModel.Syndication;
 
 using BgEngine.Domain.EntityModel;
 using BgEngine.Security.Services;
-using BgEngine.Domain.Filters;
+using BgEngine.Filters;
 using BgEngine.Application;
 using BgEngine.Application.Services;
 using BgEngine.Application.ResourceConfiguration;
@@ -305,6 +305,7 @@ namespace BgEngine.Controllers
         //
         // GET: /Post/GetPostById/id
         [EnableCompression]
+        [HandleError(View="MissedArgumentError",ExceptionType=typeof(ArgumentException))]
         public ActionResult GetPostById(int id)
         {
             Post post = BlogServices.FindPost(id);

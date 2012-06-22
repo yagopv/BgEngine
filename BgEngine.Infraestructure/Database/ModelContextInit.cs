@@ -35,26 +35,19 @@ namespace BgEngine.Infraestructure.DatabaseInitialization
     public class ModelContextInit : CreateDatabaseIfNotExists<BlogUnitOfWork>
     {
         protected override void Seed(BlogUnitOfWork context)
-        {
-            //Users
-            User usera = new User { UserId = Guid.NewGuid(), Username = "admin", Password = CodeFirstCrypto.HashPassword("admin"), Email = "admin@bgengine.com", IsConfirmed = true, CreateDate = DateTime.Now };
-            context.Set<User>().Add(usera);
-            context.SaveChanges();
-            User user = context.Set<User>().Where(u => u.Username == "admin").Single();
-            
+        {            
             //Roles 
             CodeFirstRoleProvider provider = new CodeFirstRoleProvider();
             provider.CreateRole("admin");
             provider.CreateRole("user");
             provider.CreateRole("premium");
-            provider.AddUsersToRoles(new string[] { "admin" }, new string[] { "admin", "user", "premium" });
 
             // Create indexes
             context.Database.ExecuteSqlCommand("CREATE INDEX IDX_Posts_Code ON Posts (Code);");
             context.Database.ExecuteSqlCommand("CREATE INDEX IDX_Posts_DateCreated ON Posts (DateCreated DESC);");
 
             //Resources
-            context.Set<BlogResource>().Add(new BlogResource { Name="Admin_Role", Value="admin" });
+            context.Set<BlogResource>().Add(new BlogResource { Name = "Admin_Role", Value="admin" });
             context.Set<BlogResource>().Add(new BlogResource { Name = "Categories_Number_of_Categories_per_Page", Value = "10" });
             context.Set<BlogResource>().Add(new BlogResource { Name = "Comments_Number_of_Comments_per_Page", Value = "10" });
             context.Set<BlogResource>().Add(new BlogResource { Name = "Copyright", Value = "©MyCopyright 2XXX" });

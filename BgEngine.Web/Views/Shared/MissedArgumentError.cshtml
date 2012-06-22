@@ -21,10 +21,10 @@
 @model System.Web.Mvc.HandleErrorInfo
 
 @{
-    ViewBag.Title = "Error";
+    ViewBag.Title = Resources.AppMessages.Resource_NotFound;
 }
 
 <fieldset class="ui-widget ui-widget-content ui-corner-all">
     <legend class="bg-panel ui-widget-header ui-corner-all">@Resources.AppMessages.RequestError</legend>        
-    <p>@Model.Exception.Message</p>
+    <h1 class="ui-widget-content ui-state-error ui-corner-all ui-helper-padding">@Resources.AppMessages.ArgumentError</h1>
 </fieldset>
