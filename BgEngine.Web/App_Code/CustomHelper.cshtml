@@ -136,17 +136,17 @@
 	@ConvertDate2String(datetime)
 }
 
-@helper ShareOnFacebook(string url, string title = " ")
+@helper ShareOnFacebook(string url, string title = " ", string urlicon = " ")
     {
 	<a href="http://www.facebook.com/sharer.php?u=@url&amp;t=@title" target="_blank">
-		<img alt="@Resources.AppMessages.Share_On_Facebook" src="/Content/Icons/facebook48x48.jpg" style="border:0; height:48px; width:48px; margin:0 1px;" class="tooltip" title="@Resources.AppMessages.Share_On_Facebook" />
+		<img alt="@Resources.AppMessages.Share_On_Facebook" src="@urlicon" style="border:0; height:48px; width:48px; margin:0 1px;" class="tooltip" title="@Resources.AppMessages.Share_On_Facebook" />
 	</a>
 }
 
-@helper ShareOnTwitter(string url, string title = " ")
+@helper ShareOnTwitter(string url, string title = " ", string urlicon = " ")
     {
 	<a href="http://twitter.com/share?text=@title" target="_blank">
-		 <img title="@Resources.AppMessages.Share_On_Twitter" style="border:0; height:48px; width:48px; margin:0 1px;" src="/Content/Icons/Twitter48x48.jpg" class="tooltip" alt="@Resources.AppMessages.Share_On_Twitter" />
+		 <img title="@Resources.AppMessages.Share_On_Twitter" style="border:0; height:48px; width:48px; margin:0 1px;" src="@urlicon" class="tooltip" alt="@Resources.AppMessages.Share_On_Twitter" />
 	</a>            
 }
 
@@ -165,10 +165,10 @@
     </script>
 }
 
-@helper SubscribeRssChannel(string url)
+@helper SubscribeRssChannel(string url,string urlicon = " ")
     {
 	<a href="@url" target="_blank">
-		 <img title="@Resources.AppMessages.Rss_Tooltip" style="border:0; height:48px; width:48px; margin:0 1px;" src="/Content/Icons/RSS48x48.jpg" class="tooltip" alt="@Resources.AppMessages.Rss_Tooltip" />
+		 <img title="@Resources.AppMessages.Rss_Tooltip" style="border:0; height:48px; width:48px; margin:0 1px;" src="@urlicon" class="tooltip" alt="@Resources.AppMessages.Rss_Tooltip" />
 	</a>  
 }
 
