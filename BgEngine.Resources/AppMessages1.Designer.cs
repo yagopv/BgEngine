@@ -1330,7 +1330,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se han encontrado imágenes que mostrar ....
+        ///   Looks up a localized string similar to Crea primero Galería y añade imágenes. Las imágenes que añadas estarán entonces disponibles.
         /// </summary>
         public static string Error_NoImageFound {
             get {

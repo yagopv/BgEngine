@@ -62,6 +62,7 @@ namespace BgEngine.Controllers
         //
         // GET: /Home/Galeria
         [EnableCompression]
+        [HandleError(View = "MissedArgumentError", ExceptionType = typeof(ArgumentException))]
         public ActionResult Galeria()
         {
             if ((CodeFirstSecurity.IsAuthenticated) && (CodeFirstRoleServices.IsUserInRole(CodeFirstSecurity.CurrentUserName, BgResources.Security_PremiumRole)))

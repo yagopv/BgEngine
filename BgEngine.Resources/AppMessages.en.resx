@@ -127,7 +127,7 @@
     <value>Upload images</value>
   </data>
   <data name="Album_NoImage" xml:space="preserve">
-    <value>This album does not contain any image</value>
+    <value>This album does not contain any images</value>
   </data>
   <data name="Album_SelectImages" xml:space="preserve">
     <value>Choose images for upload</value>
@@ -784,7 +784,7 @@
     <value>Find images ...</value>
   </data>
   <data name="Error_NoImageFound" xml:space="preserve">
-    <value>No images found ...</value>
+    <value>Please create a gallery and add an image to it. Images you uploaded will then be available to add to your posts</value>
   </data>
   <data name="SelectFiles" xml:space="preserve">
     <value>Files</value>

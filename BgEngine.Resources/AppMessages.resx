@@ -784,7 +784,7 @@
     <value>Busca imagenes ...</value>
   </data>
   <data name="Error_NoImageFound" xml:space="preserve">
-    <value>No se han encontrado imágenes que mostrar ...</value>
+    <value>Crea primero Galería y añade imágenes. Las imágenes que añadas estarán entonces disponibles</value>
   </data>
   <data name="SelectFiles" xml:space="preserve">
     <value>Archivos</value>

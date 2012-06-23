@@ -18,6 +18,7 @@
 // Version: 1.0
 //==============================================================================
 
+using System;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -144,9 +145,14 @@ namespace BgEngine.Controllers
         /// <param name="id">The Album identity</param>
         /// <returns>Return the Galleria of Images representing an Album</returns>
         [EnableCompression]
+        [HandleError(View = "MissedArgumentError", ExceptionType = typeof(ArgumentException))]
         public ActionResult Galleria(int id)
         {
             Album album = AlbumServices.FindEntityByIdentity(id);
+            if (album == null)
+            {
+                return new NotFoundMvc.NotFoundViewResult();
+            }
             if ((album.IsPublic) || (CodeFirstSecurity.IsAuthenticated && (CodeFirstRoleServices.IsUserInRole(CodeFirstSecurity.CurrentUserName, BgResources.Security_PremiumRole))))
             {
                 return View("Galleria", album);
