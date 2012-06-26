@@ -265,6 +265,8 @@ namespace BgEngine.Controllers
         [EnableCompression]
         public ActionResult ConfirmResetAccount(ChangePasswordModel model)
         {
+            ViewBag.Token = model.ConfirmationToken;
+            ViewBag.User = model.UserName;
             string recaptchaprivatekey = BgResources.Recaptcha_PrivateKeyHttp;
             try
             {
@@ -380,7 +382,7 @@ namespace BgEngine.Controllers
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception(Resources.AppMessages.Error_SendMail);
+                    throw new SmtpException(Resources.AppMessages.Error_SendMail);
                 }
             }
             return View(model);           

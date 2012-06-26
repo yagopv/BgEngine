@@ -130,14 +130,14 @@
      </resourceSet>
 
 
-    <resourceSet name="ImageIndexJs" type="js">
-      <resource path="~/Scripts/jquery.uploadifive-v1.0.min.js" />
+    <resourceSet name="ImageIndexJs" type="js">      
       <resource path="~/Scripts/jquery.fancybox-1.3.4.pack.js" />
       <resource path="~/Scripts/jquery.myimgscale.min.js" />
     </resourceSet>
 
     <resourceSet name="ImageCss" type="css">
       <resource path="~/Content/uploadifive.css" />
+      <resource path="~/Content/uploadify.css" />
       <resource path="~/Content/fancybox/jquery.fancybox-1.3.4.css" />
     </resourceSet>
 

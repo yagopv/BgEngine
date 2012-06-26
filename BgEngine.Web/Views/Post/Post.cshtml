@@ -24,7 +24,7 @@
 @using Microsoft.Web.Helpers;
 @using Combres.Mvc;
 @using BgEngine.Extensions;
-
+@using HtmlAgilityPack;
 
 @{
     string actualvalue;
@@ -51,7 +51,7 @@
                             , @Model.Comments.Count()
                             ,"@Url.Content("~/Scripts/")"
                             ,"@CultureHelper.GetNeutralCulture(CultureHelper.GetCurrentCulture())"
-                            ,'@Gravatar.GetHtml(CodeFirstSecurity.IsAuthenticated ? CodeFirstSecurity.GetUserMail(CodeFirstSecurity.CurrentUserName) : " ")'
+                            ,'@Gravatar.GetHtml(CodeFirstSecurity.IsAuthenticated ? CodeFirstSecurity.GetUserMail(CodeFirstSecurity.CurrentUserName) : "mail@mail.com")'
                             ,"@Resources.AppMessages.Post_Leave_Comment"
                             ,"@CodeFirstSecurity.IsAuthenticated")
     });

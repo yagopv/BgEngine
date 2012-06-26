@@ -21,14 +21,27 @@
 @model BgEngine.Domain.EntityModel.Album
 		   
 <link href="@Url.Content("~/Content/uploadifive.css")" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.uploadifive-v1.0.min.js")"></script>
 
 <script type="text/javascript">
-    $(function () {
-        $('#file_upload').uploadifive({
-            'uploadScript': '@Url.RouteUrl("Default", new { controller = "File", action = "Upload"})'
-        });
-    });
+	$(function () {
+        if ((window.FormData === undefined) || (navigator.userAgent.toLowerCase().indexOf('chrome') > -1))
+        {
+             $.getScript("@Url.Content("~/Scripts/jquery.uploadify-3.1.min.js")", function() {
+                  $('#file_upload').uploadify({ 
+                     'swf': "@Url.Content("~/Content/SWF/uploadify.swf")",
+                     'uploader': '@Url.RouteUrl("Default", new { controller = "File", action = "Upload"})'                     
+                  });
+              });                     
+        }
+        else
+        {
+            $.getScript("@Url.Content("~/Scripts/jquery.uploadifive-v1.0.min.js")", function() {
+                $('#file_upload').uploadifive({
+                    'uploadScript': '@Url.RouteUrl("Default", new { controller = "File", action = "Upload"})'      
+                });
+            });
+        }
+	});
 </script>
 
 <div>
