@@ -48,6 +48,7 @@ namespace BgEngine.Application.DTO
         public string Analytics_GoogleAnalyticsCode { get; set; }
         public string Recaptcha_PrivateKeyHttp { get; set; }
         public string Recaptcha_PublicKeyHttp { get; set; }
+        public string Akismet_API_key { get; set; }
         public string Twitter_User { get; set; }
         public string Twitter_Search_Query { get; set; }
     }

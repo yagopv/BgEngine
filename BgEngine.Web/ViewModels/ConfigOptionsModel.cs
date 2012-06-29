@@ -121,6 +121,10 @@ namespace BgEngine.Web.ViewModels
         [StringLength(100, ErrorMessageResourceType = typeof(Resources.AppMessages), ErrorMessageResourceName = "ErrorLenght")]
         public string Recaptcha_PublicKeyHttp { get; set; }
 
+        [Display(ResourceType = typeof(Resources.AppMessages), Name = "Config_Akismet", Prompt = "Config_AkismetPrompt")]
+        [StringLength(50, ErrorMessageResourceType = typeof(Resources.AppMessages), ErrorMessageResourceName = "ErrorLenght")]
+        public string Akismet_API_key { get; set; }
+
         [Display(ResourceType = typeof(Resources.AppMessages), Name = "Config_Twitter_User", Prompt = "Config_Twitter_User_Prompt")]
         [StringLength(100, ErrorMessageResourceType = typeof(Resources.AppMessages), ErrorMessageResourceName = "ErrorLenght")]
         public string Twitter_User { get; set; }

@@ -54,8 +54,8 @@
                     // Set comment message to spaces because tyneMCE is showing the HTML content
                     tinyMCE.get("comment-textarea").setContent("");
                     $.post("/Comment/AddComment/", (isauthenticated == "True"
-						? { Message: message, PostId: postid }
-						: { Message: message, PostId: postid, "AnonymousUser.Username": $("#comment-container #Username").val(), "AnonymousUser.Email": $("#comment-container #Email").val(), "AnonymousUser.Web": $("#comment-container #Web").val() }),
+						? AddAntiForgeryToken({ Message: message, PostId: postid })
+						: AddAntiForgeryToken({ Message: message, PostId: postid, "AnonymousUser.Username": $("#comment-container #Username").val(), "AnonymousUser.Email": $("#comment-container #Email").val(), "AnonymousUser.Web": $("#comment-container #Web").val() })),
 						   function (data) {
 						       if (data.result == "ok") {
 						           $("#comments").load(getposturl,
@@ -110,8 +110,8 @@
                     // Set comment message to spaces because tyneMCE is showing the HTML content
                     tinyMCE.get("dynamic-textarea").setContent("");
                     $.post("/Comment/AddRelatedComment/", (isauthenticated == "True"
-						 ? { Message: message, PostId: postid, parent: $("#related-comment-submit").attr("title") }
-						 : { Message: message, PostId: postid, parent: $("#related-comment-submit").attr("title"), "AnonymousUser.Username": $("#comments #Username").val(), "AnonymousUser.Email": $("#comments #Email").val(), "AnonymousUser.Web": $("#comments #Web").val() }),
+						 ? AddAntiForgeryToken({ Message: message, PostId: postid, parent: $("#related-comment-submit").attr("title") })
+						 : AddAntiForgeryToken({ Message: message, PostId: postid, parent: $("#related-comment-submit").attr("title"), "AnonymousUser.Username": $("#comments #Username").val(), "AnonymousUser.Email": $("#comments #Email").val(), "AnonymousUser.Web": $("#comments #Web").val() })),
 						   function (data) {
 						       if (data.result == "ok") {
 						           tinyMCE.execCommand('mceFocus', false, 'dynamic-textarea');
@@ -238,6 +238,12 @@
         reconnectTooltips();
         tinyMCE.execCommand('mceAddControl', false, 'dynamic-textarea');
     }
+
+    // Used for add forgery token to comments
+    function AddAntiForgeryToken(data) {
+        data.__RequestVerificationToken = $('#__AjaxAntiForgeryForm input[name=__RequestVerificationToken]').val();
+        return data;
+    };
 
     // Reconnect tooltips after ajax load
     function reconnectTooltips() {

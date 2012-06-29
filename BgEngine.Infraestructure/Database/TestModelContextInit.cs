@@ -480,10 +480,9 @@ namespace BgEngine.Infraestructure.DatabaseInitialization
             context.Set<BlogResource>().Add(new BlogResource { Name = "No_Image", Value = "~/Content/Icons/no_image.jpg" });
             context.Set<BlogResource>().Add(new BlogResource { Name = "Posts_Number_of_Posts_per_Page", Value = "10" });
             context.Set<BlogResource>().Add(new BlogResource { Name = "Premium_Role", Value = "premium" });
-            context.Set<BlogResource>().Add(new BlogResource { Name = "Recaptcha_Private_Key_Http", Value = "6LdofcQSAAAAAMGb119SbYgX18pwtPnPbBNk1tMH" });
-            context.Set<BlogResource>().Add(new BlogResource { Name = "Recaptcha_Private_Key_localhost", Value = "6LdqfcQSAAAAAKqgoeIUNlYbOJFHM3rhia2kpbRW" });
-            context.Set<BlogResource>().Add(new BlogResource { Name = "Recaptcha_Public_Key_Http", Value = "6LdofcQSAAAAAEw0fhwatfkTAJJlYEyjlCTrgKKm" });
-            context.Set<BlogResource>().Add(new BlogResource { Name = "Recaptcha_Public_Key_localhost", Value = "6LdqfcQSAAAAAHP4vF9uTfxmao2C4e8oYOoT1_dK" });
+            context.Set<BlogResource>().Add(new BlogResource { Name = "Recaptcha_Private_Key_Http", Value = "xxxx" });            
+            context.Set<BlogResource>().Add(new BlogResource { Name = "Recaptcha_Public_Key_Http", Value = "xxxx" });
+            context.Set<BlogResource>().Add(new BlogResource { Name = "Akismet_API_key", Value = "xxxx" });
             context.Set<BlogResource>().Add(new BlogResource { Name = "Roles_Number_of_Roles_per_Page", Value = "10" });
             context.Set<BlogResource>().Add(new BlogResource { Name = "SearchImages_Number_of_Images_per_Page", Value = "15" });
             context.Set<BlogResource>().Add(new BlogResource { Name = "SearchVideos_Number_of_Videos_per_Page", Value = "12" });

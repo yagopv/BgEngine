@@ -38,6 +38,8 @@ namespace BgEngine.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        [HandleError(ExceptionType = typeof(HttpAntiForgeryException), View = ("AntiForgeryError"))]
         public JsonResult SetRating(Rating rating)
         {
             if (Request.Cookies["rating_" + rating.PostId.ToString()] != null)

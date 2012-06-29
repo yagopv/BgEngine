@@ -72,9 +72,10 @@ namespace BgEngine.Application.ResourceConfiguration
 
         //Recaptcha
         public static string Recaptcha_PrivateKeyHttp { get; set; }
-        public static string Recaptcha_PrivateKeyLocalhost { get; set; }
         public static string Recaptcha_PublicKeyHttp { get; set; }
-        public static string Recaptcha_PublicKeyLocalhost { get; set; }
+
+        //Askimet
+        public static string Akismet_API_key { get; set; }
 
         // Media
         public static string Media_ThumbnailHeight { get; set; }
@@ -117,6 +118,7 @@ namespace BgEngine.Application.ResourceConfiguration
                 Analytics_GoogleAnalyticsCode = Analytics_GoogleAnalyticsCode,
                 Recaptcha_PrivateKeyHttp = Recaptcha_PrivateKeyHttp,
                 Recaptcha_PublicKeyHttp = Recaptcha_PublicKeyHttp,
+                Akismet_API_key = Akismet_API_key,
                 Twitter_User = Twitter_User,
                 Twitter_Search_Query = Twitter_Search_Query
             };
@@ -183,14 +185,11 @@ namespace BgEngine.Application.ResourceConfiguration
                     case "Recaptcha_Private_Key_Http":
                         BgResources.Recaptcha_PrivateKeyHttp = res.Value;
                         break;
-                    case "Recaptcha_Private_Key_localhost":
-                        BgResources.Recaptcha_PrivateKeyLocalhost = res.Value;
-                        break;
                     case "Recaptcha_Public_Key_Http":
                         BgResources.Recaptcha_PublicKeyHttp = res.Value;
                         break;
-                    case "Recaptcha_Public_Key_localhost":
-                        BgResources.Recaptcha_PublicKeyLocalhost = res.Value;
+                    case "Akismet_API_key":
+                        BgResources.Akismet_API_key = res.Value;
                         break;
                     case "Roles_Number_of_Roles_per_Page":
                         BgResources.Pager_RolesPerPage = res.Value;
@@ -272,6 +271,7 @@ namespace BgEngine.Application.ResourceConfiguration
             BgResources.Pager_SearchVideosPerPage = options.Pager_SearchVideosPerPage;
             BgResources.Recaptcha_PrivateKeyHttp = options.Recaptcha_PrivateKeyHttp;
             BgResources.Recaptcha_PublicKeyHttp = options.Recaptcha_PublicKeyHttp;
+            BgResources.Akismet_API_key = options.Akismet_API_key;
             BgResources.Security_PremiumRole = options.Security_PremiumRole;
             BgResources.Security_AdminRole = options.Security_AdminRole;
             BgResources.Pager_HomeIndexPostsPerPage = options.Pager_HomeIndexPostsPerPage;

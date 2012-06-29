@@ -168,7 +168,7 @@
   <data name="Recaptcha_Private_Key_Http" xml:space="preserve">
     <value>6LdofcQSAAAAAMGb119SbYgX18pwtPnPbBNk1tMH</value>
   </data>
-  <data name="Recaptcha_Private_Key_localhost" xml:space="preserve">
+  <data name="Akismet_API_key" xml:space="preserve">
     <value>6LdqfcQSAAAAAKqgoeIUNlYbOJFHM3rhia2kpbRW</value>
   </data>
   <data name="Recaptcha_Public_Key_Http" xml:space="preserve">
@@ -215,5 +215,8 @@
   </data>
   <data name="Video_Container_Width" xml:space="preserve">
     <value>250</value>
+  </data>
+  <data name="BlackListIpFile" xml:space="preserve">
+    <value>~/Content/Files/IpBlackList/ipList.txt</value>
   </data>
 </root>

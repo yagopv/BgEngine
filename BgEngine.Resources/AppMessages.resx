@@ -1236,4 +1236,16 @@
   <data name="ArgumentError" xml:space="preserve">
     <value>No es posible identificar el recurso buscado a través de la url introducida. Quizás has olvidado algo?</value>
   </data>
+  <data name="Config_Akismet" xml:space="preserve">
+    <value>Akismet API  key</value>
+  </data>
+  <data name="Config_AkismetPrompt" xml:space="preserve">
+    <value>Introduce tu clave de Akismet para comenzar a filtrar Spam. Deja el campo vacío si no quieres filtrar Sapm mediante este método</value>
+  </data>
+  <data name="AccessDenied" xml:space="preserve">
+    <value>Acceso denegado</value>
+  </data>
+  <data name="AntiForgeryError" xml:space="preserve">
+    <value>Se ha rechazado procesar esta petición</value>
+  </data>
 </root>

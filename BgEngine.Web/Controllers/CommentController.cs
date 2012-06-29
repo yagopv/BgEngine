@@ -225,6 +225,8 @@ namespace BgEngine.Controllers
         /// <param name="comment">Comment object</param>
         /// <returns>Json object with result of the operation</returns>
         [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        [HandleError(ExceptionType=typeof(HttpAntiForgeryException),View=("AntiForgeryError"))]
         public ActionResult AddComment(Comment comment)
         {
            if (TryValidateModel(comment))
@@ -266,6 +268,8 @@ namespace BgEngine.Controllers
         /// <param name="parent">Identity of the parent</param>
         /// <returns>Json object with result of the operation</returns>
         [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        [HandleError(ExceptionType = typeof(HttpAntiForgeryException), View = ("AntiForgeryError"))]
         public ActionResult AddRelatedComment(Comment comment, int parent)
         {
             if (TryValidateModel(comment))

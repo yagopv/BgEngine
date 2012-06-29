@@ -113,6 +113,10 @@ namespace BgEngine.Application.ResourceConfiguration
                         res.Value = options.Recaptcha_PublicKeyHttp;
                         BgResources.Recaptcha_PublicKeyHttp = res.Value;
                         break;
+                    case "Akismet_API_key":
+                        res.Value = options.Akismet_API_key;
+                        BgResources.Akismet_API_key = res.Value;
+                        break;
                     case "Roles_Number_of_Roles_per_Page":
                         res.Value = options.Pager_RolesPerPage;
                         BgResources.Pager_RolesPerPage = res.Value;

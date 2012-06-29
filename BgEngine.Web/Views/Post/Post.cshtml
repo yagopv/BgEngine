@@ -132,7 +132,7 @@
                         ri.rateit('readonly', true);
                         var ri = $(this);
                         var value = ri.rateit('value');         
-                        $.post("@Url.RouteUrl("Default", new { controller = "Rating", action = "SetRating" })", { PostId: @Model.PostId, Value: value },
+                        $.post("@Url.RouteUrl("Default", new { controller = "Rating", action = "SetRating" })", { PostId: @Model.PostId, Value: value, __RequestVerificationToken : $('#__AjaxAntiForgeryForm input[name=__RequestVerificationToken]').val() },
                             function(data, status) {         
                                 $( "#rateit-average").text(data.roundedaverage);
                                 $("#rateit-votes").text(data.totalvotes);                                              
@@ -341,7 +341,7 @@
             }
             <div class="ui-helper-reset-float"></div>
      </div>
-     @Html.AntiForgeryToken()
+     <form id="__AjaxAntiForgeryForm" action="#" method="post">@Html.AntiForgeryToken()</form>  
 </div>
 
 @section Sidebar {

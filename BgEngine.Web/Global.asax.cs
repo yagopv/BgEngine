@@ -18,6 +18,7 @@
 // Version: 1.0
 //==============================================================================
 
+using System;
 using System.Web.Mvc;
 using System.Web.Routing;
 using AutoMapper;
@@ -26,11 +27,12 @@ using Microsoft.Web.Helpers;
 
 using BgEngine.Application.Services;
 using BgEngine.Web.ViewModels;
+using BgEngine.Web.Helpers;
+using BgEngine.Filters;
 using BgEngine.Application.ResourceConfiguration;
 using BgEngine.Application.DTO;
 using BgEngine.Domain.EntityModel;
 using BgEngine.Security.Services;
-using System;
 
 namespace BgEngine
 {
@@ -42,6 +44,7 @@ namespace BgEngine
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new IPHostValidationAttribute());
         }
 
         public static void RegisterRoutes(RouteCollection routes)
@@ -80,6 +83,9 @@ namespace BgEngine
 
             //Register areas
             AreaRegistration.RegisterAllAreas();
+
+            //Get BlackListed Ips
+            BlackListRepository.GetAllIpsInBlackList(this.Server);
 
             //Create AutoMapper Maps
             Mapper.CreateMap<StatsDTO, StatsModel>();

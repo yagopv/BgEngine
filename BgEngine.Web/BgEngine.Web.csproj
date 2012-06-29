@@ -68,6 +68,9 @@
     <Reference Include="Ionic.Zip">
       <HintPath>..\packages\DotNetZip.1.9.1.8\lib\net20\Ionic.Zip.dll</HintPath>
     </Reference>
+    <Reference Include="Joel.Net.Akismet">
+      <HintPath>C:\Users\Yawette\Downloads\Joel.Net.Akismet.1.0.1\bin\Release\Joel.Net.Akismet.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
     </Reference>
@@ -129,7 +132,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\UrlHelperExtensions.cs" />
-    <Compile Include="Filters\EnableCompression.cs" />
+    <Compile Include="Filters\AkismetCheckAttribute.cs" />
+    <Compile Include="Helpers\BlackListRepository.cs" />
+    <Compile Include="Filters\EnableCompressionAttribute.cs" />
+    <Compile Include="Filters\IPHostValidationAttribute.cs" />
     <Compile Include="Helpers\Utilities.cs" />
     <Compile Include="Mailers\IUserMailer.cs" />
     <Compile Include="Mailers\UserMailer.cs" />
@@ -200,6 +206,8 @@
     <Content Include="Content\fancybox\fancy_title_over.png" />
     <Content Include="Content\fancybox\fancy_title_right.png" />
     <Content Include="Content\fancybox\jquery.fancybox-1.3.4.css" />
+    <Content Include="Content\Files\IpBlackList\ipList.txt" />
+    <Content Include="Content\Files\IpBlackList\readme.txt" />
     <Content Include="Content\Files\readme.txt" />
     <Content Include="Content\Icons\addressbook.gif" />
     <Content Include="Content\Icons\ajax-loader-b.gif" />

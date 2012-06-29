@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Acceso denegado.
+        /// </summary>
+        public static string AccessDenied {
+            get {
+                return ResourceManager.GetString("AccessDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Acciones.
         /// </summary>
         public static string Actions {
@@ -201,6 +210,15 @@ namespace Resources {
         public static string AnonymousUser_Web_Prompt {
             get {
                 return ResourceManager.GetString("AnonymousUser_Web_Prompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Se ha rechazado procesar esta petición.
+        /// </summary>
+        public static string AntiForgeryError {
+            get {
+                return ResourceManager.GetString("AntiForgeryError", resourceCulture);
             }
         }
         
@@ -498,6 +516,24 @@ namespace Resources {
         public static string Config_AdminRolePrompt {
             get {
                 return ResourceManager.GetString("Config_AdminRolePrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Akismet API  key.
+        /// </summary>
+        public static string Config_Akismet {
+            get {
+                return ResourceManager.GetString("Config_Akismet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Introduce tu clave de Akismet para comenzar a filtrar Spam. Deja el campo vacío si no quieres filtrar Sapm mediante este método.
+        /// </summary>
+        public static string Config_AkismetPrompt {
+            get {
+                return ResourceManager.GetString("Config_AkismetPrompt", resourceCulture);
             }
         }
         

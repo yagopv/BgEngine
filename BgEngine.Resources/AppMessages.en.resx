@@ -1230,4 +1230,16 @@
   <data name="ArgumentError" xml:space="preserve">
     <value>It is not possible to identify the resources searched through the url entered. Perhaps you've forgotten something?</value>
   </data>
+  <data name="Config_Akismet" xml:space="preserve">
+    <value>Akismet API  key</value>
+  </data>
+  <data name="Config_AkismetPrompt" xml:space="preserve">
+    <value>Fill in your  Akismet API key and enable Spam filtering. Leave empty if you don´t want the spam filter working</value>
+  </data>
+  <data name="AccessDenied" xml:space="preserve">
+    <value>Access denied</value>
+  </data>
+  <data name="AntiForgeryError" xml:space="preserve">
+    <value>This request was rejected</value>
+  </data>
 </root>

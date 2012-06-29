@@ -90,7 +90,7 @@ namespace BgEngine.DependencyResolution {
                             //You can change between:
                             //  - ModelContextInit (Create empty database wit admin user and roles)
                             //  - TestModelContextInit (Create database with test data)
-                            x.For<IDatabaseInitializer<BlogUnitOfWork>>().HttpContextScoped().Use<ModelContextInit>();
+                            x.For<IDatabaseInitializer<BlogUnitOfWork>>().HttpContextScoped().Use<TestModelContextInit>();
                             //Initialize validator
                             x.For<IEntityValidator>().HttpContextScoped().Use<EntityValidator>();
                             //Resources

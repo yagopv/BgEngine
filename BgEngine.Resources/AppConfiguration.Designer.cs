@@ -70,6 +70,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 6LdqfcQSAAAAAKqgoeIUNlYbOJFHM3rhia2kpbRW.
+        /// </summary>
+        public static string Akismet_API_key {
+            get {
+                return ResourceManager.GetString("Akismet_API_key", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~/Content/Files/IpBlackList/ipList.txt.
+        /// </summary>
+        public static string BlackListIpFile {
+            get {
+                return ResourceManager.GetString("BlackListIpFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 10.
         /// </summary>
         public static string Categories_Number_of_Categories_per_Page {
@@ -210,15 +228,6 @@ namespace Resources {
         public static string Recaptcha_Private_Key_Http {
             get {
                 return ResourceManager.GetString("Recaptcha_Private_Key_Http", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 6LdqfcQSAAAAAKqgoeIUNlYbOJFHM3rhia2kpbRW.
-        /// </summary>
-        public static string Recaptcha_Private_Key_localhost {
-            get {
-                return ResourceManager.GetString("Recaptcha_Private_Key_localhost", resourceCulture);
             }
         }
         
