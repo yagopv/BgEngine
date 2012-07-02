@@ -21,6 +21,7 @@
 using System;
 using System.Web.Mvc;
 using System.Linq;
+using System.Collections.Generic;
 
 using BgEngine.Domain.EntityModel;
 using BgEngine.Security.Services;
@@ -28,7 +29,7 @@ using BgEngine.Filters;
 using BgEngine.Application.Services;
 using BgEngine.Application.ResourceConfiguration;
 using BgEngine.Web.ViewModels;
-using System.Collections.Generic;
+using Joel.Net;
 
 namespace BgEngine.Controllers
 {
@@ -67,6 +68,7 @@ namespace BgEngine.Controllers
         {
             ViewBag.RowsPerPage = BgResources.Pager_CommentsPerPage;
             ViewBag.TotalComments = CommentServices.TotalNumberOfEntity();
+            ViewBag.AkismetInUse = (String.IsNullOrEmpty(BgResources.Akismet_API_key) ? false : true);
             var pageIndex = page ?? 0;
             bool dir;
             if (sortdir == null)
@@ -99,6 +101,12 @@ namespace BgEngine.Controllers
                         return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.AnonymousUser.Username, dir, "User"));
                     case "anonymoususer.email":
                         return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.AnonymousUser.Email, dir, "User"));
+                    case "isspam":
+                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.IsSpam, dir, "User"));
+                    case "ip":
+                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.Ip, dir, "User"));
+                    case "useragent":
+                        return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.UserAgent, dir, "User"));
                     case "post.title":
                         return View(CommentServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_CommentsPerPage), c => c.Post.Title, dir, "User"));
                     case "post.code":
@@ -218,7 +226,7 @@ namespace BgEngine.Controllers
             BlogServices.DeleteComment(id);
             return RedirectToAction("Index");
         }
-        
+
         /// <summary>
         /// Add new comment
         /// </summary>
@@ -226,39 +234,63 @@ namespace BgEngine.Controllers
         /// <returns>Json object with result of the operation</returns>
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        [HandleError(ExceptionType=typeof(HttpAntiForgeryException),View=("AntiForgeryError"))]
+        [HandleError(ExceptionType = typeof(HttpAntiForgeryException), View = ("AntiForgeryError"))]
+        [AkismetCheck(AuthorField = "AnonymousUser.Username", EmailField = "AnonymousUser.Email", WebsiteField = "AnonymousUser.Web", CommentField = "Message")]
         public ActionResult AddComment(Comment comment)
         {
-           if (TryValidateModel(comment))
-           {
-               if (!CodeFirstSecurity.IsAuthenticated)
-               {
-                   AnonymousCommentViewModel user;
-                   if (comment.AnonymousUser != null)
-                   {
-                       user = AutoMapper.Mapper.Map<AnonymousUser, AnonymousCommentViewModel>(comment.AnonymousUser);
-                   }
-                   else
-                   {
-                       user = new AnonymousCommentViewModel();
-                   }
-                   if (TryValidateModel(user))
-                   {
-                       BlogServices.CreateComment(comment, null);
-                       return Json(new { result = "ok" });
-                   }
-                   else
-                   {
-                       return Json(new { result = "error", errors = ModelState.Where(s => s.Value.Errors.Count > 0).Select(s => new KeyValuePair<string, string>(s.Key, s.Value.Errors.First().ErrorMessage)).ToArray() });
-                   }
-               }
-               else
-               {
-                   BlogServices.CreateComment(comment, UserServices.FindEntityByIdentity(CodeFirstSecurity.CurrentUserId));
-                   return Json(new { result = "ok" });
-               }
-           }
-           return Json(new { result = "error", errors = ModelState.Where(s => s.Value.Errors.Count > 0).Select(s => new KeyValuePair<string, string>(s.Key, s.Value.Errors.First().ErrorMessage)).ToArray() });
+            // Spam is not an error
+            if (ModelState["isspam"] != null)
+            {
+                ModelState.Remove("isspam");
+                comment.IsSpam = true;
+            }
+
+            if (TryValidateModel(comment))
+            {
+                comment.Ip = Request.UserHostAddress;
+                comment.UserAgent = Request.UserAgent;
+                if (!CodeFirstSecurity.IsAuthenticated)
+                {
+                    AnonymousCommentViewModel user;
+                    if (comment.AnonymousUser != null)
+                    {
+                        user = AutoMapper.Mapper.Map<AnonymousUser, AnonymousCommentViewModel>(comment.AnonymousUser);
+                    }
+                    else
+                    {
+                        user = new AnonymousCommentViewModel();
+                    }
+                    if (TryValidateModel(user))
+                    {
+                        BlogServices.CreateComment(comment, null);
+                        if (comment.IsSpam)
+                        {
+                            return Json(new { result = "warnings", warnings = new KeyValuePair<string, string>("spamdetected", Resources.AppMessages.SpamDetected) });
+                        }
+                        else
+                        {
+                            return Json(new { result = "ok" });
+                        }
+                    }
+                    else
+                    {
+                        return Json(new { result = "error", errors = ModelState.Where(s => s.Value.Errors.Count > 0).Select(s => new KeyValuePair<string, string>(s.Key, s.Value.Errors.First().ErrorMessage)).ToArray() });
+                    }
+                }
+                else
+                {
+                    BlogServices.CreateComment(comment, UserServices.FindEntityByIdentity(CodeFirstSecurity.CurrentUserId));
+                    if (comment.IsSpam)
+                    {
+                        return Json(new { result = "warnings", warnings = new KeyValuePair<string, string>("spamdetected", Resources.AppMessages.SpamDetected) });
+                    }
+                    else
+                    {
+                        return Json(new { result = "ok" });
+                    }
+                }
+            }
+            return Json(new { result = "error", errors = ModelState.Where(s => s.Value.Errors.Count > 0).Select(s => new KeyValuePair<string, string>(s.Key, s.Value.Errors.First().ErrorMessage)).ToArray() });
         }
 
         /// <summary>
@@ -270,10 +302,20 @@ namespace BgEngine.Controllers
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
         [HandleError(ExceptionType = typeof(HttpAntiForgeryException), View = ("AntiForgeryError"))]
+        [AkismetCheck(AuthorField = "AnonymousUser.Username", EmailField = "AnonymousUser.Email", WebsiteField = "AnonymousUser.Web", CommentField = "Message")]
         public ActionResult AddRelatedComment(Comment comment, int parent)
         {
+            // Spam is not an error
+            if (ModelState["isspam"] != null)
+            {
+                ModelState.Remove("isspam");
+                comment.IsSpam = true;
+            }
+
             if (TryValidateModel(comment))
             {
+                comment.Ip = Request.UserHostAddress;
+                comment.UserAgent = Request.UserAgent;
                 if (!CodeFirstSecurity.IsAuthenticated)
                 {
                     AnonymousCommentViewModel user;
@@ -288,7 +330,14 @@ namespace BgEngine.Controllers
                     if (TryValidateModel(user))
                     {
                         BlogServices.AddRelatedComment(comment, parent, null);
-                        return Json(new { result = "ok" });
+                        if (comment.IsSpam)
+                        {
+                            return Json(new { result = "warnings", warnings = new KeyValuePair<string, string>("spamdetected", Resources.AppMessages.SpamDetected) });
+                        }
+                        else
+                        {
+                            return Json(new { result = "ok" });
+                        }
                     }
                     else
                     {
@@ -298,7 +347,14 @@ namespace BgEngine.Controllers
                 else
                 {
                     BlogServices.AddRelatedComment(comment, parent, UserServices.FindEntityByIdentity(CodeFirstSecurity.CurrentUserId));
-                    return Json(new { result = "ok" });
+                    if (comment.IsSpam)
+                    {
+                        return Json(new { result = "warnings", warnings = new KeyValuePair<string, string>("spamdetected", Resources.AppMessages.SpamDetected) });
+                    }
+                    else
+                    {
+                        return Json(new { result = "ok" });
+                    }
                 }
             }
             return Json(new { result = "error", errors = ModelState.Where(s => s.Value.Errors.Count > 0).Select(s => new KeyValuePair<string, string>(s.Key, s.Value.Errors.First().ErrorMessage)).ToArray() });
@@ -323,5 +379,48 @@ namespace BgEngine.Controllers
         {
             return PartialView();
         }
+
+        [Authorize]
+        public JsonResult ChangeSpamMark(int id)
+        {
+            Comment comment = CommentServices.FindEntityByIdentity(id);
+
+            //Create a new instance of the Akismet API and verify your key is valid.            
+            Akismet api = new Akismet(BgResources.Akismet_API_key, Request.Url.AbsoluteUri, HttpContext.Request.UserAgent);
+
+            if (!api.VerifyKey())
+            {
+                return Json(new { result = "error", text = Resources.AppMessages.AkismetApikeyInvalid });
+            }
+
+            //Now create an instance of AkismetComment, populating it with values
+            //from the POSTed form collection.
+            AkismetComment akismetComment = new AkismetComment
+            {
+                Blog = Request.Url.Scheme + "://" + Request.Url.Host,
+                UserIp =  comment.Ip,
+                UserAgent = comment.UserAgent,
+                CommentContent = comment.Message,
+                CommentType = "comment",
+                CommentAuthor = comment.AnonymousUser != null ? comment.AnonymousUser.Username : comment.User.Username,
+                CommentAuthorEmail = comment.AnonymousUser != null ? comment.AnonymousUser.Email : comment.User.Email,
+                CommentAuthorUrl = comment.AnonymousUser != null ? comment.AnonymousUser.Web : String.Empty
+            };
+
+            if (comment.IsSpam)
+            {
+                comment.IsSpam = false;
+                api.SubmitHam(akismetComment);
+            }
+            else
+            {
+                comment.IsSpam = true;
+                api.SubmitSpam(akismetComment);
+            }
+
+            BlogServices.SaveComment(comment);
+
+            return Json(new { result = "ok" });
+        }    
     }
 }

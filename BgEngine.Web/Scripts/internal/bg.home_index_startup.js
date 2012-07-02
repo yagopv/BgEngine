@@ -19,30 +19,30 @@
 *==============================================================================*/
 
 $(function () {
-	$(".sortable").sortable({
-		connectWith: ".sortable"
-	});
-	$(".sortable").disableSelection();
+    $(".sortable").sortable({
+        connectWith: ".sortable"
+    });
+    $(".sortable").disableSelection();
 
-	$(".primarypost,.secondarypost").hover(
+    $(".primarypost,.secondarypost").hover(
 			function () {
-				$(this).toggleClass("ui-state-highlight");
-				$(".primarypost,.secondarypost").not(this).removeClass("ui-state-highlight");
+			    $(this).toggleClass("ui-state-highlight");
+			    $(".primarypost,.secondarypost").not(this).removeClass("ui-state-highlight");
 			},
 			function () {
-				$(this).removeClass("ui-state-highlight");
+			    $(this).removeClass("ui-state-highlight");
 			}
 	);
 
-	$.get("/Video/LatestVideos/", function (data) {
-		$("#maincontent").append(data);
-		$(".video-container").hover(
+    $.get("/Video/LatestVideos/", function (data) {
+        $("#maincontent").append(data);
+        $(".video-container").hover(
 			function () {
-				$(this).toggleClass("ui-state-highlight");
-				$(".video-container").not(this).removeClass("ui-state-highlight");
+			    $(this).toggleClass("ui-state-highlight");
+			    $(".video-container").not(this).removeClass("ui-state-highlight");
 			},
 			function () {
-				$(this).removeClass("ui-state-highlight");
+			    $(this).removeClass("ui-state-highlight");
 			}
 		);
         $(".tooltip, .tooltip-default").tipTip();
@@ -58,6 +58,6 @@ $(function () {
             }
         });
         $(".tooltip-ajax").click(function () { return false; });
-		$("#home-videos").fadeIn(1000);
-	});
+        $("#home-videos").fadeIn(1000);
+    });
 });

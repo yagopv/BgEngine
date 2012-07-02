@@ -23,6 +23,7 @@
 @{ if(ViewContext.FormContext == null) {ViewContext.FormContext = new FormContext(); }}
 
 <form class="anonymous-comment-fields">
+    @Html.ValidationSummary(true)
 	<table class="table-template">
 		<tr>
 			<td>

@@ -34,6 +34,7 @@
 @Html.CombresLink("IndexViewsJs")
 
 <script type="text/javascript">
+
     $(document).ready(function () {
         $.index_startup('<h1>@Resources.AppMessages.Wait_Loading</h1>');
     });
@@ -88,11 +89,23 @@
                 <span>@Resources.AppMessages.AnonymousUser_Web</span>
             </div>                         
             <div class="multiselect-check">
-                <input type="checkbox" id="checkbox-10" data-column="10" />
-                <span>@Resources.AppMessages.Post</span>
+                <input type="checkbox" id="checkbox-10" data-column="10" data-default="true" />
+                <span>@Resources.AppMessages.Comment_IsSpam</span>
             </div>                         
             <div class="multiselect-check">
                 <input type="checkbox" id="checkbox-11" data-column="11" />
+                <span>@Resources.AppMessages.Comment_Ip</span>
+            </div>                                     
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-12" data-column="12" />
+                <span>@Resources.AppMessages.Comment_UserAgent</span>
+            </div>                                     
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-13" data-column="13" />
+                <span>@Resources.AppMessages.Post</span>
+            </div>                         
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-14" data-column="14" />
                 <span>@Resources.AppMessages.Post_Code</span>
             </div>                                     
         </div>            
@@ -102,13 +115,32 @@
         @grid.GetHtml(htmlAttributes: new { @class = "ui-helper-width-100pc" }, columns: new[] {
             grid.Column("CommentId",  header:Resources.AppMessages.Comment_CommentId, format: @<span><text>#@item.CommentId</text></span>, canSort:true),
             grid.Column("Message",    header:Resources.AppMessages.Comment,canSort:false,style:"ui-helper-width-50pc",format:@<span>@Html.Raw(item.Message)</span>),
-            grid.Column("IsRelatedComment",    header:Resources.AppMessages.Comment_IsRelated,canSort:true,style:"ui-helper-width-50pc",format:@<span>@(item.IsRelatedComment ? Resources.AppMessages.Yes : Resources.AppMessages.No)</span>),
+            grid.Column("IsRelatedComment",    header:Resources.AppMessages.Comment_IsRelated,canSort:true, format:@<span>@(item.IsRelatedComment ? Resources.AppMessages.Yes : Resources.AppMessages.No)</span>),
             grid.Column("DateCreated",header:Resources.AppMessages.DateCreated, canSort:true),
             grid.Column("DateUpdated",header:Resources.AppMessages.DateUpdated, canSort:true),            
             grid.Column("User.Username",header:Resources.AppMessages.User, canSort:true, format: @<span>@(item.User !=null ? item.User.Username : " ")</span>),
             grid.Column("AnonymousUser.Username",header:Resources.AppMessages.AnonymousUser_Anonymous_Username, canSort:true,format: @<span>@item.AnonymousUser.Username</span>),
             grid.Column("AnonymousUser.Email",header:Resources.AppMessages.AnonymousUser_Email, canSort:true,format: @<span>@item.AnonymousUser.Email</span>),
             grid.Column("AnonymousUser.Web",header:Resources.AppMessages.AnonymousUser_Web, canSort:false,format: @<span>@item.AnonymousUser.Web</span>),
+            grid.Column("IsSpam",header:Resources.AppMessages.Comment_IsSpam, canSort:true,
+                                format: @<div class="comment" data-commentid="@item.Commentid">
+                                            <div class="spam @(item.isSpam ? " " : "ui-helper-hidden")">
+                                                @Resources.AppMessages.Yes
+                                                @if (ViewBag.AkismetInUse)
+                                                {
+                                                    @Html.ActionLink(Resources.AppMessages.MarkAsHam, "ChangeSpamMark", new { id = item.CommentId }, new { @class = "bg-button-unlocked-notext tooltip ui-helper-float-right" })
+                                                }
+                                            </div>
+                                            <div class="ham @(item.isSpam ? "ui-helper-hidden" : " ")">
+                                                @Resources.AppMessages.No
+                                                @if (ViewBag.AkismetInUse)
+                                                {
+                                                    @Html.ActionLink(Resources.AppMessages.MarkAsSpam, "ChangeSpamMark", new { id = item.CommentId }, new { @class = "bg-button-locked-notext tooltip ui-helper-float-right" })
+                                                }                                                
+                                            </div>
+                                         </div>),
+            grid.Column("Ip",header:Resources.AppMessages.Comment_Ip, canSort:true,format: @<span>@item.Ip</span>),
+            grid.Column("UserAgent",header:Resources.AppMessages.Comment_UserAgent, canSort:true,format: @<span>@item.UserAgent</span>),
             grid.Column("Post.Title", header:Resources.AppMessages.Post, canSort:true,format: @<span>@item.Post.Title</span>),
             grid.Column("Post.Code", header:Resources.AppMessages.Post_Code, canSort:true,format: @<span>@item.Post.Code</span>),
             grid.Column("", header:Resources.AppMessages.Actions, 

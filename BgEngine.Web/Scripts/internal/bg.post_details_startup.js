@@ -37,11 +37,11 @@
         var commentvisibility = false;
 		$("#showcomments").click(function () {
             if ($("#commentsection").children().size() == 0) {
-                $("#ajax-loader").toggleClass("ui-helper-hidden");
+                $("#ajax-loader").toggle();
 			    $.get(getpostcommentsurl, 
 				    function (data, status) {
 					    $("#commentsection").append(data);
-                        $("#ajax-loader").toggleClass("ui-helper-hidden");
+                        $("#ajax-loader").toggle();
 				    }
 			    );
             }

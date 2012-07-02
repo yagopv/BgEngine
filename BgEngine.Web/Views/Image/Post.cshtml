@@ -37,8 +37,6 @@
         actualvalue = "0";
     }
     ViewBag.Title = Model.Title;
-
-    var CommentsWithOutSpam = Model.Comments.Where(c => c.IsSpam == false);
 }
 
 @Html.CombresLink("ViewPostCss")
@@ -50,7 +48,7 @@
         $.view_post_startup("<h1>@Resources.AppMessages.Wait_Loading</h1>"
                             , @Model.PostId
                             ,"@Url.RouteUrl("Default", new { controller = "Post", action = "GetPostByCode", id = Model.Code }) #comments>*"
-                            , @CommentsWithOutSpam.Count()
+                            , @Model.Comments.Count()
                             ,"@Url.Content("~/Scripts/")"
                             ,"@CultureHelper.GetNeutralCulture(CultureHelper.GetCurrentCulture())"
                             ,'@Gravatar.GetHtml(CodeFirstSecurity.IsAuthenticated ? CodeFirstSecurity.GetUserMail(CodeFirstSecurity.CurrentUserName) : "mail@mail.com")'
@@ -61,7 +59,8 @@
 
 <div id="maincontent">
 
-    @* Post *@    
+    @* Post *@
+
     <div class="ui-widget-content ui-corner-all ui-helper-margin-top-bottom ui-helper-shadow">    
         <h1 id="post-title" class="bg-panel ui-widget-header ui-helper-margin ui-corner-all ui-helper-inset">@Html.DisplayFor(modelitem => Model.Title)</h1>       
         <div id="post-contents" class="ui-helper-width-100pc">
@@ -70,11 +69,11 @@
                 {
                     if (Model.Image.ThumbnailPath != String.Empty)
                     {
-                    <img src="@Model.Image.ThumbnailPath" class="ui-helper-float-left" />
+                    <img src="@Url.Content(Model.Image.ThumbnailPath)" class="ui-helper-float-left" />
                     }
                     else if (Model.Image.Path != String.Empty)
                     {
-                    <img src="@Model.Image.Path" class="ui-helper-float-left" />
+                    <img src="@Url.Content(Model.Image.Path)" class="ui-helper-float-left" />
                     }
                     else
                     {
@@ -195,13 +194,13 @@
 
     @* Comments *@
 
-    <div id="comments-main" class="ui-widget-content ui-corner-all ui-helper-margin-top-bottom ui-helper-reset-float ui-helper-shadow">
+    <div class="ui-widget-content ui-corner-all ui-helper-margin-top-bottom ui-helper-reset-float ui-helper-shadow">
         <h1 id="comment-title" class="bg-panel ui-widget-header ui-helper-margin-left-right ui-corner-all ui-helper-inset">@Resources.AppMessages.Post_Comment </h1>
         <div id="comments" class="ui-helper-width-100pc reset-bold">    
-            @if (CommentsWithOutSpam.Any())
+            @if (Model.Comments.Any())
             {
             <ul id="comment-comments">
-                @foreach (var item in CommentsWithOutSpam.Where(c => !c.isRelatedComment).OrderBy(c => c.DateCreated))
+                @foreach (var item in Model.Comments.Where(c => !c.isRelatedComment).OrderBy(c => c.DateCreated))
                 {
                     <li class="thread ui-helper-reset-float ui-helper-relative ui-helper-margin-right">
                         <div class="bg-widget-image-left">
@@ -244,10 +243,10 @@
                                 <a id="@item.CommentId" class="reply bg-button-reply ui-state-default ui-corner-all"  href="#" title="@Resources.AppMessages.Comment_Reply">@Resources.AppMessages.Comment_Reply</a>
                             </div>                        
                         }
-                        @if (item.RelatedComments.Any(c => c.IsSpam == false))
+                        @if (item.RelatedComments.Any())
                         {
                             <ul class="related-comments-list">
-                                @foreach (var relatedcomment in item.RelatedComments.Where(c => c.IsSpam == false).OrderBy(c => c.DateCreated))
+                                @foreach (var relatedcomment in item.RelatedComments.OrderBy(c => c.DateCreated))
                                 {
                                     <li class="ui-helper-reset-float ui-helper-relative ui-helper-margin">
                                         <div class="bg-widget-image-left">
@@ -324,7 +323,6 @@
                         <div class="bg-input-search ui-helper-margin-top-bottom">							
                             <input id="comment-submit"   type="button" value="@Resources.AppMessages.Post_Leave_Comment" />   
                         </div>
-                        @Html.ValidationSummary(true)
                     </div>
                 </div>	
             }
@@ -337,8 +335,8 @@
                 else
                 { 
                     <h2 class="ui-helper-margin ui-widget-content ui-state-highlight ui-corner-all ui-helper-padding">@Resources.AppMessages.Comments_Authenticathed</h2>    
-                    <p class="ui-helper-margin">@Resources.AppMessages.Comments_InitSession   @Html.RouteLink(Resources.AppMessages.SignIn, "Default", new { controller = "Account", action = "LogOn", returnUrl = Request.Url.ToString() }, new { @class = "bg-button-locked" })</p>
-                    <p class="ui-helper-margin">@Resources.AppMessages.Comments_Register  @Html.RouteLink(Resources.AppMessages.Register, "Default", new { controller = "Account", action = "Register" }, new { @class = "bg-button-edit" })</p>
+                    <p class="ui-helper-margin">@Resources.AppMessages.Comments_InitSession   @Html.RouteLink("Login", "Default", new { controller = "Account", action = "LogOn", returnUrl = Request.Url.ToString() }, new { @class = "bg-button-locked" })</p>
+                    <p class="ui-helper-margin">@Resources.AppMessages.Comments_Register  @Html.RouteLink("Registrate", "Default", new { controller = "Account", action = "Register" }, new { @class = "bg-button-edit" })</p>
                 }
             }
             <div class="ui-helper-reset-float"></div>

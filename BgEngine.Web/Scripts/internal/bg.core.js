@@ -34,8 +34,10 @@ $(function () {
     $(".bg-button-gear").button({ icons: { primary: "ui-icon-gear" }, text: true });
     $(".bg-button-question").button({ icons: { primary: "ui-icon-help" }, text: true });
     $(".bg-button-locked").button({ icons: { primary: "ui-icon-locked" }, text: true });
+    $(".bg-button-locked-notext").button({ icons: { primary: "ui-icon-locked" }, text: false });    
     $(".bg-button-zoom").button({ icons: { primary: "ui-icon-zoomin" }, text: true });
     $(".bg-button-unlocked").button({ icons: { primary: "ui-icon-unlocked" }, text: true });
+    $(".bg-button-unlocked-notext").button({ icons: { primary: "ui-icon-unlocked" }, text: false });
     $(".bg-button-admin-menu").button({ icons: { primary: "ui-icon-circle-triangle-e" }, text: true });
     $(".bg-button-back").button({ icons: { primary: "ui-icon-arrowrefresh-1-w" }, text: true });
     $(".bg-button-search").button({ icons: { primary: "ui-icon-zoomin" }, text: false });
@@ -61,6 +63,10 @@ $(function () {
             $("ul#menu li a").removeClass("ui-state-active");
             $(this).addClass("ui-state-active");
         });
+    });
+
+    $(".clickable").click(function () {
+        location.href = $(this).attr("data-href");
     });
 
     /* Common */

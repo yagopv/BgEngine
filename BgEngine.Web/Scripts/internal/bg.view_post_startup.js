@@ -57,7 +57,10 @@
 						? AddAntiForgeryToken({ Message: message, PostId: postid })
 						: AddAntiForgeryToken({ Message: message, PostId: postid, "AnonymousUser.Username": $("#comment-container #Username").val(), "AnonymousUser.Email": $("#comment-container #Email").val(), "AnonymousUser.Web": $("#comment-container #Web").val() })),
 						   function (data) {
-						       if (data.result == "ok") {
+						       if (data.result == "ok" || data.result == "warnings") {
+						           if (data.warnings) {
+						               createGrowl(data.warnings.Value);
+						           }
 						           $("#comments").load(getposturl,
 														function (text, status, request) {
 														    var numberofcomments = commentcount + 1;
@@ -79,6 +82,9 @@
 						           var validator = $("#comment-container form").validate();
 						           errors = {};
 						           for (var i = 0; i < data.errors.length; i++) {
+						               if (data.errors[i].Key === "akismetkey") {
+						                   createGrowl(data.errors[i].Value);
+						               }
 						               errors[data.errors[i].Key] = data.errors[i].Value;
 						           }
 						           validator.showErrors(errors);
@@ -113,9 +119,12 @@
 						 ? AddAntiForgeryToken({ Message: message, PostId: postid, parent: $("#related-comment-submit").attr("title") })
 						 : AddAntiForgeryToken({ Message: message, PostId: postid, parent: $("#related-comment-submit").attr("title"), "AnonymousUser.Username": $("#comments #Username").val(), "AnonymousUser.Email": $("#comments #Email").val(), "AnonymousUser.Web": $("#comments #Web").val() })),
 						   function (data) {
-						       if (data.result == "ok") {
+						       if (data.result == "ok" || data.result == "warnings") {
 						           tinyMCE.execCommand('mceFocus', false, 'dynamic-textarea');
 						           $(".reply .ui-icon").removeClass("ui-icon-cancel").addClass("ui-icon-pencil");
+						           if (data.warnings) {
+						                createGrowl(data.warnings.Value);
+						           }
 						           $("#comments").load(getposturl,
 														function (text, status, request) {
 														    var numberofcomments = commentcount + 1;
@@ -138,6 +147,9 @@
 						           var validator = $("#comments form").validate();
 						           errors = {};
 						           for (var i = 0; i < data.errors.length; i++) {
+						               if (data.errors[i].Key === "akismetkey") {
+						                   createGrowl(data.errors[i].Value);
+						               }
 						               errors[data.errors[i].Key] = data.errors[i].Value;
 						           }
 						           validator.showErrors(errors);
@@ -245,6 +257,7 @@
         return data;
     };
 
+
     // Reconnect tooltips after ajax load
     function reconnectTooltips() {
         $(".tooltip, .tooltip-default").tipTip();
@@ -261,4 +274,29 @@
         });
         $(".tooltip-ajax").click(function () { return false; });
     }
+
+    function createGrowl(message) {
+        $.blockUI({
+            message: message,
+            fadeIn: 700,
+            fadeOut: 700,
+            timeout: 5000,
+            showOverlay: false,
+            centerY: false,
+            css: {
+                width: '350px',
+                top: '10px',
+                left: '',
+                right: '10px',
+                border: 'none',
+                padding: '5px',
+                backgroundColor: '#000',
+                '-webkit-border-radius': '10px',
+                '-moz-border-radius': '10px',
+                opacity: .6,
+                color: '#fff'
+            }
+        });
+    }
+
 })(jQuery);

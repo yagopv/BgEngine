@@ -357,20 +357,19 @@
     <Content Include="Scripts\galleria\galleria-1.2.7.js" />
     <Content Include="Scripts\galleria\galleria-1.2.7.min.js" />
     <Content Include="Scripts\html5shiv.js" />
+    <Content Include="Scripts\internal\bg.home_index_startup.js" />
+    <Content Include="Scripts\internal\bg.index_startup.js" />
     <Content Include="Scripts\internal\bg.themeselector.js" />
     <Content Include="Scripts\internal\bg.configoptions.js" />
     <Content Include="Scripts\internal\bg.create_post_startup.js" />
     <Content Include="Scripts\internal\bg.galleria_startup.js" />
-    <Content Include="Scripts\internal\bg.home_index_startup.js" />
     <Content Include="Scripts\internal\bg.home_videos_startup.js" />
-    <Content Include="Scripts\internal\bg.index_startup.js" />
     <Content Include="Scripts\internal\bg.post_details_startup.js" />
     <Content Include="Scripts\internal\bg.post_startup.js" />
     <Content Include="Scripts\internal\bg.showallimages_startup.js" />
     <Content Include="Scripts\internal\bg.tiny_comment_init.js" />
     <Content Include="Scripts\internal\bg.video_startup.js" />
     <Content Include="Scripts\internal\bg.view_posts_startup.js" />
-    <Content Include="Scripts\internal\bg.view_post_startup.js" />
     <Content Include="Scripts\internal\bg.infobox.js" />
     <Content Include="Scripts\internal\bg.tagger.js" />
     <Content Include="Global.asax" />
@@ -379,6 +378,7 @@
     <Content Include="Scripts\cultures\globalize.culture.es-ES.js" />
     <Content Include="Scripts\cultures\globalize.culture.es.js" />
     <Content Include="Scripts\cultures\globalize.cultures.js" />
+    <Content Include="Scripts\internal\bg.view_post_startup.js" />
     <Content Include="Scripts\jquery-1.7.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.13.min.js" />
     <Content Include="Scripts\jquery.fancybox-1.3.4.pack.js" />
@@ -743,9 +743,6 @@
     <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_postView.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Post\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -767,7 +764,7 @@
     <Content Include="Views\Home\Galeria.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Post\Post.cshtml" />
+    <Content Include="Views\Image\Post.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\TwitterHelper.cshtml" />
@@ -786,9 +783,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_informationButtons.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Comment\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Comment\Delete.cshtml" />
@@ -905,7 +899,6 @@
     <Content Include="Views\Stats\Stats.cshtml" />
     <Content Include="Views\User\GetTooltipData.cshtml" />
     <Content Include="Views\Image\ShowAllImages.cshtml" />
-    <Content Include="Views\Comment\GetPostComments.cshtml" />
     <Content Include="Views\Video\Create.cshtml" />
     <Content Include="Views\Video\Delete.cshtml" />
     <Content Include="Views\Video\Details.cshtml" />
@@ -919,7 +912,6 @@
     <Content Include="Views\Shared\AntiForgeryError.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\UserData_UserName.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\UserData_Password.cshtml" />
-    <Content Include="Views\Stats\ConfigOptions.cshtml" />
     <Content Include="Views\Shared\AjaxSuccess.cshtml" />
     <Content Include="Views\Shared\AjaxError.cshtml" />
     <Content Include="Views\Stats\SidebarStats.cshtml" />
@@ -928,6 +920,11 @@
     <Content Include="Views\Shared\AnonymousComment.cshtml" />
     <Content Include="Views\Shared\ChangeTheme.cshtml" />
     <Content Include="Views\Shared\MissedArgumentError.cshtml" />
+    <Content Include="Views\Comment\GetPostComments.cshtml" />
+    <Content Include="Views\Comment\Index.cshtml" />
+    <Content Include="Views\Post\Post.cshtml" />
+    <Content Include="Views\Shared\_postView.cshtml" />
+    <Content Include="Views\Stats\ConfigOptions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BgEngine.Application\BgEngine.Application.csproj">

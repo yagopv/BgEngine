@@ -74,6 +74,27 @@ namespace BgEngine.Domain.EntityModel
         public int PostId { get; set; }
 
         /// <summary>
+        /// If the Comment is Spam true, in the another case false
+        /// </summary>
+        [Required(ErrorMessageResourceType = typeof(Resources.AppMessages), ErrorMessageResourceName = "Required")]
+        [Display(ResourceType = typeof(Resources.AppMessages), Name = "Comment_IsSpam", Prompt = "Comment_IsSpam_Prompt")]
+        public bool IsSpam { get; set; }
+        
+        /// <summary>
+        /// The Ip Adress of the comment
+        /// </summary>
+        [Display(ResourceType = typeof(Resources.AppMessages), Name = "Comment_Ip", Prompt = "Comment_Ip_Prompt")]
+        [StringLength(100, ErrorMessageResourceType = typeof(Resources.AppMessages), ErrorMessageResourceName = "ErrorLenght")]
+        public string Ip { get; set; }
+        
+        /// <summary>
+        /// The User agent used to make the comment
+        /// </summary>
+        [Display(ResourceType = typeof(Resources.AppMessages), Name = "Comment_UserAgent", Prompt = "Comment_UserAgent_Prompt")]
+        [StringLength(200, ErrorMessageResourceType = typeof(Resources.AppMessages), ErrorMessageResourceName = "ErrorLenght")]
+        public string UserAgent { get; set; }
+
+        /// <summary>
         /// Navigation property representing the related Post
         /// </summary>
         public virtual Post Post { get; set; }

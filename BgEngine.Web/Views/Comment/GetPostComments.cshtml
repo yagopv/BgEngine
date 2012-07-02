@@ -65,36 +65,17 @@
 </div>     
     
 <script type="text/javascript">
-        $(".tooltip, .tooltip-ajax").tooltip({
-            items: "[href], [title]",
-            open: function () {
-                var tooltip = $(".ui-tooltip");
-                $(document).mousemove(function (event) {
-                    tooltip.position({
-                        my: "left+25 center",
-                        at: "right+25 center",
-                        of: event
-                    });
-                })
-                // trigger once to override element-relative positioning 
-                .mousemove();
-            },
-            content: function (response) {
-                var href = $(this).attr("href");
-                if ($(this).hasClass("tooltip-ajax")) {
-                    $.get(href, response);
-                    return Globalize.localize("loading", "@CultureHelper.GetNeutralCulture(CultureHelper.GetCurrentCulture())");
+    $(".tooltip, .tooltip-default").tipTip();
+    $(".tooltip-ajax").tipTip({
+        content: function (data) {
+            $.ajax({
+                url: $(this).attr("href"),
+                success: function (response) {
+                    data.content.html(response);
                 }
-                else {
-                    if (/^#/.test(href)) {
-                        return $(href).html();
-                    }
-                }
-                return this.title;
-            },
-            close: function () {
-                $(document).unbind("mousemove");
-            }
-        });
-        $(".tooltip-ajax").click(function () { return false; });    
+            });
+            return Globalize.localize("loading", "@CultureHelper.GetNeutralCulture(CultureHelper.GetCurrentCulture())");
+        }
+    });
+    $(".tooltip-ajax").click(function () { return false; });    
 </script>

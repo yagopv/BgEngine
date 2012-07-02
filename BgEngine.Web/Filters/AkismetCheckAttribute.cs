@@ -23,26 +23,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Helpers;
 
 using Joel.Net;
 using BgEngine.Application.ResourceConfiguration;
+using BgEngine.Security.Services;
 
 namespace BgEngine.Filters
 {
     public class AkismetCheckAttribute : ActionFilterAttribute
     {
-        public AkismetCheckAttribute(
-            string authorField,
-            string emailField,
-            string websiteField,
-            string commentField)
-        {
-            this.AuthorField = authorField;
-            this.EmailField = emailField;
-            this.WebsiteField = websiteField;
-            this.CommentField = commentField;
-        }
-
         public string AuthorField { get; set; }
         public string EmailField { get; set; }
         public string WebsiteField { get; set; }
@@ -50,28 +40,44 @@ namespace BgEngine.Filters
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+            if (String.IsNullOrEmpty(BgResources.Akismet_API_key))
+            {
+                return;
+            }
+
+            if (CodeFirstSecurity.IsAuthenticated)
+            {
+                return;
+            }
+
             //Create a new instance of the Akismet API and verify your key is valid.
             Akismet api = new Akismet(BgResources.Akismet_API_key, filterContext.HttpContext.Request.Url.AbsoluteUri , filterContext.HttpContext.Request.UserAgent);
-            if (!api.VerifyKey()) throw new Exception("Akismet API key invalid.");
+
+            if (!api.VerifyKey())
+            {
+                filterContext.Controller.ViewData.ModelState.AddModelError("akismetkey", Resources.AppMessages.AkismetApikeyInvalid);
+                return;
+            }            
 
             //Now create an instance of AkismetComment, populating it with values
             //from the POSTed form collection.
             AkismetComment akismetComment = new AkismetComment
             {
-                Blog = filterContext.HttpContext.Request.Url.AbsoluteUri,
+                Blog = filterContext.HttpContext.Request.Url.Scheme + "://" + filterContext.HttpContext.Request.Url.Host,                
                 UserIp = filterContext.HttpContext.Request.UserHostAddress,
                 UserAgent = filterContext.HttpContext.Request.UserAgent,
-                CommentContent = filterContext.HttpContext.Request[this.CommentField],
+                CommentContent =  filterContext.HttpContext.Request.Unvalidated()[this.CommentField],
                 CommentType = "comment",
                 CommentAuthor = filterContext.HttpContext.Request[this.AuthorField],
                 CommentAuthorEmail = filterContext.HttpContext.Request[this.EmailField],
                 CommentAuthorUrl = filterContext.HttpContext.Request[this.WebsiteField]
-            };
+            };                       
 
             //Check if Akismet thinks this comment is spam. Returns TRUE if spam.
             if (api.CommentCheck(akismetComment))
-                //Comment is spam, add error to model state.
-                filterContext.Controller.ViewData.ModelState.AddModelError("spam", "Comment identified as spam.");
+            {
+                filterContext.Controller.ViewData.ModelState.AddModelError("isspam", Resources.AppMessages.SpamDetected);                
+            }                
 
             base.OnActionExecuting(filterContext);
         }

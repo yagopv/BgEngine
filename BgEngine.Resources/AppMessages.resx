@@ -1240,12 +1240,48 @@
     <value>Akismet API  key</value>
   </data>
   <data name="Config_AkismetPrompt" xml:space="preserve">
-    <value>Introduce tu clave de Akismet para comenzar a filtrar Spam. Deja el campo vacío si no quieres filtrar Sapm mediante este método</value>
+    <value>Introduce tu clave de Akismet para comenzar a filtrar Spam. Deja el campo vacío si no quieres filtrar Spam mediante este método</value>
   </data>
   <data name="AccessDenied" xml:space="preserve">
     <value>Acceso denegado</value>
   </data>
   <data name="AntiForgeryError" xml:space="preserve">
     <value>Se ha rechazado procesar esta petición</value>
+  </data>
+  <data name="AkismetApikeyInvalid" xml:space="preserve">
+    <value>La clave de la API de Akismet no es válida. Corrígela o bien no la informes</value>
+  </data>
+  <data name="Comment_Ip" xml:space="preserve">
+    <value>Dirección Ip</value>
+  </data>
+  <data name="Comment_Ip_Prompt" xml:space="preserve">
+    <value>Indica la dirección ip de la que proviene el comentario</value>
+  </data>
+  <data name="Comment_IsSpam" xml:space="preserve">
+    <value>Spam</value>
+  </data>
+  <data name="Comment_IsSpam_Prompt" xml:space="preserve">
+    <value>Informa si este comentario fue categorizado como spam</value>
+  </data>
+  <data name="Comment_UserAgent" xml:space="preserve">
+    <value>Agente</value>
+  </data>
+  <data name="Comment_UserAgent_Prompt" xml:space="preserve">
+    <value>Indica el agente con el que se realizó la petición</value>
+  </data>
+  <data name="MarkAsHam" xml:space="preserve">
+    <value>Marcarlo como válido</value>
+  </data>
+  <data name="MarkAsSpam" xml:space="preserve">
+    <value>Marcar como spam</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Regístrate</value>
+  </data>
+  <data name="SpamDetected" xml:space="preserve">
+    <value>El comentario queda pendiente de aprobación</value>
+  </data>
+  <data name="Akismet_API_key" xml:space="preserve">
+    <value>Akismet Api Key</value>
   </data>
 </root>

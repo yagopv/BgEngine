@@ -355,22 +355,25 @@
 					</div>
 				</td>
 			</tr>
-	</table>
+        
+	    </table>
+        <h2>@Resources.AppMessages.Akismet_API_key</h2>
 		<table>
-			<tr>
-				<td>
-					<div class="editor-label">
-						<strong>@Html.LabelFor(model => model.Akismet_API_key)</strong>
-					</div>
-				</td>
-				<td>
-					<div class="editor-field">
-						@Html.EditorFor(model => model.Akismet_API_key)
-						@Html.ValidationMessageFor(model => model.Akismet_API_key)
-					</div>
-				</td>
-			</tr>
-	</table>    
+  		     <tr>
+				    <td>
+					    <div class="editor-label">
+						    <strong>@Html.LabelFor(model => model.Akismet_API_key)</strong>
+					    </div>
+				    </td>
+				    <td>
+					    <div class="editor-field">
+						    @Html.EditorFor(model => model.Akismet_API_key)
+						    @Html.ValidationMessageFor(model => model.Akismet_API_key)
+					    </div>
+				    </td>
+			    </tr>
+	    </table>    
+    
 		<h2>@Resources.AppMessages.Config_Twitter</h2>
 		<table>
 			<tr>

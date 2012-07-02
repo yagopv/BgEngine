@@ -110,7 +110,7 @@ body .ui-tooltip { max-width: 400px; }
 .ui-widget-content a:hover { text-decoration:underline; outline:0 none;}
 #post-content  a { color: #0088CC; text-decoration:none; }
 #post-content  a:hover { color: #005580; text-decoration: underline; outline:0 none;}
-
+.clickable { cursor: pointer; }
 
 /*  Styles for anonymous comment fields */
 .anonymous-comment-fields { margin-bottom:20px;}

@@ -24,31 +24,31 @@
 {
 	if (Model.Image.ThumbnailPath != String.Empty)
 	{
-	<img src="@Url.Content(Model.Image.ThumbnailPath)" />
+	<a href="@Url.RouteUrl("Default", new { controller = "Post", action = "GetPostByCode", id = Model.Code })"><img src="@Model.Image.ThumbnailPath" /></a>
 	}
 	else if (Model.Image.Path != String.Empty)
 	{
-	<img src="@Url.Content(Model.Image.Path)" />
+	<a href="@Url.RouteUrl("Default", new { controller = "Post", action = "GetPostByCode", id = Model.Code })"><img src="@Model.Image.Path" /></a>
 	}
 	else
 	{
-	<img src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+	<a href="@Url.RouteUrl("Default", new { controller = "Post", action = "GetPostByCode", id = Model.Code })"><img src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" /></a>
 	}
 }
 else
 {
-	<img src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+	<a href="@Url.RouteUrl("Default", new { controller = "Post", action = "GetPostByCode", id = Model.Code })"><img src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" /></a>
 }
 
-<div>
+<div class="clickable" data-href="@Url.RouteUrl("Default", new { controller = "Post", action = "GetPostByCode", id = Model.Code })">
 	<div class="ui-helper-margin">
 	   <h2 class="ui-widget-header ui-corner-all bg-post-view-header">@Html.DisplayFor(modelitem => Model.Title)</h2>              
 	   <p>@Html.Raw(Model.Description.Replace(Environment.NewLine,"<br/>"))
-		  @Html.RouteLink(Resources.AppMessages.ReadMore, "Default", new { controller = "Post", action = "GetPostByCode", id = Model.Code }, new { @class = "tooltip bg-button-readmore ui-state-default ui-corner-all" })</p>  
+		  @*@Html.RouteLink(Resources.AppMessages.ReadMore, "Default", new { controller = "Post", action = "GetPostByCode", id = Model.Code }, new { @class = "tooltip bg-button-readmore ui-state-default ui-corner-all" })</p>  *@
 	</div>   
 	<div class="ui-helper-reset-float">
 		<p class="tooltip ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" title="@String.Format(Resources.AppMessages.DateCreatedFormat,Model.DateCreated.ToLongDateString())" ><span class="ui-button bg-icon-left ui-icon ui-icon-calendar"></span>@Model.DateCreated.ToShortDateString()</p>    
 		<a href="@Url.RouteUrl("Default", new { controller = "User", action = "GetTooltipData", id = Model.User.UserId })" class="getuser-link tooltip-ajax ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" ><span class="ui-button bg-icon-left ui-icon ui-icon-person"></span>@Html.DisplayFor(modelitem => Model.User.Username)</a>
-		<p class="tooltip ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" title="@String.Format(Resources.AppMessages.NumberofComments,Model.Comments.Count())"><span class="ui-button bg-icon-left ui-icon ui-icon-comment"></span>@Model.Comments.Count().ToString()</p>
+		<a href="@Url.RouteUrl("Default", new { controller = "Post", action = "GetPostByCode", id = Model.Code }) #comments-main" class="tooltip ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" title="@String.Format(Resources.AppMessages.NumberofComments,Model.Comments.Count(c => c.IsSpam == false))"><span class="ui-button bg-icon-left ui-icon ui-icon-comment"></span>@Model.Comments.Count(c => c.IsSpam == false).ToString()</a>
 	</div>
 </div>
