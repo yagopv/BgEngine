@@ -24,11 +24,11 @@
 {
 	if (Model.Image.ThumbnailPath != String.Empty)
 	{
-	<a href="@Url.RouteUrl("Default", new { controller = "Post", action = "GetPostByCode", id = Model.Code })"><img src="@Model.Image.ThumbnailPath" /></a>
+	<a href="@Url.RouteUrl("Default", new { controller = "Post", action = "GetPostByCode", id = Model.Code })"><img src="@Url.Content(Model.Image.ThumbnailPath)" /></a>
 	}
 	else if (Model.Image.Path != String.Empty)
 	{
-	<a href="@Url.RouteUrl("Default", new { controller = "Post", action = "GetPostByCode", id = Model.Code })"><img src="@Model.Image.Path" /></a>
+	<a href="@Url.RouteUrl("Default", new { controller = "Post", action = "GetPostByCode", id = Model.Code })"><img src="@Url.Content(Model.Image.Path)" /></a>
 	}
 	else
 	{
