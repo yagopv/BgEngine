@@ -6,23 +6,23 @@ SOURCE: http://iconexpo.com/2008/12/free-8color-star-icons/
 
 div.bigstars div.rateit-range
 {
-    background: url("/Content/Icons/star-white32.png");
+    background: url("Icons/star-white32.png");
     height: 32px;
 }
 
 div.bigstars div.rateit-hover
 {
-    background: url("/Content/Icons/star-gold32.png");
+    background: url("Icons/star-gold32.png");
 }
 
 div.bigstars div.rateit-selected
 {
-    background: url("/Content/Icons/star-red32.png");
+    background: url("Icons/star-red32.png");
 }
 
 div.bigstars div.rateit-reset
 {
-    background: url("/Content/Icons/star-black32.png");
+    background: url("Icons/star-black32.png");
     width: 32px;
     height: 32px;
 
@@ -30,5 +30,5 @@ div.bigstars div.rateit-reset
 
 div.bigstars div.rateit-reset:hover
 {
-    background: url("/Content/Icons/star-white32.png");
+    background: url("Icons/star-white32.png");
 }
