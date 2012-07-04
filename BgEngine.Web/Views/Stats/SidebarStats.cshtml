@@ -29,7 +29,8 @@
 	<div id="tabs-1">
 			@foreach (var modelitem in Model.MostVisitedPosts)
 			{
-				<div class="sidebar-stats-post ui-helper-relative ui-helper-margin-top-bottom">
+				<div class="sidebar-stats-post ui-helper-relative ui-helper-margin-top-bottom ui-corner-all ui-helper-padding clickable"
+                     data-href="@Url.Action("GetPostByCode", new { controller = "Post", action = "GetPostByCode", id = modelitem.Code })">
 					@if (modelitem.Image != null)
 					{
 						if (modelitem.Image.ThumbnailPath != String.Empty)
@@ -69,7 +70,8 @@
 	<div id="tabs-2">
 			@foreach (var modelitem in Model.TopRatedPosts)
 			{
-				<div class="sidebar-stats-post ui-helper-relative ui-helper-margin-top-bottom">
+				<div class="sidebar-stats-post ui-helper-relative ui-helper-margin-top-bottom ui-corner-all ui-helper-padding clickable"
+                     data-href="@Url.Action("GetPostByCode", new { controller = "Post", action = "GetPostByCode", id = modelitem.Code })">
 					@if (modelitem.Image != null)
 					{
 						if (modelitem.Image.ThumbnailPath != String.Empty)
@@ -109,7 +111,8 @@
 	<div id="tabs-3">
 			@foreach (var modelitem in Model.MostCommentedPosts)
 			{
-				<div class="sidebar-stats-post ui-helper-relative ui-helper-margin-top-bottom">
+				<div class="sidebar-stats-post ui-helper-relative ui-helper-margin-top-bottom ui-corner-all ui-helper-padding clickable"
+                     data-href="@Url.Action("GetPostByCode", new { controller = "Post", action = "GetPostByCode", id = modelitem.Code })">
 					@if (modelitem.Image != null)
 					{
 						if (modelitem.Image.ThumbnailPath != String.Empty)
@@ -149,4 +152,7 @@
 
 <script type="text/javascript">
     $(".image").scaleImage({ fade: 2000, scale: "fill", center: true });
+    $(".clickable").click(function () {
+        location.href = $(this).attr("data-href");
+    });
 </script>
