@@ -22,7 +22,7 @@ $(function () {
     /* Buttons */
     $("input:submit,input:button").button();
     $(".bg-button-no-icon").button();
-    $(".bg-button-readmore,.bg-button-new").button({ icons: { primary: "ui-icon-circle-plus" }, text: false });
+    $(".bg-button-readmore,.bg-button-new").button({ icons: { primary: "ui-icon-circle-plus" }, text: true });
     $(".bg-button-new").button({ icons: { primary: "ui-icon-circle-plus" }, text: true });
     $(".bg-button-user").button({ icons: { primary: "ui-icon-person" }, text: true });
     $(".bg-button-edit").button({ icons: { primary: "ui-icon-pencil" }, text: true });
@@ -65,7 +65,7 @@ $(function () {
         });
     });
 
-    $(".clickable").click(function () {
+    $(".clickable").live("click",function () {
         location.href = $(this).attr("data-href");
     });
 
