@@ -925,6 +925,9 @@
     <Content Include="Views\Post\Post.cshtml" />
     <Content Include="Views\Shared\_postView.cshtml" />
     <Content Include="Views\Stats\ConfigOptions.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AnonymousComment_Editor.cshtml">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BgEngine.Application\BgEngine.Application.csproj">
