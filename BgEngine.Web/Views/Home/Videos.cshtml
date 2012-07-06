@@ -53,9 +53,9 @@
     </div>    
     <div id="sidebar-sharebar-video">
         @CustomHelper.GooglePlusOne(Request.Url.AbsoluteUri.ToString(), CultureHelper.GetCurrentCulture())        
-        @CustomHelper.ShareOnFacebook(Request.Url.AbsoluteUri.ToString(), ViewBag.Title) 
-        @CustomHelper.ShareOnTwitter(Request.Url.AbsoluteUri.ToString(), ViewBag.Title)        
-        @CustomHelper.SubscribeRssChannel(Url.AbsoluteAction("RssFeed", "Post"))        
+        @CustomHelper.ShareOnFacebook(Request.Url.AbsoluteUri.ToString(), ViewBag.Title, Url.Content("~/Content/Icons/facebook48x48.jpg")) 
+        @CustomHelper.ShareOnTwitter(Request.Url.AbsoluteUri.ToString(), ViewBag.Title, Url.Content("~/Content/Icons/Twitter48x48.jpg"))
+        @CustomHelper.SubscribeRssChannel(Url.AbsoluteAction("RssFeed", "Post"), Url.Content("~/Content/Icons/RSS48x48.jpg"))
     </div>
     <div class="ui-helper-reset-float"></div>
     <div id="public-videos" class="ui-helper-margin-top-bottom">
