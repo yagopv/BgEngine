@@ -36,6 +36,7 @@ namespace BgEngine.Application.ResourceConfiguration
         public static string Email_SmtpPort { get; set; }
         public static string Email_Server { get; set; }
         public static bool   Email_SSL { get; set; }
+        public static bool   Send_Mail_When_Comment_Received { get; set; }
 
         //Pagination Resources
         public static string Pager_PostPerPage { get; set; }
@@ -100,6 +101,7 @@ namespace BgEngine.Application.ResourceConfiguration
                 Email_SmtpPort = Email_SmtpPort,
                 Email_Server = Email_Server,
                 Email_SSL = Email_SSL,
+                Send_Mail_When_Comment_Received = Send_Mail_When_Comment_Received,
                 Pager_PostPerPage = Pager_PostPerPage,
                 Pager_CommentsPerPage = Pager_CommentsPerPage,
                 Pager_CategoriesPerPage = Pager_CategoriesPerPage,
@@ -215,6 +217,9 @@ namespace BgEngine.Application.ResourceConfiguration
                     case "Email_SSL":
                         BgResources.Email_SSL = bool.Parse(res.Value);
                         break;
+                    case "Send_Mail_When_Comment_Received":
+                        BgResources.Send_Mail_When_Comment_Received = bool.Parse(res.Value);
+                        break;                        
                     case "Tags_Number_of_Tags_per_Page":
                         BgResources.Pager_TagsPerPage = res.Value;
                         break;
@@ -257,6 +262,7 @@ namespace BgEngine.Application.ResourceConfiguration
             BgResources.Email_Server = options.Email_Server;
             BgResources.Email_Password = options.Email_Password;
             BgResources.Email_SSL = options.Email_SSL;
+            BgResources.Send_Mail_When_Comment_Received = options.Send_Mail_When_Comment_Received;            
             BgResources.Analytics_GoogleAnalyticsCode = options.Analytics_GoogleAnalyticsCode;
             BgResources.Messages_Copyright = options.Messages_Copyright;
             BgResources.Messages_SiteTitle = options.Messages_SiteTitle;

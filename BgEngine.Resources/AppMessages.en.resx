@@ -1275,4 +1275,16 @@
   <data name="SpamDetected" xml:space="preserve">
     <value>Comment pending of approval</value>
   </data>
+  <data name="Send_Mail_When_Comment_Received" xml:space="preserve">
+    <value>Send mail when comment received?</value>
+  </data>
+  <data name="Comment_Received" xml:space="preserve">
+    <value>Comment received in {0}</value>
+  </data>
+  <data name="MarkedAsHam" xml:space="preserve">
+    <value>Marked as ham</value>
+  </data>
+  <data name="MarkedAsSpam" xml:space="preserve">
+    <value>Marked as spam. Approval pending</value>
+  </data>
 </root>

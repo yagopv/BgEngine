@@ -149,6 +149,10 @@ namespace BgEngine.Application.ResourceConfiguration
                         res.Value = options.Email_SSL.ToString();
                         BgResources.Email_SSL = bool.Parse(res.Value);
                         break;
+                    case "Send_Mail_When_Comment_Received":
+                        res.Value = options.Send_Mail_When_Comment_Received.ToString();
+                        BgResources.Send_Mail_When_Comment_Received = bool.Parse(res.Value);
+                        break;
                     case "Tags_Number_of_Tags_per_Page":
                         res.Value = options.Pager_TagsPerPage;
                         BgResources.Pager_TagsPerPage = res.Value;

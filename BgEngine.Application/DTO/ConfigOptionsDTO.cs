@@ -30,6 +30,7 @@ namespace BgEngine.Application.DTO
         public string Email_SmtpPort { get; set; }
         public string Email_Server { get; set; }
         public bool   Email_SSL { get; set; }
+        public bool Send_Mail_When_Comment_Received { get; set; }
         public string Pager_PostPerPage { get; set; }
         public string Pager_CommentsPerPage { get; set; }
         public string Pager_CategoriesPerPage { get; set; }

@@ -48,7 +48,7 @@
 
 @if (Model.Any())
 { 
-    <div id="options-container" class="ui-helper-hidden">
+    <div id="options-container" class="ui-helper-hidden ui-helper-reset-float">
         <div class="ui-helper-margin multiselect ui-helper-margin-top-bottom">
             <div class="multiselect-check">
                 <input type="checkbox" id="checkbox-1" data-column="1" data-default="true" />
@@ -73,6 +73,8 @@
         </div>            
     </div>    
 
+    <div class="ui-helper-reset-float"></div>
+    
     <div id="grid-container" class="ui-helper-margin-top-bottom ui-helper-clear-both">
         @grid.GetHtml(htmlAttributes: new { @class = "ui-helper-width-100pc" }, columns: new[] {
             grid.Column("Name", header: Resources.AppMessages.Name , canSort:true),

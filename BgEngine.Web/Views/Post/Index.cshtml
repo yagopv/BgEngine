@@ -41,15 +41,16 @@
 </script>
 
 <p>
-	@Html.RouteLink(Resources.AppMessages.Create, "Default", new { controller = "Post", action = "Create" }, new { @class = "bg-button-new" })
+	@Html.RouteLink(Resources.AppMessages.Create, "Default", new { controller = "Post", action = "Create" }, new { @class = "bg-button-new" })    
     @if (Model.Any()) {
         <a href="#" id="options" class="bg-button-gear">@Resources.AppMessages.Show_Hide_ColumnsFilters</a>	   
     }    
 </p>
 
+
 @if (Model.Any())
-{ 
-    <div id="options-container" class="ui-helper-hidden">
+{     
+    <div id="options-panel" class="ui-helper-hidden ui-helper-reset-float">
         <div class="ui-helper-margin multiselect ui-helper-margin-top-bottom">
             <div class="multiselect-check">
                 <input type="checkbox" id="checkbox-1" data-column="1" data-default="true" />
@@ -107,15 +108,19 @@
                 <input type="checkbox" id="checkbox-14" data-column="14" data-default="true"/>
                 <span>@Resources.AppMessages.Post_Visits</span>
             </div>
-        </div>
-    
-        <div class="bg-input-search">
-	        <input id="searchpost" name="Title" type="text"/>
-	        <a id="searchbutton" class="bg-panel bg-button-search"></a>
-        </div>        
-    </div>
+        </div>    
+    </div>    
 
-    <div id="grid-container" class="ui-helper-margin-top-bottom">
+    <div id="search-panel" class="ui-helper-margin-top-bottom">
+        <div class="bg-input-search">
+            <input id="searchpost" name="Title" type="text"/>
+            <a id="searchbutton" class="bg-panel bg-button-search"></a>
+        </div>
+    </div>
+    
+    <div class="ui-helper-reset-float"></div>
+    
+    <div id="grid-container">
 	    @grid.GetHtml(htmlAttributes: new { id = "table-content", @class = "ui-helper-width-100pc" }, columns: new[] {
 		    grid.Column("ImageURL",
 			    header: Resources.AppMessages.Image,

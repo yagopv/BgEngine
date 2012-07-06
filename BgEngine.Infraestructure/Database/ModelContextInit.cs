@@ -65,7 +65,7 @@ namespace BgEngine.Infraestructure.DatabaseInitialization
             context.Set<BlogResource>().Add(new BlogResource { Name = "Premium_Role", Value = "premium" });
             context.Set<BlogResource>().Add(new BlogResource { Name = "Recaptcha_Private_Key_Http", Value = "xxxx" });            
             context.Set<BlogResource>().Add(new BlogResource { Name = "Recaptcha_Public_Key_Http", Value = "xxxx" });
-            context.Set<BlogResource>().Add(new BlogResource { Name = "Akismet_API_key", Value = "xxxx" });
+            context.Set<BlogResource>().Add(new BlogResource { Name = "Akismet_API_key", Value = "" });
             context.Set<BlogResource>().Add(new BlogResource { Name = "Roles_Number_of_Roles_per_Page", Value = "10" });
             context.Set<BlogResource>().Add(new BlogResource { Name = "SearchImages_Number_of_Images_per_Page", Value = "15" });
             context.Set<BlogResource>().Add(new BlogResource { Name = "SearchVideos_Number_of_Videos_per_Page", Value = "12" });
@@ -73,7 +73,8 @@ namespace BgEngine.Infraestructure.DatabaseInitialization
             context.Set<BlogResource>().Add(new BlogResource { Name = "SiteUrl", Value = "http://www.MySiteDomain.com"});
             context.Set<BlogResource>().Add(new BlogResource { Name = "Smtp_Port", Value = "25"});
             context.Set<BlogResource>().Add(new BlogResource { Name = "Smtp_Server", Value = "smtp.live.com" });
-            context.Set<BlogResource>().Add(new BlogResource { Name = "Email_SSL", Value = "true" });
+            context.Set<BlogResource>().Add(new BlogResource { Name = "Email_SSL", Value = "false" });
+            context.Set<BlogResource>().Add(new BlogResource { Name = "Send_Mail_When_Comment_Received", Value = "false" });
             context.Set<BlogResource>().Add(new BlogResource { Name = "Tags_Number_of_Tags_per_Page", Value = "10" });
             context.Set<BlogResource>().Add(new BlogResource { Name = "ThumbnailHeight", Value = "150" });
             context.Set<BlogResource>().Add(new BlogResource { Name = "ThumbnailWidth", Value = "200" });

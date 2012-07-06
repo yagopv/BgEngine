@@ -30,6 +30,7 @@ using BgEngine.Application.Services;
 using BgEngine.Application.ResourceConfiguration;
 using BgEngine.Web.ViewModels;
 using Joel.Net;
+using BgEngine.Web.Helpers;
 
 namespace BgEngine.Controllers
 {
@@ -263,6 +264,22 @@ namespace BgEngine.Controllers
                     if (TryValidateModel(user))
                     {
                         BlogServices.CreateComment(comment, null);
+                        if (BgResources.Send_Mail_When_Comment_Received)
+                        {
+                            Utilities.SendMail(BgResources.Email_UserName,
+                           String.Format(Resources.AppMessages.Comment_Received, Request.UrlReferrer.AbsoluteUri),
+                           "<h2>" + Resources.AppMessages.User + "</h2>" +
+                           "<p>" + comment.AnonymousUser.Username + "</p>" +
+                           "<p>" + comment.AnonymousUser.Email + "</p>" +
+                           "<p>" + comment.AnonymousUser.Web + "</p>" +
+                           "<p>" + comment.Ip + "</p>" +
+                           "<p>" + comment.UserAgent + "</p>" +
+                           "<p>" + (comment.IsSpam ? Resources.AppMessages.MarkedAsSpam : Resources.AppMessages.MarkedAsHam) + "</p>" +
+                           "<p>" + Request.UrlReferrer.AbsoluteUri + "</p>" +
+                           "<h2>" + Resources.AppMessages.Comment_Message + "</h2>" +
+                           "<div>" + comment.Message + "</div>", true); 
+                        }
+
                         if (comment.IsSpam)
                         {
                             return Json(new { result = "warnings", warnings = new KeyValuePair<string, string>("spamdetected", Resources.AppMessages.SpamDetected) });
@@ -279,7 +296,21 @@ namespace BgEngine.Controllers
                 }
                 else
                 {
-                    BlogServices.CreateComment(comment, UserServices.FindEntityByIdentity(CodeFirstSecurity.CurrentUserId));
+                    User user = UserServices.FindEntityByIdentity(CodeFirstSecurity.CurrentUserId);
+                    BlogServices.CreateComment(comment, user);
+                    if (BgResources.Send_Mail_When_Comment_Received)
+                    {
+                        Utilities.SendMail(BgResources.Email_UserName,
+                            String.Format(Resources.AppMessages.Comment_Received, Request.UrlReferrer.AbsoluteUri),
+                            "<h2>" + Resources.AppMessages.User + "</h2>" +
+                            "<p>" + user.Username + "</p>" +
+                            "<p>" + user.Email + "</p>" +
+                            "<p>" + comment.UserAgent + "</p>" +
+                            "<p>" + Request.UrlReferrer.AbsoluteUri + "</p>" +
+                            "<h2>" + Resources.AppMessages.Comment_Message + "</h2>" +
+                            "<div>" + comment.Message + "</div>", true); 
+                    }
+
                     if (comment.IsSpam)
                     {
                         return Json(new { result = "warnings", warnings = new KeyValuePair<string, string>("spamdetected", Resources.AppMessages.SpamDetected) });
@@ -330,6 +361,21 @@ namespace BgEngine.Controllers
                     if (TryValidateModel(user))
                     {
                         BlogServices.AddRelatedComment(comment, parent, null);
+                        if (BgResources.Send_Mail_When_Comment_Received)
+                        {
+                            Utilities.SendMail(BgResources.Email_UserName,
+                           String.Format(Resources.AppMessages.Comment_Received, Request.UrlReferrer.AbsoluteUri),
+                           "<h2>" + Resources.AppMessages.User + "</h2>" +
+                           "<p>" + comment.AnonymousUser.Username + "</p>" +
+                           "<p>" + comment.AnonymousUser.Email + "</p>" +
+                           "<p>" + comment.AnonymousUser.Web + "</p>" +
+                           "<p>" + comment.Ip + "</p>" +
+                           "<p>" + comment.UserAgent + "</p>" +
+                           "<p>" + (comment.IsSpam ? Resources.AppMessages.MarkedAsSpam : Resources.AppMessages.MarkedAsHam) + "</p>" +
+                           "<p>" + Request.UrlReferrer.AbsoluteUri + "</p>" +
+                           "<h2>" + Resources.AppMessages.Comment_Message + "</h2>" +
+                           "<div>" + comment.Message + "</div>", true); 
+                        }
                         if (comment.IsSpam)
                         {
                             return Json(new { result = "warnings", warnings = new KeyValuePair<string, string>("spamdetected", Resources.AppMessages.SpamDetected) });
@@ -346,7 +392,20 @@ namespace BgEngine.Controllers
                 }
                 else
                 {
-                    BlogServices.AddRelatedComment(comment, parent, UserServices.FindEntityByIdentity(CodeFirstSecurity.CurrentUserId));
+                    User user = UserServices.FindEntityByIdentity(CodeFirstSecurity.CurrentUserId);
+                    BlogServices.AddRelatedComment(comment, parent, user);
+                    if (BgResources.Send_Mail_When_Comment_Received)
+                    {
+                        Utilities.SendMail(BgResources.Email_UserName,
+                       String.Format(Resources.AppMessages.Comment_Received, Request.Url.AbsoluteUri),
+                       "<h2>" + Resources.AppMessages.User + "</h2>" +
+                       "<p>" + user.Username + "</p>" +
+                       "<p>" + user.Email + "</p>" +
+                       "<p>" + comment.UserAgent + "</p>" +
+                       "<p>" + Request.Url.AbsoluteUri + "</p>" +
+                       "<h2>" + Resources.AppMessages.Comment_Message + "</h2>" +
+                       "<div>" + comment.Message + "</div>", true);  
+                    }                   
                     if (comment.IsSpam)
                     {
                         return Json(new { result = "warnings", warnings = new KeyValuePair<string, string>("spamdetected", Resources.AppMessages.SpamDetected) });

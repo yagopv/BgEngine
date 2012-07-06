@@ -90,7 +90,7 @@
 					</div>
 			   </td>
 			  </tr>
-			    <tr>
+			  <tr>
 				 <td>
 					<div class="editor-label">
 						<strong>@Html.LabelFor(model => model.Email_SSL)</strong>
@@ -100,6 +100,19 @@
 					<div class="editor-field">
 						@Html.EditorFor(model => model.Email_SSL)
 						@Html.ValidationMessageFor(model => model.Email_SSL)
+					</div>
+			   </td>
+			</tr>
+			  <tr>
+				 <td>
+					<div class="editor-label">
+						<strong>@Html.LabelFor(model => model.Send_Mail_When_Comment_Received)</strong>
+					</div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Send_Mail_When_Comment_Received)
+						@Html.ValidationMessageFor(model => model.Send_Mail_When_Comment_Received)
 					</div>
 			   </td>
 			</tr>

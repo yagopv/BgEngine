@@ -49,6 +49,10 @@ namespace BgEngine.Web.ViewModels
         [Display(ResourceType = typeof(Resources.AppMessages), Name = "Config_SSL")]
         public bool Email_SSL {get; set;}
 
+        [Required]
+        [Display(ResourceType = typeof(Resources.AppMessages), Name = "Send_Mail_When_Comment_Received")]
+        public bool Send_Mail_When_Comment_Received { get; set; }
+
         [Display(ResourceType = typeof(Resources.AppMessages), Name = "Config_PostPerPage", Prompt = "Config_PostPerPagePrompt")]
         public string Pager_PostPerPage { get; set; }
 

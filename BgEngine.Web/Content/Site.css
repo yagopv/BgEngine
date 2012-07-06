@@ -306,7 +306,7 @@ body .galleria-thumbnails .galleria-image { width:150px }
 
 /* Checkbox multiselect styles */
 .multiselect { width: 80%; }
-.multiselect-check { float:left; margin-left: 10px; min-width: 225px; min-height:30px; }
+.multiselect-check { float:left; margin-left: 10px; min-width: 268px; min-height:30px; }
 #options-container .multiselect { width:100%; }
 #options-container .multiselect-check { min-width: 265px; }
 

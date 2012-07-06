@@ -1284,4 +1284,16 @@
   <data name="Akismet_API_key" xml:space="preserve">
     <value>Akismet Api Key</value>
   </data>
+  <data name="Send_Mail_When_Comment_Received" xml:space="preserve">
+    <value>¿Enviar un mail cuando se recibe un comentario?</value>
+  </data>
+  <data name="Comment_Received" xml:space="preserve">
+    <value>Recibido comentario en {0}</value>
+  </data>
+  <data name="MarkedAsHam" xml:space="preserve">
+    <value>Marcado como válido</value>
+  </data>
+  <data name="MarkedAsSpam" xml:space="preserve">
+    <value>Marcado como spam. Pendiente de aprobación</value>
+  </data>
 </root>
