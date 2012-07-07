@@ -159,6 +159,7 @@ body .ui-tooltip { max-width: 400px; }
 .post { display:none; width:100%; }
 .postitem { display:inline; text-align:left; font-style: italic; }
 .postitem-image { position:relative; top:2px; left: 2px; }
+img { border: 0; } 
 
 /* Pager styles */
 .PagedList-pager > ul{ display: block; margin: 0; padding: 0; list-style: none; }

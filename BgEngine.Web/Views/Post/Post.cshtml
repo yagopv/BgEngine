@@ -89,12 +89,9 @@
                     <em>@Html.Raw(Model.Description.Replace(Environment.NewLine, "<br/>"))</em>
                 </div>
             </div>
-            <div class="ui-helper-reset-float">
-                @Html.Partial("_informationButtons", Model)
-            </div>
             <div class="ui-helper-reset-float ui-helper-margin">
                 <div class="rateit bigstars ui-helper-arrange-rateit-stars" data-rateit-min="0" data-rateit-max="10"
-                    data-rateit-starwidth="32" data-rateit-starheight="32">
+                    data-rateit-starwidth="32" data-rateit-starheight="32" data-rateit-resetable="false">
                 </div>                    
                 <img id="rateit-loading" src="@Url.Content("~/Content/Icons/ajax-loader-b.gif")" class="ui-helper-arrange-rateit-loading ui-helper-hidden" />
                 <div id="rateit-vote" class="ui-widget ui-widget-header ui-state-default ui-helper-padding ui-corner-all ui-helper-float-left ui-helper-arrange-rateit-rating ui-helper-relative">

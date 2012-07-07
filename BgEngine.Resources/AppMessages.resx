@@ -1066,7 +1066,7 @@
     <value>Configuración de la cuenta de Recaptcha</value>
   </data>
   <data name="Config_Security" xml:space="preserve">
-    <value>Security configuration</value>
+    <value>Configuración de la seguridad</value>
   </data>
   <data name="Config_Themes" xml:space="preserve">
     <value>Temas</value>

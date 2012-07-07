@@ -163,7 +163,7 @@
     <value>Comment</value>
   </data>
   <data name="Comments_Authenticathed" xml:space="preserve">
-    <value>You must be authenticathed in order to write comments</value>
+    <value>You must be authenticated in order to write comments</value>
   </data>
   <data name="Comments_InitSession" xml:space="preserve">
     <value>Start session</value>
@@ -568,7 +568,7 @@
     <value>Modify the appearance of the site</value>
   </data>
   <data name="LogOn_Forget" xml:space="preserve">
-    <value>Do you have forgotten your data?</value>
+    <value>Forgot your password?</value>
   </data>
   <data name="LogOn_IntroKey" xml:space="preserve">
     <value>Fill in your account information to access</value>

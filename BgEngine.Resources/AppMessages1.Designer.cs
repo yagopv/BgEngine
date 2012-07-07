@@ -961,7 +961,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Security configuration.
+        ///   Looks up a localized string similar to Configuración de la seguridad.
         /// </summary>
         public static string Config_Security {
             get {
