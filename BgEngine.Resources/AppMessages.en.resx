@@ -838,10 +838,10 @@
     <value>Error saving changes. Try again later ...</value>
   </data>
   <data name="Video_RemeberSize_Text" xml:space="preserve">
-    <value>If you can see the video and clicks into the container means that you entered the data correctly. If not, correct them because it will not be displayed if you save it</value>
+    <value>If you can see the video and click into the container means that you entered the data correctly. If not, correct them because it will not be displayed</value>
   </data>
   <data name="Video_RemeberSize_Tip" xml:space="preserve">
-    <value>If you enter HTML code yourself remember that the measurements of the videos have to be, width = 200px height = 300px and</value>
+    <value>If you enter HTML code yourself remember that the measurements of the videos have to be, width = 250px height = 160px</value>
   </data>
   <data name="Video_IsPublic" xml:space="preserve">
     <value>Is it Public?</value>
