@@ -69,7 +69,7 @@
       <HintPath>..\packages\DotNetZip.1.9.1.8\lib\net20\Ionic.Zip.dll</HintPath>
     </Reference>
     <Reference Include="Joel.Net.Akismet">
-      <HintPath>C:\Users\Yawette\Downloads\Joel.Net.Akismet.1.0.1\bin\Release\Joel.Net.Akismet.dll</HintPath>
+      <HintPath>C:\Users\Yawette\Downloads\Joel.Net.Akismet.1.0.1\bin\Debug\Joel.Net.Akismet.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>

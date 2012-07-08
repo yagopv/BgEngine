@@ -119,7 +119,6 @@ namespace BgEngine.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-                video.VideoType = video.VideoType;
 				MediaServices.CreateVideo(video,selectedtags);
 				return RedirectToAction("Index");  				
 			}
@@ -156,7 +155,6 @@ namespace BgEngine.Controllers
 			{
 				try
 				{
-                    video.VideoType = video.VideoType;
 					MediaServices.UpdateVideo(videotoupdate, selectedtags);
 					return RedirectToAction("Index");
 				}

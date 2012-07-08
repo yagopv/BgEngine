@@ -117,7 +117,7 @@
 				</td>
 				<td>
 					<div class="editor-field target">
-						@Html.DropDownList(Resources.AppMessages.VideoType, new SelectList(Enum.GetNames(typeof(VideoType))))
+						@Html.DropDownList("VideoType", new SelectList(Enum.GetNames(typeof(VideoType))))
 						@Html.ValidationMessageFor(model => model.VideoType)
 					</div>
 				</td>
