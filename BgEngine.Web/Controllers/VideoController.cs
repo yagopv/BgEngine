@@ -114,10 +114,12 @@ namespace BgEngine.Controllers
 		[EnableCompression]
 		[ValidateAntiForgeryToken]
 		[HandleError(ExceptionType = typeof(HttpAntiForgeryException), View = "AntiForgeryError")]
+        [ValidateInput(false)]
 		public ActionResult Create(Video video, int[] selectedtags)
 		{
 			if (ModelState.IsValid)
 			{
+                video.VideoType = video.VideoType;
 				MediaServices.CreateVideo(video,selectedtags);
 				return RedirectToAction("Index");  				
 			}
@@ -146,6 +148,7 @@ namespace BgEngine.Controllers
 		[EnableCompression]
 		[ValidateAntiForgeryToken]
 		[HandleError(ExceptionType = typeof(HttpAntiForgeryException), View = "AntiForgeryError")]
+        [ValidateInput(false)]
 		public ActionResult Edit(Video video, int[] selectedtags)
 		{
 			Video videotoupdate =  VideoServices.FindAllEntities(v => v.VideoId == video.VideoId, null, "Tags").FirstOrDefault();
@@ -153,6 +156,7 @@ namespace BgEngine.Controllers
 			{
 				try
 				{
+                    video.VideoType = video.VideoType;
 					MediaServices.UpdateVideo(videotoupdate, selectedtags);
 					return RedirectToAction("Index");
 				}
