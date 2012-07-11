@@ -416,7 +416,6 @@ D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\dotless.Core.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\EcmaScript.NET.modified.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\Fasterflect.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\Ionic.Zip.dll
-D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\Joel.Net.Akismet.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\log4net.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\Microsoft.Web.Helpers.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\Mvc.Mailer.dll
@@ -441,7 +440,6 @@ D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\Combres.xml
 D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\Combres.Mvc.xml
 D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\Fasterflect.xml
 D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\Ionic.Zip.xml
-D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\Joel.Net.Akismet.pdb
 D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\log4net.xml
 D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\NotFoundMvc.pdb
 D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\PagedList.pdb
@@ -459,3 +457,5 @@ D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\en\BgEngine.Resources.resources.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Web\obj\Debug\BgEngine.Web.csprojResolveAssemblyReference.cache
 D:\Proyectos .NET\BgEngine\BgEngine.Web\obj\Debug\BgEngine.dll
 D:\Proyectos .NET\BgEngine\BgEngine.Web\obj\Debug\BgEngine.pdb
+D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\HtmlAgilityPack.dll
+D:\Proyectos .NET\BgEngine\BgEngine.Web\bin\HtmlAgilityPack.pdb

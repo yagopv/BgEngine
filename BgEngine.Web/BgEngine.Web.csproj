@@ -62,14 +62,12 @@
     <Reference Include="Fasterflect">
       <HintPath>..\packages\fasterflect.2.0.1\lib\net40\Fasterflect.dll</HintPath>
     </Reference>
-    <Reference Include="HtmlAgilityPack">
-      <HintPath>C:\Users\Yawette\Downloads\HtmlAgilityPack.dll</HintPath>
+    <Reference Include="HtmlAgilityPack, Version=1.4.5.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\HtmlAgilityPack.1.4.5\lib\Net40\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="Ionic.Zip">
       <HintPath>..\packages\DotNetZip.1.9.1.8\lib\net20\Ionic.Zip.dll</HintPath>
-    </Reference>
-    <Reference Include="Joel.Net.Akismet">
-      <HintPath>C:\Users\Yawette\Downloads\Joel.Net.Akismet.1.0.1\bin\Debug\Joel.Net.Akismet.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
@@ -133,6 +131,7 @@
   <ItemGroup>
     <Compile Include="Extensions\UrlHelperExtensions.cs" />
     <Compile Include="Filters\AkismetCheckAttribute.cs" />
+    <Compile Include="Helpers\Akismet.cs" />
     <Compile Include="Helpers\BlackListRepository.cs" />
     <Compile Include="Filters\EnableCompressionAttribute.cs" />
     <Compile Include="Filters\IPHostValidationAttribute.cs" />

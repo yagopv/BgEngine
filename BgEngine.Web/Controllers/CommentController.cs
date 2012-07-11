@@ -29,7 +29,6 @@ using BgEngine.Filters;
 using BgEngine.Application.Services;
 using BgEngine.Application.ResourceConfiguration;
 using BgEngine.Web.ViewModels;
-using Joel.Net;
 using BgEngine.Web.Helpers;
 
 namespace BgEngine.Controllers
