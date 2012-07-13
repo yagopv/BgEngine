@@ -1287,4 +1287,7 @@
   <data name="MarkedAsSpam" xml:space="preserve">
     <value>Marked as spam. Approval pending</value>
   </data>
+  <data name="VideoSearchBox" xml:space="preserve">
+    <value>Find videos ...</value>
+  </data>
 </root>
