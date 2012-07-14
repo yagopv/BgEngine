@@ -24,7 +24,7 @@ namespace System.Web.Helpers
 {
     public static class Html5VideoHelper
     {
-        public static MvcHtmlString Html5Video(this HtmlHelper html, string path, string width = "300", string height = "200", bool controls = false)
+        public static MvcHtmlString Html5Video(this HtmlHelper html, string path, string width = "", string height = "", bool controls = false)
         {
             TagBuilder videotag = new TagBuilder("video");
             videotag.MergeAttribute("src", path);

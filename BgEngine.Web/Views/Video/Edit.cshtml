@@ -129,30 +129,28 @@
 					</div>
 				</td>
 				<td>
-                    <h3>@Resources.AppMessages.Video_RemeberSize_Text</h3>
-                    <h5><em>@Resources.AppMessages.Video_RemeberSize_Tip</em></h5>
-					<div class="video-admin-container">
-				        @if (!String.IsNullOrEmpty(Model.Html))
-            {
-					        @Html.Raw(Model.Html)
-            }
-            else if (Model.VideoType == VideoType.Flash)
-            {
-					        @Video.Flash(path: Model.Path, width: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, height: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
-            }
-            else if (Model.VideoType == VideoType.MediaPlayer)
-            {
-					        @Video.MediaPlayer(path: Model.Path, width: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, height: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
-            }
-            else if (Model.VideoType == VideoType.Silverlight)
-            {
-					        @Video.Silverlight(path: Model.Path, width: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, height: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
-            }
-            else if (Model.VideoType == VideoType.Html5)
-            {
-                            @Html.Html5Video(Model.Path, BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight, true)
-            }						
-					</div>
+                    <div class="video-admin-container video-movie">
+				            @if (!String.IsNullOrEmpty(Model.Html))
+                            {
+					             @Html.Raw(Model.Html)
+                            }
+                            else if (Model.VideoType == VideoType.Flash)
+                            {
+					             @Video.Flash(path: Model.Path, width: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, height: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
+                            }
+                            else if (Model.VideoType == VideoType.MediaPlayer)
+                            {
+					             @Video.MediaPlayer(path: Model.Path, width: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, height: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
+                            }
+                            else if (Model.VideoType == VideoType.Silverlight)
+                            {
+					             @Video.Silverlight(path: Model.Path, width: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, height: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
+                            }
+                            else if (Model.VideoType == VideoType.Html5)
+                            {
+                                 @Html.Html5Video(Model.Path, BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight, true)
+                            }				
+                    </div>							
 				</td>
 			</tr>
 		</table>

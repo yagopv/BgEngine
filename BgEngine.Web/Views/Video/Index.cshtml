@@ -60,7 +60,7 @@
 		    <div id="elements" class="ui-helper-width-100pc bg-align-center">
 			    @foreach (var modelitem in Model)
 			    {
-				    <div class="video-container ui-widget ui-corner-all ui-state-default ui-helper-display-inline-block ui-helper-padding">
+				    <div class="video-container ui-widget ui-corner-all ui-state-default ui-helper-padding">
 					    <h2 class="video-header tooltip" title="@modelitem.Name">@(modelitem.Name.Length > 45 ? CustomHelper.TruncateString(modelitem.Name, 45).ToString() : modelitem.Name)</h2>
                         @if (String.IsNullOrEmpty(modelitem.Description))
                         { 
@@ -93,12 +93,12 @@
                   }
                   else if (modelitem.VideoType == VideoType.Html5)
                   {
-							    @Html.Html5Video(modelitem.Path, BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight);
+							    @Html.Html5Video(modelitem.Path);
                   }
               }
           }
 					    </div>
-					    <div class="video-footer ui-helper-width-100% ui-helper-relative">
+					    <div class="video-footer ui-helper-width-100% ui-helper-relative">                            
 						    @Html.RouteLink(Resources.AppMessages.Edit, "Default", new { controller = "Video", action = "Edit", id = modelitem.VideoId }, new { @class = "tooltip video-edit ui-icon ui-icon-pencil", title = Resources.AppMessages.Edit })
 						    @Html.RouteLink(Resources.AppMessages.Delete, "Default", new { controller = "Video", action = "Details", id = modelitem.VideoId }, new { id = modelitem.VideoId, @class = "tooltip video-details ui-icon ui-icon-zoomin", title = Resources.AppMessages.Detail })
 						    @Html.RouteLink(Resources.AppMessages.Delete, "Default", new { controller = "Video", action = "Delete", id = modelitem.VideoId }, new { id = modelitem.VideoId, @class = "tooltip video-delete ui-icon ui-icon-trash", title = Resources.AppMessages.Delete })
