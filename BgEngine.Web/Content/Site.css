@@ -403,3 +403,9 @@ video {	max-width: 100%; height: auto; }
     #public-videos #elements .video-container { width: 43% }  
     #home-videos #elements .video-container { width:40%;} 
 }
+
+@media only screen and (max-width: 460px) 
+{
+    #home-videos #elements .video-container { width:90%;} 
+    #public-videos #elements .video-container { width: 90%; }  
+}
