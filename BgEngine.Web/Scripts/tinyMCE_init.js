@@ -39,7 +39,7 @@ $(document).ready(function() {
 		theme_advanced_toolbar_align : "left",
 		theme_advanced_statusbar_location : "bottom",
 		theme_advanced_resizing : true,
-
+		apply_source_formatting: false, 
 		remove_linebreaks : false,
 		extended_valid_elements: "pre[cols|rows|disabled|name|readonly|class],script[charset|defer|language|src|type]",
 		// Example content CSS (should be your site CSS)
