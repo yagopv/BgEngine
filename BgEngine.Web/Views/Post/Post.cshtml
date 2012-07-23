@@ -89,6 +89,36 @@
                     <em>@Html.Raw(Model.Description.Replace(Environment.NewLine, "<br/>"))</em>
                 </div>
             </div>
+            <div id="post-content" class="ui-helper-reset-float ui-helper-margin reset-bold">
+                  @{                   
+                      string text = null;
+                      HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+                      if (!String.IsNullOrEmpty(Model.Text))
+                      {
+                          doc.LoadHtml(Model.Text);
+                          foreach (HtmlAgilityPack.HtmlNode node in doc.DocumentNode.SelectNodes("//p"))
+                          {
+                              foreach (var tag in Model.Tags)
+                              {
+                                  foreach (var child in node.ChildNodes)
+                                  {
+                                      if (child.Name == "#text")
+                                      {
+                                          child.InnerHtml = child.InnerHtml.Replace(tag.TagName, "<span data-tag>" + tag.TagName + "</span>");
+                                      }
+                                  }
+                              }
+                          }
+                          text = doc.DocumentNode.InnerHtml;
+                      }
+                      else
+                      {
+                          text = String.Empty;
+                      }
+                  }
+                  @Html.Raw(text)
+            </div>
+            @Html.Partial("_informationButtons", Model)
             <div class="ui-helper-reset-float ui-helper-margin">
                 <div class="rateit bigstars ui-helper-arrange-rateit-stars" data-rateit-min="0" data-rateit-max="10"
                     data-rateit-starwidth="32" data-rateit-starheight="32" data-rateit-resetable="false">
@@ -150,36 +180,6 @@
                     $('.rateit').rateit("readonly",true);
                 </script>                  
             }
-            <div id="post-content" class="ui-helper-reset-float ui-helper-margin reset-bold">
-                  @{                   
-                      string text = null;
-                      HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
-                      if (!String.IsNullOrEmpty(Model.Text))
-                      {
-                          doc.LoadHtml(Model.Text);
-                          foreach (HtmlAgilityPack.HtmlNode node in doc.DocumentNode.SelectNodes("//p"))
-                          {
-                              foreach (var tag in Model.Tags)
-                              {
-                                  foreach (var child in node.ChildNodes)
-                                  {
-                                      if (child.Name == "#text")
-                                      {
-                                          child.InnerHtml = child.InnerHtml.Replace(tag.TagName, "<span data-tag>" + tag.TagName + "</span>");
-                                      }
-                                  }
-                              }
-                          }
-                          text = doc.DocumentNode.InnerHtml;
-                      }
-                      else
-                      {
-                          text = String.Empty;
-                      }
-                  }
-                  @Html.Raw(text)
-            </div>
-            @Html.Partial("_informationButtons", Model)
             <div class="ui-helper-reset-float ui-helper-margin">
                 <h3><strong>@Resources.AppMessages.Post_TaggedWith&nbsp&nbsp&nbsp&nbsp</strong></h3>
                 @foreach (var tag in Model.Tags)
