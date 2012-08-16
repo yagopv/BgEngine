@@ -224,6 +224,18 @@ namespace BgEngine.Application.Services
             }                                    
         }
         /// <summary>
+        /// Get Paged posts for newsletter
+        /// </summary>
+        /// <param name="ispremium"></param>
+        /// <param name="tag"></param>
+        /// <param name="pageindex">Index of the page to get</param>
+        /// <param name="pagecount">Number of Posts to get</param>
+        /// <returns>A Paged List of Posts</returns>
+        public IPagedList<Post> FindPagedPostsForNewsletter(int pageindex, int pagecount)
+        {            
+            return PostRepository.Get(null, o => o.OrderBy(p => p.DateCreated),null).ToPagedList(pageindex, Int32.Parse(BgResources.Pager_PostPerPage));
+        }
+        /// <summary>
         /// Saves a existing Comment in Database
         /// </summary>
         /// <param name="comment">Comment to save</param>

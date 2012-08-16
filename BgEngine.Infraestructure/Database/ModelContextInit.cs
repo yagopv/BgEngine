@@ -45,6 +45,7 @@ namespace BgEngine.Infraestructure.DatabaseInitialization
             // Create indexes
             context.Database.ExecuteSqlCommand("CREATE INDEX IDX_Posts_Code ON Posts (Code);");
             context.Database.ExecuteSqlCommand("CREATE INDEX IDX_Posts_DateCreated ON Posts (DateCreated DESC);");
+            context.Database.ExecuteSqlCommand("CREATE INDEX IDX_Subscriptions_SubscriberEmail ON Subscriptions (SubscriberEmail);");
 
             //Resources
             context.Set<BlogResource>().Add(new BlogResource { Name = "Admin_Role", Value="admin" });

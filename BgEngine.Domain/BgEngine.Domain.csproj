@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Repositories\INewsletterRepository.cs" />
+    <Compile Include="Contracts\Repositories\ISubscriptionRepository.cs" />
     <Compile Include="Contracts\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="Contracts\Validation\IEntityValidator.cs" />
     <Compile Include="EntityModel\Album.cs" />
@@ -54,14 +56,18 @@
     <Compile Include="EntityModel\Comment.cs" />
     <Compile Include="EntityModel\BlogResource.cs" />
     <Compile Include="EntityModel\Image.cs" />
+    <Compile Include="EntityModel\Newsletter.cs" />
+    <Compile Include="EntityModel\NewsletterTask.cs" />
     <Compile Include="EntityModel\Post.cs" />
     <Compile Include="EntityModel\PostByDate.cs" />
     <Compile Include="EntityModel\Rating.cs" />
     <Compile Include="EntityModel\Role.cs" />
+    <Compile Include="EntityModel\Subscription.cs" />
     <Compile Include="EntityModel\Tag.cs" />
     <Compile Include="EntityModel\User.cs" />
     <Compile Include="EntityModel\Video.cs" />
     <Compile Include="Contracts\Repositories\IAlbumRepository.cs" />
+    <Compile Include="Factories\SubscriptionFactory.cs" />
     <Compile Include="Types\OperationType.cs" />
     <Compile Include="Contracts\Repositories\ICategoryRepository.cs" />
     <Compile Include="Contracts\Repositories\ICommentRepository.cs" />
@@ -70,6 +76,7 @@
     <Compile Include="Contracts\Repositories\IPostRepository.cs" />
     <Compile Include="Contracts\Repositories\ITagRepository.cs" />
     <Compile Include="Contracts\Repositories\IVideoRepository.cs" />
+    <Compile Include="Types\SubscriptionType.cs" />
     <Compile Include="Types\VideoType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,0 +1,141 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model IEnumerable<BgEngine.Domain.EntityModel.Newsletter>
+
+@using Combres.Mvc;
+
+@{
+	Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+	ViewBag.Title = Resources.AppMessages.Newsletters + " - " + Resources.AppMessages.Index;
+	
+	WebGrid grid = new WebGrid(ajaxUpdateContainerId: "grid-container",rowsPerPage: Int32.Parse(ViewBag.RowsPerPage));
+	grid.Bind(Model, autoSortAndPage: false, rowCount: ViewBag.TotalCategories);
+
+}
+
+@Html.CombresLink("IndexViewsJs")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.index_startup('<h1>@Resources.AppMessages.Wait_Loading</h1>');
+        var $rowerror = $(".haserror").parent("td").parent("tr");
+        $rowerror.children().addClass("ui-state-error");
+        var $rowinprocess = $(".inprocess").parent("td").parent("tr");
+        $rowinprocess.children().addClass("ui-state-active");
+        $(".newsletter-start").click(function () {
+            $("#dialog-confirm").dialog({
+                resizable: false,
+                height: 210,
+                width: 400,
+                modal: true,
+                buttons: {
+                    "@Resources.AppMessages.Start": function () {
+                        $(".ui-dialog-buttonset button:first").hide("slow");
+                        $.get($(".newsletter-start").attr("href"), {}, function () { location.href = window.location; });
+                        $("#dialog-confirm div").toggle("drop");
+                        $(".ui-dialog-buttonset button").button("option", "label", "Close");
+                    },
+                    "@Resources.AppMessages.Cancel": function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+            return false;
+        });
+    });
+</script>
+
+
+<div class="ui-helper-margin-top-bottom">
+	<p>
+		@Html.RouteLink(Resources.AppMessages.Create, "Default", new { controller = "Newsletter", action = "Create" }, new {@class="bg-button-new" })
+		@if (Model.Any()) {
+			<a href="#" id="options" class="bg-button-gear">@Resources.AppMessages.Show_Hide_ColumnsFilters</a>	   
+		}    
+	</p>
+
+	@if (Model.Any())
+	{ 
+		<div id="options-container" class="ui-helper-hidden ui-helper-reset-float">
+			<div class="ui-helper-margin multiselect ui-helper-margin-top-bottom">
+				<div class="multiselect-check">
+					<input type="checkbox" id="checkbox-1" data-column="1" data-default="true" />
+					<span>@Resources.AppMessages.Name</span>
+				</div>            
+				<div class="multiselect-check">
+					<input type="checkbox" id="checkbox-2" data-column="2" data-default="true" />
+					<span>@Resources.AppMessages.HasPendingTasks</span>
+				</div>            
+				<div class="multiselect-check">
+					<input type="checkbox" id="checkbox-2" data-column="3" data-default="true" />
+					<span>@Resources.AppMessages.HasErrorTasks</span>
+				</div>            
+				<div class="multiselect-check">
+					<input type="checkbox" id="checkbox-2" data-column="4" />
+					<span>@Resources.AppMessages.InProcess</span>
+				</div>            
+				<div class="multiselect-check">
+					<input type="checkbox" id="checkbox-3" data-column="5" data-default="true" />
+					<span>@Resources.AppMessages.DateCreated</span>
+				</div>            
+			</div>            
+		</div>    
+
+		<div class="ui-helper-reset-float"></div>
+	
+		<div id="grid-container" class="ui-helper-margin-top-bottom ui-helper-clear-both">
+			@grid.GetHtml(htmlAttributes: new { @class = "ui-helper-width-100pc" }, columns: new[] {
+				grid.Column("Name", header: Resources.AppMessages.Name , canSort:true),
+				grid.Column("HasPendingTasks",header:Resources.AppMessages.HasPendingTasks, format:@<span class="@(item.HasPendingTasks ? "haspending" : "")">@(item.HasPendingTasks ? Resources.AppMessages.Yes : Resources.AppMessages.No)</span>, canSort:false),				
+                grid.Column("HasErrorTasks",header:Resources.AppMessages.HasErrorTasks, format:@<span class="@(item.HasErrorTasks ? "haserror" : "")">@(item.HasErrorTasks ? Resources.AppMessages.Yes : Resources.AppMessages.No)</span>, canSort:false),				
+                grid.Column("InProcess",header:Resources.AppMessages.InProcess, format:@<span class="@(item.InProcess ? "inprocess" : "")">@(item.InProcess ? Resources.AppMessages.Yes : Resources.AppMessages.No)</span>, canSort:false),				
+				grid.Column("DateCreated",header:Resources.AppMessages.DateCreated, canSort:true), 				
+				grid.Column("", header:Resources.AppMessages.Actions, 
+								format: @<span class="options">
+                                            @if (item.HasPendingTasks && !item.InProcess) { 
+                                                @Html.RouteLink(Resources.AppMessages.SendNewsletter, "Default", new { controller = "BackgroundWorker", action = "SendNewsletter", id = item.NewsletterId }, new { @class = "newsletter-start bg-button-mail-nt tooltip" })
+                                                @Html.ActionLink(Resources.AppMessages.Edit, "Edit", new { id = item.NewsletterId }, new { @class = "bg-button-grid-edit tooltip" })
+                                            }                                														
+											@Html.ActionLink(Resources.AppMessages.View_Detail, "Details", new { id = item.NewsletterId }, new { @class = "bg-button-grid-zoom tooltip" })
+											@Html.ActionLink(Resources.AppMessages.Delete, "Delete", new { id = item.NewsletterId }, new { @class = "bg-button-grid-delete tooltip" })
+										</span>,
+								canSort:false,
+								style: "ui-helper-minwidth")
+			}, mode: WebGridPagerModes.All)
+		</div>
+    }
+ else
+ {
+		<h2 class="ui-widget-content ui-state-highlight ui-corner-all ui-helper-padding">@Resources.AppMessages.Error_NoNewslettersFound</h2>
+ }
+</div>
+
+<div id="dialog-confirm" class="ui-helper-hidden" title="@Resources.AppMessages.Confirm_NewsletterSend_Title">
+	<div id="dialog-confirm-s1">
+        <h3><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>@Resources.AppMessages.Confirm_NewsletterSend_Text1</h3>
+        <p>@Resources.AppMessages.Confirm_NewsletterSend_Text2</p>    
+    </div>
+    <div id="dialog-confirm-s2" class="ui-helper-hidden">
+        <h3 class="ui-widget-ui-widget-content ui-helper-padding ui-state-highlight"><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>@Resources.AppMessages.Confirm_NewsletterSend_Text3</h3>        
+    </div>
+</div>
+
+	

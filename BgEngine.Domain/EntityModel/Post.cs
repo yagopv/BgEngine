@@ -171,6 +171,11 @@ namespace BgEngine.Domain.EntityModel
         public virtual ICollection<Rating> Ratings { get; set; }
 
         /// <summary>
+        /// Navigation property with related Subscriptions
+        /// </summary>
+        public virtual ICollection<Subscription> Subscriptions { get; set; }
+
+        /// <summary>
         /// Increase visit counter each time a Post is visited
         /// </summary>
         public void IncreaseVisitCounter()

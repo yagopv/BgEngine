@@ -178,6 +178,39 @@ namespace BgEngine.Infraestructure.UnitOfWork
             }
         }
 
+        IDbSet<Subscription> subscriptions;
+        public IDbSet<Subscription> Subscriptions
+        {
+            get
+            {
+                if (subscriptions == null)
+                    subscriptions = base.Set<Subscription>();
+                return subscriptions;
+            }
+        }
+
+        IDbSet<Newsletter> newsletters;
+        public IDbSet<Newsletter> Newsletters
+        {
+            get
+            {
+                if (newsletters == null)
+                    newsletters = base.Set<Newsletter>();
+                return newsletters;
+            }
+        }
+
+        IDbSet<NewsletterTask> newslettertasks;
+        public IDbSet<NewsletterTask> NewsletterTasks
+        {
+            get
+            {
+                if (newslettertasks == null)
+                    newslettertasks = base.Set<NewsletterTask>();
+                return newslettertasks;
+            }
+        }		
+
 		public new IDbSet<TEntity> Set<TEntity>() where TEntity : class 
 		{
 			return base.Set<TEntity>();
@@ -225,7 +258,11 @@ namespace BgEngine.Infraestructure.UnitOfWork
 			modelBuilder.Entity<Video>()
 					.PropertyString<Video>("Type");
 
+            modelBuilder.Entity<Subscription>()
+                    .PropertyString<Subscription>("Type");
+
             modelBuilder.Entity<Post>().Property(po => po.Text).IsMaxLength();
+            modelBuilder.Entity<Newsletter>().Property(nw => nw.Html).IsMaxLength();
 		}
 
 		public new void Dispose()

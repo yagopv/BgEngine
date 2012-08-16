@@ -20,17 +20,19 @@
 
 @model BgEngine.Domain.EntityModel.Category
 
+@using Combres.Mvc;
+
 @{
 	Layout = "~/Views/Shared/_Layout_Admin.cshtml";
 	ViewBag.Title = Resources.AppMessages.Category + " - " + Resources.AppMessages.Edit;
 }
 
-<script src="@Url.Content("~/Scripts/internal/bg.form.js")" type="text/javascript"></script>
-<script src="@Url.Content("~//Scripts/jquery.watermark.min.js")" type="text/javascript"></script>
+@Html.CombresLink("FormJs")
+
 <script type="text/javascript">
-	$(document).ready(function () {
-		$("form").form();
-	});
+    $(document).ready(function () {
+        $("form").form();
+    });
 </script>
 
 @using (Html.BeginForm()) {

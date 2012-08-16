@@ -46,5 +46,8 @@ namespace BgEngine.Infraestructure.UnitOfWork
         IDbSet<Rating> Ratings { get; }
         IDbSet<Video> Videos { get; }
         IDbSet<BlogResource> BlogResources { get; }
+        IDbSet<Subscription> Subscriptions { get; }
+        IDbSet<Newsletter> Newsletters { get; }
+        IDbSet<NewsletterTask> NewsletterTasks { get; }
     }
 }

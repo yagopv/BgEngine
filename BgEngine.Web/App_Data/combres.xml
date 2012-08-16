@@ -66,7 +66,7 @@
       <resource path="~/Scripts/jquery.unobtrusive-ajax.min.js" />
       <resource path="~/Scripts/internal/bg.configoptions.js" />
     </resourceSet>
-    
+
     <resourceSet name="GalleriaJs" type="js">
       <resource path="~/Scripts/galleria/galleria-1.2.7.min.js" />
     </resourceSet>
@@ -187,5 +187,10 @@
       <resource path="~/Scripts/jquery.validate.unobtrusive.min.js" />
       <resource path="~/Scripts/jquery.unobtrusive-ajax.min.js" />
     </resourceSet>
+
+    <resourceSet name="Grid" type="js">
+      <resource path="~/Scripts/internal/bg.grid.js" />
+    </resourceSet>
+    
   </resourceSets>
 </combres>

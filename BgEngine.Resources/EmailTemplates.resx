@@ -195,4 +195,43 @@
   <data name="RegisterMail_Subject" xml:space="preserve">
     <value>Confirmación de registro en {0}</value>
   </data>
+  <data name="SubscriptionMail_Subject" xml:space="preserve">
+    <value>Confirmación de subscripción al boletín de {0}</value>
+  </data>
+  <data name="SubscriptionMail_ConfirmationLink" xml:space="preserve">
+    <value>Confirma la subscripción manualmente</value>
+  </data>
+  <data name="SubscriptionMail_ConfirmationTokenMessage" xml:space="preserve">
+    <value>Si no puedes confirmar tu subscripción mediante el link proporcionado, puedes hacerlo manualmente en la siguiente dirección usando el código de confirmación que puedes ver un poco más arriba:</value>
+  </data>
+  <data name="SubscriptionMail_SubTitle" xml:space="preserve">
+    <value>ahora has de confirmar la subscripción al boletín pulsando en el link ...</value>
+  </data>
+  <data name="SubscriptionMail_Title" xml:space="preserve">
+    <value>Confirma la subscripción!</value>
+  </data>
+  <data name="SubscriptionMail_ToConfirm" xml:space="preserve">
+    <value>para confirmar la suscripción</value>
+  </data>
+  <data name="SubscriptionMail_WhySent" xml:space="preserve">
+    <value>Este mail se ha enviado a {0} porque has decidido crear una suscripción en {1}</value>
+  </data>
+  <data name="Newsletter_ClickToUnsubscribe" xml:space="preserve">
+    <value>Pulsa aquí para borrar tu suscripción</value>
+  </data>
+  <data name="Newsletter_ProblemReading" xml:space="preserve">
+    <value>¿Tienes problemas leyendo el mail?</value>
+  </data>
+  <data name="Newsletter_ShareOnTwitter" xml:space="preserve">
+    <value>Compartenos en Twitter</value>
+  </data>
+  <data name="Newsletter_Unsubscribe" xml:space="preserve">
+    <value>Borrar subscripción</value>
+  </data>
+  <data name="Newsletter_ViewInBrowser" xml:space="preserve">
+    <value>Visita la web</value>
+  </data>
+  <data name="Newsletter_WhyReceived" xml:space="preserve">
+    <value>Estás recibiendo este boletín porque te has suscrito para ello</value>
+  </data>
 </root>

@@ -22,6 +22,7 @@
     $.index_startup = function (text) {
         $("table").grid();
         $("th a").button({ icons: { primary: "ui-icon-triangle-2-n-s" }, text: true });
+        $("th a").live("click", function () { return false; });
         $("#grid-container").ajaxStart(function () {
             $("#grid-container").block({ css: {
                 border: 'none',
@@ -79,7 +80,8 @@
     };
 
     function ajaxconnect() {
-        $(".bg-button-grid-edit").button({ icons: { primary: "ui-icon-pencil" }, text: false });
+        $(".newsletter-start").button({ icons: { primary: "ui-icon-mail-closed" }, text: false });
+        $(".bg-button-grid-edit").button({ icons: { primary: "ui-icon-pencil" }, text: false });        
         $(".bg-button-grid-delete").button({ icons: { primary: "ui-icon-circle-close" }, text: false });
         $(".bg-button-grid-zoom").button({ icons: { primary: "ui-icon-zoomin" }, text: false });
         $("th a").button({ icons: { primary: "ui-icon-triangle-2-n-s" }, text: true });

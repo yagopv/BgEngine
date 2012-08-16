@@ -1,0 +1,106 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model BgEngine.Domain.EntityModel.Newsletter
+
+@{
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+	ViewBag.Title = "Details";
+    WebGrid grid = new WebGrid(Model.NewsletterTasks, rowsPerPage: 50);    
+}
+
+@using Combres.Mvc;
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var table = $("table");
+        table.addClass("ui-widget ui-widget-content ui-corner-all");
+        table.find("th").addClass("ui-widget-header bg-panel");
+        table.find("td").addClass("ui-widget-content");
+        table.find("td:last").css("min-width", "120px");
+        $("tfoot td").contents(":empty").each(function () {
+            var textnode = $(this);
+            if (textnode[0].wholeText != " ") {
+                $(this).wrap("<a></a>");
+            }
+        });
+        $("tfoot").buttonset();
+        $("tfoot a").each(function () {
+            var myHref = $(this).attr("href");
+            if (myHref == null) {
+                $(this).addClass("ui-state-disabled");
+            }
+
+        });
+    });
+</script>
+
+<fieldset class="ui-widget ui-widget-content ui-corner-all">
+	<legend class="bg-panel ui-widget-header ui-corner-all">@String.Format(Resources.AppMessages.Localization_Detail,Model.Name)</legend>
+	<table class="table-template">
+		<tr>
+			<td>
+				<div class="display-label">
+					@Html.LabelFor(model=>model.Name)
+				</div>
+			</td>
+			<td>
+				<div class="display-field">
+					@Html.DisplayFor(model => model.Name)
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="display-label">
+                    @Html.LabelFor(model=>model.DateCreated)
+                </div>
+			</td>
+			<td>
+				<div class="display-field">
+					<p class="ui-helper-text-format">@Html.DisplayFor(model => model.DateCreated)</p>	
+				</div>
+			</td>
+		</tr>
+	</table>
+    <h3>@Resources.AppMessages.Tasks</h3>
+    @if (Model.NewsletterTasks.Any())
+    { 
+	    <div id="grid-container" class="ui-helper-margin-top-bottom ui-helper-clear-both">
+		    @grid.GetHtml(htmlAttributes: new { @class = "ui-helper-width-100pc" }, columns: new[] {
+			    grid.Column("Subscription.SubscriberName", header: Resources.AppMessages.Name, canSort:false),
+			    grid.Column("Subscription.SubscriberEmail",header:Resources.AppMessages.User_Mail, canSort: false),				
+                grid.Column("Log",header:"Log", canSort: false)
+		    }, mode: WebGridPagerModes.All)
+	    </div>    
+    }
+    else
+    {
+        <h2 class="ui-widget-content ui-state-highlight ui-corner-all ui-helper-padding">@Resources.AppMessages.Error_NoTasksFound</h2> 
+    }
+    <h3 class="ui-helper-margin-top-bottom">@Resources.AppMessages.Newsletters</h3>
+    <iframe src="@Url.RouteUrl("Default", new { controller="Newsletter", action="GetNewsletter", id=Model.NewsletterId })" width="100%" height="700px">        
+    </iframe>
+	<p>
+		@Html.ActionLink(Resources.AppMessages.Edit, "Edit", new { id = Model.NewsletterId }, new { @class = "bg-button-edit" })
+		@Html.RouteLink(Resources.AppMessages.Back_to_List, new { controller = "Newsletter", action = "Index" }, new { @class = "bg-button-back" })
+	</p>
+
+</fieldset>

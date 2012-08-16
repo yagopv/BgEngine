@@ -21,6 +21,8 @@
 using System.Net.Mail;
 
 using BgEngine.Domain.EntityModel;
+using BgEngine.Application.DTO;
+using System.Collections.Generic;
 
 namespace BgEngine.Web.Mailers
 { 
@@ -29,5 +31,7 @@ namespace BgEngine.Web.Mailers
 				
         MailMessage PasswordReset(string token, User user);
 		MailMessage Register(string token, string to, User user);
+        MailMessage ConfirmSubscription(string token, string to, SubscriptionDTO subscriptionDTO);
+        MailMessage GetNewsletterHtml(List<Post> newsletterPosts, string newslettername);
 	}
 }

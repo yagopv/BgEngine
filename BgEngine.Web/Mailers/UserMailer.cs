@@ -18,12 +18,20 @@
 // Version: 1.0
 //==============================================================================
 
-using System.Net.Mail;
 using System;
+using System.Net.Mail;
+using System.Collections.Generic;
 
 using Mvc.Mailer;
+
 using BgEngine.Domain.EntityModel;
 using BgEngine.Application.ResourceConfiguration;
+using BgEngine.Application.DTO;
+using BgEngine.Extensions;
+using BgEngine.Application.Services;
+using System.Linq;
+
+
 
 namespace BgEngine.Web.Mailers
 { 
@@ -57,6 +65,28 @@ namespace BgEngine.Web.Mailers
             mailMessage.To.Add(to);
             mailMessage.From = new MailAddress(BgResources.Email_UserName);
             PopulateBody(mailMessage, viewName: "Register");
+            return mailMessage;
+        }
+
+        public virtual MailMessage ConfirmSubscription(string token, string to, SubscriptionDTO subscriptionDTO)
+        {
+            var mailMessage = new MailMessage { Subject = String.Format(Resources.EmailTemplates.SubscriptionMail_Subject, BgResources.Messages_SiteTitle) };
+            ViewBag.Token = token;
+            ViewBag.Name = subscriptionDTO.SubscriberName;
+            ViewBag.Email = subscriptionDTO.SubscriberEmail;
+            mailMessage.To.Add(to);
+            mailMessage.From = new MailAddress(BgResources.Email_UserName);
+            PopulateBody(mailMessage, viewName: "ConfirmSubscription");
+            return mailMessage;
+        }
+
+        public virtual MailMessage GetNewsletterHtml(List<Post> newsletterPosts, string newslettername)
+        {
+            MasterName = "_Layout_Newsletter";
+            var mailMessage = new MailMessage();
+            ViewBag.Posts = newsletterPosts;
+            ViewBag.Newsletter = newslettername;
+            PopulateBody(mailMessage, viewName: "Newsletter");
             return mailMessage;
         }
     }

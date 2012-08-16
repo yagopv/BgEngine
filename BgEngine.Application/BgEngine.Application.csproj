@@ -54,6 +54,7 @@
     <Compile Include="DTO\ConfigOptionsDTO.cs" />
     <Compile Include="DTO\StringValueDTO.cs" />
     <Compile Include="DTO\ImageDTO.cs" />
+    <Compile Include="DTO\SubscriptionDTO.cs" />
     <Compile Include="Resource Config\BgResources.cs" />
     <Compile Include="Resource Config\BlogResourceServices.cs" />
     <Compile Include="Resource Config\IBlogResourceServices.cs" />
@@ -63,21 +64,21 @@
     <Compile Include="Services\IAccountServices.cs" />
     <Compile Include="Services\IMediaServices.cs" />
     <Compile Include="Services\IBlogServices.cs" />
+    <Compile Include="Services\INewsletterServices.cs" />
     <Compile Include="Services\IService.cs" />
     <Compile Include="Services\IStatsServices.cs" />
+    <Compile Include="Services\ISubscriptionServices.cs" />
     <Compile Include="Services\MediaServices.cs" />
+    <Compile Include="Services\NewsletterServices.cs" />
     <Compile Include="Services\Service.cs" />
     <Compile Include="DTO\StatsDTO.cs" />
     <Compile Include="Services\StatsServices.cs" />
+    <Compile Include="Services\SubscriptionServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BgEngine.Domain\BgEngine.Domain.csproj">
       <Project>{5D0827AB-F93D-4CB0-BF47-062A39AEFDF6}</Project>
       <Name>BgEngine.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BgEngine.Infraestructure\BgEngine.Infraestructure.csproj">
-      <Project>{C384ED72-35AE-47C8-84C9-F38454475313}</Project>
-      <Name>BgEngine.Infraestructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\BgEngine.Resources\BgEngine.Resources.csproj">
       <Project>{3BB0C361-BE7E-483E-9A4B-38545371F630}</Project>

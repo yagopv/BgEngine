@@ -100,6 +100,7 @@ namespace BgEngine.Domain.EntityModel
         /// The Type of the Video. Can be Flash, HTML5, ...
         /// </summary>
 		[Required]
+        [StringLength(20, ErrorMessageResourceType = typeof(Resources.AppMessages), ErrorMessageResourceName = "ErrorLenght")]
 		[Display(ResourceType = typeof(Resources.AppMessages), Name = "Video_Type")]
 		string Type { get; set; }
 

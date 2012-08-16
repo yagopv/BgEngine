@@ -82,11 +82,12 @@
     <div id="categories" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>
     <div id="archive" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>
     <div id="tagcloud" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>
-    <div id="sidebar-stats" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>
+    <div id="sidebar-stats" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>    
+    @Html.Action("SubscribeToNewsletter", new { controller="Subscription" })
     @CustomHelper.GetSidebarStatsAsync(Url.Action("SidebarStats", "Stats"))
     @CustomHelper.GetCategoryListAsync(Url.Action("CategoryList", "Category"))
     @CustomHelper.GetArchiveListAsync(Url.Action("ArchiveList", "Post"))
-    @CustomHelper.GetTagCloudListAsync(Url.Action("TagCloud", "Tag"))    
+    @CustomHelper.GetTagCloudListAsync(Url.Action("TagCloud", "Tag"))
     @CustomHelper.RenderTwitterWidgets(BgEngine.Application.ResourceConfiguration.BgResources.Twitter_User, BgEngine.Application.ResourceConfiguration.BgResources.Twitter_Search_Query, Resources.AppMessages.Tweets_Us, BgEngine.Application.ResourceConfiguration.BgResources.Twitter_Search_Query)
 }
 

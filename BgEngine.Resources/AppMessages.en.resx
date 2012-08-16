@@ -1290,4 +1290,127 @@
   <data name="VideoSearchBox" xml:space="preserve">
     <value>Find videos ...</value>
   </data>
+  <data name="Subscribe" xml:space="preserve">
+    <value>Subscribe and receive latest posts</value>
+  </data>
+  <data name="Subscribe_Submit" xml:space="preserve">
+    <value>Subscribe now!!</value>
+  </data>
+  <data name="Subscriber_Email_Prompt" xml:space="preserve">
+    <value>Subscriber´s mail</value>
+  </data>
+  <data name="Subscription_Exists" xml:space="preserve">
+    <value>A subscription with this mail already exists</value>
+  </data>
+  <data name="Subscription_Newsletter_ConfirmationMail_Sent" xml:space="preserve">
+    <value>A mail was sent to {0}. Please follow the instructions in that mail</value>
+  </data>
+  <data name="ConfirmSubscription_NotExists" xml:space="preserve">
+    <value>The subscription you are trying to confirm does not exist</value>
+  </data>
+  <data name="ConfirmSubscription_Succesfull" xml:space="preserve">
+    <value>The subscription process finished succesfully</value>
+  </data>
+  <data name="ConfirmSubscription_Message" xml:space="preserve">
+    <value>Thanks for subscribe. Now you are ready for receiving our newsletter</value>
+  </data>
+  <data name="Home_Admin_Subscribers" xml:space="preserve">
+    <value>Subscribers</value>
+  </data>
+  <data name="IsConfirmed" xml:space="preserve">
+    <value>Confirmed?</value>
+  </data>
+  <data name="Subscribers" xml:space="preserve">
+    <value>Subscribers</value>
+  </data>
+  <data name="Subscription_Type" xml:space="preserve">
+    <value>Subscription type</value>
+  </data>
+  <data name="Error_NoSubscriptionsFound" xml:space="preserve">
+    <value>No subscriptions found</value>
+  </data>
+  <data name="Localization_Create_Subscription" xml:space="preserve">
+    <value>Complete data for the new Subscription</value>
+  </data>
+  <data name="ConfirmSubscription_Thanks" xml:space="preserve">
+    <value>Thaks for subscribe our newsletter. Now, you´ll start receiving mails with latest news in the blog</value>
+  </data>
+  <data name="Subscribe_Authenticated" xml:space="preserve">
+    <value>Hi {0}!!, if you want to subscribe to our newsletter click in the following button</value>
+  </data>
+  <data name="Subscription_Subscribername_Prompt" xml:space="preserve">
+    <value>Subscriber´s name</value>
+  </data>
+  <data name="Generate_Newsletter" xml:space="preserve">
+    <value>Create new Newsletter</value>
+  </data>
+  <data name="Could_not_load_content" xml:space="preserve">
+    <value>Couldn't load content</value>
+  </data>
+  <data name="Create_Newsletter" xml:space="preserve">
+    <value>Create newsletter</value>
+  </data>
+  <data name="Newsletters" xml:space="preserve">
+    <value>Newsletters</value>
+  </data>
+  <data name="Home_Admin_Newsletters" xml:space="preserve">
+    <value>Newsletters</value>
+  </data>
+  <data name="HasPendingTasks" xml:space="preserve">
+    <value>Pending Tasks?</value>
+  </data>
+  <data name="NoPostsSelected" xml:space="preserve">
+    <value>No posts selected. Please choose any of them to create the Newsletter</value>
+  </data>
+  <data name="RequiredFields" xml:space="preserve">
+    <value>There are empty required fields</value>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="Error_NoNewslettersFound" xml:space="preserve">
+    <value>No newsletters found</value>
+  </data>
+  <data name="SendNewsletter" xml:space="preserve">
+    <value>Send newsletter to subscribers</value>
+  </data>
+  <data name="Error_NoTasksFound" xml:space="preserve">
+    <value>No pending tasks found</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Confirm_NewsletterSend_Text1" xml:space="preserve">
+    <value>You are going to send the newsletter to all the subscribers. Are you sure?</value>
+  </data>
+  <data name="Confirm_NewsletterSend_Text2" xml:space="preserve">
+    <value>The process will start when you press start button</value>
+  </data>
+  <data name="Confirm_NewsletterSend_Title" xml:space="preserve">
+    <value>Send Newsletter?</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Confirm_NewsletterSend_Text3" xml:space="preserve">
+    <value>The process has started sending mails to subscribers</value>
+  </data>
+  <data name="HasErrorTasks" xml:space="preserve">
+    <value>Has error tasks?</value>
+  </data>
+  <data name="InProcess" xml:space="preserve">
+    <value>Newsletter in process?</value>
+  </data>
+  <data name="InProcess_Prompt" xml:space="preserve">
+    <value>Newsletter in process</value>
+  </data>
+  <data name="Unsubscribe" xml:space="preserve">
+    <value>Unsubscribe</value>
+  </data>
+  <data name="UnsubscribeText" xml:space="preserve">
+    <value>Enter your email for unsubscribe</value>
+  </data>
+  <data name="Unsubscribe_NotExist" xml:space="preserve">
+    <value>There is no subscription with the mail you entered</value>
+  </data>
 </root>

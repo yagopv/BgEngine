@@ -83,6 +83,7 @@ namespace BgEngine.Domain.EntityModel
         /// <summary>
         /// A confirmation token for creating the Account
         /// </summary>
+        [StringLength(100, ErrorMessageResourceType = typeof(Resources.AppMessages), ErrorMessageResourceName = "ErrorLenght")]
         public string ConfirmationToken { get; set; }
 
         /// <summary>

@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\ModelContextInit.cs" />
+    <Compile Include="Repositories\NewsletterRepository.cs" />
     <Compile Include="UnitOfWork\IBlogUnitOfWork.cs" />
     <Compile Include="EFExtensions\EntityTypeConfigurationExtensions.cs" />
     <Compile Include="UnitOfWork\IQueryableUnitOfWork.cs" />

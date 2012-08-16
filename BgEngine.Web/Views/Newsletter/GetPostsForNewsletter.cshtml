@@ -1,0 +1,55 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model IEnumerable<BgEngine.Domain.EntityModel.Post>
+
+@using PagedList.Mvc;
+@using PagedList;
+@using Combres.Mvc;
+@using BgEngine.Extensions;
+
+<div id="newsletter_content">
+	<div id="list" class="ui-helper-width-100pc ui-helper-float-left">
+		<ul>
+		@foreach (var post in Model)
+		{
+			<li id="newsletter" class="ui-widget ui-widget-content ui-corner-all ui-state-highlight ui-helper-margin-top-bottom ui-helper-padding">           
+                <div class="newsletter-check ui-helper-float-left ui-helper-width-10pc">
+                    @Html.CheckBox("newsletter_post_checkbox",false, new { id = post.PostId })                    
+                </div>
+                <div class="newsletter-content ui-helper-float-left ui-helper-width-90pc">
+                    <h3>@Html.DisplayFor(p => post.Title)</h3>
+			        <p class="ui-helper-reset-float">@Html.DisplayFor(p => post.Description)</p>
+                </div>       
+                <div class="ui-helper-reset-float"></div>         
+			</li>
+		}
+		</ul>
+		<div id="pager" class="ui-helper-reset-float ui-margin-top-bottom">
+			@Html.PagedListPager((IPagedList)Model, page => Url.RouteUrl(ViewBag.Route, new { controller = "Newsletter", action = "GetPostsForNewsletter", page }), PagedListRenderOptions.PageNumbersOnly)
+		</div>
+	</div>	
+</div>
+<div class="ui-helper-reset-float"></div>
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/internal/bg.view_posts_newsletter.js")"></script>
+<script type="text/javascript">
+    $.view_posts_newsletter("@CultureHelper.GetNeutralCulture(CultureHelper.GetCurrentCulture())","@Url.Action("Create","Newsletter")");
+</script>

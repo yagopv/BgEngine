@@ -295,6 +295,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancelar.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Categoría.
         /// </summary>
         public static string Category {
@@ -1150,6 +1159,42 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Vas a enviar el boletín  a todos los suscriptores. ¿Estás seguro?.
+        /// </summary>
+        public static string Confirm_NewsletterSend_Text1 {
+            get {
+                return ResourceManager.GetString("Confirm_NewsletterSend_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El proceso comenzará al pulsar Comenzar.
+        /// </summary>
+        public static string Confirm_NewsletterSend_Text2 {
+            get {
+                return ResourceManager.GetString("Confirm_NewsletterSend_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Se ha comenzado a enviar los mails a los suscriptores.
+        /// </summary>
+        public static string Confirm_NewsletterSend_Text3 {
+            get {
+                return ResourceManager.GetString("Confirm_NewsletterSend_Text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Enviar el boletín?.
+        /// </summary>
+        public static string Confirm_NewsletterSend_Title {
+            get {
+                return ResourceManager.GetString("Confirm_NewsletterSend_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Código de confirmación.
         /// </summary>
         public static string Confirmation_Token {
@@ -1200,6 +1245,42 @@ namespace Resources {
         public static string ConfirmPassword {
             get {
                 return ResourceManager.GetString("ConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gracias por suscribirte. Ahora ya estás listo para recibir nuestro boletín.
+        /// </summary>
+        public static string ConfirmSubscription_Message {
+            get {
+                return ResourceManager.GetString("ConfirmSubscription_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La suscripción que está tratando de confirmar no existe.
+        /// </summary>
+        public static string ConfirmSubscription_NotExists {
+            get {
+                return ResourceManager.GetString("ConfirmSubscription_NotExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El proceso de suscripción ha finalizado con éxito.
+        /// </summary>
+        public static string ConfirmSubscription_Succesfull {
+            get {
+                return ResourceManager.GetString("ConfirmSubscription_Succesfull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gracias por suscribirte a nuesttro boletín. A partir de ahora te enviaremos mails con las últimas novedades del blog.
+        /// </summary>
+        public static string ConfirmSubscription_Thanks {
+            get {
+                return ResourceManager.GetString("ConfirmSubscription_Thanks", resourceCulture);
             }
         }
         
@@ -1258,11 +1339,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No se ha podido cargar el contenido.
+        /// </summary>
+        public static string Could_not_load_content {
+            get {
+                return ResourceManager.GetString("Could_not_load_content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nuevo.
         /// </summary>
         public static string Create {
             get {
                 return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nuevo boletín.
+        /// </summary>
+        public static string Create_Newsletter {
+            get {
+                return ResourceManager.GetString("Create_Newsletter", resourceCulture);
             }
         }
         
@@ -1456,7 +1555,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No se ha encontrado Posts.
+        ///   Looks up a localized string similar to No se han encontrado Boletines.
+        /// </summary>
+        public static string Error_NoNewslettersFound {
+            get {
+                return ResourceManager.GetString("Error_NoNewslettersFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No se han encontrado Posts.
         /// </summary>
         public static string Error_NoPostFound {
             get {
@@ -1474,11 +1582,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No se han encontrado suscripciones.
+        /// </summary>
+        public static string Error_NoSubscriptionsFound {
+            get {
+                return ResourceManager.GetString("Error_NoSubscriptionsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No se han encontrado Tags.
         /// </summary>
         public static string Error_NoTagsFound {
             get {
                 return ResourceManager.GetString("Error_NoTagsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No hay ninguna tarea pendiente.
+        /// </summary>
+        public static string Error_NoTasksFound {
+            get {
+                return ResourceManager.GetString("Error_NoTasksFound", resourceCulture);
             }
         }
         
@@ -1636,11 +1762,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generar un nuevo boletín.
+        /// </summary>
+        public static string Generate_Newsletter {
+            get {
+                return ResourceManager.GetString("Generate_Newsletter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ir a la página de inicio.
         /// </summary>
         public static string Go_Home_Page {
             get {
                 return ResourceManager.GetString("Go_Home_Page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Hay tareas en error?.
+        /// </summary>
+        public static string HasErrorTasks {
+            get {
+                return ResourceManager.GetString("HasErrorTasks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Hay tareas pendientes?.
+        /// </summary>
+        public static string HasPendingTasks {
+            get {
+                return ResourceManager.GetString("HasPendingTasks", resourceCulture);
             }
         }
         
@@ -1699,6 +1852,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Boletines.
+        /// </summary>
+        public static string Home_Admin_Newsletters {
+            get {
+                return ResourceManager.GetString("Home_Admin_Newsletters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Posts.
         /// </summary>
         public static string Home_Admin_Posts {
@@ -1713,6 +1875,15 @@ namespace Resources {
         public static string Home_Admin_Roles {
             get {
                 return ResourceManager.GetString("Home_Admin_Roles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suscriptores.
+        /// </summary>
+        public static string Home_Admin_Subscribers {
+            get {
+                return ResourceManager.GetString("Home_Admin_Subscribers", resourceCulture);
             }
         }
         
@@ -1834,6 +2005,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ¿Boletin en proceso?.
+        /// </summary>
+        public static string InProcess {
+            get {
+                return ResourceManager.GetString("InProcess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Boletin en proceso.
+        /// </summary>
+        public static string InProcess_Prompt {
+            get {
+                return ResourceManager.GetString("InProcess_Prompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to La dirección de mail introducida no es una dirección válida.
         /// </summary>
         public static string InvalidMail {
@@ -1848,6 +2037,15 @@ namespace Resources {
         public static string InvalidUrlCode {
             get {
                 return ResourceManager.GetString("InvalidUrlCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Confirmado?.
+        /// </summary>
+        public static string IsConfirmed {
+            get {
+                return ResourceManager.GetString("IsConfirmed", resourceCulture);
             }
         }
         
@@ -1920,6 +2118,15 @@ namespace Resources {
         public static string Localization_Create_Role {
             get {
                 return ResourceManager.GetString("Localization_Create_Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Introduce los datos para crear una nueva Suscripción.
+        /// </summary>
+        public static string Localization_Create_Subscription {
+            get {
+                return ResourceManager.GetString("Localization_Create_Subscription", resourceCulture);
             }
         }
         
@@ -2104,6 +2311,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Boletines.
+        /// </summary>
+        public static string Newsletters {
+            get {
+                return ResourceManager.GetString("Newsletters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No.
         /// </summary>
         public static string No {
@@ -2127,6 +2343,15 @@ namespace Resources {
         public static string NoCommentsFound {
             get {
                 return ResourceManager.GetString("NoCommentsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No posts selected. Please choose any of them to create the Newsletter.
+        /// </summary>
+        public static string NoPostsSelected {
+            get {
+                return ResourceManager.GetString("NoPostsSelected", resourceCulture);
             }
         }
         
@@ -2599,6 +2824,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hay campos requeridos pendientes.
+        /// </summary>
+        public static string RequiredFields {
+            get {
+                return ResourceManager.GetString("RequiredFields", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Restablecimiento de cuenta.
         /// </summary>
         public static string ResetAccount_Legend {
@@ -2797,6 +3031,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enviar boletín a los suscriptores.
+        /// </summary>
+        public static string SendNewsletter {
+            get {
+                return ResourceManager.GetString("SendNewsletter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Comparte esta página en Facebook.
         /// </summary>
         public static string Share_On_Facebook {
@@ -2865,6 +3108,15 @@ namespace Resources {
         public static string SpamDetected {
             get {
                 return ResourceManager.GetString("SpamDetected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Comenzar.
+        /// </summary>
+        public static string Start {
+            get {
+                return ResourceManager.GetString("Start", resourceCulture);
             }
         }
         
@@ -3013,6 +3265,96 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mail del suscriptor.
+        /// </summary>
+        public static string String {
+            get {
+                return ResourceManager.GetString("String", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suscríbete y recibe las novedades.
+        /// </summary>
+        public static string Subscribe {
+            get {
+                return ResourceManager.GetString("Subscribe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hola {0}!!,  si quieres suscribirte a nuestro boletín pulsa en el siguiente botón.
+        /// </summary>
+        public static string Subscribe_Authenticated {
+            get {
+                return ResourceManager.GetString("Subscribe_Authenticated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suscríbete!!.
+        /// </summary>
+        public static string Subscribe_Submit {
+            get {
+                return ResourceManager.GetString("Subscribe_Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Introduce la dirección de mail donde recibir el boletín.
+        /// </summary>
+        public static string Subscriber_Email_Prompt {
+            get {
+                return ResourceManager.GetString("Subscriber_Email_Prompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suscriptores.
+        /// </summary>
+        public static string Subscribers {
+            get {
+                return ResourceManager.GetString("Subscribers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ya existe una subscripción con esta dirección de correo.
+        /// </summary>
+        public static string Subscription_Exists {
+            get {
+                return ResourceManager.GetString("Subscription_Exists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Se ha enviado un mail  a {0}. Por favor, sigue las instrucciones que podrás encontrar en el mail.
+        /// </summary>
+        public static string Subscription_Newsletter_ConfirmationMail_Sent {
+            get {
+                return ResourceManager.GetString("Subscription_Newsletter_ConfirmationMail_Sent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nombre del suscriptor.
+        /// </summary>
+        public static string Subscription_Subscribername_Prompt {
+            get {
+                return ResourceManager.GetString("Subscription_Subscribername_Prompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tipo de suscripcion.
+        /// </summary>
+        public static string Subscription_Type {
+            get {
+                return ResourceManager.GetString("Subscription_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ¿Estas seguro de borrar el registro?.
         /// </summary>
         public static string Sure_To_Delete {
@@ -3072,6 +3414,15 @@ namespace Resources {
         public static string Tag_TagName_Prompt {
             get {
                 return ResourceManager.GetString("Tag_TagName_Prompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tareas.
+        /// </summary>
+        public static string Tasks {
+            get {
+                return ResourceManager.GetString("Tasks", resourceCulture);
             }
         }
         
@@ -3189,6 +3540,33 @@ namespace Resources {
         public static string Tweets_Us {
             get {
                 return ResourceManager.GetString("Tweets_Us", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Teminar suscripción.
+        /// </summary>
+        public static string Unsubscribe {
+            get {
+                return ResourceManager.GetString("Unsubscribe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No hay ninguna suscripción con el mail introducido.
+        /// </summary>
+        public static string Unsubscribe_NotExist {
+            get {
+                return ResourceManager.GetString("Unsubscribe_NotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Introduce tu mail para terminar la suscripción.
+        /// </summary>
+        public static string UnsubscribeText {
+            get {
+                return ResourceManager.GetString("UnsubscribeText", resourceCulture);
             }
         }
         

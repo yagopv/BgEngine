@@ -43,6 +43,7 @@ $(function () {
     $(".bg-button-search").button({ icons: { primary: "ui-icon-zoomin" }, text: false });
     $(".bg-button-comments").button({ icons: { primary: "ui-icon-comment" }, text: true });
     $(".bg-button-mail").button({ icons: { primary: "ui-icon-mail-closed" }, text: true });
+    $(".bg-button-mail-nt").button({ icons: { primary: "ui-icon-mail-closed" }, text: false });
     $("input:submit").css("font-weight", "bold");
 
     /* Menu */

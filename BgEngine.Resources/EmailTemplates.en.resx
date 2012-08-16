@@ -195,4 +195,43 @@
   <data name="RegisterMail_Subject" xml:space="preserve">
     <value>{0} registration confirmation</value>
   </data>
+  <data name="SubscriptionMail_Subject" xml:space="preserve">
+    <value>Confirm subscription to the {0} newsletter</value>
+  </data>
+  <data name="SubscriptionMail_ConfirmationLink" xml:space="preserve">
+    <value>Confirm your subscription manually</value>
+  </data>
+  <data name="SubscriptionMail_ConfirmationTokenMessage" xml:space="preserve">
+    <value>If you can´t confirm the subscription with the link provided, you can do it manually by clicking on the following link and using in the form on the page that will open the confirmation code above:</value>
+  </data>
+  <data name="SubscriptionMail_SubTitle" xml:space="preserve">
+    <value>now, it´s time to confirm the subscription to our newsletter with the link provided</value>
+  </data>
+  <data name="SubscriptionMail_Title" xml:space="preserve">
+    <value>Confirm Subscription!</value>
+  </data>
+  <data name="SubscriptionMail_ToConfirm" xml:space="preserve">
+    <value>to confirm subscription</value>
+  </data>
+  <data name="SubscriptionMail_WhySent" xml:space="preserve">
+    <value>This mail was sent to  {0}  because you decided to create a subscription in my site  {1}</value>
+  </data>
+  <data name="Newsletter_ClickToUnsubscribe" xml:space="preserve">
+    <value>Pulsa aquí para borrar tu suscripción</value>
+  </data>
+  <data name="Newsletter_ProblemReading" xml:space="preserve">
+    <value>Having trouble reading this email?</value>
+  </data>
+  <data name="Newsletter_ShareOnTwitter" xml:space="preserve">
+    <value>Share us on Twitter</value>
+  </data>
+  <data name="Newsletter_Unsubscribe" xml:space="preserve">
+    <value>Unsubscribe</value>
+  </data>
+  <data name="Newsletter_ViewInBrowser" xml:space="preserve">
+    <value>Visit the web</value>
+  </data>
+  <data name="Newsletter_WhyReceived" xml:space="preserve">
+    <value>You´re receiving this newsletter because you signed up for it</value>
+  </data>
 </root>

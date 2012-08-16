@@ -89,15 +89,16 @@
 	</div>
     <div class="ui-helper-margin-top-bottom">
 		<a id="themeselector" href="#">@Resources.AppMessages.Switch_Theme</a>
-	</div>
+	</div>	
 	<div id="categories" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>
 	<div id="archive" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>
 	<div id="tagcloud" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>
 	<div id="sidebar-stats" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>
+    <div id="subscribetolatest" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>
 	@CustomHelper.GetSidebarStatsAsync(Url.Action("SidebarStats", "Stats"))
 	@CustomHelper.GetCategoryListAsync(Url.Action("CategoryList", "Category"))
 	@CustomHelper.GetArchiveListAsync(Url.Action("ArchiveList", "Post"))
-	@CustomHelper.GetTagCloudListAsync(Url.Action("TagCloud", "Tag"))
+	@CustomHelper.GetTagCloudListAsync(Url.Action("TagCloud", "Tag"))    
 	@if (ViewBag.Action != "GetPostsByDate")
 	{
 		<text>@CustomHelper.RenderTwitterWidgets(BgEngine.Application.ResourceConfiguration.BgResources.Twitter_User, ViewBag.Tag, Resources.AppMessages.Tweets_Reference, ViewBag.Tag)</text>
