@@ -36,7 +36,29 @@
                 </div>
                 <div class="newsletter-content ui-helper-float-left ui-helper-width-90pc">
                     <h3>@Html.DisplayFor(p => post.Title)</h3>
-			        <p class="ui-helper-reset-float">@Html.DisplayFor(p => post.Description)</p>
+					@if (post.Image != null)
+					{
+                        if (post.Image.ThumbnailPath != String.Empty)
+						{
+						<img  class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(post.Image.ThumbnailPath)" />
+					}
+                        else if (post.Image.Path != String.Empty)
+					{
+						<img class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(post.Image.Path)" />
+					}
+					else
+					{
+						<img class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+					}
+				}
+					else
+					{
+						<img class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+				}
+					<p class="ui-helper-p-aside">@post.Description</p>
+					<div class="ui-helper-reset-float">
+					</div>
+                    @Html.Partial("_informationButtons",post)
                 </div>       
                 <div class="ui-helper-reset-float"></div>         
 			</li>

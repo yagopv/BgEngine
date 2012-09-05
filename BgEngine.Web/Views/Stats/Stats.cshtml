@@ -25,27 +25,38 @@
 		 $("#tabs").tabs({ fx: { opacity: 'toggle'} });
 		 $("ul li").hover(
 			function () {
-				$(this).toggleClass("ui-state-hover");
-				$(".album-holder").not(this).removeClass("ui-state-hover");
+			    $(this).removeClass("ui-state-highlight");
+			    $(this).addClass("ui-state-active");				
 			},
 			function () {
-				$(this).removeClass("ui-state-hover");
+			    $(this).removeClass("ui-state-active");
+			    $(this).addClass("ui-state-highlight");			    
 			}
 		);
 	 });
  </script>
 
 <div id="tabs" class="ui-helper-margin-top-bottom">
-	 <ul>
-		<li><a href="#tabs-1">@Resources.AppMessages.Stats</a></li>
-		<li><a href="#tabs-2">@Resources.AppMessages.Stats_TopRatedPosts</a></li>
-		<li><a href="#tabs-3">@Resources.AppMessages.Stats_MostVisitedPosts</a></li>
-		<li><a href="#tabs-4">@Resources.AppMessages.Stats_MostCommentedPosts</a></li>
-		<li><a href="#tabs-5">@Resources.AppMessages.Stats_PostWritenByUser</a></li>
-		<li><a href="#tabs-6">@Resources.AppMessages.SelectFiles</a></li>
-		<li><a href="#tabs-7">@Resources.AppMessages.Config</a></li>
+	 <ul>		
+		<li><a href="#tabs-1">@Resources.AppMessages.Config</a></li>
+        <li><a href="#tabs-2">@Resources.AppMessages.SelectFiles</a></li>
+		<li><a href="#tabs-3">@Resources.AppMessages.Stats</a></li>
+		<li><a href="#tabs-4">@Resources.AppMessages.Stats_TopRatedPosts</a></li>
+		<li><a href="#tabs-5">@Resources.AppMessages.Stats_MostVisitedPosts</a></li>
+		<li><a href="#tabs-6">@Resources.AppMessages.Stats_MostCommentedPosts</a></li>
+		<li><a href="#tabs-7">@Resources.AppMessages.Stats_PostWritenByUser</a></li>
 	</ul>
-	<div id="tabs-1">
+
+  	<div id="tabs-1">
+	    @{ Html.RenderAction("ConfigOptions", "Stats"); }
+	</div>
+
+	<div id="tabs-2">
+		<h2 class="ui-helper-margin ui-widget-content ui-state-highlight ui-corner-all ui-helper-padding">@Resources.AppMessages.Selected_To_Upload</h2>
+		@Html.Action("Upload", "File")       
+	</div>    
+
+	<div id="tabs-3">
 		<p><strong class="ui-helper-big-font-size">@Model.TotalPosts</strong><span class="ui-helper-padding-left">@Resources.AppMessages.Stats_TotalPosts</span></p>
 		<p><strong class="ui-helper-big-font-size">@Model.TotalComments</strong><span class="ui-helper-padding-left">@Resources.AppMessages.Stats_TotalComments</span></p>
 		<p><strong class="ui-helper-big-font-size">@Model.TotalCategories</strong><span class="ui-helper-padding-left">@Resources.AppMessages.Stats_TotalCategories</span></p>
@@ -55,11 +66,11 @@
 		<p><strong class="ui-helper-big-font-size">@Model.TotalAlbums</strong><span class="ui-helper-padding-left">@Resources.AppMessages.Stats_TotalAlbums</span></p>
 		<p><strong class="ui-helper-big-font-size">@Model.TotalImages</strong><span class="ui-helper-padding-left">@Resources.AppMessages.Stats_TotalImages</span></p>
 	</div>        
-	<div id="tabs-2">
+	<div id="tabs-4">
 		<ul>
 			@foreach (var modelitem in Model.TopRatedPosts)
 			{
-				<li class="ui-helper-relative ui-helper-padding ui-helper-margin-right ui-helper-margin-top-bottom ui-corner-all ui-state-default">
+				<li class="ui-helper-relative ui-helper-padding ui-helper-margin-right ui-helper-margin-top-bottom ui-corner-all ui-state-highlight">
 					<h3>@modelitem.Title</h3>
 					<p class="ui-helper-padding-left">
 						<strong><em>@String.Format(Resources.AppMessages.Stats_RatedWith, modelitem.Ratings.Average(r => r.Value))</em></strong></p>
@@ -82,8 +93,7 @@
 					{
 						<img class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
 				}
-					<p class="ui-helper-p-aside">
-						<em>@modelitem.Description</em></p>
+					<p class="ui-helper-p-aside">@modelitem.Description</p>
 					<div class="ui-helper-reset-float">
 					</div>
 					<div>
@@ -96,11 +106,11 @@
 		</ul>
 	</div>
 
-	<div id="tabs-3">
+	<div id="tabs-5">
 		<ul>
 			@foreach (var modelitem in Model.MostVisitedPosts)
 			{
-				<li class="ui-helper-relative ui-helper-padding ui-helper-margin-right ui-helper-margin-top-bottom ui-corner-all ui-state-default">
+				<li class="ui-helper-relative ui-helper-padding ui-helper-margin-right ui-helper-margin-top-bottom ui-corner-all ui-state-highlight">
 					<h3>@modelitem.Title</h3>
 					<p class="ui-helper-padding-left">
 						<strong><em>@String.Format(Resources.AppMessages.Stats_NumberOfVisits, modelitem.Visits)</em></strong></p>
@@ -123,8 +133,7 @@
 					{
 						<img class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
 				}
-					<p class="ui-helper-p-aside">
-						<em>@modelitem.Description</em></p>
+					<p class="ui-helper-p-aside">@modelitem.Description</p>
 					<div class="ui-helper-reset-float">
 					</div>
 					<div>                       
@@ -138,11 +147,11 @@
 		</ul>
 	</div>
 
-	<div id="tabs-4">
+	<div id="tabs-6">
 		<ul>
 			@foreach (var modelitem in Model.MostCommentedPosts)
 			{
-				<li class="ui-helper-relative ui-helper-padding ui-helper-margin-right ui-helper-margin-top-bottom ui-corner-all ui-state-default">
+				<li class="ui-helper-relative ui-helper-padding ui-helper-margin-right ui-helper-margin-top-bottom ui-corner-all ui-state-highlight">
 					<h3>@modelitem.Title</h3>
 					<p class="ui-helper-padding-left">
 						<strong><em>@String.Format(Resources.AppMessages.Stats_NumberOfComments, modelitem.Comments.Count())</em></strong></p>
@@ -165,8 +174,7 @@
 					{
 						<img class="ui-helper-float-left ui-helper-image-100-100" src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
 				}
-					<p class="ui-helper-p-aside">
-						<em>@modelitem.Description</em></p>
+					<p class="ui-helper-p-aside">@modelitem.Description</p>
 					<div class="ui-helper-reset-float">
 					</div>
 					<div>                       
@@ -180,11 +188,11 @@
 		</ul>
 	</div>
 
-	<div id="tabs-5">
+	<div id="tabs-7">
 		<ul>
 			@foreach (var modelitem in Model.PostWritenByUser)
 			{
-				<li class="ui-helper-padding ui-helper-margin-right ui-corner-all ui-state-default ui-helper-display-inline-block">
+				<li class="ui-helper-padding ui-helper-margin-right ui-corner-all ui-state-highlight ui-helper-display-inline-block">
 					<div class="ui-helper-float-left">
 						@Gravatar.GetHtml(modelitem.Email)
 					</div>
@@ -200,12 +208,5 @@
 				</li> 
 		}
 		</ul>
-	</div>
-	<div id="tabs-6">
-		<h2 class="ui-helper-margin ui-widget-content ui-state-highlight ui-corner-all ui-helper-padding">@Resources.AppMessages.Selected_To_Upload</h2>
-		@Html.Action("Upload", "File")       
-	</div>    
-	<div id="tabs-7">
-	    @{ Html.RenderAction("ConfigOptions", "Stats"); }
 	</div>
 </div>

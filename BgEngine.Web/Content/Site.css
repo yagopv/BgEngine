@@ -71,6 +71,7 @@ footer, #footer { clear:both; position:relative; height:150px; width:100%; }
 ul#menu { padding: 6px 0 2px; position: relative; margin: 0; text-align: right; }
 ul#menu li { display: inline; list-style: none; }
 ul#menu li#greeting { padding: 10px 20px; font-weight: bold; text-decoration: none; line-height: 2.8em;	color: #fff; }
+.admin-menu {font-size:0.86em !important;}
 
 /* lang picker */
 .lang-picker img { border:none; }
