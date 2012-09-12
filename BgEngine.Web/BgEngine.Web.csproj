@@ -240,23 +240,6 @@
     <Content Include="Content\Images\readme.txt" />
     <Content Include="Content\Images\Thumbnails\readme.txt" />
     <Content Include="Content\jCrumb.css" />
-    <Content Include="Content\Newsletter\body-bg.jpg" />
-    <Content Include="Content\Newsletter\content-bg.jpg" />
-    <Content Include="Content\Newsletter\footer-lines.jpg" />
-    <Content Include="Content\Newsletter\foward.png" />
-    <Content Include="Content\Newsletter\header-bg.jpg" />
-    <Content Include="Content\Newsletter\header-lines.jpg" />
-    <Content Include="Content\Newsletter\i.png" />
-    <Content Include="Content\Newsletter\img1.jpg" />
-    <Content Include="Content\Newsletter\img2.jpg" />
-    <Content Include="Content\Newsletter\in-this-issue.jpg" />
-    <Content Include="Content\Newsletter\li.png" />
-    <Content Include="Content\Newsletter\line.jpg" />
-    <Content Include="Content\Newsletter\line2.jpg" />
-    <Content Include="Content\Newsletter\line3.jpg" />
-    <Content Include="Content\Newsletter\ribbon.jpg" />
-    <Content Include="Content\Newsletter\unsubscribe.png" />
-    <Content Include="Content\Newsletter\world.png" />
     <Content Include="Content\rateit.css" />
     <Content Include="Content\SWF\uploadify.swf" />
     <Content Include="Content\themes\Aristo\images\bg_fallback.png" />
@@ -732,6 +715,7 @@
     <Content Include="Scripts\tiny_mce\utils\form_utils.js" />
     <Content Include="Scripts\tiny_mce\utils\mctabs.js" />
     <Content Include="Scripts\tiny_mce\utils\validate.js" />
+    <None Include="Views\UserMailer\Newsletter.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -967,7 +951,6 @@
     <Content Include="Views\Newsletter\Edit.cshtml" />
     <Content Include="Views\Newsletter\Delete.cshtml" />
     <Content Include="Views\Newsletter\Details.cshtml" />
-    <Content Include="Views\UserMailer\Newsletter.cshtml" />
     <Content Include="Views\UserMailer\_Layout_Newsletter.cshtml" />
     <Content Include="Views\Subscription\UnSubscribe.cshtml" />
   </ItemGroup>

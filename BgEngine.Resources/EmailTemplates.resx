@@ -219,19 +219,13 @@
   <data name="Newsletter_ClickToUnsubscribe" xml:space="preserve">
     <value>Pulsa aquí para borrar tu suscripción</value>
   </data>
-  <data name="Newsletter_ProblemReading" xml:space="preserve">
-    <value>¿Tienes problemas leyendo el mail?</value>
-  </data>
   <data name="Newsletter_ShareOnTwitter" xml:space="preserve">
-    <value>Compartenos en Twitter</value>
-  </data>
-  <data name="Newsletter_Unsubscribe" xml:space="preserve">
-    <value>Borrar subscripción</value>
+    <value>Tweet</value>
   </data>
   <data name="Newsletter_ViewInBrowser" xml:space="preserve">
     <value>Visita la web</value>
   </data>
-  <data name="Newsletter_WhyReceived" xml:space="preserve">
-    <value>Estás recibiendo este boletín porque te has suscrito para ello</value>
+  <data name="Newsletter_ShareOnFacebook" xml:space="preserve">
+    <value>Compartenos</value>
   </data>
 </root>

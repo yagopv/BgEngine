@@ -223,15 +223,12 @@
     <value>Having trouble reading this email?</value>
   </data>
   <data name="Newsletter_ShareOnTwitter" xml:space="preserve">
-    <value>Share us on Twitter</value>
-  </data>
-  <data name="Newsletter_Unsubscribe" xml:space="preserve">
-    <value>Unsubscribe</value>
+    <value>Tweet</value>
   </data>
   <data name="Newsletter_ViewInBrowser" xml:space="preserve">
     <value>Visit the web</value>
   </data>
-  <data name="Newsletter_WhyReceived" xml:space="preserve">
-    <value>You´re receiving this newsletter because you signed up for it</value>
+  <data name="Newsletter_ShareOnFacebook" xml:space="preserve">
+    <value>Share us</value>
   </data>
 </root>

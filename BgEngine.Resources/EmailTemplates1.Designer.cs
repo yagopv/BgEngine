@@ -70,29 +70,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ¿Tienes problemas leyendo el mail?.
+        ///   Looks up a localized string similar to Compartenos.
         /// </summary>
-        public static string Newsletter_ProblemReading {
+        public static string Newsletter_ShareOnFacebook {
             get {
-                return ResourceManager.GetString("Newsletter_ProblemReading", resourceCulture);
+                return ResourceManager.GetString("Newsletter_ShareOnFacebook", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Compartenos en Twitter.
+        ///   Looks up a localized string similar to Tweet.
         /// </summary>
         public static string Newsletter_ShareOnTwitter {
             get {
                 return ResourceManager.GetString("Newsletter_ShareOnTwitter", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Borrar subscripción.
-        /// </summary>
-        public static string Newsletter_Unsubscribe {
-            get {
-                return ResourceManager.GetString("Newsletter_Unsubscribe", resourceCulture);
             }
         }
         
@@ -102,15 +93,6 @@ namespace Resources {
         public static string Newsletter_ViewInBrowser {
             get {
                 return ResourceManager.GetString("Newsletter_ViewInBrowser", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Estás recibiendo este boletín porque te has suscrito para ello.
-        /// </summary>
-        public static string Newsletter_WhyReceived {
-            get {
-                return ResourceManager.GetString("Newsletter_WhyReceived", resourceCulture);
             }
         }
         
