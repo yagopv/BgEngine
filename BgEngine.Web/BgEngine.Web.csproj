@@ -129,6 +129,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ApiController.cs" />
     <Compile Include="Controllers\BackgroundWorkerController.cs" />
     <Compile Include="Controllers\NewsletterController.cs" />
     <Compile Include="Controllers\SubscriptionController.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="Mailers\UserMailer.cs" />
     <Compile Include="Results\FeedResult.cs" />
     <Compile Include="Results\FileUploadJsonResult.cs" />
+    <Compile Include="Results\JsonpResult.cs" />
     <Compile Include="Results\ZipResult.cs" />
     <Compile Include="ViewModels\AnonymousCommentViewModel.cs" />
     <Compile Include="ViewModels\ChangePasswordModel.cs" />
