@@ -28,9 +28,9 @@ namespace BgEngine.Controllers
         }
 
         public JsonpResult GetPosts(int? page)
-        {
+        {                        
             var pageIndex = page ?? 0;            
-            IEnumerable<Post> source = this.PostServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_HomeIndexPostsPerPage), p => p.DateCreated, false);
+            IEnumerable<Post> source = this.PostServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_HomeIndexPostsPerPage), p => p.DateCreated, false).Where(p => p.IsPublic);
             var data =
                 from p in source
                 select new
@@ -41,7 +41,7 @@ namespace BgEngine.Controllers
                     commentscount = p.Comments.Count<Comment>(),
                     date = p.DateCreated.ToShortDateString(),
                     category = p.Category.Name,
-                    thumbnailpath = (p.Image != null) ? p.Image.ThumbnailPath : " ",
+                    thumbnailpath = getImageUrl(p.Image),
                     user = p.User.Username
                 };
             return this.Jsonp(data);
@@ -78,31 +78,41 @@ namespace BgEngine.Controllers
         public JsonpResult GetPost(int postid)
         {            
             Post post = this.BlogServices.FindPost(postid);
-            return this.Jsonp(new
+            if (post.IsPublic)
+            { 
+                return this.Jsonp(new
+                { 
+                    title = post.Title,
+                    description = post.Description,
+                    text = post.Text.Replace("../../..", Request.Url.Scheme + "://" + Request.Url.Authority),
+                    commentscount = post.Comments.Count<Comment>(),
+                    date = post.DateCreated.ToShortDateString(),
+                    category = post.Category.Name,
+                    thumbnailpath = getImageUrl(post.Image),
+                    user = post.User.Username,
+                    tags =
+                        from t in post.Tags
+                        select new
+                        {
+                            name = t.TagName,
+                            description = t.TagDescription
+                        },
+                    visits = post.Visits,
+                    ratings =
+                        from r in post.Ratings
+                        select new
+                        {
+                            value = r.Value
+                        }
+                });
+            }
+            else
             {
-                title = post.Title,
-                description = post.Description,
-                text = post.Text,
-                commentscount = post.Comments.Count<Comment>(),
-                date = post.DateCreated.ToShortDateString(),
-                category = post.Category.Name,
-                thumbnailpath = (post.Image != null) ? post.Image.ThumbnailPath : " ",
-                user = post.User.Username,
-                tags =
-                    from t in post.Tags
-                    select new
-                    {
-                        name = t.TagName,
-                        description = t.TagDescription
-                    },
-                visits = post.Visits,
-                ratings =
-                    from r in post.Ratings
-                    select new
-                    {
-                        value = r.Value
-                    }
-            });
+                return this.Jsonp(new
+                {
+                    message = "error"
+                });
+            }
         }
 
         public JsonpResult GetPostsBy(string by, string id, int? page)
@@ -111,11 +121,11 @@ namespace BgEngine.Controllers
             IEnumerable<Post> source;
             if (by == "category")
             {
-                source = BlogServices.FindPagedPostsByCategory(false, id, pageIndex, 10);
+                source = BlogServices.FindPagedPostsByCategory(false, id, pageIndex, 10).Where(p => p.IsPublic);
             }
             else
             {
-                source = BlogServices.FindPagedPostsByTag(false, id, pageIndex, 10);
+                source = BlogServices.FindPagedPostsByTag(false, id, pageIndex, 10).Where(p => p.IsPublic);
             }
             var data =
                 from p in source
@@ -127,10 +137,22 @@ namespace BgEngine.Controllers
                     commentscount = p.Comments.Count<Comment>(),
                     date = p.DateCreated.ToShortDateString(),
                     category = p.Category.Name,
-                    thumbnailpath = (p.Image != null) ? p.Image.ThumbnailPath : " ",
+                    thumbnailpath = getImageUrl(p.Image),
                     user = p.User.Username
                 };
             return this.Jsonp(data);
+        }
+
+        private string getImageUrl(Image image)
+        {            
+            if (image == null)
+            {
+                return " ";
+            }
+            else
+            {
+                return Request.Url.Scheme + "://" + Request.Url.Authority + UrlHelper.GenerateContentUrl(image.ThumbnailPath, this.HttpContext);
+            }
         }
     }
 }
