@@ -43,7 +43,7 @@ namespace BgEngine.Domain.EntityModel
         /// The message
         /// </summary>
         [Required(ErrorMessageResourceType = typeof(Resources.AppMessages), ErrorMessageResourceName = "Required")]
-        [StringLength(1000, ErrorMessageResourceType = typeof(Resources.AppMessages), ErrorMessageResourceName = "ErrorLenght")]
+        [StringLength(4000, ErrorMessageResourceType = typeof(Resources.AppMessages), ErrorMessageResourceName = "ErrorLenght")]
         [Display(ResourceType = typeof(Resources.AppMessages), Name = "Comment_Message", Prompt = "Comment_Message_Prompt")]
         [DataType(DataType.MultilineText)]
         [AllowHtml]

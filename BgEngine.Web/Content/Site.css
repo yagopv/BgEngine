@@ -220,7 +220,7 @@ body .galleria-thumbnails .galleria-image { width:150px }
 #home-videos #elements .video-container { height:100%; width:43%; margin:2.5% 1.5%;}
 #elements .video-container {  height: 100%; width:29%; margin:1%; float:left;}
 .video-header { height: 20px; width:90%; margin: 0 auto; font-size:1.2em;}
-.video-description { height: 50px; font-size:0.8em; }
+.video-description { height: 55px; font-size:0.8em; }
 .video-footer { height: 40px;  width:100%;}
 
 .video-edit {position: absolute; top:15px; left: 5px;}

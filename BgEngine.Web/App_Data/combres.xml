@@ -32,6 +32,7 @@
       <resource path="~/Scripts/jquery.ui.selectmenu.js" />
       <resource path="~/Scripts/jquery.tipTip.js" />
       <resource path="~/Scripts/jquery.jcrumb.js" />
+      <resource path="~/Scripts/jquery.dotdotdot-1.5.1.js" />      
       <resource path="~/Scripts/globalize.js" />
       <resource path="~/Scripts/cultures/globalize.culture.es.js" />
       <resource path="~/Scripts/internal/bg.core.js" />
@@ -51,6 +52,7 @@
       <resource path="~/Scripts/jquery.ui.selectmenu.js" />
       <resource path="~/Scripts/jquery.tipTip.js" />
       <resource path="~/Scripts/jquery.jcrumb.js" />
+      <resource path="~/Scripts/jquery.dotdotdot-1.5.1.js" />
       <resource path="~/Scripts/internal/bg.core.js" />
       <resource path="~/Scripts/globalize.js" />
       <resource path="~/Scripts/jquery.cookie.js" />
@@ -113,7 +115,7 @@
     </resourceSet>
 
     <resourceSet name="HomeIndexJs" type="js">
-      <resource path="~/Scripts/internal/bg.home_index_startup.js" />
+      <resource path="~/Scripts/internal/bg.home_index_startup.js" />            
     </resourceSet>
 
     <resourceSet name="VideoIndexJs" type="js">

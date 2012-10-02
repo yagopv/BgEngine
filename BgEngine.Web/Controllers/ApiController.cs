@@ -143,6 +143,27 @@ namespace BgEngine.Controllers
             return this.Jsonp(data);
         }
 
+        public JsonpResult SearchPosts(string searchstring, int? page)
+        {
+            var pageIndex = page ?? 0;
+            IEnumerable<Post> source = this.PostServices.RetrievePaged(pageIndex, Int32.Parse(BgResources.Pager_HomeIndexPostsPerPage), p => p.DateCreated, false).Where(p => p.IsPublic && (p.Title.ToLower().Contains(searchstring.ToLower()) || p.Description.ToLower().Contains(searchstring.ToLower())));
+            var data =
+                from p in source
+                select new
+                {
+                    postid = p.PostId,
+                    title = p.Title,
+                    description = p.Description,
+                    commentscount = p.Comments.Count<Comment>(),
+                    date = p.DateCreated.ToShortDateString(),
+                    category = p.Category.Name,
+                    thumbnailpath = getImageUrl(p.Image),
+                    user = p.User.Username
+                };
+            return this.Jsonp(data);
+        }
+
+
         private string getImageUrl(Image image)
         {            
             if (image == null)

@@ -63,14 +63,14 @@
 			@foreach (var modelitem in Model)
 			{
 				<div class="video-container ui-widget ui-corner-all ui-state-default ui-helper-padding">
-					<h2 class="video-header tooltip" title="@modelitem.Name">@(modelitem.Name.Length > 45 ? CustomHelper.TruncateString(modelitem.Name, 45).ToString() : modelitem.Name)</h2>
+					<h2 class="video-header tooltip dotdotdot" title="@modelitem.Name">@modelitem.Name</h2>
 					@if (String.IsNullOrEmpty(modelitem.Description))
 					{ 
-						<p class="video-description ui-helper-margin-left-right tooltip ui-helper-padding" title="@modelitem.Name">@Html.Raw((modelitem.Name.Length > 110 ? CustomHelper.TruncateString(modelitem.Name, 110).ToString() : modelitem.Name))</p> 
+						<p class="video-description ui-helper-margin-left-right tooltip ui-helper-padding dotdotdot" title="@modelitem.Name">@Html.Raw(modelitem.Name)</p> 
 					}
 					else
 					{
-						<p class="video-description ui-helper-margin-left-right tooltip ui-helper-padding" title="@modelitem.Description">@Html.Raw((modelitem.Description.Length > 110 ? CustomHelper.TruncateString(modelitem.Description, 110).ToString() : modelitem.Description))</p> 
+						<p class="video-description ui-helper-margin-left-right tooltip ui-helper-padding dotdotdot" title="@modelitem.Description">@Html.Raw(modelitem.Description))</p> 
 					}					
 					<div class="video-movie ui-helper-width-100pc bg-align-center ui-helper-padding-top-10pc">
 						@if (!String.IsNullOrEmpty(modelitem.Html))
@@ -119,4 +119,5 @@ else
 		var url = $(this).attr('src');
 		$(this).attr('src',url+'?wmode=transparent'); 
    });
+	$(".dotdotdot").dotdotdot({ watch: "window" });
 </script>

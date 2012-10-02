@@ -70,6 +70,7 @@
 														    $("#comment-container #Username").val("");
 														    $("#comment-container #Email").val("");
 														    $("#comment-container #Web").val("");
+														    $("#comment-error-message").addClass("field-validation-valid");
 														    var comments = parseInt($("#information-buttons :nth-child(4)").first().text());
 														    comments++;
 														    $("#information-buttons :nth-child(4)").html('<span class="ui-button bg-icon-left ui-icon ui-icon-comment"></span>' + comments.toString());
@@ -79,7 +80,7 @@
 						       else {
 						           $("#comment-container").unblock();
 						           // If validation errors revalidate the form and show errors
-						           var validator = $("#comment-container form").validate();
+						           //var validator = $("#comment-container form").validate();
 						           errors = {};
 						           for (var i = 0; i < data.errors.length; i++) {
 						               if (data.errors[i].Key === "akismetkey") {
@@ -87,7 +88,8 @@
 						               }
 						               errors[data.errors[i].Key] = data.errors[i].Value;
 						           }
-						           validator.showErrors(errors);
+						           $("#comment-error-message").text(errors.Message).removeClass("field-validation-valid");
+						           //validator.showErrors(errors);
 						           tinyMCE.get("comment-textarea").setContent(message);
 						       }
 						   }
@@ -123,7 +125,7 @@
 						           tinyMCE.execCommand('mceFocus', false, 'dynamic-textarea');
 						           $(".reply .ui-icon").removeClass("ui-icon-cancel").addClass("ui-icon-pencil");
 						           if (data.warnings) {
-						                createGrowl(data.warnings.Value);
+						               createGrowl(data.warnings.Value);
 						           }
 						           $("#comments").load(getposturl,
 														function (text, status, request) {
@@ -134,6 +136,7 @@
 														    $("#comments #Username").val("");
 														    $("#comments #Email").val("");
 														    $("#comments #Web").val("");
+														    $("#dynamic-comment-error-message").addClass("field-validation-valid");
 														    var comments = parseInt($("#information-buttons :nth-child(4)").first().text());
 														    comments++;
 														    $("#information-buttons :nth-child(4)").html('<span class="ui-button bg-icon-left ui-icon ui-icon-comment"></span>' + comments.toString());
@@ -142,9 +145,7 @@
 														});
 						       }
 						       else {
-						           $("#newcomment").unblock();
-						           // If validation errors revalidate the form and show errors
-						           var validator = $("#comments form").validate();
+						           $("#newcomment").unblock();						           
 						           errors = {};
 						           for (var i = 0; i < data.errors.length; i++) {
 						               if (data.errors[i].Key === "akismetkey") {
@@ -152,7 +153,7 @@
 						               }
 						               errors[data.errors[i].Key] = data.errors[i].Value;
 						           }
-						           validator.showErrors(errors);
+						           $("#dynamic-comment-error-message").text(errors.Message).removeClass("field-validation-valid");         
 						           tinyMCE.get("dynamic-textarea").setContent(message);
 						       }
 						   }
@@ -243,6 +244,7 @@
 													   '</div>' +
 													'</div>' +
 												'<div class="ui-helper-reset-float"></div>' +
+                                                '<p id="dynamic-comment-error-message" class="field-validation-error field-validation-valid"></p>' +
 											'</li>');
         $('html,body').animate({ scrollTop: $("#newcomment").closest("li").position().top }, { duration: 'slow', easing: 'swing' });
         $.validator.unobtrusive.parse($("#comments .anonymous-comment-fields"));
