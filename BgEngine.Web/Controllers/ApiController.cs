@@ -110,7 +110,7 @@ namespace BgEngine.Controllers
                         },
                     comments =
                         from c in post.Comments
-                        where c.IsSpam == false
+                        where ((c.IsSpam == false ) && (c.isRelatedComment == false))
                         select new
                         {
                             id = c.CommentId,
@@ -119,6 +119,7 @@ namespace BgEngine.Controllers
                             isrelated = c.isRelatedComment,
                             relatedcomments = 
                                 from rc in c.RelatedComments
+                                where (rc.IsSpam == false)
                                 select new
                                 {
                                      id = rc.CommentId,
