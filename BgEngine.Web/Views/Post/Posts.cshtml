@@ -94,7 +94,7 @@
 	<div id="archive" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>
 	<div id="tagcloud" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>
 	<div id="sidebar-stats" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>
-    <div id="subscribetolatest" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc"></div>
+    @Html.Action("SubscribeToNewsletter", new { controller="Subscription" })
 	@CustomHelper.GetSidebarStatsAsync(Url.Action("SidebarStats", "Stats"))
 	@CustomHelper.GetCategoryListAsync(Url.Action("CategoryList", "Category"))
 	@CustomHelper.GetArchiveListAsync(Url.Action("ArchiveList", "Post"))
