@@ -10,7 +10,7 @@ No database server needed because the application is using a Compact Framework d
 
 BgEngine is an open source application licensed under GPLv3 that builds an engine for personal blogging purposes.
 
-## Scope
+### Scope
 
 The blog engine developed allow users publishing articles,  building photographic galleries, creating a video gallery and share all the posts in the social networks more highlighted. The main scope is using the application for blogging, mainly like personal website and provide the functionality of this type of web sites.
 
@@ -29,7 +29,7 @@ The default database is a .sdf Compact Framework database, but is easy to change
 
 The Web site built in this project have two main parts:
 
-## FrontEnd
+### FrontEnd
 
 * Home page listing the latest articles and videos being published
 * Image Gallery listing albums in the site
@@ -60,7 +60,7 @@ The Web site built in this project have two main parts:
     
     * Displays individual posts and allows rating them or writing comments in a anonymous or authenticated way (Admin users can select in the backend  this behaviour)
 
-## BackEnd
+### BackEnd
 
 * Management of the information displayed in frontend
 * Management image galleries
