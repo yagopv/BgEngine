@@ -83,7 +83,7 @@
                 grid.Column("SubscriberEmail",header:Resources.AppMessages.User_Mail, canSort:true),
                 grid.Column("IsConfirmed",header:Resources.AppMessages.IsConfirmed, canSort:true, format:@<span>@(item.IsConfirmed ? Resources.AppMessages.Yes : Resources.AppMessages.No)</span>),
                 grid.Column("DateCreated",header:Resources.AppMessages.DateCreated, canSort:true), 
-                grid.Column("SubscriptionType",header:Resources.AppMessages.Subscription_Type, canSort:false, format:@<span>@Enum.GetName(typeof(BgEngine.Domain.Types.SubscriptionType), item.IsConfirmed)</span>), 
+                grid.Column("SubscriptionType",header:Resources.AppMessages.Subscription_Type, canSort:false, format:@<span>@Resources.AppMessages.Newsletters</span>), 
                 grid.Column("", header:Resources.AppMessages.Actions, 
                                 format: @<span class="options">
                                             @Html.ActionLink(Resources.AppMessages.Edit, "Edit", new { id = item.SubscriptionId }, new { @class = "bg-button-grid-edit tooltip" })
