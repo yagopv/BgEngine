@@ -204,7 +204,7 @@ namespace BgEngine.Controllers
         {
             if (image == null)
             {
-                return " ";
+                return Request.Url.Scheme + "://" + Request.Url.Authority + UrlHelper.GenerateContentUrl("~/Content/Icons/no_image.jpg", this.HttpContext);
             }
             else
             {
