@@ -9,6 +9,8 @@ using BgEngine.Domain.EntityModel;
 using BgEngine.Application.Services;
 using BgEngine.Application.ResourceConfiguration;
 using BgEngine.Results;
+using System.Net;
+using System.Web.Helpers;
 
 namespace BgEngine.Controllers
 {
@@ -199,6 +201,34 @@ namespace BgEngine.Controllers
             return this.Jsonp(data);
         }
 
+
+        public void GetThumbnail(string url, int width, int height)
+        {
+            if (url != null)
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                WebImage image = new WebImage(response.GetResponseStream());
+
+                var iwidth = image.Width;
+                var iheight = image.Height;
+
+                if (iwidth >= iheight)
+                {
+                    var leftRightCrop = (iwidth - iheight) / 2;
+                    image.Crop(0, leftRightCrop, 0, leftRightCrop).Write();
+                }
+                else if (height > width)
+                {
+                    var topBottomCrop = (iheight - iwidth) / 2;
+                    image.Crop(topBottomCrop, 0, topBottomCrop, 0).Write();
+                }
+            }
+            else
+            {
+                new WebImage("~/Content/Icons/no_image.jpg").Write();
+            }            
+        }
 
         private string getImageUrl(Image image)
         {
