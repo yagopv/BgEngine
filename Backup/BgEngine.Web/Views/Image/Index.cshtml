@@ -1,0 +1,290 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model BgEngine.Domain.EntityModel.Album
+
+@using Combres.Mvc;
+
+@{
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+    ViewBag.Title = Resources.AppMessages.Image + " - " + Resources.AppMessages.Index;
+}
+
+@Html.CombresLink("ImageCss")
+@Html.CombresLink("ImageIndexJs")
+
+
+<script type="text/javascript">
+
+    function reloadscripts() {
+        $("#DeleteAll").bind("click",function (e) {
+            var objectids = $("#trash li a.edit");
+            var deleteresultok = true;
+            objectids.each(function () {
+                var imageid = $(this).attr("id");
+                var image = $(this).parent();
+                $.post("/Image/Delete/",
+                    { id: imageid },
+                    function (data) {
+                        if (data.result != "ok") {
+                            deleteresultok = false;
+                            image.addClass("image-border-error");                            
+                            if ($("#delete-error").text() == "")
+                            {
+                                $("#content").append(
+                                    "<p id='delete-error' class='trash-delete-error ui-widget-content ui-corner-all ui-state-error ui-helper-padding ui-helper-display-inline-block ui-helper-float-right ui-helper-hidden'>" 
+                                    + data.result
+                                    + "</p>");
+                            }
+                            setTimeout(function () {
+                                    $("#delete-error").fadeOut("1000", function () { $("#delete-error").remove(); });                                    
+                            }, 5000);                            
+                        }
+                        else
+                        {
+                            image.remove();
+                        }
+                    }
+                    , "json"
+                );
+            });
+        });
+
+        // there's the gallery and the trash
+        var $gallery = $("#gallery"),
+        $trash = $("#trash");
+    
+        // let the gallery items be draggable
+        $("li", $gallery).draggable({
+            cancel: "a.ui-icon", // clicking an icon won't initiate dragging
+            revert: "invalid", // when not dropped, the item will revert back to its initial position
+            containment: $("#demo-frame").length ? "#demo-frame" : "document", // stick to demo-frame if present
+            helper: "clone",
+            cursor: "move"
+        });
+    
+        // let the trash be droppable, accepting the gallery items
+        $trash.droppable({
+            accept: "#gallery > li",
+            activeClass: "ui-state-highlight",
+            drop: function (event, ui) {
+                deleteImage(ui.draggable);
+            }
+        });
+
+        // let the gallery be droppable as well, accepting items from the trash
+        $gallery.droppable({
+            accept: "#trash li",
+            activeClass: "custom-state-active",
+            drop: function (event, ui) {
+            recycleImage(ui.draggable);
+            }
+        });
+    
+        // image deletion function
+        var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>Recycle image</a>";
+        function deleteImage($item) {
+            $item.fadeOut(function () {
+            var $list = $("ul", $trash).length ?
+            $("ul", $trash) :
+            $("<ul class='gallery ui-helper-reset'/>").appendTo($trash);
+                        $item.find("a.ui-icon-pencil").hide();
+                        $item.find("a.ui-icon-trash").remove();
+                        $item.append(recycle_icon).appendTo($list).fadeIn();
+            });
+        }
+
+        // image recycle function
+        var trash_icon = "<a href='link/to/trash/script/when/we/have/js/off' title='Delete this image' class='ui-icon ui-icon-trash'>Delete image</a>";
+        function recycleImage($item) {
+            $item.removeClass("image-border-error");
+            $item.fadeOut(function () {
+            $item.find("a.ui-icon-pencil").show();
+                $item
+                    .find("a.ui-icon-refresh")
+                    .remove()
+                    .end()
+                    .css("width", "96px")
+                    .append(trash_icon)
+                    .find("img")
+                    .css("height", "72px")
+                    .end()
+                    .appendTo($gallery)
+                    .fadeIn();
+                });
+        }
+
+        // image preview function, demonstrating the ui.dialog used as a modal window
+        function viewLargerImage($link) {
+            var src = $link.attr("href"),
+            title = $link.siblings("img").attr("alt"),
+            $modal = $("img[src$='" + src + "']");
+
+            if ($modal.length) {
+                $.fancybox({
+                   'title': title,
+                   'transitionIn':'elastic',
+                   'transitionOut':'elastic',
+                   'type' : 'image',
+                   'href': src,
+                   'titlePosition':'inside'
+               });
+            } else {
+            var img = $("<img alt='" + title + "' width='400' height='300' style='display: none; padding: 8px;' />")
+                .attr("src", src).appendTo("body");
+                    setTimeout(function () {
+                    $.fancybox({
+                        'title': title,
+                        'transitionIn':'elastic',
+                        'transitionOut':'elastic',
+                        'type' : 'image',
+                        'href': src,
+                        'titlePosition':'inside'
+                    });
+                }, 1);
+            }
+        }
+
+        // resolve the icons behavior with event delegation
+        $("ul.gallery > li").live("click", function (event) {
+            var $item = $(this),
+            $target = $(event.target);
+            if ($target.is("a.ui-icon-trash")) {
+                deleteImage($item);
+                return false;
+            } else if ($target.is("a.ui-icon-zoomin")) {
+                viewLargerImage($target);
+                return false;
+            }   else if ($target.is("a.ui-icon-refresh")) {
+                recycleImage($item);
+                return false;
+            }
+        });
+
+        $(".album-image").scaleImage({fade: 2000,scale: "fill", center: true});
+        $(".bg-button-no-icon").button();
+        $("#ajaxUploadButton").button();
+        $(".fancy-image").fancybox({
+            'titlePosition'	: 'inside'
+        });
+    }
+
+    $(document).ready(function () {
+        reloadscripts();
+        if ((window.FormData === undefined) || (navigator.userAgent.toLowerCase().indexOf('chrome') > -1))
+        {
+             $.getScript("@Url.Content("~/Scripts/jquery.uploadify-3.1.min.js")", function() {
+                  $('#file_upload').uploadify({ 
+                     'fileTypeDesc' : 'Image Files',
+                     'fileTypeExts' : '*.gif; *.jpg; *.jpeg; *.png;', 
+                     'swf': "@Url.Content("~/Content/SWF/uploadify.swf")",
+                     'uploader': '@Url.RouteUrl("Default", new { controller = "File", action = "Upload"})',
+                     'onUploadSuccess': function (file) {
+                        if (navigator.appName != 'Microsoft Internet Explorer') {
+                            $("#content").load("@Request.Path #content", reloadscripts);                        
+                        }
+                      },                      
+                      'onQueueComplete': function(queueData) {
+                          if (navigator.appName == 'Microsoft Internet Explorer')
+                          {
+                              location.reload();
+                          }
+                      },
+                     'formData': { "albumid": "@Model.AlbumId" }
+                  });
+                  // IE < 9 bug
+                  FileToUploadUploader=document.getElementById("FileToUploadUploader");             
+              });                     
+        }
+        else
+        {
+            $.getScript("@Url.Content("~/Scripts/jquery.uploadifive-v1.0.min.js")", function() {         
+                $('#file_upload').uploadifive({
+                    'uploadScript': '@Url.RouteUrl("Default", new { controller = "File", action = "Upload"})',
+                    'onUploadComplete': function (file, data) {
+                         $("#content").load("@Request.Path #content", reloadscripts);
+                    },
+                    'fileType' : 'image',
+                    'formData': { "albumid": "@Model.AlbumId" }                                        
+                });
+            });
+        }
+    });
+</script>
+
+<div id="content" class="ui-widget ui-helper-clearfix ui-helper-margin-top-bottom">
+
+@if ((Model != null) && (Model.Images.Count > 0))
+{
+    <ul id="gallery" class="gallery  ui-helper-reset ui-helper-clearfix">
+        @foreach (var item in Model.Images)
+        {
+        <li class="ui-widget-content ui-corner-tr ui-helper-top-layer">
+            @if (item.Name != null)
+            {
+                <h5 class="ui-widget-header">@CustomHelper.TruncateString(item.Name,10)</h5>
+            }			
+            else
+            {
+                 <h5 class="ui-widget-header">@Resources.AppMessages.No_Name</h5>
+            }
+            <div class="image-container">
+                @if (item.ThumbnailPath != String.Empty)
+                {                
+                    <img class="album-image" src="@Url.Content(item.ThumbnailPath)" />                
+                }
+                else if (item.Path != String.Empty)
+                {                    
+                    <img class="album-image" src="@Url.Content(item.Path)" />
+                }
+                else
+                {
+                    <img class="album-image" src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+                }
+            </div>
+            @Html.RouteLink(Resources.AppMessages.Edit, "Default", new { controller = "Image", action = "Edit", id = item.ImageId }, new { id = item.ImageId, @class = "edit ui-icon ui-icon-pencil" })
+            <a href="@Url.Content(item.Path)" title="View larger image" class="ui-icon ui-icon-zoomin">@Resources.AppMessages.View_Detail</a>
+            <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">@Resources.AppMessages.Delete</a>
+        </li>
+        }
+    </ul>
+
+    <div id="trash" class="ui-widget-content ui-state-default ui-helper-relative ui-helper-bottom-layer ui-helper-corner-all">
+        <h4 class="ui-widget-header"><span class="ui-icon ui-icon-trash"></span> @Resources.AppMessages.Trash</h4>
+        <a id="DeleteAll" class="bg-button-no-icon ui-helper-absolute">@Resources.AppMessages.Empty_Trash</a>
+    </div>
+}
+else
+{
+    <div class="ui-helper-margin ui-widget-content ui-state-highlight ui-corner-all ui-helper-padding">
+        <h2>@Resources.AppMessages.Album_NoImage</h2>
+        <p>@Resources.AppMessages.Album_WidgetLoadImages</p>
+    </div>	
+}
+
+</div>
+<div>
+    <fieldset class="ui-widget ui-widget-content ui-corner-all fieldset">
+        <legend class="legend bg-panel ui-widget-header ui-corner-all ">@Resources.AppMessages.Album_LoadImages</legend>			
+        <div class="ui-helper-margin-top-bottom">
+            <input id="file_upload" type="file" name="file_upload" />
+        </div>
+    </fieldset>    
+</div>

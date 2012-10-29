@@ -1,0 +1,91 @@
+﻿@model BgEngine.Web.ViewModels.SubscriptionViewModel
+
+	<script type="text/javascript" src=@Url.Content("~/Scripts/internal/bg.form.js")></script>
+	<script type="text/javascript" src=@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")></script>
+
+<div id="subscribetolatest" class="ui-helper-hidden ui-helper-margin-top-bottom-4pc">
+	<h3><a href="#">@Resources.AppMessages.Subscribe</a></h3>
+	<div>
+	@using (Ajax.BeginRouteForm("Default", new { action = "SubscribeToNewsletter", controller = "Subscription" }, new AjaxOptions
+	{
+		HttpMethod = "POST",
+		OnSuccess = "subscribeSuccess",
+		OnFailure = "subscribeFailure",
+		LoadingElementId = "ajax-loader",
+		InsertionMode = InsertionMode.Replace,
+		UpdateTargetId = "subscribe-message"
+	}))
+	{
+		@Html.AntiForgeryToken()
+		if (!BgEngine.Security.Services.CodeFirstSecurity.IsAuthenticated)
+		{
+			<div class="editor-label">
+				@Html.LabelFor(model => model.SubscriberName)
+			</div>			
+			<div class="editor-field">
+				@Html.EditorFor(model => model.SubscriberName)
+				@Html.ValidationMessageFor(model => model.SubscriberName)
+			</div>
+			<div class="editor-label ui-helper-margin-top-bottom">
+				@Html.LabelFor(model => model.SubscriberEmail)
+			</div>			
+			<div class="editor-field">
+				@Html.EditorFor(model => model.SubscriberEmail)
+				@Html.ValidationMessageFor(model => model.SubscriberEmail)
+			</div>             
+		}
+		else
+		{
+			@Html.Hidden("SubscriberName", BgEngine.Security.Services.CodeFirstSecurity.CurrentUserName)
+			@Html.Hidden("SubscriberEmail", BgEngine.Security.Services.CodeFirstSecurity.GetUserMail(BgEngine.Security.Services.CodeFirstSecurity.CurrentUserName))
+		   <p>@String.Format(Resources.AppMessages.Subscribe_Authenticated, BgEngine.Security.Services.CodeFirstSecurity.CurrentUserName)</p>
+		}
+		<p>
+			<input type="submit" style="width:50%;" value="@Resources.AppMessages.Subscribe_Submit" class="ui-helper-margin-top-bottom" />
+			<img id="ajax-loader" src="@Url.Content("~/Content/Icons/ajax-loader-b.gif")" class="ui-helper-arrange-rateit-loading ui-helper-hidden" />
+		</p>
+		<div id="subscribe-message" class="ui-widget ui-widget-content ui-helper-hidden ui-helper-padding"></div>
+	}
+	</div>
+</div>
+
+	<script type="text/javascript">
+	    $("#subscribetolatest form").form();
+	    $("#subscribetolatest").accordion({ collapsible: true, autoHeight: false });
+	    $("#subscribetolatest").fadeIn(1000);	            
+		function subscribeSuccess(data) {
+			if (data.result == "ok") {                
+				$("#subscribe-message").removeClass("ui-state-error").addClass("ui-state-default").html("<p>" + data.message + "</p>").show("1000", interval);
+				$("#SubscriberName, #SubscriberEmail").val("");
+			}
+			else {
+				if (data.modelerror == true) {
+					errors = {};
+					for (var i = 0; i < data.errors.length; i++) {
+						errors[data.errors[i].Key] = data.errors[i].Value;
+					}
+					var validator = $("#subscribe form").validate();
+					validator.showErrors(errors);
+				}
+				else {
+					for (var i = 0; i < data.errors.length; i++) {
+						$("#subscribe-message").append("<p>" + data.errors[i].Value + "</p>");
+					}
+					$("#subscribe-message").removeClass("ui-state-default").addClass("ui-state-error").show("1000", interval);
+				}
+			}
+		}
+
+		function subscribeFailure(data) {
+			$("#subscribe-message").removeClass("ui-state-default").addClass("ui-state-error").html("<p>" + data.message + "</p>").show("1000", interval);
+		}
+
+		function interval() {
+			setTimeout(function () {
+			    $("#subscribe-message").hide("1000").empty();
+                @if (BgEngine.Security.Services.CodeFirstSecurity.IsAuthenticated) {
+                    @:$("#subscribetolatest").fadeOut();
+                }			    				
+			}, 5000);
+		}
+	</script>

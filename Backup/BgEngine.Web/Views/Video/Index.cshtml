@@ -1,0 +1,126 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model IEnumerable<BgEngine.Domain.EntityModel.Video>
+
+@{
+	Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+	ViewBag.Title = Resources.AppMessages.Index + " - " + Resources.AppMessages.Video;	
+}
+
+@using BgEngine.Domain.Types;
+@using PagedList.Mvc;
+@using PagedList;
+@using Combres.Mvc;
+
+@Html.CombresLink("VideoIndexInitViewsJs")
+
+<script type="text/javascript">
+	$(document).ready(function () {
+            $.video_startup("@Url.RouteUrl("Default", new { controller = "Video", action = "Index" })",
+                       "@Url.RouteUrl("Default",new {controller="Video", action="GetVideoAutoCompleteSuggestions"})",
+                       "@Resources.AppMessages.VideoSearchBox",
+                       "<h1>@Resources.AppMessages.Wait_Loading</h1>");
+                
+     });
+</script>
+
+@CustomHelper.GetTooltipInitializationCode()
+
+<p>
+	@Html.RouteLink(Resources.AppMessages.Create, "Default", new { controller = "Video", action = "Create" }, new { @class = "bg-button-new" })
+</p>
+
+@if (Model.Any())
+{  
+
+    <div class="bg-input-search">
+	    <input id="searchvideo" name="Title" type="text"/>
+	    <a id="searchbutton" class="bg-panel bg-button-search"></a>
+    </div>
+
+    <div id="videos" class="ui-helper-margin-top-bottom">
+		    <div id="elements" class="ui-helper-width-100pc bg-align-center">
+			    @foreach (var modelitem in Model)
+			    {
+				    <div class="video-container ui-widget ui-corner-all ui-state-default ui-helper-padding">
+					    <h2 class="video-header tooltip dotdotdot" title="@modelitem.Name">@modelitem.Name</h2>
+                        @if (String.IsNullOrEmpty(modelitem.Description))
+                        { 
+                            <p class="video-description ui-helper-margin-left-right tooltip ui-helper-padding dotdotdot" title="@modelitem.Name">@Html.Raw(modelitem.Name)</p>
+                        }
+                        else
+                        {
+                            <p class="video-description ui-helper-margin-left-right tooltip ui-helper-padding dotdotdot" title="@modelitem.Description">@Html.Raw(modelitem.Description)</p>
+                        }					                    					    
+					    <div class="video-movie ui-helper-width-100pc bg-align-center ui-helper-padding-top-10pc">
+						    @if (!String.IsNullOrEmpty(modelitem.Html))
+          { 
+							    @Html.Raw(modelitem.Html)
+          }
+          else
+          {
+              if (!String.IsNullOrEmpty(modelitem.Path))
+              {
+                  if (modelitem.VideoType == VideoType.Flash)
+                  {
+							    @Video.Flash(path: modelitem.Path, width: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, height: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
+                  }
+                  else if (modelitem.VideoType == VideoType.MediaPlayer)
+                  {
+							    @Video.MediaPlayer(path: modelitem.Path, width: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, height: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
+                  }
+                  else if (modelitem.VideoType == VideoType.Silverlight)
+                  {
+							    @Video.Silverlight(path: modelitem.Path, width: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, height: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
+                  }
+                  else if (modelitem.VideoType == VideoType.Html5)
+                  {
+							    @Html.Html5Video(modelitem.Path);
+                  }
+              }
+          }
+					    </div>
+					    <div class="video-footer ui-helper-width-100% ui-helper-relative">                            
+						    @Html.RouteLink(Resources.AppMessages.Edit, "Default", new { controller = "Video", action = "Edit", id = modelitem.VideoId }, new { @class = "tooltip video-edit ui-icon ui-icon-pencil", title = Resources.AppMessages.Edit })
+						    @Html.RouteLink(Resources.AppMessages.Delete, "Default", new { controller = "Video", action = "Details", id = modelitem.VideoId }, new { id = modelitem.VideoId, @class = "tooltip video-details ui-icon ui-icon-zoomin", title = Resources.AppMessages.Detail })
+						    @Html.RouteLink(Resources.AppMessages.Delete, "Default", new { controller = "Video", action = "Delete", id = modelitem.VideoId }, new { id = modelitem.VideoId, @class = "tooltip video-delete ui-icon ui-icon-trash", title = Resources.AppMessages.Delete })
+					    </div>
+				    </div>        
+                }
+		    </div>
+		    <div id="pager" class="ui-helper-reset-float ui-margin-top-bottom">
+			    @Html.PagedListPager((IPagedList)Model, page => Url.RouteUrl("Default", new { controller = "Video", action = "Index", page }), PagedListRenderOptions.PageNumbersOnly)
+		    </div>    
+        </div>
+}
+else
+{
+    <h2 class="ui-widget-content ui-state-highlight ui-corner-all ui-helper-padding">@Resources.AppMessages.Videos_NoVideo</h2>
+}
+
+<script>
+    /* Correct youtube embedded videos z-index for showing tooltips above them */
+    $('#videos iframe').each(function() {
+        var url = $(this).attr('src');
+        $(this).attr('src',url+'?wmode=transparent');
+    });
+    $(".dotdotdot").dotdotdot({ watch: "window" });
+</script>

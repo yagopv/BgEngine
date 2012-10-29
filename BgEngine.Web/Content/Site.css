@@ -19,7 +19,7 @@
 *==============================================================================*/
 
 /* Body */
-body {background-color: #ffffff; font-size: .75em; font-family: Verdana,Arial,sans-serif; margin: 0; padding: 0; color: #696969; min-width:1024px;}
+body {background-color: #ffffff; font-size: .85em; font-family: Verdana,Arial,sans-serif; margin: 0; padding: 0; color: #696969; min-width:1024px;}
 #body {min-width:820px;}
 
 /*Paragraph and lists */
@@ -53,7 +53,7 @@ footer, #footer { clear:both; position:relative; height:150px; width:100%; }
 
 /* Sidebar styles */
 .sidebar { width:25%; height:100%; float:right; margin-right:15px;}
-.sidebar p { font-size: 0.8em; }
+.sidebar p { font-size: 0.95em; }
 .sidebar ul li a { font-size: 1.2em; }
 .sidebar-stats-post {height:50px; padding-bottom: 5%; }
 .sidebar-stats-post-text { position:relative; left:3%; top:10px; }
@@ -67,7 +67,7 @@ footer, #footer { clear:both; position:relative; height:150px; width:100%; }
 #sidebar-stats  ul li a { font-size: 1em; }
 
 /*  Menu */
-#menu {font-size:1em;}
+#menu {font-size:1.1em;}
 ul#menu { padding: 6px 0 2px; position: relative; margin: 0; text-align: right; }
 ul#menu li { display: inline; list-style: none; }
 ul#menu li#greeting { padding: 10px 20px; font-weight: bold; text-decoration: none; line-height: 2.8em;	color: #fff; }
@@ -220,7 +220,7 @@ body .galleria-thumbnails .galleria-image { width:150px }
 #home-videos #elements .video-container { height:100%; width:43%; margin:2.5% 1.5%;}
 #elements .video-container {  height: 100%; width:29%; margin:1%; float:left;}
 .video-header { height: 20px; width:90%; margin: 0 auto; font-size:1.2em;}
-.video-description { height: 55px; font-size:0.8em; }
+.video-description { height: 55px; font-size:1em; }
 .video-footer { height: 40px;  width:100%;}
 
 .video-edit {position: absolute; top:15px; left: 5px;}
@@ -259,7 +259,7 @@ video {	max-width: 100%; height: auto; }
 #searchvideo, #searchpost { box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.2); }
 
 /* Helpers */
-.ui-helper-reset-margin { margin: 0.2em; font-size:0.65em; } /*Added */
+.ui-helper-reset-margin { margin: 0.2em; font-size:0.75em; } /*Added */
 .ui-helper-reset-float { clear: both; padding-top:20px;} /*Added */
 .ui-helper-float-left {float:left;}  /*Added */
 .ui-helper-float-right {float:right;}  /*Added */
@@ -351,9 +351,9 @@ video {	max-width: 100%; height: auto; }
     #maincontent .sortable { width: 100%; }    
     .sidebar { float:none; height: auto; margin: 0 auto; width: 90%; clear:both; padding-top:5%; }
     #body { min-width: 0px; }
-    #categories, #archive, #tagcloud, #sidebar-stats, #themeselector, #subscribetolatest { margin-top: 4%; /*font-size:1.5em;*/ }            
+    #categories, #archive, #tagcloud, #sidebar-stats, #themeselector, #subscribetolatest { margin-top: 4%;  font-size:1.3em; }            
     #subscribetolatest input  {width: 100%;}
-    .primarypost, .secondarypost { font-size:0.8em; margin: 1% 0 2% 0;}
+    .primarypost, .secondarypost { font-size: 1em; margin: 1% 0 2% 0;}
     .twtr-doc { margin-top: 4%; }
     #gsc-i-id1 { height: 40px;  }
     .gsc-search-button input  { height: 50px !important;  }
@@ -363,7 +363,7 @@ video {	max-width: 100%; height: auto; }
     #fancybox-overlay { width:1200px !important; }  
     body .ui-tooltip { max-width: 300px; font-size: 0.8em;}  
     #sidebar-sharebar a { text-decoration:none; margin-left: 20px; }
-    #menu, #logindisplay {font-size:0.8em;}
+    #menu, #logindisplay {font-size: 1em;}
     #public-videos #elements .video-container { width: 44% }   
     #newsletter .newsletter-check {  padding-top:1.8%; }
 }
@@ -378,9 +378,11 @@ video {	max-width: 100%; height: auto; }
     #body ul#menu { width:100%; text-align:left; }
     #body ul#menu li { display:block; width:100% }    
     #body ul#menu li a { width:94%; }    
-    #body .video-description { font-size: 0.7em; }
+    #menu, #logindisplay {font-size:1em;}
+    #body .video-description { font-size: 1em; }
     #body .video-header { font-size: 0.9em; }        
-    .primarypost, .secondarypost { font-size:0.8em; margin: 1% 0 2% 0;}
+    .primarypost, .secondarypost { font-size: 1.05em; margin: 1% 0 2% 0;}
+    #categories, #archive, #tagcloud, #sidebar-stats, #themeselector, #subscribetolatest { margin-top: 4%;  font-size:1.1em; }            
     .mainpost img, .primarypost img, .secondarypost img  { max-height:70px; max-width:110px;}        
     #home-contact { position:relative; margin: 0 5%; width:90%; margin-top:2%; }
     #copyright { position:relative; margin: 0 5%; width:90%; margin-top:2%; text-align:center; }

@@ -1,0 +1,155 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model BgEngine.Web.ViewModels.StatsModel
+
+<div id="tabs">
+	 <ul>
+		<li class="sidebar-tab-1"><a href="#tabs-1" class="sidebar-link-tab"><p>@Resources.AppMessages.Stats_MostVisitedPosts</p></a></li>
+		<li class="sidebar-tab-2"><a href="#tabs-2" class="sidebar-link-tab"><p>@Resources.AppMessages.Stats_TopRatedPosts</p></a></li>
+		<li class="sidebar-tab-3"><a href="#tabs-3" class="sidebar-link-tab"><p>@Resources.AppMessages.Stats_MostCommentedPosts</p></a></li>
+	</ul>
+	<div id="tabs-1">
+			@foreach (var modelitem in Model.MostVisitedPosts)
+			{
+				<div class="sidebar-stats-post ui-helper-relative ui-helper-margin-top-bottom ui-corner-all ui-helper-padding clickable"
+                     data-href="@Url.Action("GetPostByCode", new { controller = "Post", action = "GetPostByCode", id = modelitem.Code })">
+					@if (modelitem.Image != null)
+					{
+						if (modelitem.Image.ThumbnailPath != String.Empty)
+						{
+                            <div class="bg-align-center ui-helper-float-left ui-helper-image-50-50">
+						        <img  class="image" src="@Url.Content(modelitem.Image.ThumbnailPath)" />
+                            </div>
+					    }
+					    else if (modelitem.Image.Path != String.Empty)
+					    {
+                            <div class="bg-align-center ui-helper-float-left ui-helper-image-50-50">
+						        <img class="image" src="@Url.Content(modelitem.Image.Path)" />
+                            </div>
+					    }
+					    else
+					    {
+                            <div class="bg-align-center ui-helper-float-left ui-helper-image-50-50">
+						        <img class="image" src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+                            </div>
+					    }
+				    }
+					else
+					{
+                        <div class="bg-align-center ui-helper-float-left ui-helper-image-50-50">
+						    <img class="image" src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+                        </div>
+				    }
+                    <a href="@Url.Action("GetPostByCode", new { controller = "Post", action = "GetPostByCode", id = modelitem.Code })" class="sidebar-stats-post-text">
+                        @Html.Raw(modelitem.Title.Length > 42 ? CustomHelper.TruncateString(modelitem.Title, 45).ToString() : modelitem.Title)<span>&nbsp;(@modelitem.Visits)</span>
+                    </a>                                        
+					<div class="ui-helper-reset-float">
+					</div>
+				</div> 
+            }
+	</div>
+
+	<div id="tabs-2">
+			@foreach (var modelitem in Model.TopRatedPosts)
+			{
+				<div class="sidebar-stats-post ui-helper-relative ui-helper-margin-top-bottom ui-corner-all ui-helper-padding clickable"
+                     data-href="@Url.Action("GetPostByCode", new { controller = "Post", action = "GetPostByCode", id = modelitem.Code })">
+					@if (modelitem.Image != null)
+					{
+						if (modelitem.Image.ThumbnailPath != String.Empty)
+						{
+                            <div class="bg-align-center ui-helper-float-left ui-helper-image-50-50">
+						        <img  class="image" src="@Url.Content(modelitem.Image.ThumbnailPath)" />
+                            </div>
+					    }
+					    else if (modelitem.Image.Path != String.Empty)
+					    {
+                            <div class="bg-align-center ui-helper-float-left ui-helper-image-50-50">
+						        <img class="image" src="@Url.Content(modelitem.Image.Path)" />
+                            </div>
+					    }
+					    else
+					    {
+                            <div class="bg-align-center ui-helper-float-left ui-helper-image-50-50">
+						        <img class="image" src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+                            </div>
+					    }
+				    }
+					else
+					{
+                        <div class="bg-align-center ui-helper-float-left ui-helper-image-50-50">
+						    <img class="image" src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+                        </div>
+				    }
+                    <a href="@Url.Action("GetPostByCode", new { controller = "Post", action = "GetPostByCode", id = modelitem.Code })" class="sidebar-stats-post-text">
+                        @Html.Raw(modelitem.Title.Length > 42 ? CustomHelper.TruncateString(modelitem.Title, 45).ToString() : modelitem.Title)<span>&nbsp;(@modelitem.Ratings.Average(r => r.Value))</span>
+                    </a>                    
+					<div class="ui-helper-reset-float">
+					</div>
+				</div> 
+            }
+	</div>
+
+	<div id="tabs-3">
+			@foreach (var modelitem in Model.MostCommentedPosts)
+			{
+				<div class="sidebar-stats-post ui-helper-relative ui-helper-margin-top-bottom ui-corner-all ui-helper-padding clickable"
+                     data-href="@Url.Action("GetPostByCode", new { controller = "Post", action = "GetPostByCode", id = modelitem.Code })">
+					@if (modelitem.Image != null)
+					{
+						if (modelitem.Image.ThumbnailPath != String.Empty)
+						{
+                            <div class="bg-align-center ui-helper-float-left ui-helper-image-50-50">
+						        <img  class="image" src="@Url.Content(modelitem.Image.ThumbnailPath)" />
+                            </div>
+					    }
+					    else if (modelitem.Image.Path != String.Empty)
+					    {
+                            <div class="bg-align-center ui-helper-float-left ui-helper-image-50-50">
+						        <img class="image" src="@Url.Content(modelitem.Image.Path)" />
+                            </div>
+					    }
+					    else
+					    {
+                            <div class="bg-align-center ui-helper-float-left ui-helper-image-50-50">
+						        <img class="image" src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+                            </div>
+					    }
+				    }
+					else
+					{
+                        <div class="bg-align-center ui-helper-float-left ui-helper-image-50-50">
+						    <img class="image" src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+                        </div>
+				    }
+                    <a href="@Url.Action("GetPostByCode", new { controller = "Post", action = "GetPostByCode", id = modelitem.Code })" class="sidebar-stats-post-text">
+                        @Html.Raw(modelitem.Title.Length > 42 ? CustomHelper.TruncateString(modelitem.Title, 45).ToString() : modelitem.Title)<span>&nbsp;(@modelitem.Comments.Count())</span>
+                    </a>
+					<div class="ui-helper-reset-float">
+					</div>
+				</div> 
+            }
+	</div>
+</div>
+
+<script type="text/javascript">
+    $(".image").scaleImage({ fade: 2000, scale: "fill", center: true });
+</script>

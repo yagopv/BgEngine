@@ -1,0 +1,49 @@
+﻿@model BgEngine.Web.ViewModels.RenderVideoViewModel
+
+@using BgEngine.Domain.Types;
+
+@{
+    VideoType vtype = new VideoType();
+    vtype = (VideoType)Enum.Parse(typeof(VideoType), Model.VideoType);
+}
+
+@if (!String.IsNullOrEmpty(Model.Html))
+{ 
+    @Html.Raw(Model.Html)
+}
+else 
+{
+    if (!String.IsNullOrEmpty(Model.Path))
+    {
+        if (vtype == VideoType.Flash)
+        {
+             @Video.Flash(path: Model.Path, width: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, height: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
+        }
+        else if (vtype == VideoType.MediaPlayer)
+        {
+              @Video.MediaPlayer(path: Model.Path, width: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, height: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
+        }
+        else if (vtype == VideoType.Silverlight)
+        {
+              @Video.Silverlight(path: Model.Path, width: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, height: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
+        }
+        else if (vtype == VideoType.Html5)
+        {
+            @Html.Html5Video(Model.Path, BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
+        }
+    }
+    else
+    { 
+        <h3 class="video-preview">
+                Video preview
+        </h3>   
+    }
+}
+
+<script>
+    /* Correct youtube embedded videos z-index for showing tooltips above them */
+    $('iframe').each(function() {
+        var url = $(this).attr('src');
+        $(this).attr('src',url+'?wmode=transparent'); 
+   });
+</script>

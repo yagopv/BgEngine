@@ -1,0 +1,113 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model BgEngine.ViewModels.ContactViewModel
+
+@using Combres.Mvc
+
+@Html.CombresLink("ContactJs")
+
+@CustomHelper.GetTooltipInitializationCode()
+
+@using (Ajax.BeginForm("SendContactMessage", "Home", new AjaxOptions
+{
+	HttpMethod = "POST",
+	LoadingElementId = "contact-loader",
+	OnSuccess = "OptionsUpdated",
+	InsertionMode = InsertionMode.Replace,
+	UpdateTargetId = "updated-message"
+}))
+{    
+	   @Html.AntiForgeryToken()
+		<table class="table-template">
+			<tr>
+				<td>
+					<div class="editor-label">
+						@Html.LabelFor(model => model.Subject)
+					  </div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Subject)
+						@Html.ValidationMessageFor(model => model.Subject)
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						@Html.LabelFor(model => model.Email)
+					  </div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Email)
+						@Html.ValidationMessageFor(model => model.Email)
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						@Html.LabelFor(model => model.Web)
+					  </div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Web)
+						@Html.ValidationMessageFor(model => model.Web)
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						@Html.LabelFor(model => model.Message)
+					  </div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Message)
+						@Html.ValidationMessageFor(model => model.Message)
+					</div>
+				</td>
+			</tr>
+		</table>
+		<p class="bg-align-center ui-helper-margin-top-bottom">
+			<input class="ui-helper-width-100pc" type="submit" value="@Resources.AppMessages.Home_Contact_SendMessage" />
+			<img id="contact-loader" src="@Url.Content("~/Content/Icons/ajax-loader-b.gif")" class="ui-helper-hidden" />
+		</p>
+		<div id="updated-message"></div>
+}
+
+<script type="text/javascript">
+
+	$("form").form();
+
+	function OptionsUpdated() {
+		$("#updated-message").show("1000", interval);
+	};
+
+	function interval() {
+		setTimeout(function () {
+			$("#updated-message").hide("1000");
+		}, 5000);
+	};
+</script>

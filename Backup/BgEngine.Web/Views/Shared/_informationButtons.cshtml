@@ -1,0 +1,28 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model BgEngine.Domain.EntityModel.Post
+
+    <div id="information-buttons" class="ui-helper-width-100pc">
+        <p class="tooltip ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" title="@(String.IsNullOrEmpty(Model.Category.Description) ? Model.Category.Name : Model.Category.Description)" ><span class="ui-button bg-icon-left ui-icon ui-icon-document" ></span>@Model.Category.Name</p>
+        <p class="tooltip ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" title="@String.Format(Resources.AppMessages.DateCreatedFormat,Model.DateCreated.ToLongDateString())"><span class="ui-button bg-icon-left ui-icon ui-icon-calendar"></span>@Model.DateCreated.ToShortDateString()</p>
+        <a href="@Url.RouteUrl("Default", new { controller = "User", action = "GetTooltipData", id = Model.User.UserId })" class="tooltip-ajax ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" ><span class="ui-button bg-icon-left ui-icon ui-icon-person"></span>@Html.DisplayFor(modelitem => Model.User.Username)</a>
+        <p class="tooltip ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" title="@String.Format(Resources.AppMessages.NumberofComments,Model.Comments.Count(c => c.IsSpam == false))" ><span class="ui-button bg-icon-left ui-icon ui-icon-comment"></span>@Model.Comments.Count(c => c.IsSpam == false).ToString()</p>
+    </div>

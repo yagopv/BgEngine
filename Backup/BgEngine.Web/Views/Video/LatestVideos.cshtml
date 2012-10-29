@@ -1,0 +1,69 @@
+﻿@model IEnumerable<BgEngine.Domain.EntityModel.Video>
+
+@using BgEngine.Domain.Types;
+
+@if (Model.Any()) {
+    if (ViewBag.IsHome)
+    {
+        <h2 class="ui-helper-clear-both ui-widget-content ui-state-default ui-corner-all bg-title ui-helper-margin-top-bottom ui-margin-top-relative ui-helper-text-center ui-helper-inset">@Resources.AppMessages.Latest_Videos_Added</h2> 
+    }
+    else 
+    { 
+        <h2 class="ui-helper-clear-both ui-widget-content ui-state-default ui-corner-all bg-title ui-helper-margin-top-bottom ui-margin-top-relative ui-helper-text-center ui-helper-inset">@Resources.AppMessages.Related_Videos</h2> 
+    }
+    <div id="home-videos" class="ui-helper-hidden">
+        <div id="elements" class="ui-helper-width-100pc">
+            @foreach (var modelitem in Model)
+            {
+                <div class="video-container ui-widget ui-corner-all ui-state-default ui-helper-display-inline-block ui-helper-padding">
+                    <h2 class="video-header tooltip dotdotdot" title="@modelitem.Name">@modelitem.Name</h2>
+                    @if (String.IsNullOrEmpty(modelitem.Description))
+                    { 
+                        <p class="video-description ui-helper-margin-left-right tooltip ui-helper-padding dotdotdot" title="@modelitem.Name">@Html.Raw(modelitem.Name)</p>
+                    }
+                    else
+                    {
+                        <p class="video-description ui-helper-margin-left-right tooltip ui-helper-padding dotdotdot" title="@modelitem.Description">@Html.Raw(modelitem.Description)</p>
+                    }					                    
+                    <div class="video-movie ui-helper-width-100pc bg-align-center ui-helper-padding-top-10pc">
+                        @if (!String.IsNullOrEmpty(modelitem.Html))
+                        { 
+                            @Html.Raw(modelitem.Html)
+                        }
+                        else
+                        {
+                            if (!String.IsNullOrEmpty(modelitem.Path))
+                            {
+                                if (modelitem.VideoType == VideoType.Flash)
+                                {
+                            @Video.Flash(path: modelitem.Path, width: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, height: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
+                                }
+                                else if (modelitem.VideoType == VideoType.MediaPlayer)
+                                {
+                            @Video.MediaPlayer(path: modelitem.Path, width: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, height: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
+                                }
+                                else if (modelitem.VideoType == VideoType.Silverlight)
+                                {
+                            @Video.Silverlight(path: modelitem.Path, width: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, height: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
+                                }
+                                else if (modelitem.VideoType == VideoType.Html5)
+                                {
+                            @Html.Html5Video(modelitem.Path);
+                                }
+                            }
+                        }
+                    </div>
+                </div>        
+            }
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    /* Correct youtube embedded videos z-index for showing tooltips above them */
+    $('#home-videos iframe').each(function() {
+        var url = $(this).attr('src');
+        $(this).attr('src',url+'?wmode=transparent');
+    });
+    $(".dotdotdot").dotdotdot({ watch: "window" });
+</script>

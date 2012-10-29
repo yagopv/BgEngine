@@ -1,0 +1,175 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model IEnumerable<BgEngine.Domain.EntityModel.Post>
+
+@using Combres.Mvc;
+
+@{
+	Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+	ViewBag.Title = @Resources.AppMessages.Index + " - " + Resources.AppMessages.Post;
+	WebGrid grid = new WebGrid(ajaxUpdateContainerId: "grid-container", rowsPerPage:Int32.Parse(ViewBag.RowsPerPage));
+	grid.Bind(Model, autoSortAndPage: false, rowCount: ViewBag.TotalPosts);
+}
+
+@Html.CombresLink("PostIndexInitViewsJs")
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$.index_startup('<h1>@Resources.AppMessages.Wait_Loading</h1>');
+		$.post_startup("@Url.RouteUrl("Default",new {controller="Post", action="Index"})",
+					   "@Url.RouteUrl("Default",new {controller="Post", action="GetPostAutoCompleteSuggestions"})",
+					   "@Resources.AppMessages.SearchBox");
+	});
+</script>
+
+<p>
+	@Html.RouteLink(Resources.AppMessages.Create, "Default", new { controller = "Post", action = "Create" }, new { @class = "bg-button-new" })    
+    @if (Model.Any()) {
+        <a href="#" id="options" class="bg-button-gear">@Resources.AppMessages.Show_Hide_ColumnsFilters</a>	   
+    }    
+</p>
+
+
+@if (Model.Any())
+{     
+    <div id="options-panel" class="ui-helper-hidden ui-helper-reset-float">
+        <div class="ui-helper-margin multiselect ui-helper-margin-top-bottom">
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-1" data-column="1" data-default="true" />
+                <span>Imagen asociada</span>
+            </div>            
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-2" data-column="2" data-default="true" />
+                <span>@Resources.AppMessages.Post_Title</span>
+            </div>
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-3" data-column="3" data-default="true"/>
+                <span>@Resources.AppMessages.Post_Description</span>
+            </div>
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-4" data-column="4" data-default="true"/>
+                <span>@Resources.AppMessages.DateCreated</span>
+            </div>
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-5" data-column="5" />
+                <span>@Resources.AppMessages.DateUpdated</span>
+            </div>            
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-6" data-column="6" />
+                <span>@Resources.AppMessages.Post_Code</span>
+            </div>                        
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-7" data-column="7" />
+                <span>@Resources.AppMessages.Post_IsPublic</span>
+            </div>                                    
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-8" data-column="8" />
+                <span>@Resources.AppMessages.Post_IsHomePost</span>
+            </div>                                     
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-9" data-column="9" />
+                <span>@Resources.AppMessages.Post_IsAboutMe</span>
+            </div>                                     
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-10" data-column="10" />
+                <span>@Resources.AppMessages.Post_AllowAnonymousComments</span>
+            </div>     
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-11" data-column="11" />
+                <span>@Resources.AppMessages.Post_IsPostCommentsClosed</span>
+            </div>                    
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-12" data-column="12" data-default="true"/>
+                <span>@Resources.AppMessages.Category</span>
+            </div>
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-13" data-column="13" data-default="true"/>
+                <span>@Resources.AppMessages.User</span>
+            </div>
+            <div class="multiselect-check">
+                <input type="checkbox" id="checkbox-14" data-column="14" data-default="true"/>
+                <span>@Resources.AppMessages.Post_Visits</span>
+            </div>
+        </div>    
+    </div>    
+
+    <div id="search-panel" class="ui-helper-margin-top-bottom">
+        <div class="bg-input-search">
+            <input id="searchpost" name="Title" type="text"/>
+            <a id="searchbutton" class="bg-panel bg-button-search"></a>
+        </div>
+    </div>
+    
+    <div class="ui-helper-reset-float"></div>
+    
+    <div id="grid-container">
+	    @grid.GetHtml(htmlAttributes: new { id = "table-content", @class = "ui-helper-width-100pc" }, columns: new[] {
+		    grid.Column("ImageURL",
+			    header: Resources.AppMessages.Image,
+			    format: @<div class="bg-align-center ui-helper-image-100-100">
+					    @if (item.Image != null)  
+					     {
+						    if (item.Image.ThumbnailPath != String.Empty)   
+						    {
+							    <img class="image ui-helper-image-100-100" src="@Url.Content(item.Image.ThumbnailPath)" />
+						    }
+						    else if (item.Image.Path != String.Empty)  
+						    {
+							    <img class="image ui-helper-image-100-100" src="@Url.Content(item.Image.Path)" />
+						    } 
+						    else  
+						    {
+							    <img class="image ui-helper-image-100-100"  src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+						    }
+					    }    
+					    else  {
+						    <img class="image ui-helper-image-100-100"  src="@Url.Content(BgEngine.Application.ResourceConfiguration.BgResources.Folders_NoImage)" />
+					    }                           
+					    </div>,
+			    canSort:false),
+		    grid.Column("Title",header:Resources.AppMessages.Post_Title, canSort:true),
+		    grid.Column("Description",header:Resources.AppMessages.Post_Description, format: @<span>@CustomHelper.TruncateString(item.Description,100)</span>,canSort:false),
+		    grid.Column("DateCreated",header: Resources.AppMessages.DateCreated, canSort:true),
+            grid.Column("DateUpdated",header: Resources.AppMessages.DateUpdated, canSort:true),
+            grid.Column("Code",header: Resources.AppMessages.Post_Code, canSort:false),
+            grid.Column("IsPublic",header: Resources.AppMessages.Post_IsPublic, canSort:true,format:@<span>@(item.IsPublic ? Resources.AppMessages.Yes : Resources.AppMessages.No)</span>),
+            grid.Column("IsHomePost",header: Resources.AppMessages.Post_IsHomePost, canSort:true,format:@<span>@(item.IsHomePost ? Resources.AppMessages.Yes : Resources.AppMessages.No)</span>),
+            grid.Column("IsAboutMe",header: Resources.AppMessages.Post_IsAboutMe, canSort:true,format:@<span>@(item.IsAboutMe ? Resources.AppMessages.Yes : Resources.AppMessages.No)</span>),
+            grid.Column("AllowAnonymousComments",header: Resources.AppMessages.Post_AllowAnonymousComments, canSort:true,format:@<span>@(item.AllowAnonymousComments ? Resources.AppMessages.Yes : Resources.AppMessages.No)</span>),
+            grid.Column("IsPostCommentsClosed",header: Resources.AppMessages.Post_IsPostCommentsClosed, canSort:true,format:@<span>@(item.IsPostCommentsClosed ? Resources.AppMessages.Yes : Resources.AppMessages.No)</span>),
+		    grid.Column("Category.Name",header:Resources.AppMessages.Category, canSort:true, format: @<span>@item.Category.Name</span>),
+		    grid.Column("User.Username",header:Resources.AppMessages.User, canSort:true,format:@<span>@item.User.Username</span>),
+		    grid.Column("Visits",header:Resources.AppMessages.Post_Visits, canSort:true,format:@<span><p class="ui-helper-medium-font-size ui-helper-text-center">@item.Visits</p></span>),
+		    grid.Column("", header: Resources.AppMessages.Actions, 
+						    format: @<span class="options">
+									    @Html.ActionLink(Resources.AppMessages.Edit, "Edit", new { id = item.PostId }, new { @class = "bg-button-grid-edit tooltip" })
+									    @Html.ActionLink(Resources.AppMessages.View_Detail, "Details", new { id = item.PostId }, new { @class = "bg-button-grid-zoom tooltip" })
+									    @Html.ActionLink(Resources.AppMessages.Delete, "Delete", new { id = item.PostId }, new { @class = "bg-button-grid-delete tooltip" })
+								    </span>,
+						    canSort:false,
+						    style: "ui-helper-minwidth")
+	    }, mode: WebGridPagerModes.All)
+    </div>
+}
+else
+{
+	<h2 class="ui-widget-content ui-state-highlight ui-corner-all ui-helper-padding">@Resources.AppMessages.Error_NoPostFound</h2>
+}

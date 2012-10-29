@@ -1,0 +1,69 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model BgEngine.Web.ViewModels.AnonymousCommentViewModel
+
+@{ if(ViewContext.FormContext == null) {ViewContext.FormContext = new FormContext(); }}
+
+<form class="anonymous-comment-fields">
+    @Html.ValidationSummary(true)
+	<table class="table-template">
+		<tr>
+			<td>
+				<div class="editor-label">
+					@Html.LabelFor(model => model.Username)
+				</div>
+			</td>
+			<td>
+				<div class="editor-field">                    
+					@Html.EditorFor(model => model.Username, "AnonymousComment_Editor")                                            
+					@Html.ValidationMessageFor(model => model.Username, null, new { @class="ui-helper-clear-both"})
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="editor-label">
+					@Html.LabelFor(model => model.Email)
+				</div>
+			</td>
+			<td>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.Email, "AnonymousComment_Editor")
+					@Html.ValidationMessageFor(model => model.Email, null, new { @class="ui-helper-clear-both"})
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="editor-label">
+					@Html.LabelFor(model => model.Web)
+				</div>
+			</td>
+			<td>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.Web, "AnonymousComment_Editor")
+					@Html.ValidationMessageFor(model => model.Web, null, new { @class="ui-helper-clear-both"})
+				</div>
+			</td>
+		</tr>
+	</table>
+</form>
+

@@ -1,0 +1,81 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model IEnumerable<BgEngine.Domain.EntityModel.Comment>
+@using BgEngine.Security.Services;
+
+<div id="comments" class="ui-helper-width-100pc reset-bold">    
+	<ul id="comment-comments">
+		@foreach (var item in Model.Where(c => !c.isRelatedComment).OrderBy(c => c.DateCreated))
+		{
+			<li class="thread ui-helper-reset-float ui-helper-relative">
+				<div class="bg-widget-image-left">
+					@Gravatar.GetHtml(item.User.Email)
+				</div>
+				<div class="bg-widget-content-right">
+					<p class="ui-helper-width-100pc">@Html.Raw(item.Message)</p>
+					<div class="ui-helper-width-100pc bg-align-center">
+						<a href="@Url.RouteUrl("Default", new { controller = "User", action = "GetTooltipData", id = item.User.UserId })" class="tooltip-ajax ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" ><span class="ui-button bg-icon-left ui-icon ui-icon-person"></span>@Html.DisplayFor(modelitem => item.User.Username)</a>    
+						<p class="tooltip ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" title="@String.Format(Resources.AppMessages.Post_Comment_Writed,item.DateCreated.ToLongDateString())"><span class="ui-button bg-icon-left ui-icon ui-icon-calendar"></span>@CustomHelper.DateTime2Text(item.DateCreated)</p>
+					</div>
+				</div>
+				@if (item.RelatedComments.Any())
+				{
+					<ul class="related-comments-list">
+						@foreach (var relatedcomment in item.RelatedComments.OrderBy(c => c.DateCreated))
+						{
+								<li class="ui-helper-reset-float ui-helper-relative ui-helper-margin">
+									<div class="bg-widget-image-left">
+										@Gravatar.GetHtml(relatedcomment.User.Email)
+									</div>
+									<div class="bg-widget-content-right">
+										<p class="ui-helper-width-100pc">@Html.Raw(relatedcomment.Message)</p>
+										<div class="ui-helper-width-100pc bg-align-center">
+											<a href="@Url.RouteUrl("Default", new { controller = "User", action = "GetTooltipData", id = item.User.UserId })" class="tooltip-ajax ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" ><span class="ui-button bg-icon-left ui-icon ui-icon-person"></span>@Html.DisplayFor(modelitem => relatedcomment.User.Username)</a>
+											<p class="tooltip ui-helper-float-left bg-panel ui-state-default ui-corner-all ui-helper-margin" title="@String.Format(Resources.AppMessages.Post_Comment_Writed,relatedcomment.DateCreated.ToLongDateString())"><span class="ui-button bg-icon-left ui-icon ui-icon-calendar"></span>@CustomHelper.DateTime2Text(relatedcomment.DateCreated)</p>    
+										</div>                
+									</div>
+									<div class="ui-helper-reset-float"></div>
+								</li>
+						}
+					</ul>
+				}
+				 <div class="ui-helper-reset-float"></div>
+			</li>
+	}
+	</ul>
+	<div class="ui-helper-reset-float"></div>
+</div>     
+    
+<script type="text/javascript">
+    $(".tooltip, .tooltip-default").tipTip();
+    $(".tooltip-ajax").tipTip({
+        content: function (data) {
+            $.ajax({
+                url: $(this).attr("href"),
+                success: function (response) {
+                    data.content.html(response);
+                }
+            });
+            return Globalize.localize("loading", "@CultureHelper.GetNeutralCulture(CultureHelper.GetCurrentCulture())");
+        }
+    });
+    $(".tooltip-ajax").click(function () { return false; });    
+</script>

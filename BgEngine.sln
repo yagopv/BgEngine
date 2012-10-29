@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BgEngine.Web", "BgEngine.Web\BgEngine.Web.csproj", "{792B63FF-3D97-4DDD-8BB3-42F111DB18B3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BgEngine.Domain", "BgEngine.Domain\BgEngine.Domain.csproj", "{5D0827AB-F93D-4CB0-BF47-062A39AEFDF6}"

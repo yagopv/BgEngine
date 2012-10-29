@@ -1,0 +1,179 @@
+﻿@model BgEngine.Domain.EntityModel.Video
+
+@using BgEngine.Domain.Types;
+@using Combres.Mvc;
+
+@{
+	ViewBag.Title = Resources.AppMessages.Video + "-" + Resources.AppMessages.Edit;
+	Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+@Html.CombresLink("FormJs")
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$(".target").children().filter(":input").change(function () {
+				$.post("@Url.RouteUrl("Default", new { controller = "Video", action = "RenderVideo" })", { Path: $("#Path").val(), Html: $("#Html").val(), VideoType: $(".target .ui-selectmenu-status").text()  },
+					function(data, status) {
+							var $response = $(data);
+							$(".video-admin-container").html($response);						
+					}
+				)
+		});
+		$("form").form();
+	});
+</script>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+	@Html.ValidationSummary(true)
+	<fieldset>
+		<legend>@String.Format(Resources.AppMessages.Localization_Edit, Model.Name)</legend>
+		@Html.HiddenFor(model => model.VideoId)
+		<table class="table-template">
+			<tr>
+				<td>
+					<div class="editor-label">
+						@Html.LabelFor(model => model.Name)
+					  </div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Name)
+						@Html.ValidationMessageFor(model => model.Name)
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						@Html.LabelFor(model => model.Description)
+					  </div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Description)
+						@Html.ValidationMessageFor(model => model.Description)
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>                    
+					<div class="editor-label">
+						@Html.LabelFor(model => model.Category.CategoryId)
+					</div>
+				 </td>
+				 <td>                   
+					<div class="editor-field">
+						@Html.DropDownList("CategoryId", String.Empty)
+						@Html.ValidationMessageFor(model => model.CategoryId)
+					</div>
+				</td>
+			</tr>			
+			<tr>
+				<td>
+					<div class="editor-label">
+						@Html.LabelFor(model => model.Path)
+					  </div>
+				</td>
+				<td>
+					<div class="editor-field target">
+						@Html.EditorFor(model => model.Path)
+						@Html.ValidationMessageFor(model => model.Path)
+					</div>
+				</td>
+			</tr>
+            <tr>
+                <td>                    
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.IsPublic)
+                    </div>
+                </td>
+                <td>                    
+                    <div class="editor-field">
+                        @Html.CheckBoxFor(model => model.IsPublic)
+                        @Html.ValidationMessageFor(model => model.IsPublic)
+                    </div>
+                </td>
+            </tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						@Html.LabelFor(model => model.Html)
+					  </div>
+				</td>
+				<td>
+					<div class="editor-field target">
+						@Html.EditorFor(model => model.Html)
+						@Html.ValidationMessageFor(model => model.Html)
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						@Html.LabelFor(model => model.VideoType)
+					  </div>
+				</td>
+				<td>
+					<div class="editor-field target">
+						@Html.DropDownList("VideoType", new SelectList(Enum.GetNames(typeof(VideoType))))
+						@Html.ValidationMessageFor(model => model.VideoType)
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-field">
+						<strong>Video</strong>
+					</div>
+				</td>
+				<td>
+                    <div class="video-admin-container video-movie">
+				            @if (!String.IsNullOrEmpty(Model.Html))
+                            {
+					             @Html.Raw(Model.Html)
+                            }
+                            else if (Model.VideoType == VideoType.Flash)
+                            {
+					             @Video.Flash(path: Model.Path, width: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, height: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
+                            }
+                            else if (Model.VideoType == VideoType.MediaPlayer)
+                            {
+					             @Video.MediaPlayer(path: Model.Path, width: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, height: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
+                            }
+                            else if (Model.VideoType == VideoType.Silverlight)
+                            {
+					             @Video.Silverlight(path: Model.Path, width: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, height: BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight)
+                            }
+                            else if (Model.VideoType == VideoType.Html5)
+                            {
+                                 @Html.Html5Video(Model.Path, BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoWidth, BgEngine.Application.ResourceConfiguration.BgResources.Media_VideoHeight, true)
+                            }				
+                    </div>							
+				</td>
+			</tr>
+		</table>
+		<div class="ui-helper-margin multiselect ui-helper-margin-top-bottom">
+			@foreach (var tag in ViewBag.Tags as IDictionary<int,string>)
+			{
+				<div class="multiselect-check">
+					@if (Model.Tags.Any(t=>t.TagName == tag.Value))
+					{
+						<input type="checkbox" name="selectedtags" value="@tag.Key" checked="checked"/>
+					}
+					else
+					{
+						<input type="checkbox" name="selectedtags" value="@tag.Key"/>
+					}
+					<span>@tag.Value</span>
+				</div>
+			}
+		</div>		
+        @Html.HiddenFor(modelitem => modelitem.DateCreated)
+		<p class="ui-helper-margin-top-bottom ui-helper-reset-float">
+			<input type="submit" value="@Resources.AppMessages.Save" />
+			 @Html.RouteLink(Resources.AppMessages.Back_to_List, new { controller = "Video", action = "Index" }, new { @class = "bg-button-back" })
+		</p>
+	</fieldset>
+}

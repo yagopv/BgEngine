@@ -1,0 +1,424 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model BgEngine.Web.ViewModels.ConfigOptionsModel
+
+@using Combres.Mvc;
+@using BgEngine.Security.Services;
+
+@Html.CombresLink("ConfigOptionsJs")
+
+@using (Ajax.BeginForm("SaveOptions", "Stats", new AjaxOptions
+{
+    HttpMethod = "POST",
+    LoadingElementId = "ajax-loader",
+    OnSuccess = "OptionsUpdated",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "updated-message"
+}))
+{
+        @Html.AntiForgeryToken()
+		@Html.ValidationSummary(true)
+		<h2>@Resources.AppMessages.Config_EmailAccountfields</h2>
+		<table>            
+			<tr>
+				<td>
+					<div class="editor-label">
+						<strong>@Html.LabelFor(model => model.Email_UserName)</strong>
+					</div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Email_UserName)
+						@Html.ValidationMessageFor(model => model.Email_UserName)
+					</div>
+				</td>
+			   </tr>
+			   <tr>
+				<td>
+					<div class="editor-label">
+						<strong>@Html.LabelFor(model => model.Email_Password)</strong>
+					</div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Email_Password)
+						@Html.ValidationMessageFor(model => model.Email_Password)
+					</div>
+				</td>
+			   </tr>
+			   <tr>
+				<td>
+					<div class="editor-label">
+						<strong>@Html.LabelFor(model => model.Email_SmtpPort)</strong>
+					</div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Email_SmtpPort)
+						@Html.ValidationMessageFor(model => model.Email_SmtpPort)
+					</div>
+				</td>
+			   </tr>
+			   <tr>
+				<td>
+					<div class="editor-label">
+						<strong>@Html.LabelFor(model => model.Email_Server)</strong>
+					</div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Email_Server)
+						@Html.ValidationMessageFor(model => model.Email_Server)
+					</div>
+			   </td>
+			  </tr>
+			  <tr>
+				 <td>
+					<div class="editor-label">
+						<strong>@Html.LabelFor(model => model.Email_SSL)</strong>
+					</div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Email_SSL)
+						@Html.ValidationMessageFor(model => model.Email_SSL)
+					</div>
+			   </td>
+			</tr>
+			  <tr>
+				 <td>
+					<div class="editor-label">
+						<strong>@Html.LabelFor(model => model.Send_Mail_When_Comment_Received)</strong>
+					</div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Send_Mail_When_Comment_Received)
+						@Html.ValidationMessageFor(model => model.Send_Mail_When_Comment_Received)
+					</div>
+			   </td>
+			</tr>
+		</table>
+		<h2>@Resources.AppMessages.Config_PaginationFields</h2>
+		<table>
+			<tr>
+				<td>
+					<div class="editor-label">
+						@Html.LabelFor(model => model.Pager_HomeIndexPostsPerPage)
+					</div>
+				</td>
+				<td>
+					<div class="slider homepost-slider"></div>
+				</td>
+				<td>
+					@Html.TextBoxFor(model => model.Pager_HomeIndexPostsPerPage, new { @class = "slider-control" })
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						@Html.LabelFor(model => model.Pager_PostPerPage)
+					</div>
+				</td>
+				<td>
+					<div class="slider post-slider"></div>
+				</td>
+				<td>
+					@Html.TextBoxFor(model => model.Pager_PostPerPage, new { @class = "slider-control" })
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						@Html.LabelFor(model => model.Pager_CommentsPerPage)
+					</div>
+				</td>
+				<td>
+					<div class="slider comment-slider"></div>
+				</td>
+				<td>
+					@Html.TextBoxFor(model => model.Pager_CommentsPerPage, new { @class = "slider-control" })
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						@Html.LabelFor(model => model.Pager_CategoriesPerPage)
+					</div>
+				</td>
+				<td>
+					<div class="slider categories-slider"></div>
+				</td>
+				<td>
+					@Html.TextBoxFor(model => model.Pager_CategoriesPerPage, new { @class = "slider-control" })
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						@Html.LabelFor(model => model.Pager_TagsPerPage)
+					</div>
+				</td>
+				<td>
+					<div class="slider tags-slider"></div>
+				</td>
+				<td>
+					@Html.TextBoxFor(model => model.Pager_TagsPerPage, new { @class = "slider-control" })
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						@Html.LabelFor(model => model.Pager_UsersPerPage)
+					</div>
+				</td>
+				<td>
+					<div class="slider users-slider"></div>
+				</td>
+				<td>
+					@Html.TextBoxFor(model => model.Pager_UsersPerPage, new { @class = "slider-control" })
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						@Html.LabelFor(model => model.Pager_RolesPerPage)
+					</div>
+				</td>
+				<td>
+					<div class="slider roles-slider"></div>
+				</td>
+				<td>
+					@Html.TextBoxFor(model => model.Pager_RolesPerPage, new { @class = "slider-control" })
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						@Html.LabelFor(model => model.Pager_SearchImagesPerPage)
+					</div>
+				</td>
+				<td>
+					<div class="slider images-slider"></div>
+				</td>
+				<td>
+					@Html.TextBoxFor(model => model.Pager_SearchImagesPerPage, new { @class = "slider-control" })
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						@Html.LabelFor(model => model.Pager_SearchVideosPerPage)
+					</div>
+				</td>
+				<td>
+					<div class="slider videos-slider"></div>
+				</td>
+				<td>
+					@Html.TextBoxFor(model => model.Pager_SearchVideosPerPage, new { @class = "slider-control" })
+				</td>
+			</tr>
+		</table>
+		<h2>@Resources.AppMessages.Config_Messages</h2>
+		<table>
+			<tr>
+				<td>
+					<div class="editor-label">
+						<strong>@Html.LabelFor(model => model.Messages_SiteTitle)</strong>
+					</div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Messages_SiteTitle)
+						@Html.ValidationMessageFor(model => model.Messages_SiteTitle)
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						<strong>@Html.LabelFor(model => model.Messages_SiteUrl)</strong>
+					</div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Messages_SiteUrl)
+						@Html.ValidationMessageFor(model => model.Messages_SiteUrl)
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						<strong>@Html.LabelFor(model => model.Messages_Copyright)</strong>
+					</div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Messages_Copyright)
+						@Html.ValidationMessageFor(model => model.Messages_Copyright)
+					</div>
+				</td>
+			</tr>
+		</table>
+		<h2>@Resources.AppMessages.Config_Themes</h2>
+		<table>
+			<tr>
+				<td>
+					<div class="editor-label">
+						<strong>@Html.LabelFor(model => model.Themes_Default)</strong>
+					</div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.DropDownList("Themes_Default", new SelectList(Themes.AvailableThemes.ToList(), Themes.CurrentTheme))
+						@Html.ValidationMessageFor(model => model.Themes_Default)
+					</div>
+				</td>
+			</tr>
+		</table>
+		<h2>@Resources.AppMessages.Config_Security</h2>
+		<table>
+			<tr>
+				<td>
+					<div class="editor-label">
+						<strong>@Html.LabelFor(model => model.Security_AdminRole)</strong>
+					</div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.DropDownListFor(model => model.Security_AdminRole, new SelectList(CodeFirstRoleServices.GetAllRoles().ToList(), BgEngine.Application.ResourceConfiguration.BgResources.Security_AdminRole))
+						@Html.ValidationMessageFor(model => model.Security_AdminRole)
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						<strong>@Html.LabelFor(model => model.Security_PremiumRole)</strong>
+					</div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.DropDownListFor(model => model.Security_PremiumRole, new SelectList(CodeFirstRoleServices.GetAllRoles().ToList(), BgEngine.Application.ResourceConfiguration.BgResources.Security_PremiumRole))
+						@Html.ValidationMessageFor(model => model.Security_PremiumRole)
+					</div>
+				</td>
+			</tr>
+		</table>
+		<h2>@Resources.AppMessages.Config_Analytics</h2>
+		<table>
+			<tr>
+				<td>
+					<div class="editor-label">
+						<strong>@Html.LabelFor(model => model.Analytics_GoogleAnalyticsCode)</strong>
+					</div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Analytics_GoogleAnalyticsCode)
+						@Html.ValidationMessageFor(model => model.Analytics_GoogleAnalyticsCode)
+					</div>
+				</td>
+			</tr>
+		</table>
+		<h2>@Resources.AppMessages.Config_Recaptcha</h2>
+		<table>
+			<tr>
+				<td>
+					<div class="editor-label">
+						<strong>@Html.LabelFor(model => model.Recaptcha_PrivateKeyHttp)</strong>
+					</div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Recaptcha_PrivateKeyHttp)
+						@Html.ValidationMessageFor(model => model.Recaptcha_PrivateKeyHttp)
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						<strong>@Html.LabelFor(model => model.Recaptcha_PublicKeyHttp)</strong>
+					</div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Recaptcha_PublicKeyHttp)
+						@Html.ValidationMessageFor(model => model.Recaptcha_PublicKeyHttp)
+					</div>
+				</td>
+			</tr>
+        
+	    </table>
+        <h2>@Resources.AppMessages.Akismet_API_key</h2>
+		<table>
+  		     <tr>
+				    <td>
+					    <div class="editor-label">
+						    <strong>@Html.LabelFor(model => model.Akismet_API_key)</strong>
+					    </div>
+				    </td>
+				    <td>
+					    <div class="editor-field">
+						    @Html.EditorFor(model => model.Akismet_API_key)
+						    @Html.ValidationMessageFor(model => model.Akismet_API_key)
+					    </div>
+				    </td>
+			    </tr>
+	    </table>    
+    
+		<h2>@Resources.AppMessages.Config_Twitter</h2>
+		<table>
+			<tr>
+				<td>
+					<div class="editor-label">
+						<strong>@Html.LabelFor(model => model.Twitter_User)</strong>
+					</div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Twitter_User)
+						@Html.ValidationMessageFor(model => model.Twitter_User)
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="editor-label">
+						<strong>@Html.LabelFor(model => model.Twitter_Search_Query)</strong>
+					</div>
+				</td>
+				<td>
+					<div class="editor-field">
+						@Html.EditorFor(model => model.Twitter_Search_Query)
+						@Html.ValidationMessageFor(model => model.Twitter_Search_Query)
+					</div>
+				</td>
+			</tr>
+	</table>    
+	<p>
+		<input type="submit" value="@Resources.AppMessages.Save" />
+        <img id="ajax-loader" src="@Url.Content("~/Content/Icons/ajax-loader-b.gif")" class="ui-helper-arrange-rateit-loading ui-helper-hidden" />
+	</p>
+    <div id="updated-message"></div>
+}

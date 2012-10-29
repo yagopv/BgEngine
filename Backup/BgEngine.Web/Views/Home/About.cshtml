@@ -1,0 +1,33 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model BgEngine.Domain.EntityModel.Post
+
+@{
+    ViewBag.Title = Resources.AppMessages.Home_About;
+}
+
+@if ((Model != null) && (!String.IsNullOrEmpty(Model.Text)))
+{
+    <div class="ui-widget ui-widget-content ui-helper-padding-2pc ui-corner-all ui-helper-margin-left-3pc ui-helper-margin-top-bottom">
+        @Html.Raw(Model.Text)
+    </div>
+}
+

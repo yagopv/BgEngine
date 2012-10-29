@@ -1,0 +1,53 @@
+﻿@*==============================================================================
+ This file is part of BgEngine.
+
+ BgEngine is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ BgEngine is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with BgEngine. If not, see <http://www.gnu.org/licenses/>.
+==============================================================================
+ Copyright (c) 2011 Yago Pérez Vázquez
+ Version: 1.0
+==============================================================================*@
+
+@model BgEngine.Domain.EntityModel.Album
+		   
+<link href="@Url.Content("~/Content/uploadifive.css")" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+	$(function () {
+        if ((window.FormData === undefined) || (navigator.userAgent.toLowerCase().indexOf('chrome') > -1))
+        {
+             $.getScript("@Url.Content("~/Scripts/jquery.uploadify-3.1.min.js")", function() {
+                  $('#file_upload').uploadify({ 
+                     'swf': "@Url.Content("~/Content/SWF/uploadify.swf")",
+                     'uploader': '@Url.RouteUrl("Default", new { controller = "File", action = "Upload"})'                     
+                  });
+              });                     
+        }
+        else
+        {
+            $.getScript("@Url.Content("~/Scripts/jquery.uploadifive-v1.0.min.js")", function() {
+                $('#file_upload').uploadifive({
+                    'uploadScript': '@Url.RouteUrl("Default", new { controller = "File", action = "Upload"})'      
+                });
+            });
+        }
+	});
+</script>
+
+<div>
+    <fieldset class="ui-widget ui-widget-content ui-corner-all fieldset">      
+        <div class="ui-helper-margin-top-bottom">
+            <input id="file_upload" type="file" name="file_upload" />
+        </div>
+    </fieldset>    
+</div>
