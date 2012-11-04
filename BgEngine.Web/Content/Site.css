@@ -126,6 +126,11 @@ body .ui-tooltip { max-width: 400px; }
 .anonymous-comment-fields #container input { width:90%; float:left; }
 .anonymous-comment-fields #container span { top:5px; float:left; position:relative; }
 
+/* tynemce styles*/
+.mceContentBody  p { font-size : 1em;  color: #444; }
+.mceContentBody   a { color: #0088CC; text-decoration:none; }
+.mceContentBody   a:hover { color: #005580; text-decoration: underline; outline:0 none;}
+
 /*  Styles for the change themes selector */
 #changetheme { height:100%; width:100%; }
 #changetheme .changetheme-item { line-height: 2.7em; margin-top: 5%; width:99%; height:12%;}

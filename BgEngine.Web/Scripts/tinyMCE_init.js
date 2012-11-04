@@ -43,7 +43,7 @@ $(document).ready(function() {
 		remove_linebreaks : false,
 		extended_valid_elements: "pre[cols|rows|disabled|name|readonly|class],script[charset|defer|language|src|type]",
 		// Example content CSS (should be your site CSS)
-		content_css : "Content/Site.css",
+		content_css : "/Content/Site.css",
 
 		// Drop lists for link/image/media/template dialogs
 		template_external_list_url : "lists/template_list.js",
