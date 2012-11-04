@@ -102,6 +102,9 @@ div#title {	display: block;	float: left; text-align: left; font-family: Arial; f
 #title h1 a { font-size:1.35em; text-shadow: 4px 4px 6px #888; top:-10px;}
 #title h1 a img { border: none; height:93px;}
 #categories, #archive, #tag-cloud, #sidebar-stats, #subscribetolatest, .twtr-doc, .jCrumb, #themeselector, #trash, #gallery li, .galleria-image { box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.2); }
+#categories p {   font-size:1em;   }
+#archive p {   font-size:1.1em;   }
+ #archive div ul li {   font-size:1.3em;  }
 #subscribetolatest input  {width: 100%;}
 #themeselector { width:100%;}
 body .ui-tooltip { max-width: 400px; }
@@ -326,9 +329,9 @@ video {	max-width: 100%; height: auto; }
 
 /* Checkbox multiselect styles */
 .multiselect { width: 80%; }
-.multiselect-check { float:left; margin-left: 10px; min-width: 268px; min-height:30px; }
+.multiselect-check { float:left; margin-left: 10px; min-width: 290px; min-height:30px; }
 #options-container .multiselect { width:100%; }
-#options-container .multiselect-check { min-width: 265px; }
+#options-container .multiselect-check { min-width: 290px; }
 
 /* Items for sortable widgets */
 .ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; height: 250px !important; filter:alpha(opacity=10); /* msie */  -moz-opacity: 0.10; /* firefox 1.0 */  -khtml-opacity: 0.10; /* webkit */  opacity: 0.10; /* css 3 */ }
@@ -360,6 +363,8 @@ video {	max-width: 100%; height: auto; }
     .sidebar { float:none; height: auto; margin: 0 auto; width: 90%; clear:both; padding-top:5%; }
     #body { min-width: 0px; }
     #categories, #archive, #tagcloud, #sidebar-stats, #themeselector, #subscribetolatest { margin-top: 4%; /*font-size:1.5em;*/ }            
+    #categories p {   font-size:1em;   }
+    #archive p {   font-size:1.1em;   }
     #subscribetolatest input  {width: 100%;}
     .primarypost, .secondarypost { font-size:0.8em; margin: 1% 0 2% 0;}
     .twtr-doc { margin-top: 4%; }
