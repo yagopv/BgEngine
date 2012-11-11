@@ -161,7 +161,7 @@ body .ui-tooltip { max-width: 400px; }
 
 /* Post widgets styles */
 .mainpost {	width:100%; height:100%; float:left;	margin-top: 1%; box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.2);}
-.mainpost img, .secondarypost img, .primarypost img { max-width:200px; max-height:150px; float:left; margin:2%; }
+.mainpost img, .secondarypost img, .primarypost img { max-width:125px; max-height:125px; float:left; margin:2%; }
 .mainpost .post div { margin-right:7%; }
 .secondarypost { float:right; width:100%; height:100%; margin:1% 0 3% 0; box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.2);}
 .primarypost { float:left; width:100%; height:100%; margin:1% 0 3% 0; box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.2);}
@@ -322,7 +322,7 @@ video {	max-width: 100%; height: auto; }
 .ui-helper-p-aside { position:relative; left:20px; top: 5px; }
 .ui-helper-margin-auto { margin-left:auto; margin-right:auto;}
 .ui-helper-position-top-right {position:absolute; top:10px; right:25px;}
-.ui-helper-thumbnail {max-width:200px; max-height:150px; }
+.ui-helper-thumbnail {max-width:125px; max-height:125px; }
 .ui-helper-align-left {position:absolute; left:0; }
 .ui-helper-align-right {position:absolute; right:0; }
 .ui-helper-margin-left-3pc {margin-left:3%;}
