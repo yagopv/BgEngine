@@ -28,7 +28,8 @@
             theme_advanced_toolbar_location: "top",
             theme_advanced_buttons1: "bold,italic,underline,blockquote,link,unlink",
             theme_advanced_buttons2: "",
-            width: "100%"
+            width: "100%",
+            height: "200px"
         });
 
         // Enhance form comment fields
