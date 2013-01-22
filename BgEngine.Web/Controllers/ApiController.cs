@@ -32,11 +32,12 @@ namespace BgEngine.Controllers
         public JsonpResult GetPosts(int? page)
         {
             var pageIndex = page ?? 0;
-            IEnumerable<Post> source = this.PostServices.RetrievePaged(pageIndex, 10, p => p.DateCreated, false).Where(p => p.IsPublic && p.IsAboutMe == false);
+            IEnumerable<Post> source = this.PostServices.RetrievePaged(pageIndex, 10, p => p.DateCreated, false);
+            var sourceresponse = source.Where(p => p.IsPublic && p.IsAboutMe == false);
             var data = new
             {
                 posts =
-                    from p in source
+                    from p in sourceresponse
                     select new
                     {
                         postid = p.PostId,
