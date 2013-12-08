@@ -204,3 +204,28 @@ D:\Proyectos .NET\BgEngine\BgEngine.DependencyResolution\bin\Debug\en\BgEngine.R
 D:\Proyectos .NET\BgEngine\BgEngine.DependencyResolution\obj\Debug\BgEngine.DependencyResolution.csprojResolveAssemblyReference.cache
 D:\Proyectos .NET\BgEngine\BgEngine.DependencyResolution\obj\Debug\BgEngine.DependencyResolution.dll
 D:\Proyectos .NET\BgEngine\BgEngine.DependencyResolution\obj\Debug\BgEngine.DependencyResolution.pdb
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\obj\Debug\BgEngine.DependencyResolution.csprojResolveAssemblyReference.cache
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\BgEngine.DependencyResolution.dll.config
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\BgEngine.DependencyResolution.dll
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\BgEngine.DependencyResolution.pdb
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\BgEngine.Application.dll
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\BgEngine.Domain.dll
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\BgEngine.Infraestructure.dll
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\BgEngine.Security.dll
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\EntityFramework.dll
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\StructureMap.dll
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\PagedList.dll
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\BgEngine.Resources.dll
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\BgEngine.Application.pdb
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\BgEngine.Domain.pdb
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\BgEngine.Infraestructure.pdb
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\BgEngine.Security.pdb
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\EntityFramework.xml
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\StructureMap.pdb
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\StructureMap.xml
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\PagedList.pdb
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\PagedList.xml
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\BgEngine.Resources.pdb
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\bin\Debug\en\BgEngine.Resources.resources.dll
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\obj\Debug\BgEngine.DependencyResolution.dll
+D:\Proyectos\BgEngine\BgEngine.DependencyResolution\obj\Debug\BgEngine.DependencyResolution.pdb
